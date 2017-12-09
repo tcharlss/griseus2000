@@ -1,6 +1,6 @@
 # Griseus2000
 
-Un thème pour SPIP 3+
+Un thème pour l'espace privé de SPIP 3+
 
 ** /!\ En plein développement. /!\ **
 
