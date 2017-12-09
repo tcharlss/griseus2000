@@ -1,0 +1,158 @@
+/**
+ * Module : boîtes
+ */
+
+/**
+ * ================
+ * Classe générique
+ * ================
+ */
+.card {
+  //margin-top: $bs;
+  margin-bottom: $bs;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.15);
+
+  /* Header */
+  &__header,
+  &__pseudo-header {
+    padding: $bs/2 $bs;
+    background-color: $couleur-claire;
+    border-radius: 2px 2px 0 0;
+    img {
+      display: none;
+    }
+    &__title {
+      margin: 0;
+      display: inline-block;
+    }
+  }
+  &__pseudo-header {
+    margin-top: -$bs;
+    margin-left: -$bs;
+    margin-right: -$bs;
+  }
+  .cadre-icone {
+    //margin-right: $bs*0.5;
+    display: none; // pas de pollution visuelle !
+  }
+
+  /* contenu */
+  &__content {
+    padding: $bs;
+    border-radius: 0 0 2px 2px; // s'il n'y a pas de footer
+  }
+
+  /* footer */
+  &__footer,
+  &__pseudo-footer {
+    padding: $bs $bs;
+    border-radius: 0 0 2px 2px;
+  }
+  &__pseudo-footer {
+    margin-bottom: -$bs;
+    margin-left: -$bs;
+    margin-right: -$bs;
+  }
+}
+
+
+/* Les boîtes de SPIP */
+.box {
+  padding: 0;
+  border: 0;
+  @extend .card;
+
+  .inner {}
+  .hd {
+    @extend .card__header;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      @extend .card__header__title;
+    }
+  }
+  .bd {
+    @extend .card__content;
+  }
+
+  // Dans la navigation
+  .lat & {
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 0;
+    }
+  }
+
+  /**
+   * Variantes
+   */
+
+  /* sous-rubrique */
+  &.sous-rub {
+    .hd,
+    .bd {
+      background-color: white;
+    }
+    .titrem {
+      @extend .icon-folder-open-empty;
+      @extend .icon;
+      &:before {
+        font-size: 1.2em;
+        color: lighten($couleur-texte, 40);
+      }
+    }
+    .bd {
+      padding-top: 0;
+      &:empty {
+      padding: 0;
+      }
+    }
+  }
+
+  /*  Info */
+  &.info {
+    border: 2px solid lighten($couleur-texte, 40);
+    //border: 2px solid lighten($couleur-defaut, 20);
+
+    // Numéro d'objet etc
+    .infos {
+      > * {
+        margin-bottom: $bs/2;
+      }
+      .numero {
+        text-align: center;
+        p {
+          font-size: 4em;
+        }
+      }
+    }
+  }
+
+  /* basic */
+  &.basic {
+    &.highlight {
+      .hd,
+      .bd {
+        background-color: lighten(desaturate($couleur-defaut, 20), 10);
+      }
+      .hd {
+        padding-bottom: 0;
+        color: white;
+      }
+    }
+    &.inverse {
+      .hd,
+      .bd {
+        background-color: lighten($couleur-sombre, 10);
+        color: white;
+      }
+      .hd {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+}

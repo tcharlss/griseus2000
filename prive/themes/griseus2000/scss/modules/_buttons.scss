@@ -1,0 +1,179 @@
+/**
+ * Module : boutons
+ */
+
+/**
+ * ================
+ * Classe générique
+ * ================
+ * On l'applique après aux boutons de SPIP, aux formulaires etc.
+ */
+.button {
+
+  display: inline-block;
+  padding: $bs/4 $bs/2;
+  vertical-align: middle;
+  text-align: center;
+  transition: background-color 0.2s;
+  background-color: $couleur-defaut;
+  @include couleurs-spip(background-color);
+  color: $couleur_claire;
+  border-radius: 2px;
+  border: 0;
+  font-weight: bold;
+  //font-size: 0.9em;
+  //font-family: $font-family-code;
+  //letter-spacing: -0.15em;
+  box-shadow: inset 0 -2px 0 hsla(0, 0%, 0%, 0.1);
+
+  // Survol et focus
+  &:hover,
+  &:focus {
+    background-color: change-color($couleur-defaut, $lightness: 50%);
+    @include couleurs-spip(background-color, (lightness: 60%, saturation: 60%));
+    cursor: pointer;
+  }
+
+  /**
+   * ---------
+   * Variantes
+   * ---------
+   */
+
+  /* Tailles */
+  &.small {
+    padding: $bs/6 $bs/4;
+  }
+  &.medium {
+    padding: $bs/2 $bs;
+  }
+  &.large {
+    padding: $bs/2 $bs;
+    font-size: 1.25em;
+  }
+
+  /* Actif */
+  &.actif {
+    background-color: $couleur_sombre;
+    [class*=couleur_] & {
+      background-color: $couleur_sombre;
+    }
+    box-shadow: inset 0 -2px 0 hsla(0, 0%, 100%, 0.33);
+  }
+
+  /* Non cliquable */
+  &.disabled {
+    background-color: lighten($couleur-defaut, 33);
+    &:hover,
+    &:focus {
+      cursor: disabled;
+    }
+  }
+
+  /* Fusionnés */
+  &.merged {
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  /* Secondaires */
+  &.secondary {
+    color: lighten($couleur-texte, 25);
+    border: 1px solid lighten($couleur-texte, 50);
+    background-color: transparent;
+    [class*=couleur_] & {
+      color: lighten($couleur-texte, 25);
+      border: 1px solid lighten($couleur-texte, 50);
+      background-color: transparent;
+    }
+    box-shadow: none;
+    font-weight: normal;
+
+    // Survol et focus
+    &:hover,
+    &:focus {
+      border-color: lighten($couleur-defaut, 15);
+      color: white;
+    }
+  }
+}
+
+
+/**
+ * ===================
+ * les boutons de SPIP
+ * ===================
+ */
+
+
+// Les icônes (en général des liens vers des pages d'édition)
+.icone {
+  display: inline-block;
+
+  a {
+    @extend .button;
+    display: inherit;
+    b {
+      font-weight: inherit;
+    }
+  }
+  img {
+    display: none; // pollution visuelle !
+  }
+  &.horizontale {
+
+  }
+  &.verticale {
+
+  }
+}
+
+// Les liens pour afficher des trucs cachés
+.toggle_box_link {
+  text-align: right;
+  // cachons les crochets
+  visibility: hidden;
+  button {
+    visibility: visible;
+  }
+}
+
+// Tous les boutons
+button {
+  img {
+    display: none; // Pollution visuelle !
+  }
+  &.delete,
+  &[name^=supprimer] {
+    //text-indent: -9999px;
+    //white-space: nowrap;
+    // @extend .icon-cancel-2;
+    // &:before {
+    //   font-family: "Icons";
+    // }
+  }
+}
+
+// Les icônes d'aide
+.aide.popin {
+  @extend .icon-help-circled;
+  font-style: normal;
+  &:before {
+    font-family: "Icons";
+  }
+  display: inline-block;
+  img {
+    display: none;
+  }
+  // hover & focus
+  &:hover,
+  &:focus {
+    color: $couleur-defaut;
+  }
+}

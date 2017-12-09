@@ -1,0 +1,69 @@
+/**
+ * Base : déclaration des fontfaces
+ */
+
+/* SOURCE SANS PRO */
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('polices/sourcesanspro/sourcesanspro-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+/*
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('polices/sourcesanspro/sourcesanspro-bold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('polices/sourcesanspro/sourcesanspro-light.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+*/
+
+/* SOURCE CODE PRO */
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('polices/sourcecodepro/sourcecodepro-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+/*
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('polices/sourcecodepro/sourcecodepro-bold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('polices/sourcecodepro/sourcecodepro-light.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+*/
+
+/* SOURCE SERIF PRO */
+@font-face {
+  font-family: 'Source Serif Pro';
+  src: url('polices/sourceserifpro/sourceserifpro-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+/*
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: url('polices/sourceserifpro/sourceserifpro-bold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: url('polices/sourceserifpro/sourceserifpro-light.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+*/

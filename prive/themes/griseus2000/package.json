@@ -1,0 +1,33 @@
+{
+  "name": "griseus2000",
+  "version": "1.0.0",
+  "description": "Thème SPIP Griseus 2000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "theme"
+  ],
+  "author": "tcharlss",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-sass": "latest",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean": "latest",
+    "gulp-clean-css": "latest",
+    "gulp-css-base64": "latest",
+    "gulp-cssbeautify": "latest",
+    "gulp-directory-sync": "latest",
+    "gulp-load-plugins": "latest",
+    "gulp-minify": "latest",
+    "gulp-postcss": "latest",
+    "gulp-rename": "latest",
+    "gulp-sass": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-strip-css-comments": "latest",
+    "gulp-fontello": "latest",
+    "gulp-clean": "latest"
+  }
+}

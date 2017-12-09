@@ -1,0 +1,25 @@
+/**
+ * Module : messages
+ */
+
+.message {
+
+  margin-bottom: $bs;
+  padding: $bs;
+  border-radius: 2px;
+  box-shadow: none;
+
+  &.succes {
+    background-color: $couleur-succes;
+  }
+  &.info {
+    background-color: $couleur-info;
+  }
+  &.erreur {
+    background-color: $couleur-erreur;
+  }
+  &.notice {
+    background-color: $couleur-notice;
+  }
+
+}

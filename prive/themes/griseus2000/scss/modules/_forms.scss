@@ -1,0 +1,283 @@
+/**
+ * Module : formulaires
+ */
+
+/**
+ * =======================
+ * Les éléments génériques
+ * =======================
+ */
+
+// boutons
+input,
+button {
+  font-family: $font-family-texte; // sinon styles OS
+  font-size: 1em;
+}
+input[type=submit],
+button {
+  @extend .button;
+  @extend .button.secondary;
+}
+
+// Les inputs avec un cadre
+input.text,
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=url],
+input[type=telephone],
+textarea,
+select {
+  width: 100%;
+  border: 1px solid darken($couleur-claire, 20);
+  transition: border 0.2s;
+  transition: box-shadow 0.2s;
+  border-radius: 2px;
+  &:focus {
+    border-color: $couleur-defaut;
+    box-shadow: 0 0 0.5em rgba($couleur-defaut, 0.33);
+  }
+}
+
+// Les inputs sur une seule ligne
+input.text,
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=url],
+input[type=telephone],
+select:not([multiple]) {
+  height: $bs*1.5;
+  padding: 0 $bs/2;
+}
+
+// Textarea
+textarea {
+  height: auto;
+  min-height: $bs*3;
+  padding: $bs/2;
+}
+
+// Selects
+select {
+  width: auto;
+  .lat & {
+    width: 100%;
+  }
+}
+
+// Fieldset
+fieldset {
+  margin: $bs*2 0;
+  > legend,
+  .legend {
+    @extend .h3;
+    display: block;
+    width: 100%;
+    margin-top: 0;
+    //border-bottom: 1px dotted hsla(0, 0%, 0%,0.33);
+    text-align: center;
+    color: lighten($couleur-texte, 33);
+  }
+}
+
+/**
+ * =========================
+ * Les choses propres à SPIP
+ * =========================
+*/
+
+/* Conteneur sur une fiche */
+.cadre-formulaire-editer {
+  .entete-formulaire {
+    @extend .card__header;
+  }
+  h1 {
+    margin: 0;
+    clear: both;
+  }
+}
+
+/* Formulaires SPIP */
+.formulaire_spip {
+  margin-bottom: $bs;
+  font-family: $font-family-texte; // pour ceux qui sont dans le #wysiwyg
+  @extend .card;
+  @extend .card__content;
+
+    // pseudo header
+  > h3:first-child {
+    @extend .card__pseudo-header;
+
+  }
+
+  // Conteneur des saisies
+  .editer-groupe,
+  ul:not(.spip) {
+    @include list-none();
+  }
+
+  // Conteneur d'une saisie
+  .editer {
+    margin-bottom: $bs;
+    overflow: hidden;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    label {
+      margin-bottom: $bs/3;
+      display: block;
+      font-weight: bold;
+    }
+    .explication {
+      margin-bottom: $bs/2;
+    }
+  }
+
+  // Choix multiples : checkbox, radios
+  .choix {
+    display: inline-block;
+    margin-right: $bs;
+
+    input {
+      margin: 0 $bs/4 0 0;
+      position: relative;
+      top: 0.3em; // pour aligner
+    }
+    label {
+      display: inline-block;
+      margin: 0;
+      font-weight: normal;
+      vertical-align: middle;
+    }
+
+  }
+
+  // Paragraphes d'explication
+  .explication {
+    font-style: italic;
+    color: lighten($couleur-texte, 20);
+  }
+
+  // Footer avec les boutons
+  .boutons {
+    @extend .card__pseudo-footer;
+    //margin-top: $bs;
+    display: flex;
+    justify-content: flex-end;
+    // boutons
+    input[type=submit],
+    button {
+      @extend .button;
+      //@extend .button.medium;
+    }
+  }
+
+  // Bureaux larges : saisies en 2 colonnes, sauf si :
+  // - c'est un fieldset ou une saisie unique
+  // - on est dans une fiche objet
+  @include gridle_state( large-up ) {
+    .editer-groupe {
+      @include gridle( row );
+      //max-width: initial;
+
+      // 2 colonnes...
+      .editer {
+        @include gridle( 6 );
+        max-width: 100% !important;
+        flex-grow: 1; // étaler la dernière si nombre impaire
+      }
+      // ...sauf pour certains cas
+      .cadre-formulaire-editer &,
+      .editer:only-of-type,
+      > .fieldset {
+        @include gridle( 12 );
+        max-width: initial !important;
+      }
+    }
+  }
+
+  // Dans une colonne + boite
+  .lat .box & {
+    box-shadow: none;
+    padding: 0;
+  }
+
+  /**
+   * =======================
+   * Formulaires spécifiques
+   * =======================
+   */
+
+  &.formulaire_recherche {
+    float: right;
+    position: relative;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+
+    label {
+      @extend .visually-hidden;
+    }
+    input[name=recherche] {
+      width: 10em;
+      padding-right: 2em; // pour l'icone
+      border-radius: 100em;
+      transition: width 0.2s;
+      // focus : étendre
+      &:focus {
+        width: 15em;
+        font-size: 1.2em;
+      }
+    }
+    input.image {
+      position: absolute;
+      top: 50%;
+      right: 0.2em;
+      transform: translateY(-50%);
+    }
+    // dans le bando
+    #rapides & {
+      margin: 0;
+      float: none;
+      input[name=recherche] {
+        padding-left: 0;
+        border-style: solid;
+        border-width: 0 0 2px;
+        border-color: $couleur-defaut;
+        @include couleurs-spip(border-color);
+        border-radius: 0;
+        background: transparent;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  &.formulaire_dater {
+    label {
+      display: inline-block;
+    }
+    .toggle_box_link {
+      float: right;
+    }
+  }
+
+  &.formulaire_configurer_reducteur {
+    .vignette_reducteur {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  &.formulaire_instituer {
+    select {
+      background-repeat: no-repeat;
+      background-position: 0.5em center;
+    }
+  }
+
+}

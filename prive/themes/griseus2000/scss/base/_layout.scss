@@ -1,0 +1,120 @@
+/**
+ * Base : placement des blocs principaux
+ *
+ * #bando_haut
+ *   #bando_liens_rapides  : accès
+ *   #bando_identite       : connexion etc.
+ *   #bando_navigation     : menu principal
+ *   #bando_outils         : outils rapides
+ * #page
+ *   .largeur
+ *     #haut               : breadcrumb
+ *     #conteneur
+ *       #navigation.lat   : navigation
+ *       #contenu          : contenu principal
+ *   #pied                 : pied de page
+ *     .largeur
+ *
+ */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* conteneur générique */
+.largeur {
+  @include gridle_container();
+  padding: 0 $bs;
+
+  &.clearfix {
+    height: auto;
+    &:after {
+      display: none;
+    }
+   }
+}
+
+/* en haut du contenu principal */
+#haut {
+  margin-top: $bs;
+}
+/* Conteneur du contenu principal */
+#conteneur {
+  margin-top: $bs;
+}
+
+/* Responsive : bureaux */
+@include gridle_state( tablet-up) {
+
+  // menu sur le côté,
+  body {
+    padding-left: $largeur-menu;
+  }
+  #bando_navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $largeur-menu;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  // Pied de page en bas
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  #page {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  #pied {
+    margin-top: auto; // pour le pousser en bas
+  }
+
+  // Contenu en colonnes
+  #conteneur {
+    @include gridle( row );
+    overflow: hidden;
+  }
+  #navigation {
+    @include gridle( adapt );
+    max-width: $bs*14;
+  }
+  #contenu {
+    @include gridle( grow );
+    flex-basis: 0;
+  }
+  // en sticky
+  .nav-is-stuck {
+    #navigation {
+      position: fixed;
+      top: $bs;
+      height: calc( 100vh - #{$bs} );
+      overflow-y: auto;
+    }
+    #contenu {
+      margin-left: $bs*14;
+    }
+  }
+
+  // Classes utilitaires pour des colonnes
+  // Malheureusement, il n'y a pas de conteneur donc pas de flex
+  .gauche,
+  .droite {
+    width: calc(50% - (#{$bs} / 2));
+  }
+  .gauche {
+    float: left;
+  }
+  .droite {
+    float: right;
+    margin-left: $bs;
+    @include clear-after;
+  }
+
+}

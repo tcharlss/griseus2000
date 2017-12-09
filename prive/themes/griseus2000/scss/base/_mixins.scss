@@ -1,0 +1,42 @@
+/**
+ * Base : les mixins utilisées dans le projet
+**/
+
+/**
+ * Ajouter des variantes pour toutes les couleurs de SPIP
+ *
+ * @example
+ *   @include couleurs-spip(color, (lightness: 10%, saturation: 20%));
+ *   Résultat :
+ *   .couleur_1 & { color: #xxx }
+ *   .couleur_2 & { color: #yyy }
+ *   etc.
+ *
+ * @param prop $propriete - Propriété à utiliser
+ * @param map $traitements - Map de traitements à effectuer, correspond aux paramètres de la fonction change-color : (lightness: 10%, saturation: 20%).complement.
+ * @output 
+ */
+@mixin couleurs-spip($propriete, $traitements: null) {
+  @each $i, $couleur in $couleurs-spip {
+    // Ajustement éventuel de la couleur
+    @if (type-of($traitements) != null) {
+      $couleur: traiter-couleur($couleur, $traitements);
+    }
+    // go go go
+    //&.couleur_#{$i},
+    .couleur_#{$i} & {
+      #{$propriete}: $couleur;
+    }
+  }
+}
+
+
+/* Liste sans style */
+@mixin list-none() {
+  list-style: none;
+  margin: 0;
+
+  /*li:before {
+    content: '';
+  }*/
+}

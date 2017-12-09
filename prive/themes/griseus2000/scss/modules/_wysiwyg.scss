@@ -1,0 +1,32 @@
+/**
+ * Module : wysiwyg
+ */
+
+#wysiwyg {
+
+  max-width: 50em;
+  margin: $bs*4 auto;
+
+  .invisible {
+    display: none;
+  }
+
+  .champ {
+    .label,
+    &.contenu_titre,
+    &.vide {
+      display: none;
+    }
+  }
+
+}
+
+#wysiwyg,
+.markItUpPreview {
+  font-family: $font-family-serif;
+  font-size: 1.2em;
+}
+
+.markItUpPreview {
+  padding: $bs;
+}

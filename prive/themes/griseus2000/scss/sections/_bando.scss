@@ -1,0 +1,234 @@
+/**
+ * Section : bando
+ */
+
+/**
+ * ===============
+ * Tous les bandos
+ * ===============
+ */
+[id^=bando] {
+  ul {
+    @extend .list-none;
+  }
+}
+
+/**
+ * ====================
+ * Liens d'accès rapide
+ * ====================
+ */
+#bando_liens_rapides {
+  display: none;
+  a {}
+}
+
+/**
+ * ==============================
+ * Infos visiteur, connexion etc.
+ * ==============================
+ */
+#bando_identite {
+  display: flex;
+  align-items: center; // vertical
+  height: $bs*1.5;
+  background-color: white;
+  //border-bottom: 1px dotted hsla(0, 0%, 0%, 0.15);
+
+  .largeur {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    padding: 0 $bs/4;
+  }
+  .menu_lang {
+    position: relative;
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 15px;
+      height: 18px;
+      margin-right: 0.33em;
+      background-image: url(images/language.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      opacity: 0.66;
+    }
+    &:hover,
+    &:focus {
+      &:before {
+        opacity: 1;
+      }
+    }
+    img {
+      display: none;
+    }
+  }
+}
+
+
+/**
+ * ============================
+ * Boutons de créations rapides
+ * ============================
+ */
+#bando_outils {
+  display: flex;
+  align-items: center; // vertical
+  height: $bs*1.5;
+  background-color: white;
+  //border-bottom: 1px solid hsla(0, 0%, 0%, 0.05);
+  box-shadow: 0 0.15em 0.15em hsla(0, 0%, 0%, 0.066);
+
+  .largeur {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // Plan + boutons
+  .bandeau_rubriques,
+  .rapides {
+    display: flex;
+    align-items: flex-end; // vertical
+  }
+  .bouton,
+  .plan_site {
+    display: flex;
+    > a {
+      display: inline-block;
+      width: $bs;
+      height: $bs*1.5;
+      border: 3px solid transparent;
+      border-width: 0 0 3px;
+      filter: saturate(0%) opacity(75%);
+    }
+    // actif
+    &.actif > a,
+    > a:hover,
+    > a:focus {
+      //background-color: lighten($couleur-defaut, 40);
+      filter: saturate(100%) opacity(100%);
+      border-color: lighten($couleur-defaut, 20);
+    }
+  }
+
+  // Plan
+  .bandeau_rubriques {
+    .plan_site {
+      position: relative;
+      z-index: 2;
+      // icone
+      > a {
+        @extend .icon-flow-tree;
+        @extend .icon;
+        margin-right: $bs;
+        font-size: $bs;
+        line-height: 1;
+        img {
+          display: none;
+        }
+      }
+      // sous-menus
+      ul {
+        display: none; // temp
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: translateY(100%);
+        min-width: 14em;
+        padding: $bs 0;
+        background-color: white;
+        box-shadow: 0 0.2em 0.2em hsla(0, 0%, 0%, 0.15);
+        .toutsite {
+          border-bottom: 1px dotted hsla(0, 0%, 0%, 0.2);
+        }
+        a {
+          display: block;
+          padding: $bs/4 $bs;
+          &:hover,
+          &:focus {
+            background-color: lighten($couleur-defaut, 50);
+          }
+        }
+      }
+      &.actif {
+        > ul {
+          display: block;
+          li.haschild {
+            position: relative;
+            > a {
+              //text-decoration: underline;
+              //text-decoration-color: lighten($couleur-defaut, 20);
+              //text-decoration-style: dotted;
+              @extend .icon-right-open;
+              @extend .icon;
+              &:before {
+                position: absolute;
+                top: 50%;
+                right: $bs/2;
+                transform: translateY(-50%);
+              }
+            }
+            > ul {
+              right: 0;
+              top: -$bs;
+              bottom: initial;
+            }
+            &.actif {
+              > ul {
+                display: block;
+                transform: translateX(100%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Boutons
+  .rapides {
+    .bouton {
+      margin-right: $bs/2;
+
+      a {
+        background-position: center center;
+        background-repeat: no-repeat;
+        // le label
+        span {
+          @extend .visually-hidden;
+        }
+      }
+    }
+  }
+
+  // Boutons de création rapide
+  .creer {}
+
+  // Boutons de messagerie et recherche
+  #rapides {
+    margin-left: auto; // pour pousser à droite
+    display: flex;
+    align-items: center; // vertical
+
+    .collaborer {
+      margin-right: $bs;
+    }
+  }
+}
+
+
+/**
+ * ==============
+ * Menu principal
+ * ==============
+ * cf. _firstnav.scss
+ */
+#bando_navigation {}

@@ -1,0 +1,48 @@
+/**
+ * Base : définition des variables du projet
+ *
+ */
+
+/* Palette de couleur */
+// Couleurs de SPIP (codées en dur)
+$couleurs-spip: (
+  1: #9DBA00,
+  2: #D51B60,
+  3: #fa9a00,
+  4: #CDA261,
+  5: #5da7c5,
+  6: #85909A,
+  7: #999966,
+  8: #DF4543,
+  9: #8F8FBD,
+  10: #909090
+);
+// Couleurs d'états (piochées dans celles de SPIP par cohérence)
+$couleur-succes: map-get($couleurs-spip, 1); // vert
+$couleur-erreur: map-get($couleurs-spip, 8); // rouge
+$couleur-notice: map-get($couleurs-spip, 3); // jaune
+$couleur-info:   map-get($couleurs-spip, 5); // bleu
+// Couleurs fonctionnelles
+$couleur-defaut: map-get($couleurs-spip, 9); // gris-violet
+$couleur-claire: hsl(0, 0%, 97%);
+$couleur-sombre: hsl(0, 0%, 20%);
+
+/* Palette fonctionnelle */
+$couleur-texte: $couleur-sombre;
+$couleur-highlight: change-color($couleur-defaut, $lightness: 70%);
+$map-highlight: (lightness: 70%);
+$couleur-code: navy;
+
+/* Variables de typographie */
+$typo-font-size: em(14px);
+$typo-line-height: 1.5;
+
+/* gouttière, rythme vertical, etc. */
+$bs: $typo-font-size*$typo-line-height/1em*1rem; // base spacing = 1 hauteur de ligne
+$largeur-menu: $bs*9;
+
+/* Familles de polices */
+$font-family-texte:   "Source Sans Pro", sans-serif, sans; // Texte principal
+$font-family-heading: "Source Sans Pro", sans-serif, sans; // Titres
+$font-family-code:    "Source Code Pro", monospace; // Codes
+$font-family-serif:   "Source Serif Pro", serif; // Aperçu des contenus

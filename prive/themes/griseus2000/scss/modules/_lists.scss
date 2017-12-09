@@ -1,0 +1,224 @@
+/**
+ * Module : listes
+ */
+
+.list-none {
+  margin: 0;
+}
+
+
+/**
+ * Les listes d'objets (il s'agit de tableaux)
+ * Par défaut, affichées sous forme de card
+ * Variantes possibles pour cacher le superflu, enlever la déco, afficher en inline
+ */
+.liste-objets {
+  @extend .card;
+  @extend .card__content;
+
+  // Le tableau
+  table.liste {
+    margin-bottom: 0;
+  }
+
+  caption {
+    @extend .card__pseudo-header;
+    margin-bottom: $bs;
+  }
+  thead {
+    /*tr.first_row {
+      background-color: $couleur-claire;
+    }*/
+    th {
+      padding: 0;
+      //border-bottom: none;
+      a {
+        &:before {
+          color: lighten($couleur-texte, 50);
+        }
+        &:hover:before,
+        &:focus:before {
+          color: $couleur-defaut;
+        }
+      }
+      img {
+        display: none;
+      }
+    }
+    th a,
+    .on {
+      // indiquer les items triables
+      @extend .icon-down;
+      @extend .icon;
+      &:before {
+        margin-right: 0.25em;
+        font-size: 0.9em;
+      }
+    }
+    a,
+    strong {
+      display: block;
+      padding: $bs*0.25 0;
+    }
+    // tri actif
+    .on {
+      color: $couleur-defaut;
+    }
+  }
+
+  /* Dans la navigation latérale */
+  .lat & {
+    @extend .liste-objets.redux;
+  }
+
+  /* Dans une boîte */
+  .box & {
+    @extend .liste-objets.minimal;
+  }
+
+
+  /**
+   * Variantes
+   */
+
+
+  // Décoration minimale (pas de bordure, etc.)
+  &.minimal {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+
+    .liste {
+      margin: 0;
+    }
+    caption {
+      padding: $bs/2 0;
+      margin: 0;
+      background-color: transparent;
+    }
+  }
+
+  // Cacher le contenu superflu (les colonnes inutiles)
+  &.redux {
+    td,
+    th {
+      display: none;
+      padding-top: $bs/4;
+      padding-bottom: $bs/4;
+      &.principale, &.titre, &.nom, &.action, &.id {
+        display: table-cell;
+      }
+    }
+  }
+
+  // Affichage sous forme de liste
+  &.inline {
+    thead,
+    tfoot {
+      display: none;
+    }
+    caption {
+      text-align: left;
+    }
+    tbody {
+      @include gridle( row );
+      tr {
+        @include gridle( adapt );
+        display: flex;
+        flex-flow: row nowrap;
+      }
+      td {
+        padding: 0;
+        border: none;
+        &:visible {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+}
+
+
+/**
+ * Listes d'items (menus et cie)
+ */
+.liste_items,
+.liste-items {
+  @extend .list-none;
+
+  .item {
+    padding: $bs/2 0;
+    position: relative;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid hsla(0, 0%, 0%, 0.15);
+    }
+
+    // pas actif
+    &:not(.on) {
+      > a {
+        &:hover,
+        &:focus {
+          background-color: lighten($couleur-defaut, 53);
+        }
+      }
+    }
+    // actif
+    &.on {
+      background-color: lighten($couleur-defaut, 50);
+      font-weight: bold;
+      padding-left: $bs/2;
+      > a {
+        color: inherit;
+        margin-left: -$bs/2;
+        &:hover,
+        &:focus {
+          cursor: default;
+        }
+      }
+    }
+
+    // liens : faire en sorte qu'ils épousent la hauteur du conteneur (.item)
+    a {
+      display: block;
+      padding: inherit;
+      margin-top: -$bs/2;
+      margin-bottom: -$bs/2;
+    }
+  }
+
+  /**
+   * Variantes
+   */
+
+  // Sous navigation (menu de configuration, etc.)
+  &.sous_navigation {
+    @extend .card;
+    @extend .card__content;
+    .item {
+      border: none;
+      // actif
+      &.on {
+        margin-top: -2px; // remonter sur la bordure supérieure
+        background-color: lighten($couleur-defaut, 20);
+        color: white;
+      }
+      a {
+        background-image: none;
+        position: relative;
+      }
+      // pseudo bordure
+      &:not(:last-child) {
+        a:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: $bs*2;
+          border-bottom: 2px solid hsla(0, 0%, 0%, 0.25);
+        }
+      }
+    }
+  }
+}

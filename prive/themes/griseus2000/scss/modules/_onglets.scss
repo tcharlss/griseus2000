@@ -1,0 +1,152 @@
+/**
+ * Module : onglets
+ */
+
+/**
+ * ====================
+ * Les barres d'onglets
+ * ====================
+ */
+.barre_onglet {
+  margin-bottom: $bs;
+  // pas besoin de marge si dernier élément en haut
+  #haut & {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    @include gridle( row row-align middle center);
+    @extend .list-none;
+
+    li {
+      @include gridle( adapt no-gutter );
+      // regrouper les pseudo-boutons
+      &:not(:first-child) {
+        a,
+        strong {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+      &:not(:last-child) {
+        a,
+        strong {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+      // arrondir les bords
+      /*&:first-child {
+        a, strong {
+          border-radius: 100em 0 0 100em;
+        }
+      }
+      &:last-child {
+        a, strong {
+          border-radius: 0 100em 100em 0;
+        }
+      }*/
+
+      a,
+      strong {
+        @extend .button;
+        @extend .button.medium;
+      }
+      strong {
+        @extend .button.actif;
+      }
+    }
+  }
+
+  img {
+    display: none; // pollution visuelle
+  }
+}
+
+
+/**
+ * ===================
+ * Les onglets simples
+ * ===================
+ */
+.onglets_simple {
+  display: flex;
+  justify-content: center;
+  margin-bottom: $bs;
+
+  /* Tous les niveaux */
+  > ul {
+    @include gridle( adapt );
+    @include gridle( row row-align middle center );
+    @extend .list-none;
+  }
+  strong {
+    color: $couleur-defaut;
+  }
+  a {
+    font-weight: 600;
+    &:hover,
+    &:focus {
+      color: $couleur-defaut;
+    }
+  }
+  img {
+    display: none; // pollution visuelle
+  }
+
+  /* 1er niveau */
+  &:not(.second) {
+    ul {
+      border-bottom: 1px solid hsla(0, 0%, 0%, 0.25);
+    }
+    a,
+    strong {
+      display: block;
+      padding: $bs/2 $bs;
+      border-bottom: 4px solid transparent;
+      transition: border 0.2s;
+    }
+    a {
+      &:hover,
+      &:focus {
+        border-bottom-color: lighten($couleur-defaut, 20);
+      }
+    }
+    strong {
+      border-bottom-color: $couleur-defaut;
+    }
+  }
+
+  /* 2nd niveau */
+  &.second {
+    ul { }
+    li {
+      &:not(:last-child) {
+        a,
+        strong {
+          &:after {
+            content: "♠";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+    a,
+    strong {
+      position: relative;
+      padding: 0 $bs/2;
+    }
+    a {
+      &:hover,
+      &:focus {
+
+      }
+    }
+    strong {}
+  }
+}

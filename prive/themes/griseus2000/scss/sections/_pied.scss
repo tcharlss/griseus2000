@@ -1,0 +1,20 @@
+/**
+ * Section : pied de page
+ */
+
+#pied {
+  position: relative;
+  padding: $bs 0;
+  background-color: white;
+  color: lighten($couleur-texte, 33);
+  text-align: right;
+  background-image: url(images/logo-nb-clair.svg);
+  background-repeat: no-repeat;
+  background-size: auto 80%;
+  background-position: center center;
+
+  a {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+  }
+}

@@ -1,0 +1,73 @@
+[(#REM)<style>/*
+
+	===================================================
+	Thème de l'espace privé : chargement des ressources
+	===================================================
+
+	Chargement des ressources avec le bon chemin (images, polices)
+
+	Ce squelette definit les styles de l'espace prive
+
+	Note: l'entete "Vary:" sert a repousser l'entete par
+	defaut "Vary: Cookie,Accept-Encoding", qui est (un peu)
+	genant en cas de "rotation du cookie de session" apres
+	un changement d'IP (effet de clignotement).
+
+*/]#CACHE{3600*100,cache-client}
+#HTTP_HEADER{Content-Type: text/css; charset=utf-8}
+#HTTP_HEADER{Vary: Accept-Encoding}
+
+/**
+ * =========
+ * Fontfaces
+ * =========
+ */
+
+/* SOURCE SANS PRO */
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('#CHEMIN{prive/themes/griseus2000/polices/sourcesanspro/sourcesanspro-regular.woff}') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* SOURCE CODE PRO */
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('#CHEMIN{prive/themes/griseus2000/polices/sourcecodepro/sourcecodepro-regular.woff}') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* SOURCE SERIF PRO */
+@font-face {
+  font-family: 'Source Serif Pro';
+  src: url('#CHEMIN{prive/themes/griseus2000/polices/sourceserifpro/sourceserifpro-regular.woff}') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* FONTELLO */
+@font-face {
+  font-family: 'Icons';
+  src: url('#CHEMIN{prive/themes/griseus2000/polices/fontello/fontello.woff}') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**
+ * ======
+ * Images
+ * ======
+ */
+
+/* Icônes du bando de navigation */
+#SET{menus, #LISTE{accueil, edition, publication, activite, squelette, administration, configuration, dev}}
+<BOUCLE_bando_navigation(DATA){source table, #GET{menus}}>
+/*\#bando_navigation .deroulant > li > a\[id*=#VALEUR\] {
+	background-image: url\(#CHEMIN{prive/themes/griseus2000/images/bando/#VALEUR-invert.svg}\);
+}*/
+#bando_navigation .deroulant > li > a\[id*=#VALEUR\]:before {
+	background-image: url\(#CHEMIN{prive/themes/griseus2000/images/bando/#VALEUR-invert.svg}\);
+}
+</BOUCLE_bando_navigation>

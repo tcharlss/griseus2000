@@ -1,0 +1,50 @@
+/**
+ * Fonctions utiles au projet
+ */
+
+/**
+ * Convertir des px en em
+ *
+ * @param int $pixels - Taille en px
+ * @param int $context - Taille de police par défaut du navigateur
+ * @return taille en em
+**/
+@function em($pixels, $context: 16) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1em;
+}
+
+/**
+ * Alias de la fonction change-color(), sauf qu'on peut utiliser une map en paramètre
+ *
+ * @see change-color()
+ * @param col $couleur - Couleur à traiter
+ * @param map $traitements - Attention, pas de '$' au nom de la propriété : (lightness: 10%, saturation: 20%, alpha: 0.5).
+ * @return col
+ */
+ @function traiter-couleur($couleur, $traitements) {
+  @each $traitement, $valeur in $traitements {
+    // Luminosité
+    @if ($traitement == lightness) {
+      $couleur: change-color($couleur, $lightness: $valeur);
+    }
+    // Saturation
+    @if ($traitement == saturation) {
+      $couleur: change-color($couleur, $saturation: $valeur);
+    }
+    // Opacité
+    @if ($traitement == alpha) {
+      $couleur: change-color($couleur, $alpha: $valeur);
+    }
+    // Teinte
+    @if ($traitement == hue) {
+      $couleur: change-color($hue, $alpha: $valeur);
+    }
+  }
+  @return $couleur;
+}

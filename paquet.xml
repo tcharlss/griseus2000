@@ -1,0 +1,19 @@
+<paquet
+	prefix="griseus2000"
+	categorie="theme"
+	version="0.1.0"
+	etat="dev"
+	compatibilite="[3.1.0;3.3.*]"
+	logo="prive/themes/griseus2000/images/griseus2000-256.png"
+>
+
+	<nom>Thème griseus2000</nom>
+
+	<auteur>tcharlss</auteur>
+
+	<licence>GNU/GPL</licence>
+
+	<!--<pipeline nom="header_prive" inclure="griseus2000_options.php" />-->
+	<pipeline nom="body_prive" inclure="griseus2000_options.php" />
+
+</paquet>

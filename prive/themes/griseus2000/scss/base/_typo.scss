@@ -1,0 +1,152 @@
+
+/**
+ * Base : éléments typographiques, couleurs, rythme vertical
+ */
+
+body {
+  font-size: $typo-font-size;
+  line-height: $typo-line-height;
+  font-family: $font-family-texte;
+  color: $couleur-texte;
+  background-color: change-color($couleur-defaut, $lightness: 95%, $saturation: 15%);
+  @include couleurs-spip(background-color, (lightness: 95%, saturation: 15%));
+}
+
+// Marges sous les principaux blocs
+p, table, pre, ul, ol, address, dl, blockquote {
+  margin-bottom: $bs;
+}
+
+// Liens
+a {
+  text-decoration: none;
+  &:link {
+    transition: color 0.2s;
+    transition: background-color 0.2s;
+  }
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    color: change-color($couleur-defaut, $lightness: 25%, $saturation: 66%);
+    @include couleurs-spip(color, (lightness: 25%, saturation: 66%));
+  }
+}
+
+// Titres
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-weight: bold;
+}
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4 {
+  margin-top: $bs*2;
+}
+.grostitre {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-weight: normal;
+  text-align: center;
+}
+
+// paragraphes
+p {
+  // En général on ne veut pas de marge en bas quand c'est le dernier
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// listes
+ul {}
+
+// tableaux
+table {
+  width: 100%;
+
+  caption {
+    font-weight: bold;
+  }
+  tr {
+    transition: background 0.2s;
+    &:last-child td {
+      border-bottom: none;
+    }
+  }
+  th {
+    font-weight: bold;
+  }
+  th,
+  td {
+    padding: $bs*0.5;
+  }
+  thead {
+    tr {}
+    th {
+      border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+    }
+  }
+  tbody {
+    tr {
+      &:hover {
+        background-color: lighten($couleur-defaut, 53);
+      }
+    }
+    td {
+      border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+    }
+  }
+  tfoot {
+    tr {}
+    th {}
+  }
+  /* Ajustement de certaines colonnes (normalement plutôt dans .liste-objets mais pas le bon markup partout, genre médiathèque) */
+  // dernier item aligné à droite
+  .id:last-child,
+  .action:last-child {
+    text-align: right;
+  }
+  // rétrécir certaines colonnes (on essaye d'obtenir flex-grow: 0 quoi)
+  .id, .picto, .statut {
+    width: 2em;
+  }
+}
+
+// Icônes (complément à fontello)
+.icon {
+  &:before {
+    font-family: "Icons";
+    font-weight: normal;
+  }
+}
+
+// codes informatiques et cie
+code, pre {
+  font-family: $font-family-code;
+  color: $couleur-code;
+}
+
+// Séparateur
+hr {
+  margin: $bs*2 0;
+  border-style: dotted;
+  border-color: hsla(0, 0%, 0%, 0.25);
+}
+
+// citations
+blockquote {
+  padding-left: $bs;
+  border-left: 4px solid $couleur-texte;
+  font-family: $font-family-serif;
+  font-style: italic;
+
+  &:before {
+    display: none; // pas de guillemets pour faire joli
+  }
+}

@@ -1,0 +1,74 @@
+
+/**
+ * Feuille de style principale du thème.
+ *
+ * Uniquement des imports, aucun style directement ici.
+ * Ordre des imports : du plus général au plus spécifique.
+**/
+
+
+/**
+ * Variables et fonctions de base
+ *
+ * Ces imports ne génèrent aucun style CSS, ce sont des utilitaires ou sinon des styles de librairies
+**/
+@import "base/functions"; // fonctions du projet
+@import "base/mixins"; // mixins du projet
+@import "base/variables"; // variables globales (couleurs, typographie, etc.)
+@import "frameworks/gridle/gridle/gridle"; // grille Gridle - http://gridle.org/
+@import "base/grid-settings"; // configuration de la grille
+@import "modules/fontello"; // icones de fontello
+
+
+/**
+ * Base CSS
+ *
+ * Styles de premier niveau pour les éléments de base, la plupart sans classes
+**/
+@import "base/reset"; // Reset navigateur
+@import "frameworks/tinytypo/tinytypo"; // Base typographique - http://tinytypo.tetue.net
+@import "base/typo"; // Ajustements typographiques
+@import "base/helpers"; // Utilitaires
+
+
+/**
+ * Gestion des gabarits
+ *
+ * Placement des blocs principaux, colonnes, etc
+**/
+@import "base/layout";
+
+
+/**
+ * Modules
+ *
+ * Ce sont des modèles cohérents, réutilisables quelque soit l'endroit où on les place
+**/
+@import "modules/firstnav"; // Menu principal
+@import "modules/buttons"; // Tous les boutons et leurs variantes
+@import "modules/forms"; // Les formulaires
+@import "modules/lists"; // Les différentes listes du site
+@import "modules/box"; // Les boîboîtes
+@import "modules/onglets"; // Les onglets
+@import "modules/fiche-objet"; // Fiches objets
+@import "modules/wysiwyg"; // Wysiwyg
+@import "modules/messages"; // Messages
+
+
+/**
+ * Sections
+ *
+ * Styles spécifiques à des morceaux de pages, mais dans tout le site
+**/
+@import "sections/access"; // Accès rapide
+@import "sections/bando"; // Bando
+@import "sections/pied"; // pied
+@import "sections/breadcrumb"; // Chemin hiérarchique
+
+
+/**
+ * Templates
+ *
+ * Styles spécifiques à des pages ou groupes de pages
+**/
+@import "templates/accueil"; // Styles propres à la page d'accueil

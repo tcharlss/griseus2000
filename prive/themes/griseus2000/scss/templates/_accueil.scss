@@ -1,0 +1,13 @@
+/**
+ * Template : accueil
+ */
+
+.accueil_informations {
+  margin-bottom: $bs;
+  h2, h3, h4 {
+    margin-bottom: $bs/2;
+    img {
+      display: none;
+    }
+  }
+}

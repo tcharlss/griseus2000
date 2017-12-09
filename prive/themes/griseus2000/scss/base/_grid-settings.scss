@@ -1,0 +1,53 @@
+/**
+ * Base : configuration de la grille utilisée
+ *
+ * http://gridle.org/
+ *
+ * Définition des breakpoints, des gouttières, etc.
+**/
+
+/**
+ * Driver : type de grille
+ * - gridle : normale
+ * - gridle-flex : flexbox
+**/
+@import "frameworks/gridle/gridle/gridle-flex";
+
+
+/**
+ * Settings : paramètres généraux de la grille
+**/
+$grid-settings : (
+  context :       12,
+  gutter-width :  $bs,
+  gutter-height:  0,
+  gutter-left:    $bs*0.5,
+  gutter-right:   $bs*0.5,
+  gutter-top:     0,
+  gutter-bottom:  0,
+  direction :     ltr,
+  states-classes: false
+);
+@include gridle_setup($grid-settings);
+
+
+/**
+ * States : définition des breakpoints en mobile first
+ * Il est possible de surcharger tous les paramètres de la grille pour chaque state
+**/
+@include gridle_register_state(tablet-up, (
+  min-width : em(480)
+));
+@include gridle_register_state(desktop-up, (
+  min-width : em(960)
+));
+@include gridle_register_state(large-up, (
+  min-width : em(1200),
+));
+
+
+/**
+ * Initialisation
+ * Nécessaire pour l'utilisation de mixins
+**/
+@include gridle_init();

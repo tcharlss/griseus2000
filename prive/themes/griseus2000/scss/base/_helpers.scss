@@ -1,0 +1,53 @@
+/**
+ * Base : classes utilitaires
+ */
+
+// clearfix
+@mixin clear() {
+  clear: both;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@mixin clear-after() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.clear {
+  @include clear;
+}
+.clear-after {
+  @include clear-after;
+}
+.clearright {
+  clear: right;
+}
+.clearleft {
+  clear: left;
+}
+.nettoyeur {
+  @include clear;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 0;
+  line-height: 1px;
+  font-size: 1px;
+}
+.clearfix {
+  height: auto; // au lieu 1%
+}
+
+// cacher des choses
+.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
