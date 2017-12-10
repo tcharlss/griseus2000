@@ -29,14 +29,19 @@ input[type=telephone],
 textarea,
 select {
   width: 100%;
-  border: 1px solid darken($couleur-bordure, 20);
+  border: 1px solid rgba($couleur-bordure, 0.2);
   transition: border 0.2s;
   transition: box-shadow 0.2s;
   border-radius: 2px;
   &:focus {
     border-color: $couleur-defaut;
     @include couleurs-spip(border-color, $map-sombre);
-    box-shadow: 0 0 0.5em rgba($couleur-defaut, 0.33);
+    box-shadow: 0 0 0.5em rgba(saturate(lighten($couleur-defaut, 30), 30), 0.75);
+    @each $i, $col in $couleurs-spip {
+      .couleur_#{$i} & {
+        box-shadow: 0 0 0.5em rgba(saturate(lighten($col, 30), 30), 0.75);
+      }
+    }
   }
 }
 
@@ -276,6 +281,12 @@ fieldset {
     select {
       background-repeat: no-repeat;
       background-position: 0.5em center;
+    }
+  }
+
+  &.formulaire_editer_logo {
+    .apercu {
+      text-align: center;
     }
   }
 

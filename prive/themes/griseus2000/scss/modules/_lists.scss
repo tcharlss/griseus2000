@@ -31,9 +31,13 @@
 
   // Header
   thead {
+    // la ligne principale, en principe
     tr.first_row {
       background-color: $couleur-neutre-claire;
-      border-top: 1px solid $couleur-bordure;
+      //border-top: 1px solid $couleur-bordure;
+      th {
+        border: none;
+      }
     }
     // cellules
     th {
@@ -57,8 +61,8 @@
       }
       // tri actif
       .on {
-        color: $couleur-defaut;
-        @include couleurs-spip(color);
+        color: $couleur-sombre;
+        @include couleurs-spip(color, $map-sombre);
       }
       // liens
       a {
