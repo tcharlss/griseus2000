@@ -34,7 +34,7 @@
     // la ligne principale, en principe
     tr.first_row {
       background-color: $couleur-neutre-claire;
-      //border-top: 1px solid $couleur-bordure;
+      //border-top: 1px solid $couleur-neutre-bordure;
       th {
         border: none;
       }
@@ -192,7 +192,7 @@
 
      // bordures
     &:not(:last-child) {
-      border-bottom: 1px solid $couleur-bordure;
+      border-bottom: 1px solid $couleur-neutre-bordure;
     }
 
     // items pas actifs
@@ -212,7 +212,7 @@
         font-weight: bold;
         color: white;
         background-color: $couleur-highlight;
-        @include couleurs-spip(background-color, $map-highlight);
+        @include couleurs-spip(background-color, $couleur-highlight-map);
         // hover
         &:hover,
         &:focus {
@@ -254,7 +254,7 @@
           &:focus {
             color: $couleur-texte;
             background-color: $couleur-neutre-hover;
-            //@include couleurs-spip(background-color, $map-highlight-hover);
+            //@include couleurs-spip(background-color, $couleur-highlight-hover-map);
             text-indent: $bs/4;
           }
         }
@@ -264,9 +264,9 @@
         a {
           color: $couleur-texte;
           background-color: $couleur-neutre-hover;
-          //@include couleurs-spip(background-color, $map-highlight);
+          //@include couleurs-spip(background-color, $couleur-highlight-map);
           border-left: $bs/2 solid $couleur-highlight;
-          @include couleurs-spip(border-left-color, $map-highlight);
+          @include couleurs-spip(border-left-color, $couleur-highlight-map);
         }
       }
       // Pollution visuelle

@@ -88,7 +88,7 @@
         li.actif {
           > a {
             background-color: $couleur-highlight-hover;
-            @include couleurs-spip(background-color, $map-highlight-hover);
+            @include couleurs-spip(background-color, $couleur-highlight-hover-map);
           }
         }
       }
@@ -200,7 +200,7 @@
             text-align: center;
             border-width: 0 0 1px;
             border-style: solid;
-            border-color: $couleur-bordure;
+            border-color: $couleur-neutre-bordure;
           }
           a {
             background-image: none;

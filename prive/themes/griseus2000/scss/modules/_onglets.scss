@@ -109,7 +109,7 @@
    */
   &:not(.second) {
     ul {
-      border-bottom: 1px solid $couleur-bordure;
+      border-bottom: 1px solid $couleur-neutre-bordure;
     }
     a,
     strong {
@@ -123,7 +123,7 @@
       &:hover,
       &:focus {
         border-bottom-color: $couleur-claire;
-        @include couleurs-spip(border-bottom-color, $map-claire);
+        @include couleurs-spip(border-bottom-color, $couleur-claire-map);
       }
     }
     strong {

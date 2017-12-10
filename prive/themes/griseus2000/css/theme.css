@@ -1413,7 +1413,7 @@ body {
     font-size: 0.875em;
     line-height: 1.5;
     font-family: "Source Sans Pro", sans-serif, sans;
-    color: rgba(0, 0, 0, 0.8);
+    color: #333333;
     background-color: #f3f3f6;
 }
 
@@ -1582,7 +1582,7 @@ table thead th strong {
 }
 
 table tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: #f7f7f7;
 }
 
 table tbody td {
@@ -1613,7 +1613,7 @@ hr {
 
 blockquote {
     padding-left: 1.3125rem;
-    border-left: 4px solid rgba(0, 0, 0, 0.8);
+    border-left: 4px solid #333333;
     font-family: "Source Serif Pro", serif;
     font-style: italic;
 }
@@ -1874,8 +1874,8 @@ blockquote:before {
 
 #bando_navigation {
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: rgba(0, 0, 0, 0.03);
+    background-color: #333333;
+    color: #f7f7f7;
 }
 
 #bando_navigation .deroulant {
@@ -1949,13 +1949,13 @@ blockquote:before {
     z-index: 1;
     min-width: 100%;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: #f7f7f7;
 }
 
 #bando_navigation .deroulant > li > ul a {
     display: block;
     padding: 0.65625rem;
-    color: rgba(0, 0, 0, 0.8);
+    color: #333333;
 }
 
 #bando_navigation .deroulant > li > ul li:hover > a,
@@ -2101,7 +2101,7 @@ blockquote:before {
     vertical-align: middle;
     text-align: center;
     transition: background-color 0.2s;
-    color: rgba(0, 0, 0, 0.03);
+    color: #f7f7f7;
     border-radius: 2px;
     border: 0;
     font-weight: bold;
@@ -2213,14 +2213,14 @@ blockquote:before {
 
 .button.actif, .barre_onglet ul li a.actif,
   .barre_onglet ul li strong {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #333333;
     box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.33);
 }
 
 [class*=couleur_] .button.actif, [class*=couleur_] .barre_onglet ul li a.actif, .barre_onglet ul li [class*=couleur_] a.actif, [class*=couleur_]
     .barre_onglet ul li strong,
     .barre_onglet ul li [class*=couleur_] strong {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #333333;
 }
 
 .button.disabled, .barre_onglet ul li a.disabled,
@@ -2249,8 +2249,8 @@ blockquote:before {
 .button.secondary, .icone a, input[type=submit],
   button, .barre_onglet ul li a.secondary,
   .barre_onglet ul li strong.secondary {
-    color: rgba(64, 64, 64, 0.8);
-    border: 1px solid rgba(128, 128, 128, 0.8);
+    color: #737373;
+    border: 1px solid #b3b3b3;
     background-color: transparent;
     box-shadow: none;
 }
@@ -2259,8 +2259,8 @@ blockquote:before {
     button, [class*=couleur_] .barre_onglet ul li a.secondary, .barre_onglet ul li [class*=couleur_] a.secondary, [class*=couleur_]
     .barre_onglet ul li strong.secondary,
     .barre_onglet ul li [class*=couleur_] strong.secondary {
-    color: rgba(64, 64, 64, 0.8);
-    border: 1px solid rgba(128, 128, 128, 0.8);
+    color: #737373;
+    border: 1px solid #b3b3b3;
     background-color: transparent;
 }
 
@@ -2706,7 +2706,7 @@ fieldset > legend,
     border-bottom: 2px solid rgba(0, 0, 0, 0.075);
     font-weight: 400;
     color: #1414b8;
-    color: rgba(84, 84, 84, 0.8);
+    color: #878787;
 }
 
 .cadre-formulaire-editer h1 {
@@ -2764,7 +2764,7 @@ fieldset > legend,
 
 .formulaire_spip .explication {
     font-style: italic;
-    color: rgba(51, 51, 51, 0.8);
+    color: #666666;
 }
 
 .formulaire_spip .boutons {
@@ -2979,7 +2979,7 @@ fieldset > legend,
 }
 
 .liste-objets thead tr.first_row {
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: #f7f7f7;
 }
 
 .liste-objets thead tr.first_row th {
@@ -3048,7 +3048,7 @@ fieldset > legend,
 }
 
 .liste-objets thead th a:before {
-    color: rgba(128, 128, 128, 0.8);
+    color: #b3b3b3;
 }
 
 .liste-objets thead th a:hover:before, .liste-objets thead th a:focus:before {
@@ -3309,14 +3309,14 @@ fieldset > legend,
 .liste_items.sous_navigation .item:not(.on) a:hover, .liste_items.sous_navigation .item:not(.on) a:focus,
   .liste-items.sous_navigation .item:not(.on) a:hover,
   .liste-items.sous_navigation .item:not(.on) a:focus {
-    color: rgba(0, 0, 0, 0.8);
+    color: #333333;
     background-color: rgba(0, 0, 0, 0.033);
     text-indent: 0.32812rem;
 }
 
 .liste_items.sous_navigation .item.on a,
   .liste-items.sous_navigation .item.on a {
-    color: rgba(0, 0, 0, 0.8);
+    color: #333333;
     background-color: rgba(0, 0, 0, 0.033);
     border-left: 0.65625rem solid #5c5cd6;
 }
@@ -3387,7 +3387,7 @@ fieldset > legend,
 
 .gr-card__header, .cadre-formulaire-editer .entete-formulaire, .box .hd, .gr-card__pseudo-header, .formulaire_spip > h3:first-child {
     padding: 0.65625rem 1.3125rem;
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: #f7f7f7;
     border-radius: 2px 2px 0 0;
 }
 
@@ -3424,7 +3424,7 @@ fieldset > legend,
 .gr-card__footer, .box .ft, .gr-card__pseudo-footer, .formulaire_spip .boutons {
     padding: 0.65625rem 1.3125rem;
     border-radius: 0 0 2px 2px;
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: #f7f7f7;
 }
 
 .gr-card__pseudo-footer, .formulaire_spip .boutons {
@@ -3454,7 +3454,7 @@ fieldset > legend,
 
 .box.sous-rub .titrem:before {
     font-size: 1.2em;
-    color: rgba(102, 102, 102, 0.8);
+    color: #999999;
 }
 
 .box.sous-rub .bd {
@@ -3523,7 +3523,7 @@ fieldset > legend,
 }
 
 .box.important .hd {
-    background-color: rgba(26, 26, 26, 0.8);
+    background-color: #4d4d4d;
     color: white;
 }
 
@@ -3582,7 +3582,7 @@ fieldset > legend,
 }
 
 .box.raccourcis .bd {
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: #f7f7f7;
 }
 
 .box.basic .hd {
@@ -3652,7 +3652,7 @@ fieldset > legend,
 
 .box.basic.inverse .hd,
   .box.basic.inverse .bd {
-    background-color: rgba(26, 26, 26, 0.8);
+    background-color: #4d4d4d;
     color: white;
 }
 
@@ -3936,7 +3936,7 @@ fieldset > legend,
     padding: 0;
     padding-bottom: 0.65625rem;
     margin-bottom: 0.65625rem;
-    border-bottom: 1px dotted rgba(0, 0, 0, 0.03);
+    border-bottom: 1px dotted #dedede;
 }
 
 .fiche_objet .formulaire_spip form > div {
@@ -3951,7 +3951,7 @@ fieldset > legend,
     flex-grow: 1;
     min-width: 50%;
     padding: 0.65625rem;
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    border: 1px solid #dedede;
 }
 
 .fiche_objet .formulaire_spip form > div .selecteur .titrem,
@@ -4042,7 +4042,7 @@ fieldset > legend,
     top: 0;
     left: 0;
     margin-top: -2px;
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 1px solid #333333;
     background-color: white;
     box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.2);
 }
@@ -4245,7 +4245,7 @@ fieldset > legend,
     position: relative;
     padding: 1.3125rem 0;
     background-color: white;
-    color: rgba(84, 84, 84, 0.8);
+    color: #878787;
     text-align: right;
     background-image: url(images/logo-nb-clair.svg);
     background-repeat: no-repeat;

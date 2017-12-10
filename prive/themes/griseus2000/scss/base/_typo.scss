@@ -98,7 +98,7 @@ table {
   thead {
     tr {}
     th {
-      border-bottom: 1px solid $couleur-bordure;
+      border-bottom: 1px solid $couleur-neutre-bordure;
       text-transform: uppercase;
       font-size: 0.9em;
       font-weight: 600;
@@ -115,7 +115,7 @@ table {
       }
     }
     td {
-      border-bottom: 1px solid $couleur-bordure;
+      border-bottom: 1px solid $couleur-neutre-bordure;
     }
   }
   // footer

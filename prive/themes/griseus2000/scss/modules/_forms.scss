@@ -29,7 +29,7 @@ input[type=telephone],
 textarea,
 select {
   width: 100%;
-  border: 1px solid rgba($couleur-bordure, 0.2);
+  border: 1px solid rgba($couleur-neutre-bordure, 0.2);
   transition: border 0.2s;
   transition: box-shadow 0.2s;
   border-radius: 2px;
@@ -84,7 +84,7 @@ fieldset {
     width: 100%;
     margin-top: 0;
     padding-bottom: $bs/2;
-    border-bottom: 2px solid $couleur-bordure;
+    border-bottom: 2px solid $couleur-neutre-bordure;
     font-weight: 400;
     color: $couleur-sombre;
     color: lighten($couleur-texte, 33);

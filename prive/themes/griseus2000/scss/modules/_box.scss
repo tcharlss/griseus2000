@@ -148,7 +148,7 @@
   /*  Info */
   &.info {
     //border: 2px solid $couleur-claire;
-    //@include couleurs-spip(border-color, $map-claire);
+    //@include couleurs-spip(border-color, $couleur-claire-map);
     .hd {
       background-color: $couleur-defaut;
       @include couleurs-spip(background-color);
@@ -182,7 +182,7 @@
   /* Note */
   &.note {
     border-left: $bs/2 solid $couleur-claire;
-    @include couleurs-spip(border-color, $map-claire);
+    @include couleurs-spip(border-color, $couleur-claire-map);
     .hd {
       background-color: white;
       padding-top: $bs;
@@ -193,7 +193,7 @@
   /* Raccourcis */
   &.raccourcis {
     .hd {
-      border-bottom: 1px solid $couleur-bordure;
+      border-bottom: 1px solid $couleur-neutre-bordure;
     }
     .bd {
       background-color: $couleur-neutre-claire;

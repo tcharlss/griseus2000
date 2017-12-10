@@ -97,7 +97,7 @@
     &:hover,
     &:focus {
       border-color: $couleur-claire;
-      @include couleurs-spip(border-color, $map-claire);
+      @include couleurs-spip(border-color, $couleur-claire-map);
       color: white;
     }
   }
