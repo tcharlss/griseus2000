@@ -104,9 +104,9 @@
 
   // Classes utilitaires pour des colonnes
   // Malheureusement, il n'y a pas de conteneur donc pas de flex
-  .gauche,
-  .droite {
-    width: calc(50% - (#{$bs} / 2));
+  #contenu .gauche,
+  #contenu .droite {
+    width: calc(50% - (#{$bs} / 2)) !important;
   }
   .gauche {
     float: left;
@@ -115,6 +115,25 @@
     float: right;
     margin-left: $bs;
     @include clear-after;
+  }
+  // Des colonnes pour la page de mini-charte
+  [class*=par-] {
+    @include gridle( row );
+    > * {
+      flex: 1 1 auto;
+    }
+  }
+  .par-2 > *,
+  .col-2 {
+    @include gridle( desktop-up 6 );
+  }
+  .par-3 > *,
+  .col-3 {
+    @include gridle( desktop-up 4 );
+  }
+  .par-4 > *,
+  .col-4 {
+    @include gridle( desktop-up 3 );
   }
 
 }

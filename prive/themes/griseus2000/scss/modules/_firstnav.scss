@@ -16,10 +16,14 @@
  *
  */
 
+.navigation_avec_icones a[id^=bando1_menu] {
+  background-image: none !important;
+}
+
 #bando_navigation {
   z-index: 10;
-  background-color: $couleur-sombre;
-  color: $couleur-claire;
+  background-color: $couleur-neutre-sombre;
+  color: $couleur-neutre-claire;
 
   ul {
     @extend .list-none;
@@ -53,7 +57,6 @@
         @include gridle( grow );
         position: relative;
         padding: $bs*0.5;
-        text-transform: uppercase;
         font-weight: 600;
         // hover
         &:hover,
@@ -68,21 +71,24 @@
         z-index: 1;
         min-width: 100%;
         position: absolute;
-        background-color: lighten($couleur-sombre, 10);
+        //background-color: lighten($couleur-neutre-sombre, 10);
+        background-color: $couleur-neutre-claire;
         a {
           display: block;
           padding: $bs*0.5;
+          color: $couleur-texte;
+          // hover
           &:hover,
           &:focus {
-            color: white;
+           // color: white;
           }
         }
         li:hover,
         li:focus,
         li.actif {
           > a {
-            background-color: change-color($couleur-defaut, $lightness: 40%);
-            @include couleurs-spip(background-color, (lightness: 40%));
+            background-color: $couleur-highlight-hover;
+            @include couleurs-spip(background-color, $map-highlight-hover);
           }
         }
       }
@@ -110,17 +116,19 @@
         //background-position: $bs*0.5 center;
       }
 
+      // --------
       // Niveau 1
+      // --------
       > li {
         //flex-grow: 0;
         width: 100%;
         margin: 0; // pas besoin de gouttière
 
-        // Actif
+        // Hover & actif
         &:hover,
         &:focus,
         &.actif {
-          // sous menus
+          // Apparition du sous menu
           > ul {
             opacity: 1;
             width: $largeur-menu;
@@ -142,18 +150,21 @@
           &:focus {
             &:before {
               filter: none !important;
+              opacity: 1;
             }
           }
+          // Icône devant
           &:before {
-            vertical-align: middle;
             content: '';
             display: inline-block;
+            vertical-align: middle;
             width: $bs;
             height: $bs;
-            margin-right: 0.33em;
+            margin-right: 0.5em;
             background-size: contain;
             background-position: center center;
             background-repeat: no-repeat;
+            opacity: 0.66;
           }
           // TEST COLORISATION
           $teinte_sepia: 60deg;
@@ -168,7 +179,9 @@
           }
         }
 
+        // --------
         // Niveau 2
+        // --------
         > ul {
           position: fixed !important;
           overflow: hidden;
@@ -180,17 +193,14 @@
           padding-bottom: 5vh; // centrage vertical plus naturel
           transition: opacity 0.2s;
           box-shadow:
-            0.5em 0 0.5em rgba(0, 0, 0, 0.2),
-            inset 0.1em 0 0.25em rgba(0, 0, 0, 0.2);
+            0.25em 0 0.25em rgba(0, 0, 0, 0.15)/*,
+            inset 0.1em 0 0.25em rgba(0, 0, 0, 0.2)*/;
           li {
             width: 100%;
             text-align: center;
             border-width: 0 0 1px;
-            border-style: dotted;
-            border-color: hsla(0, 0%, 100%, 0.1);
-            &:first-child {
-              border-top-width: 1px;
-            }
+            border-style: solid;
+            border-color: $couleur-bordure;
           }
           a {
             background-image: none;

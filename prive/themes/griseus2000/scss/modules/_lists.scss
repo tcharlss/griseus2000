@@ -2,67 +2,80 @@
  * Module : listes
  */
 
-.list-none {
-  margin: 0;
-}
-
-
 /**
- * Les listes d'objets (il s'agit de tableaux)
- * Par défaut, affichées sous forme de card
- * Variantes possibles pour cacher le superflu, enlever la déco, afficher en inline
+ * ===============
+ * Listes d'objets
+ * ===============
+ * Il s'agit de tableaux.
+ * Par défaut, affichées sous forme de card.
+ * Variantes virtuelles possibles : 
+ * - .minimal : cacher les colonnes superflues
+ * - .redux :   enlever la décoration
+ * - .inline :  afficher sous forme de liste
  */
 .liste-objets {
   @extend .card;
-  @extend .card__content;
+  //@extend .card__content;
 
   // Le tableau
   table.liste {
     margin-bottom: 0;
   }
 
+  // Titre du tableau 
   caption {
-    @extend .card__pseudo-header;
-    margin-bottom: $bs;
+    //@extend .card__pseudo-header;
+    //margin-bottom: $bs;
+    padding: $bs;
   }
+
+  // Header
   thead {
-    /*tr.first_row {
-      background-color: $couleur-claire;
-    }*/
+    tr.first_row {
+      background-color: $couleur-neutre-claire;
+      border-top: 1px solid $couleur-bordure;
+    }
+    // cellules
     th {
-      padding: 0;
-      //border-bottom: none;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      a,
+      strong {
+        display: block;
+        padding: $bs*0.25 0;
+      }
+      // picto pour indiquer les items triables
+      a,
+      .on {
+        @extend .icon-down;
+        @extend .icon;
+        &:before {
+          margin-right: 0.25em;
+          font-size: 0.9em;
+        }
+      }
+      // tri actif
+      .on {
+        color: $couleur-defaut;
+        @include couleurs-spip(color);
+      }
+      // liens
       a {
+        // picto triable
         &:before {
           color: lighten($couleur-texte, 50);
         }
         &:hover:before,
         &:focus:before {
           color: $couleur-defaut;
+          @include couleurs-spip(color);
         }
       }
+      // pollution visuelle !
       img {
         display: none;
       }
-    }
-    th a,
-    .on {
-      // indiquer les items triables
-      @extend .icon-down;
-      @extend .icon;
-      &:before {
-        margin-right: 0.25em;
-        font-size: 0.9em;
-      }
-    }
-    a,
-    strong {
-      display: block;
-      padding: $bs*0.25 0;
-    }
-    // tri actif
-    .on {
-      color: $couleur-defaut;
     }
   }
 
@@ -76,14 +89,19 @@
     @extend .liste-objets.minimal;
   }
 
+  /* Dans une fiche d'objet : voir _fiche_objet.scss */
 
   /**
-   * Variantes
+   * --------------------
+   * Variantes virtuelles
+   * --------------------
+   * Elles servent à étendre les vraies classes de SPIP
    */
 
 
   // Décoration minimale (pas de bordure, etc.)
-  &.minimal {
+  &.minimal,
+  .minimal & {
     box-shadow: none;
     padding: 0;
     margin: 0;
@@ -99,7 +117,10 @@
   }
 
   // Cacher le contenu superflu (les colonnes inutiles)
-  &.redux {
+  &.redux,
+  &.redux-max,
+  .redux &,
+  .redux-max & {
     td,
     th {
       display: none;
@@ -110,9 +131,19 @@
       }
     }
   }
+  &.redux-max,
+  .redux-max & {
+    td, 
+    th {
+      &.id {
+        display: none;
+      }
+    }
+  }
 
   // Affichage sous forme de liste
-  &.inline {
+  &.inline,
+  .inline & {
     thead,
     tfoot {
       display: none;
@@ -121,9 +152,9 @@
       text-align: left;
     }
     tbody {
-      @include gridle( row );
+      display: flex;
+      flex-flow: row wrap auto;
       tr {
-        @include gridle( adapt );
         display: flex;
         flex-flow: row nowrap;
       }
@@ -141,7 +172,11 @@
 
 
 /**
- * Listes d'items (menus et cie)
+ * ==============
+ * Listes d'items
+ * ==============
+ * Pour faire des menus
+ * [TODO] .item.favori
  */
 .liste_items,
 .liste-items {
@@ -151,30 +186,35 @@
     padding: $bs/2 0;
     position: relative;
 
+     // bordures
     &:not(:last-child) {
-      border-bottom: 1px solid hsla(0, 0%, 0%, 0.15);
+      border-bottom: 1px solid $couleur-bordure;
     }
 
-    // pas actif
+    // items pas actifs
     &:not(.on) {
-      > a {
+      a {
+        // hover
         &:hover,
         &:focus {
-          background-color: lighten($couleur-defaut, 53);
+          background-color: $couleur-neutre-hover;
+          text-indent: $bs/4;
         }
       }
     }
-    // actif
+    // item actif
     &.on {
-      background-color: lighten($couleur-defaut, 50);
-      font-weight: bold;
-      padding-left: $bs/2;
-      > a {
-        color: inherit;
-        margin-left: -$bs/2;
+      a {
+        padding-left: $bs/2;
+        font-weight: bold;
+        color: white;
+        background-color: $couleur-highlight;
+        @include couleurs-spip(background-color, $map-highlight);
+        // hover
         &:hover,
         &:focus {
           cursor: default;
+          text-decoration: none;
         }
       }
     }
@@ -189,35 +229,45 @@
   }
 
   /**
+   * ---------
    * Variantes
+   * ---------
    */
 
-  // Sous navigation (menu de configuration, etc.)
+  /* Sous navigation (menu de configuration, etc.) */
   &.sous_navigation {
     @extend .card;
-    @extend .card__content;
+    //@extend .card__content;
     .item {
-      border: none;
-      // actif
-      &.on {
-        margin-top: -2px; // remonter sur la bordure supérieure
-        background-color: lighten($couleur-defaut, 20);
-        color: white;
+      a {
+        padding-left: $bs;
+        padding-right: $bs;
       }
+      // items pas actifs
+      &:not(.on) {
+        a {
+          // hover
+          &:hover,
+          &:focus {
+            color: $couleur-texte;
+            background-color: $couleur-neutre-hover;
+            //@include couleurs-spip(background-color, $map-highlight-hover);
+          }
+        }
+      }
+      // item actif
+      &.on {
+        a {
+          color: $couleur-texte;
+          background-color: $couleur-neutre-hover;
+          //@include couleurs-spip(background-color, $map-highlight);
+          border-left: $bs/2 solid $couleur-defaut;
+          @include couleurs-spip(border-left-color);
+        }
+      }
+      // Pollution visuelle
       a {
         background-image: none;
-        position: relative;
-      }
-      // pseudo bordure
-      &:not(:last-child) {
-        a:after {
-          content: "";
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: $bs*2;
-          border-bottom: 2px solid hsla(0, 0%, 0%, 0.25);
-        }
       }
     }
   }

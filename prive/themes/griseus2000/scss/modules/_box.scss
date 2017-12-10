@@ -3,22 +3,27 @@
  */
 
 /**
- * ================
- * Classe générique
- * ================
+ * ==========================
+ * Classe générique virtuelle
+ * ==========================
+ * Elle sert à étendre les vraies classes de SPIP
+ * Une card est divisée en 3 sections :
+ * - header
+ * - content
+ * - footer
  */
 .card {
   //margin-top: $bs;
   margin-bottom: $bs;
   background-color: white;
   border-radius: 2px;
-  box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.05em 0.2em rgba(0, 0, 0, 0.12);
 
   /* Header */
   &__header,
   &__pseudo-header {
     padding: $bs/2 $bs;
-    background-color: $couleur-claire;
+    background-color: $couleur-neutre-claire;
     border-radius: 2px 2px 0 0;
     img {
       display: none;
@@ -58,7 +63,11 @@
 }
 
 
-/* Les boîtes de SPIP */
+/**
+ * ==================
+ * Les boîtes de SPIP
+ * ==================
+ */
 .box {
   padding: 0;
   border: 0;
@@ -146,7 +155,7 @@
     &.inverse {
       .hd,
       .bd {
-        background-color: lighten($couleur-sombre, 10);
+        background-color: lighten($couleur-neutre-sombre, 10);
         color: white;
       }
       .hd {

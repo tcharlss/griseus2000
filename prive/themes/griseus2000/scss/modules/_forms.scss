@@ -16,7 +16,6 @@ button {
 }
 input[type=submit],
 button {
-  @extend .button;
   @extend .button.secondary;
 }
 
@@ -30,12 +29,13 @@ input[type=telephone],
 textarea,
 select {
   width: 100%;
-  border: 1px solid darken($couleur-claire, 20);
+  border: 1px solid darken($couleur-bordure, 20);
   transition: border 0.2s;
   transition: box-shadow 0.2s;
   border-radius: 2px;
   &:focus {
     border-color: $couleur-defaut;
+    @include couleurs-spip(border-color, $map-sombre);
     box-shadow: 0 0 0.5em rgba($couleur-defaut, 0.33);
   }
 }
@@ -70,15 +70,20 @@ select {
 // Fieldset
 fieldset {
   margin: $bs*2 0;
+
+  // titre
   > legend,
   .legend {
-    @extend .h3;
+    @extend .h2;
     display: block;
     width: 100%;
     margin-top: 0;
-    //border-bottom: 1px dotted hsla(0, 0%, 0%,0.33);
-    text-align: center;
+    padding-bottom: $bs/2;
+    border-bottom: 2px solid $couleur-bordure;
+    font-weight: 400;
+    color: $couleur-sombre;
     color: lighten($couleur-texte, 33);
+    //@include couleurs-spip(color, $map-sombre);
   }
 }
 
@@ -167,12 +172,6 @@ fieldset {
     //margin-top: $bs;
     display: flex;
     justify-content: flex-end;
-    // boutons
-    input[type=submit],
-    button {
-      @extend .button;
-      //@extend .button.medium;
-    }
   }
 
   // Bureaux larges : saisies en 2 colonnes, sauf si :

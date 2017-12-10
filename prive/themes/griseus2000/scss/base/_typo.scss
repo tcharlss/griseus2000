@@ -8,32 +8,34 @@ body {
   line-height: $typo-line-height;
   font-family: $font-family-texte;
   color: $couleur-texte;
-  background-color: change-color($couleur-defaut, $lightness: 95%, $saturation: 15%);
-  @include couleurs-spip(background-color, (lightness: 95%, saturation: 15%));
+  background-color: change-color($couleur-defaut, $lightness: 96%, $saturation: 15%);
+  @include couleurs-spip(background-color, (lightness: 96%, saturation: 15%));
 }
 
-// Marges sous les principaux blocs
+/* Marges sous les principaux blocs */
 p, table, pre, ul, ol, address, dl, blockquote {
   margin-bottom: $bs;
 }
 
-// Liens
+/* Liens */
 a {
   text-decoration: none;
   &:link {
-    transition: color 0.2s;
-    transition: background-color 0.2s;
+    transition:
+      color 0.2s,
+      background-color 0.2s,
+      text-indent 0.2s;
   }
   &:hover,
   &:focus {
     text-decoration: underline;
     text-decoration-style: dotted;
-    color: change-color($couleur-defaut, $lightness: 25%, $saturation: 66%);
-    @include couleurs-spip(color, (lightness: 25%, saturation: 66%));
+    color: change-color($couleur-defaut, $lightness: 44%, $saturation: 66%);
+    @include couleurs-spip(color, (lightness: 44%, saturation: 66%));
   }
 }
 
-// Titres
+/* Titres */
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -48,6 +50,7 @@ h3, .h3,
 h4, .h4 {
   margin-top: $bs*2;
 }
+// Titre des pages
 .grostitre {
   margin-top: 0;
   text-transform: uppercase;
@@ -55,7 +58,7 @@ h4, .h4 {
   text-align: center;
 }
 
-// paragraphes
+/* paragraphes */
 p {
   // En général on ne veut pas de marge en bas quand c'est le dernier
   &:last-child {
@@ -63,45 +66,59 @@ p {
   }
 }
 
-// listes
+/* listes */
 ul {}
+.list-none {
+  margin: 0;
+}
 
-// tableaux
+/* tableaux */
 table {
   width: 100%;
 
-  caption {
-    font-weight: bold;
-  }
+  // lignes
   tr {
     transition: background 0.2s;
+    // pas de bordure tout en bas
+    // [FIXME] Vérifier quand il y a un footer
     &:last-child td {
       border-bottom: none;
     }
   }
-  th {
-    font-weight: bold;
-  }
+  // cellules
   th,
   td {
-    padding: $bs*0.5;
+    padding: $bs*0.5 $bs;
   }
+  // titre
+  caption {
+    font-weight: bold;
+  }
+  // header
   thead {
     tr {}
     th {
-      border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+      border-bottom: 1px solid $couleur-bordure;
+      text-transform: uppercase;
+      font-size: 0.9em;
+      font-weight: 600;
+      strong {
+        font-weight: inherit;
+      }
     }
   }
+  // body
   tbody {
     tr {
       &:hover {
-        background-color: lighten($couleur-defaut, 53);
+        background-color: $couleur-neutre-claire;
       }
     }
     td {
-      border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+      border-bottom: 1px solid $couleur-bordure;
     }
   }
+  // footer
   tfoot {
     tr {}
     th {}
@@ -113,12 +130,12 @@ table {
     text-align: right;
   }
   // rétrécir certaines colonnes (on essaye d'obtenir flex-grow: 0 quoi)
-  .id, .picto, .statut {
+  /*.id, .picto, .statut {
     width: 2em;
-  }
+  }*/
 }
 
-// Icônes (complément à fontello)
+/* Icônes (complément à fontello) */
 .icon {
   &:before {
     font-family: "Icons";
@@ -126,20 +143,20 @@ table {
   }
 }
 
-// codes informatiques et cie
-code, pre {
+/* codes informatiques et cie */
+code, pre, .code, .pre {
   font-family: $font-family-code;
   color: $couleur-code;
 }
 
-// Séparateur
+/* Séparateur */
 hr {
   margin: $bs*2 0;
   border-style: dotted;
   border-color: hsla(0, 0%, 0%, 0.25);
 }
 
-// citations
+/* citations */
 blockquote {
   padding-left: $bs;
   border-left: 4px solid $couleur-texte;

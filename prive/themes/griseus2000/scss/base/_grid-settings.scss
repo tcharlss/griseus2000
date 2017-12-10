@@ -21,10 +21,10 @@ $grid-settings : (
   context :       12,
   gutter-width :  $bs,
   gutter-height:  0,
-  gutter-left:    $bs*0.5,
-  gutter-right:   $bs*0.5,
+  gutter-left:    $bs/2,
+  gutter-right:   $bs/2,
   gutter-top:     0,
-  gutter-bottom:  0,
+  gutter-bottom:  $bs,
   direction :     ltr,
   states-classes: false
 );

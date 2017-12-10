@@ -3,10 +3,10 @@
  */
 
 /**
- * ================
- * Classe générique
- * ================
- * On l'applique après aux boutons de SPIP, aux formulaires etc.
+ * ==========================
+ * Classe virtuelle générique
+ * ==========================
+ * Utilisée pour étendre les boutons de SPIP
  */
 .button {
 
@@ -15,23 +15,21 @@
   vertical-align: middle;
   text-align: center;
   transition: background-color 0.2s;
-  background-color: $couleur-defaut;
-  @include couleurs-spip(background-color);
-  color: $couleur_claire;
+  //background-color: $couleur-defaut;
+  //@include couleurs-spip(background-color);
+  color: $couleur-neutre-claire;
   border-radius: 2px;
   border: 0;
   font-weight: bold;
-  //font-size: 0.9em;
-  //font-family: $font-family-code;
-  //letter-spacing: -0.15em;
-  box-shadow: inset 0 -2px 0 hsla(0, 0%, 0%, 0.1);
+  //box-shadow: inset 0 -2px 0 hsla(0, 0%, 0%, 0.1);
 
   // Survol et focus
   &:hover,
   &:focus {
-    background-color: change-color($couleur-defaut, $lightness: 50%);
-    @include couleurs-spip(background-color, (lightness: 60%, saturation: 60%));
+    background-color: $couleur-sombre;
+    @include couleurs-spip(background-color, $map-sombre);
     cursor: pointer;
+    color: white;
   }
 
   /**
@@ -54,9 +52,9 @@
 
   /* Actif */
   &.actif {
-    background-color: $couleur_sombre;
+    background-color: $couleur-neutre-sombre;
     [class*=couleur_] & {
-      background-color: $couleur_sombre;
+      background-color: $couleur-neutre-sombre;
     }
     box-shadow: inset 0 -2px 0 hsla(0, 0%, 100%, 0.33);
   }
@@ -93,12 +91,13 @@
       background-color: transparent;
     }
     box-shadow: none;
-    font-weight: normal;
+    //font-weight: normal;
 
     // Survol et focus
     &:hover,
     &:focus {
-      border-color: lighten($couleur-defaut, 15);
+      border-color: $couleur-claire;
+      @include couleurs-spip(border-color, $map-claire);
       color: white;
     }
   }
@@ -117,7 +116,7 @@
   display: inline-block;
 
   a {
-    @extend .button;
+    @extend .button.secondary;
     display: inherit;
     b {
       font-weight: inherit;
@@ -160,20 +159,20 @@ button {
   }
 }
 
-// Les icônes d'aide
+// Les icônes d'aide : on change l'image
 .aide.popin {
   @extend .icon-help-circled;
+  display: inline-block;
   font-style: normal;
   &:before {
     font-family: "Icons";
   }
-  display: inline-block;
   img {
     display: none;
   }
-  // hover & focus
-  &:hover,
-  &:focus {
-    color: $couleur-defaut;
-  }
+}
+
+// Les icônes d'info
+.plus_info {
+  
 }

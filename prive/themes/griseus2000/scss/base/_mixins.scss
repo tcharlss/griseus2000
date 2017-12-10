@@ -16,7 +16,7 @@
  * @param map $traitements - Map de traitements à effectuer, correspond aux paramètres de la fonction change-color : (lightness: 10%, saturation: 20%).complement.
  * @output 
  */
-@mixin couleurs-spip($propriete, $traitements: null) {
+@mixin couleurs-spip($propriete: color, $traitements: null) {
   @each $i, $couleur in $couleurs-spip {
     // Ajustement éventuel de la couleur
     @if (type-of($traitements) != null) {

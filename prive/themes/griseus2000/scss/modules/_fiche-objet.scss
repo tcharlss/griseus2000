@@ -21,7 +21,7 @@
     padding: 0;
     padding-bottom: $bs/2;
     margin-bottom: $bs/2;
-    border-bottom: 1px dotted darken($couleur-claire, 10);
+    border-bottom: 1px dotted darken($couleur-neutre-claire, 10);
 
     // Essayons d'afficher la liste et le bouton d'ajout côte-à-côte
     form > div {
@@ -35,8 +35,8 @@
         flex-grow: 1;
         min-width: 50%;
         padding: $bs/2;
-        //background-color: $couleur-claire;
-        border: 1px solid darken($couleur-claire, 10);
+        //background-color: $couleur-neutre-claire;
+        border: 1px solid darken($couleur-neutre-claire, 10);
         .titrem,
         h3 {
           margin: 0 0 $bs/2;
@@ -57,7 +57,7 @@
   /* Listes d'objets (dans des formulaires en principe) */
   /* On affiche sous forme de liste et on cache tout ce qui est superflu */
   .liste-objets {
-    @extend .liste-objets.redux;
+    @extend .liste-objets.redux-max;
     @extend .liste-objets.minimal;
     @extend .liste-objets.inline;
   }

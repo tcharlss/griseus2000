@@ -24,14 +24,21 @@ $couleur-notice: map-get($couleurs-spip, 3); // jaune
 $couleur-info:   map-get($couleurs-spip, 5); // bleu
 // Couleurs fonctionnelles
 $couleur-defaut: map-get($couleurs-spip, 9); // gris-violet
-$couleur-claire: hsl(0, 0%, 97%);
-$couleur-sombre: hsl(0, 0%, 20%);
-
-/* Palette fonctionnelle */
-$couleur-texte: $couleur-sombre;
-$couleur-highlight: change-color($couleur-defaut, $lightness: 70%);
-$map-highlight: (lightness: 70%);
+$couleur-neutre-claire: hsl(0, 0%, 97%);
+$couleur-neutre-sombre: hsl(0, 0%, 20%);
+$couleur-neutre-hover: hsla(0, 0%, 0%, 0.033);
+$couleur-bordure: hsla(0, 0%, 0%, 0.075);
+$couleur-texte: $couleur-neutre-sombre;
 $couleur-code: navy;
+// Variantes de la couleur du thème
+$map-claire: (lightness: 70%, saturation: 60%); // pour couleurs-spip()
+$couleur-claire: change-color($couleur-defaut, $lightness: map-get($map-claire,lightness));
+$map-sombre: (lightness: 40%, saturation: 80%); // pour couleurs-spip()
+$couleur-sombre: change-color($couleur-defaut, $lightness: map-get($map-sombre,lightness), $saturation: map-get($map-sombre,saturation));
+$map-highlight: (lightness: 60%, saturation: 60%); // pour couleurs-spip()
+$couleur-highlight: change-color($couleur-defaut, $lightness: map-get($map-highlight,lightness), $saturation: map-get($map-highlight,saturation));
+$map-highlight-hover: (lightness: 95%, saturation: 70%); // pour couleurs-spip()
+$couleur-highlight-hover: change-color($couleur-defaut, $lightness: map-get($map-highlight-hover,lightness), $saturation: map-get($map-highlight-hover,saturation));
 
 /* Variables de typographie */
 $typo-font-size: em(14px);
