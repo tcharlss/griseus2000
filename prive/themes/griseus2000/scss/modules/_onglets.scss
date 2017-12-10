@@ -115,6 +115,7 @@
     strong {
       display: block;
       padding: $bs/2 $bs;
+      margin-bottom: -1px; // pour passer sur la bordure inférieure du <ul>
       border-bottom: 4px solid transparent;
       transition: border 0.2s;
     }
