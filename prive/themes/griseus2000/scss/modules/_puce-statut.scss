@@ -1,0 +1,38 @@
+/**
+ * Module : puce du statut des objets
+ */
+
+.puce_objet {
+  position: relative;
+
+  // l'icône affichée en permanence
+  .puce_objet_fixe {
+    position: relative;
+  }
+
+  // popup affichée au survol
+  .puce_objet_popup {
+    z-index: 10;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -2px;
+    border: 1px solid $couleur-neutre-sombre;
+    background-color: white;
+    box-shadow: 0 0.1em 0.2em hsla(0, 0%, 0%, 0.2);
+
+    img {
+      margin: 2px;
+      border: 0;
+    }
+  }
+
+  // active
+  &.on {
+    .puce_objet_popup {
+      visibility: visible;
+      //transform: scale(1.5); // désactivé sinon c'est décalé
+    }
+  }
+}
