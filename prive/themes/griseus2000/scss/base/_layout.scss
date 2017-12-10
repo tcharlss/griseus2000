@@ -118,22 +118,41 @@
   }
   // Des colonnes pour la page de mini-charte
   [class*=par-] {
-    @include gridle( row );
+    display: flex;
+    flex-flow: row wrap;
     > * {
-      flex: 1 1 auto;
+      flex: 0 1 auto;
+      @include gridle_state( desktop-up ) {
+        margin-right: $bs;
+      }
     }
   }
-  .par-2 > *,
-  .col-2 {
-    @include gridle( desktop-up 6 );
+  .par-2 > * {
+    @include gridle_state( desktop-up ) {
+      flex-basis: calc(50% - #{$bs});
+      max-width: 50%;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
   }
-  .par-3 > *,
-  .col-3 {
-    @include gridle( desktop-up 4 );
+  .par-3 > * {
+    @include gridle_state( desktop-up ) {
+      flex-basis: calc(33.33% - #{$bs});
+      max-width: 33.33%;
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
   }
-  .par-4 > *,
-  .col-4 {
-    @include gridle( desktop-up 3 );
+  .par-4 > * {
+    @include gridle_state( desktop-up ) {
+      flex-basis: calc(25% - #{$bs});
+      max-width: 25%;
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+    }
   }
 
 }

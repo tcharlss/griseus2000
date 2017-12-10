@@ -202,7 +202,6 @@
         &:hover,
         &:focus {
           background-color: $couleur-neutre-hover;
-          text-indent: $bs/4;
         }
       }
     }
@@ -256,6 +255,7 @@
             color: $couleur-texte;
             background-color: $couleur-neutre-hover;
             //@include couleurs-spip(background-color, $map-highlight-hover);
+            text-indent: $bs/4;
           }
         }
       }
@@ -265,8 +265,8 @@
           color: $couleur-texte;
           background-color: $couleur-neutre-hover;
           //@include couleurs-spip(background-color, $map-highlight);
-          border-left: $bs/2 solid $couleur-defaut;
-          @include couleurs-spip(border-left-color);
+          border-left: $bs/2 solid $couleur-highlight;
+          @include couleurs-spip(border-left-color, $map-highlight);
         }
       }
       // Pollution visuelle
