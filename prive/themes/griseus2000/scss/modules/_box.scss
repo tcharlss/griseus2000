@@ -116,6 +116,18 @@
 
   /**
    * ---------
+   * Inception
+   * ---------
+   * Des boîtes dans des boîtes dans des boîtes...
+   */
+   .box {
+     box-shadow: none;
+     border: 1px solid $couleur-neutre-bordure;
+   }
+
+
+  /**
+   * ---------
    * Variantes
    * ---------
    */

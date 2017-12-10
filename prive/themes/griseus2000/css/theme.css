@@ -3447,6 +3447,11 @@ fieldset > legend,
     margin-top: 0;
 }
 
+.box .box {
+    box-shadow: none;
+    border: 1px solid rgba(0, 0, 0, 0.075);
+}
+
 .box.sous-rub .hd,
   .box.sous-rub .bd {
     background-color: white;
