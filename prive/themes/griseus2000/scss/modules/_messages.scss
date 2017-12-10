@@ -1,25 +1,112 @@
 /**
  * Module : messages
+ *
+ * Utilisation :
+ * - boîtes
+ * - messages de retour de formulaire
+ * - indépendemment
  */
 
-.message {
+/**
+ * ================
+ * Classe virtuelle
+ * ================
+ * Utilisée pour étendre les classes de SPIP
+ */
+.gr-message {
 
-  margin-bottom: $bs;
-  padding: $bs;
-  border-radius: 2px;
-  box-shadow: none;
+  //margin-bottom: $bs;
+  padding: $bs $bs $bs $bs*3;
+  border-radius: $radius;
 
-  &.succes {
+  &--success,
+  &--error,
+  &--notice {
+    background-repeat: no-repeat;
+    background-position: $bs center;
+    background-size: $bs auto;
+  }
+
+  &--success {
     background-color: $couleur-succes;
+    color: white;
+    font-weight: bold;
   }
-  &.info {
-    background-color: $couleur-info;
-  }
-  &.erreur {
+  &--error {
     background-color: $couleur-erreur;
+    color: white;
+    font-weight: bold;
+  }
+  &--notice {
+    background-color: $couleur-notice;
+    color: white;
+    font-weight: bold;
+  }
+
+}
+
+
+/**
+ * ==================
+ * Les choses de SPIP
+ * ==================
+ */
+
+/* Choses communes à tous les types de messages */
+.success:not(.box),
+.error:not(.box),
+.notice:not(.box),
+.reponse_formulaire {
+  @extend .gr-message;
+}
+
+/* Messages tout seuls */
+.success:not(.box) {
+  @extend .gr-message--success;
+}
+.error:not(.box) {
+  @extend .gr-message--error;
+}
+.notice:not(.box) {
+  @extend .gr-message--notice;
+}
+
+/* Les réponses de formulaire */
+.reponse_formulaire {
+  &.reponse_formulaire_ok {
+    @extend .gr-message--success;
+  }
+  &.reponse_formulaire_erreur {
+    @extend .gr-message--error;
+  }
+  // Allez, on rajoute une classe
+  &.reponse_formulaire_notice {
+    @extend .gr-message--notice;
+  }
+}
+
+/* Les boiboîtes */
+.box {
+  &.success,
+  &.error,
+  &.notice {
+    .hd {
+      padding-left: $bs*3;
+    }
+  }
+  &.success {
+    .hd {
+      @extend .gr-message--success;
+    }
+  }
+  &.error {
+    .hd {
+      @extend .gr-message--error;
+    }
   }
   &.notice {
-    background-color: $couleur-notice;
+    .hd {
+      @extend .gr-message--notice;
+    }
   }
-
 }

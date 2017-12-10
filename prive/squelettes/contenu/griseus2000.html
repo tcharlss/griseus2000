@@ -88,6 +88,7 @@
 
   <div class="nettoyeur"></div>
 
+  [(#REM)
   <h3>Classes virtuelles</h3>
   <div class="par-2">
     <div class="minimal">
@@ -106,6 +107,84 @@
       <p><strong class="code">.liste-objets.redux-max</strong></p>
       <INCLURE{fond=prive/objets/liste/articles, nb=2} />
     </div>
+  </div>
+  ]
+
+</section>
+
+<section id="messages">
+
+  <h2>Messages</h2>
+
+  <h3>Succès</h3>
+
+  <div class="par-3">
+    <div>
+      <code>.success</code>
+      <div class="success">
+        Un message de succès
+      </div>
+    </div>
+    <div>
+      <code>.box.success</code>
+      #BOITE_OUVRIR{'Titre',success}
+        Une boîte de succès
+      #BOITE_FERMER
+    </div>
+    <div>
+      <code>.reponse_formulaire.reponse_formulaire_ok</code>
+      <div class="reponse_formulaire reponse_formulaire_ok">
+        Une réponse de formulaire quand tout s'est bien passé
+      </div>
+    </div>
+  </div>
+
+  <h3>Erreur</h3>
+
+  <div class="par-3">
+    <div>
+      <code>.error</code>
+      <div class="error">
+        Un message d'erreur
+      </div>
+    </div>
+    <div>
+      <code>.box.error</code>
+      #BOITE_OUVRIR{'Titre',error}
+        Une boîte d'erreur
+      #BOITE_FERMER
+    </div>
+    <div>
+      <code>.reponse_formulaire.reponse_formulaire_erreur</code>
+      <div class="reponse_formulaire reponse_formulaire_erreur">
+        Une réponse de formulaire en erreur
+      </div>
+    </div>
+  </div>
+
+  <h3>Notice</h3>
+
+  <div class="par-3">
+    <div>
+      <code>.notice</code>
+      <div class="notice">
+        Un message de notice
+      </div>
+    </div>
+    <div>
+      <code>.box.notice</code>
+      #BOITE_OUVRIR{'Titre',notice}
+        Une boîte de notice
+      #BOITE_FERMER
+    </div>
+    [(#REM)
+    <div>
+      <code>.reponse_formulaire.reponse_formulaire_ok</code>
+      <div class="reponse_formulaire reponse_formulaire_notice">
+        Une réponse de formulaire de notice
+      </div>
+    </div>
+    ]
   </div>
 
 </section>
