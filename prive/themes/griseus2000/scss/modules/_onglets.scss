@@ -76,30 +76,40 @@
   justify-content: center;
   margin-bottom: $bs;
 
-  /* Tous les niveaux */
+  /**
+   * ----------------
+   * Tous les niveaux
+   * ----------------
+   */
   > ul {
-    @include gridle( adapt );
-    @include gridle( row row-align middle center );
     @extend .list-none;
+    display: flex;
+    flex-flow: row wrap auto;
   }
   strong {
-    color: $couleur-defaut;
+    color: $couleur-sombre;
+    @include couleurs-spip(color, $map-sombre);
   }
   a {
     font-weight: 600;
+    // hover
     &:hover,
     &:focus {
-      color: $couleur-defaut;
+      //color: $couleur-defaut;
     }
   }
   img {
     display: none; // pollution visuelle
   }
 
-  /* 1er niveau */
+  /**
+   * ----------
+   * 1er niveau
+   * ----------
+   */
   &:not(.second) {
     ul {
-      border-bottom: 1px solid hsla(0, 0%, 0%, 0.25);
+      border-bottom: 1px solid $couleur-bordure;
     }
     a,
     strong {
@@ -111,23 +121,30 @@
     a {
       &:hover,
       &:focus {
-        border-bottom-color: lighten($couleur-defaut, 20);
+        border-bottom-color: $couleur-claire;
+        @include couleurs-spip(border-bottom-color, $map-claire);
       }
     }
     strong {
       border-bottom-color: $couleur-defaut;
+      @include couleurs-spip(border-bottom-color);
     }
   }
 
-  /* 2nd niveau */
+  /**
+   * ----------
+   * 2nd niveau
+   * ----------
+   */
   &.second {
     ul { }
     li {
       &:not(:last-child) {
         a,
         strong {
+          // Item pour séparer
           &:after {
-            content: "♠";
+            content: "•";
             position: absolute;
             right: 0;
             top: 50%;
@@ -143,9 +160,7 @@
     }
     a {
       &:hover,
-      &:focus {
-
-      }
+      &:focus {}
     }
     strong {}
   }
