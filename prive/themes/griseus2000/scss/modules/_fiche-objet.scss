@@ -11,7 +11,7 @@
     }
     // icone modifier
     .icone a {
-      @extend .button.large;
+      //@extend .button.large;
     }
   }
 
@@ -48,9 +48,10 @@
       }
     }
 
+    // boutons en petit
     input[type=submit],
     button {
-      @extend .button.small;
+      //@extend .button.small;
     }
   }
 

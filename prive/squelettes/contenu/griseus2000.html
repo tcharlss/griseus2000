@@ -2,6 +2,7 @@
 
 <p>Une mini charte pour tester le thème Griseus2000.</p>
 
+<!-- Liste d'items -->
 <section id="listes">
 
   <h2>Liste d'items</h2>
@@ -62,6 +63,7 @@
   <div class="nettoyeur"></div>
 </section>
 
+<!-- Listes d'objets -->
 <section id="liste-objets">
 
   <h2>Liste d'objets</h2>
@@ -112,6 +114,7 @@
 
 </section>
 
+<!-- Messages -->
 <section id="messages">
 
   <h2>Messages</h2>
@@ -120,19 +123,19 @@
 
   <div class="par-3">
     <div>
-      <code>.success</code>
+      <strong class="code">.success</strong>
       <div class="success">
         Un message de succès
       </div>
     </div>
     <div>
-      <code>.box.success</code>
+      <strong class="code">.box.success</strong>
       #BOITE_OUVRIR{'Titre',success}
         Une boîte de succès
       #BOITE_FERMER
     </div>
     <div>
-      <code>.reponse_formulaire.reponse_formulaire_ok</code>
+      <strong class="code">.reponse_formulaire.reponse_formulaire_ok</strong>
       <div class="reponse_formulaire reponse_formulaire_ok">
         Une réponse de formulaire quand tout s'est bien passé
       </div>
@@ -143,19 +146,19 @@
 
   <div class="par-3">
     <div>
-      <code>.error</code>
+      <strong class="code">.error</strong>
       <div class="error">
         Un message d'erreur
       </div>
     </div>
     <div>
-      <code>.box.error</code>
+      <strong class="code">.box.error</strong>
       #BOITE_OUVRIR{'Titre',error}
         Une boîte d'erreur
       #BOITE_FERMER
     </div>
     <div>
-      <code>.reponse_formulaire.reponse_formulaire_erreur</code>
+      <strong class="code">.reponse_formulaire.reponse_formulaire_erreur</strong>
       <div class="reponse_formulaire reponse_formulaire_erreur">
         Une réponse de formulaire en erreur
       </div>
@@ -166,25 +169,148 @@
 
   <div class="par-3">
     <div>
-      <code>.notice</code>
+      <strong class="code">.notice</strong>
       <div class="notice">
         Un message de notice
       </div>
     </div>
     <div>
-      <code>.box.notice</code>
+      <strong class="code">.box.notice</strong>
       #BOITE_OUVRIR{'Titre',notice}
         Une boîte de notice
       #BOITE_FERMER
     </div>
     [(#REM)
     <div>
-      <code>.reponse_formulaire.reponse_formulaire_ok</code>
+      <strong class="code">.reponse_formulaire.reponse_formulaire_ok</strong>
       <div class="reponse_formulaire reponse_formulaire_notice">
         Une réponse de formulaire de notice
       </div>
     </div>
     ]
+  </div>
+
+</section>
+
+<!-- Boiboîtes -->
+<section id="boites">
+
+  <h2>Boîtes</h2>
+
+  <div class="par-4">
+
+    <div>
+      <strong class="code">.box</strong> / <strong class="code">.box.simple</strong>
+      #BOITE_OUVRIR{Boîte}
+        La boîte de base.
+      #BOITE_PIED
+        Le footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.simple</strong>
+      #BOITE_OUVRIR{}
+        La boîte de base sans header ni footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.info</strong>
+      #BOITE_OUVRIR{Boîte d’info,info}
+        Une boîte d'infos.
+      #BOITE_PIED
+        Le footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.info</strong>
+      #BOITE_OUVRIR{'',info}
+        Une boîte d'infos sans header ni footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.important</strong>
+      #BOITE_OUVRIR{Boîte importante,important}
+        Une boîte importante.
+      #BOITE_PIED
+        Le footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.important</strong>
+      #BOITE_OUVRIR{'',important}
+        Une boîte importante sans header ni footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.note</strong>
+      #BOITE_OUVRIR{Boîte de note,note}
+        Une boîte de notes.
+      #BOITE_PIED
+        Le footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.note</strong>
+      #BOITE_OUVRIR{'',note}
+        Une boîte de notes sans header ni footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.raccourcis</strong>
+      #BOITE_OUVRIR{Boîte de raccourcis,raccourcis}
+        Une boîte de raccourcis.
+      #BOITE_PIED
+        Le footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.raccourcis</strong>
+      #BOITE_OUVRIR{'',raccourcis}
+        Une boîte de raccourcis sans header ni footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.basic.inverse</strong>
+      #BOITE_OUVRIR{Boîte inverse,basic inverse}
+        Une boîte basic inverse
+      #BOITE_PIED
+        Le footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.basic.inverse</strong>
+      #BOITE_OUVRIR{'',basic inverse}
+        Une boîte basic inverse sans header ni footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.basic.highlight</strong>
+      #BOITE_OUVRIR{Boîte highlight,basic highlight}
+        Une boîte basic highlight.
+      #BOITE_PIED
+        Le footer.
+      #BOITE_FERMER
+    </div>
+
+    <div>
+      <strong class="code">.box.basic.highlight</strong>
+      #BOITE_OUVRIR{'',basic highlight}
+        Une boîte basic highlight sans header ni footer.
+      #BOITE_FERMER
+    </div>
+
   </div>
 
 </section>

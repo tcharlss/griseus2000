@@ -24,8 +24,8 @@ $couleur-notice: map-get($couleurs-spip, 3); // jaune
 $couleur-info:   map-get($couleurs-spip, 5); // bleu
 // Couleurs fonctionnelles
 $couleur-defaut: map-get($couleurs-spip, 9); // gris-violet
-$couleur-neutre-claire: hsl(0, 0%, 97%);
-$couleur-neutre-sombre: hsl(0, 0%, 20%);
+$couleur-neutre-claire: hsla(0, 0%, 0%, 0.03);
+$couleur-neutre-sombre: hsla(0, 0%, 0%, 0.8);
 $couleur-neutre-hover: hsla(0, 0%, 0%, 0.033);
 $couleur-bordure: hsla(0, 0%, 0%, 0.075);
 $couleur-texte: $couleur-neutre-sombre;

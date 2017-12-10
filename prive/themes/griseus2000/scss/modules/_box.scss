@@ -52,11 +52,12 @@
   /* footer */
   &__footer,
   &__pseudo-footer {
-    padding: $bs $bs;
+    padding: $bs/2 $bs;
     border-radius: 0 0 2px 2px;
+    background-color: $couleur-neutre-claire;
   }
   &__pseudo-footer {
-    margin-bottom: -$bs;
+    margin-bottom: -$bs/2;
     margin-left: -$bs;
     margin-right: -$bs;
   }
@@ -73,19 +74,37 @@
   border: 0;
   @extend .gr-card;
 
+  // Conteneur
   .inner {}
+
+  // Trucs inutiles
+  > b.top,
+  > b.bottom {
+    display: none;
+  }
+
+  // header
   .hd {
     @extend .gr-card__header;
 
     h1,
     h2,
     h3,
-    h4 {
+    h4,
+    h5,
+    h6 {
       @extend .gr-card__header__title;
     }
   }
+
+  // Content
   .bd {
     @extend .gr-card__content;
+  }
+
+  // Footer
+  .ft {
+    @extend .gr-card__footer;
   }
 
   // Dans la navigation
@@ -123,12 +142,21 @@
     }
   }
 
+  /* Simple = boîte de base */
+  &.simple {}
+
   /*  Info */
   &.info {
-    border: 2px solid lighten($couleur-texte, 40);
-    //border: 2px solid lighten($couleur-defaut, 20);
+    //border: 2px solid $couleur-claire;
+    //@include couleurs-spip(border-color, $map-claire);
+    .hd {
+      background-color: $couleur-defaut;
+      @include couleurs-spip(background-color);
+      color: white;
+    }
 
     // Numéro d'objet etc
+    // [FIXME] À déplacer ailleurs
     .infos {
       > * {
         margin-bottom: $bs/2;
@@ -142,27 +170,56 @@
     }
   }
 
+  /* Important */
+  &.important {
+    //border: 2px solid $couleur-texte;
+    .hd {
+      background-color: lighten($couleur-neutre-sombre, 10);
+      color: white;
+    }
+  }
+
   /* Note */
-  &.note {}
+  &.note {
+    border-left: $bs/2 solid $couleur-claire;
+    @include couleurs-spip(border-color, $map-claire);
+    .hd {
+      background-color: white;
+      padding-top: $bs;
+      padding-bottom: 0;
+    }
+  }
 
   /* Raccourcis */
-  &.raccourcis {}
-
-  /* Important */
-  &.important {}
+  &.raccourcis {
+    .hd {
+      border-bottom: 1px solid $couleur-bordure;
+    }
+    .bd {
+      background-color: $couleur-neutre-claire;
+    }
+  }
 
   /* basic */
   &.basic {
+    // toutes
+    .hd {
+      padding-top: $bs;
+      padding-bottom: 0;
+    }
+    // highlight
     &.highlight {
       .hd,
       .bd {
-        background-color: lighten(desaturate($couleur-defaut, 20), 10);
+        background-color: change-color($couleur-defaut, $lightness: 70%, $saturation: 50%);
+        @include couleurs-spip(background-color, (lightness: 70%, saturation: 55%));
       }
       .hd {
         padding-bottom: 0;
         color: white;
       }
     }
+    // inverse
     &.inverse {
       .hd,
       .bd {

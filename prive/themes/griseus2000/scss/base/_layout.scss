@@ -118,11 +118,11 @@
   }
   // Des colonnes pour la page de mini-charte
   [class*=par-] {
-    display: flex;
-    flex-flow: row wrap;
-    > * {
-      flex: 0 1 auto;
-      @include gridle_state( desktop-up ) {
+    @include gridle_state( desktop-up ) {
+      display: flex;
+      flex-flow: row wrap;
+      > * {
+        flex: 0 1 auto;
         margin-right: $bs;
       }
     }
