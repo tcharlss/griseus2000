@@ -1,0 +1,111 @@
+<h1 class="grostitre">Test de Griseus2000</h1>
+
+<p>Une mini charte pour tester le thème Griseus2000.</p>
+
+<section id="listes">
+
+  <h2>Liste d'items</h2>
+
+  <div class="gauche">
+    <h3>Basique</h3>
+    <p><strong class="code">.liste_items</strong></p>
+    <ul class="liste_items">
+        <li class="item favori">
+          <a href="#">
+            Patate
+          </a>
+        </li>
+        <li class="item favori">
+          <a href="#">
+            Poireau
+          </a>
+        </li>
+          <li class="item on execfound non_favori">
+          <a href="#">
+            Courgette
+          </a>
+        </li>
+        <li class="item non_favori">
+          <a href="#">
+            Betterave
+          </a>
+        </li>
+      </ul>
+  </div>
+
+  <div class="droite">
+    <h3>Menu de navigation</h3>
+    <p><strong class="code">.liste_items.sous_navigation</strong></p>
+    <ul class="liste_items sous_navigation">
+      <li class="item favori">
+        <a href="#" class="bando2_configurer_identite">
+          Identité du site
+        </a>
+      </li>
+      <li class="item favori">
+        <a href="#" class="bando2_admin_plugin">
+          Gestion des plugins
+        </a>
+      </li>
+        <li class="item on execfound non_favori">
+        <a href="#" class="bando2_configurer_urls">
+          Configurer les URLs
+        </a>
+      </li>
+      <li class="item non_favori">
+        <a href="#" class="bando2_configurer_contenu">
+          Contenu du site
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="nettoyeur"></div>
+</section>
+
+<section id="liste-objets">
+
+  <h2>Liste d'objets</h2>
+
+  <h3>Normale</h3>
+  <p><strong class="code">.liste-objets</strong></p>
+  <INCLURE{fond=prive/objets/liste/articles, nb=4} />
+
+  <div class="gauche lat">
+    <h3>Dans la navigation latérale</h3>
+    <p>Affichage réduit : on n'affiche que les colonnes importantes.</p>
+    <p><strong class="code">.box .liste-objets</strong></p>
+    <INCLURE{fond=prive/objets/liste/articles, nb=4} />
+  </div>
+
+  <div class="droite">
+    <h3>Dans la fiche d'un objet</h3>
+    <p>Affichage réduit et sous forme de liste.</p>
+    <p><strong class="code">.fiche_objet .liste-objets</strong></p>
+    #BOITE_OUVRIR{'',fiche_objet}
+    <INCLURE{fond=prive/objets/liste/articles, nb=4} />
+    #BOITE_FERMER
+  </div>
+
+  <div class="nettoyeur"></div>
+
+  <h3>Classes virtuelles</h3>
+  <div class="par-2">
+    <div class="minimal">
+      <p><strong class="code">.liste-objets.minimal</strong></p>
+      <INCLURE{fond=prive/objets/liste/articles, nb=2} />
+    </div>
+    <div class="inline">
+      <p><strong class="code">.liste-objets.inline</strong></p>
+      <INCLURE{fond=prive/objets/liste/articles, nb=2} />
+    </div>
+    <div class="redux">
+      <p><strong class="code">.liste-objets.redux</strong></p>
+      <INCLURE{fond=prive/objets/liste/articles, nb=2} />
+    </div>
+    <div class="redux-max">
+      <p><strong class="code">.liste-objets.redux-max</strong></p>
+      <INCLURE{fond=prive/objets/liste/articles, nb=2} />
+    </div>
+  </div>
+
+</section>
