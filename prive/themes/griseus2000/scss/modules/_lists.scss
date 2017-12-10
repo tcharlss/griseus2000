@@ -14,8 +14,8 @@
  * - .inline :  afficher sous forme de liste
  */
 .liste-objets {
-  @extend .card;
-  //@extend .card__content;
+  @extend .gr-card;
+  //@extend .gr-card__content;
 
   // Le tableau
   table.liste {
@@ -24,7 +24,7 @@
 
   // Titre du tableau 
   caption {
-    //@extend .card__pseudo-header;
+    //@extend .gr-card__pseudo-header;
     //margin-bottom: $bs;
     padding: $bs;
   }
@@ -239,8 +239,8 @@
 
   /* Sous navigation (menu de configuration, etc.) */
   &.sous_navigation {
-    @extend .card;
-    //@extend .card__content;
+    @extend .gr-card;
+    //@extend .gr-card__content;
     .item {
       a {
         padding-left: $bs;

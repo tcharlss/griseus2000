@@ -12,7 +12,7 @@
  * - content
  * - footer
  */
-.card {
+.gr-card {
   position: relative;
   margin-bottom: $bs;
   background-color: white;
@@ -71,21 +71,21 @@
 .box {
   padding: 0;
   border: 0;
-  @extend .card;
+  @extend .gr-card;
 
   .inner {}
   .hd {
-    @extend .card__header;
+    @extend .gr-card__header;
 
     h1,
     h2,
     h3,
     h4 {
-      @extend .card__header__title;
+      @extend .gr-card__header__title;
     }
   }
   .bd {
-    @extend .card__content;
+    @extend .gr-card__content;
   }
 
   // Dans la navigation
@@ -96,7 +96,9 @@
   }
 
   /**
+   * ---------
    * Variantes
+   * ---------
    */
 
   /* sous-rubrique */
@@ -139,6 +141,15 @@
       }
     }
   }
+
+  /* Note */
+  &.note {}
+
+  /* Raccourcis */
+  &.raccourcis {}
+
+  /* Important */
+  &.important {}
 
   /* basic */
   &.basic {

@@ -101,7 +101,7 @@ fieldset {
 /* Conteneur sur une fiche */
 .cadre-formulaire-editer {
   .entete-formulaire {
-    @extend .card__header;
+    @extend .gr-card__header;
   }
   h1 {
     margin: 0;
@@ -113,12 +113,12 @@ fieldset {
 .formulaire_spip {
   margin-bottom: $bs;
   font-family: $font-family-texte; // pour ceux qui sont dans le #wysiwyg
-  @extend .card;
-  @extend .card__content;
+  @extend .gr-card;
+  @extend .gr-card__content;
 
     // pseudo header
   > h3:first-child {
-    @extend .card__pseudo-header;
+    @extend .gr-card__pseudo-header;
 
   }
 
@@ -173,7 +173,7 @@ fieldset {
 
   // Footer avec les boutons
   .boutons {
-    @extend .card__pseudo-footer;
+    @extend .gr-card__pseudo-footer;
     //margin-top: $bs;
     display: flex;
     justify-content: flex-end;
