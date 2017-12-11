@@ -35,9 +35,9 @@ function griseus2000_header_prive($flux) {
 function griseus2000_body_prive($flux) {
 
 	// Le numéro de la couleur de l'utilisateur
-	$couleur = (isset($GLOBALS['visiteur_session']['prefs']['couleur']) and $GLOBALS['visiteur_session']['prefs']['couleur'] > 0) ?
-		$GLOBALS['visiteur_session']['prefs']['couleur'] :
-		1;
+	$couleur = isset($GLOBALS['visiteur_session']['prefs']['couleur'])
+		? $GLOBALS['visiteur_session']['prefs']['couleur']
+		: 9;
 
 	// On ajoute la classe sous la forme couleur_N
 	$cherche = '/(<body[^>]*class=["\'][^"\']+)/i';
