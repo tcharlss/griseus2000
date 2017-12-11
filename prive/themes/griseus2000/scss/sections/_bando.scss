@@ -265,7 +265,8 @@
       // actif
       &:hover,
       &:focus,
-      &.actif {
+      &.actif,
+      &.actif_tempo {
         > a {
           background-color: $couleur-dark;
           @include couleurs-spip(background-color, $couleur-dark-params);
@@ -350,7 +351,8 @@
         // Hover & actif
         &:hover,
         &:focus,
-        &.actif {
+        &.actif,
+        &.actif_tempo {
           // Apparition du sous menu
           > ul {
             opacity: 1;

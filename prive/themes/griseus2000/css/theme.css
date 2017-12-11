@@ -6110,91 +6110,91 @@ fieldset > legend,
     position: relative;
 }
 
-#bando_navigation .deroulant > li:hover > a, #bando_navigation .deroulant > li:focus > a, #bando_navigation .deroulant > li.actif > a {
+#bando_navigation .deroulant > li:hover > a, #bando_navigation .deroulant > li:focus > a, #bando_navigation .deroulant > li.actif > a, #bando_navigation .deroulant > li.actif_tempo > a {
     background-color: #3434a5;
 }
 
-.couleur_1 #bando_navigation .deroulant > li:hover > a, .couleur_1 #bando_navigation .deroulant > li:focus > a, .couleur_1 #bando_navigation .deroulant > li.actif > a {
+.couleur_1 #bando_navigation .deroulant > li:hover > a, .couleur_1 #bando_navigation .deroulant > li:focus > a, .couleur_1 #bando_navigation .deroulant > li.actif > a, .couleur_1 #bando_navigation .deroulant > li.actif_tempo > a {
     background-color: #71840c;
 }
 
-#bando_navigation .deroulant > li:hover > a.couleur_1, #bando_navigation .deroulant > li:focus > a.couleur_1, #bando_navigation .deroulant > li.actif > a.couleur_1 {
+#bando_navigation .deroulant > li:hover > a.couleur_1, #bando_navigation .deroulant > li:focus > a.couleur_1, #bando_navigation .deroulant > li.actif > a.couleur_1, #bando_navigation .deroulant > li.actif_tempo > a.couleur_1 {
     background-color: #71840c !important;
 }
 
-.couleur_2 #bando_navigation .deroulant > li:hover > a, .couleur_2 #bando_navigation .deroulant > li:focus > a, .couleur_2 #bando_navigation .deroulant > li.actif > a {
+.couleur_2 #bando_navigation .deroulant > li:hover > a, .couleur_2 #bando_navigation .deroulant > li:focus > a, .couleur_2 #bando_navigation .deroulant > li.actif > a, .couleur_2 #bando_navigation .deroulant > li.actif_tempo > a {
     background-color: #951645;
 }
 
-#bando_navigation .deroulant > li:hover > a.couleur_2, #bando_navigation .deroulant > li:focus > a.couleur_2, #bando_navigation .deroulant > li.actif > a.couleur_2 {
+#bando_navigation .deroulant > li:hover > a.couleur_2, #bando_navigation .deroulant > li:focus > a.couleur_2, #bando_navigation .deroulant > li.actif > a.couleur_2, #bando_navigation .deroulant > li.actif_tempo > a.couleur_2 {
     background-color: #951645 !important;
 }
 
-.couleur_3 #bando_navigation .deroulant > li:hover > a, .couleur_3 #bando_navigation .deroulant > li:focus > a, .couleur_3 #bando_navigation .deroulant > li.actif > a {
+.couleur_3 #bando_navigation .deroulant > li:hover > a, .couleur_3 #bando_navigation .deroulant > li:focus > a, .couleur_3 #bando_navigation .deroulant > li.actif > a, .couleur_3 #bando_navigation .deroulant > li.actif_tempo > a {
     background-color: #a46a0d;
 }
 
-#bando_navigation .deroulant > li:hover > a.couleur_3, #bando_navigation .deroulant > li:focus > a.couleur_3, #bando_navigation .deroulant > li.actif > a.couleur_3 {
+#bando_navigation .deroulant > li:hover > a.couleur_3, #bando_navigation .deroulant > li:focus > a.couleur_3, #bando_navigation .deroulant > li.actif > a.couleur_3, #bando_navigation .deroulant > li.actif_tempo > a.couleur_3 {
     background-color: #a46a0d !important;
 }
 
-.couleur_4 #bando_navigation .deroulant > li:hover > a, .couleur_4 #bando_navigation .deroulant > li:focus > a, .couleur_4 #bando_navigation .deroulant > li.actif > a {
+.couleur_4 #bando_navigation .deroulant > li:hover > a, .couleur_4 #bando_navigation .deroulant > li:focus > a, .couleur_4 #bando_navigation .deroulant > li.actif > a, .couleur_4 #bando_navigation .deroulant > li.actif_tempo > a {
     background-color: #a47226;
 }
 
-#bando_navigation .deroulant > li:hover > a.couleur_4, #bando_navigation .deroulant > li:focus > a.couleur_4, #bando_navigation .deroulant > li.actif > a.couleur_4 {
+#bando_navigation .deroulant > li:hover > a.couleur_4, #bando_navigation .deroulant > li:focus > a.couleur_4, #bando_navigation .deroulant > li.actif > a.couleur_4, #bando_navigation .deroulant > li.actif_tempo > a.couleur_4 {
     background-color: #a47226 !important;
 }
 
-.couleur_5 #bando_navigation .deroulant > li:hover > a, .couleur_5 #bando_navigation .deroulant > li:focus > a, .couleur_5 #bando_navigation .deroulant > li.actif > a {
+.couleur_5 #bando_navigation .deroulant > li:hover > a, .couleur_5 #bando_navigation .deroulant > li:focus > a, .couleur_5 #bando_navigation .deroulant > li.actif > a, .couleur_5 #bando_navigation .deroulant > li.actif_tempo > a {
     background-color: #277b9d;
 }
 
-#bando_navigation .deroulant > li:hover > a.couleur_5, #bando_navigation .deroulant > li:focus > a.couleur_5, #bando_navigation .deroulant > li.actif > a.couleur_5 {
+#bando_navigation .deroulant > li:hover > a.couleur_5, #bando_navigation .deroulant > li:focus > a.couleur_5, #bando_navigation .deroulant > li.actif > a.couleur_5, #bando_navigation .deroulant > li.actif_tempo > a.couleur_5 {
     background-color: #277b9d !important;
 }
 
-.couleur_6 #bando_navigation .deroulant > li:hover > a, .couleur_6 #bando_navigation .deroulant > li:focus > a, .couleur_6 #bando_navigation .deroulant > li.actif > a {
+.couleur_6 #bando_navigation .deroulant > li:hover > a, .couleur_6 #bando_navigation .deroulant > li:focus > a, .couleur_6 #bando_navigation .deroulant > li.actif > a, .couleur_6 #bando_navigation .deroulant > li.actif_tempo > a {
     background-color: #38638b;
 }
 
-#bando_navigation .deroulant > li:hover > a.couleur_6, #bando_navigation .deroulant > li:focus > a.couleur_6, #bando_navigation .deroulant > li.actif > a.couleur_6 {
+#bando_navigation .deroulant > li:hover > a.couleur_6, #bando_navigation .deroulant > li:focus > a.couleur_6, #bando_navigation .deroulant > li.actif > a.couleur_6, #bando_navigation .deroulant > li.actif_tempo > a.couleur_6 {
     background-color: #38638b !important;
 }
 
-.couleur_7 #bando_navigation .deroulant > li:hover > a, .couleur_7 #bando_navigation .deroulant > li:focus > a, .couleur_7 #bando_navigation .deroulant > li.actif > a {
+.couleur_7 #bando_navigation .deroulant > li:hover > a, .couleur_7 #bando_navigation .deroulant > li:focus > a, .couleur_7 #bando_navigation .deroulant > li.actif > a, .couleur_7 #bando_navigation .deroulant > li.actif_tempo > a {
     background-color: #828230;
 }
 
-#bando_navigation .deroulant > li:hover > a.couleur_7, #bando_navigation .deroulant > li:focus > a.couleur_7, #bando_navigation .deroulant > li.actif > a.couleur_7 {
+#bando_navigation .deroulant > li:hover > a.couleur_7, #bando_navigation .deroulant > li:focus > a.couleur_7, #bando_navigation .deroulant > li.actif > a.couleur_7, #bando_navigation .deroulant > li.actif_tempo > a.couleur_7 {
     background-color: #828230 !important;
 }
 
-.couleur_8 #bando_navigation .deroulant > li:hover > a, .couleur_8 #bando_navigation .deroulant > li:focus > a, .couleur_8 #bando_navigation .deroulant > li.actif > a {
+.couleur_8 #bando_navigation .deroulant > li:hover > a, .couleur_8 #bando_navigation .deroulant > li:focus > a, .couleur_8 #bando_navigation .deroulant > li.actif > a, .couleur_8 #bando_navigation .deroulant > li.actif_tempo > a {
     background-color: #a71e1c;
 }
 
-#bando_navigation .deroulant > li:hover > a.couleur_8, #bando_navigation .deroulant > li:focus > a.couleur_8, #bando_navigation .deroulant > li.actif > a.couleur_8 {
+#bando_navigation .deroulant > li:hover > a.couleur_8, #bando_navigation .deroulant > li:focus > a.couleur_8, #bando_navigation .deroulant > li.actif > a.couleur_8, #bando_navigation .deroulant > li.actif_tempo > a.couleur_8 {
     background-color: #a71e1c !important;
 }
 
-.couleur_9 #bando_navigation .deroulant > li:hover > a, .couleur_9 #bando_navigation .deroulant > li:focus > a, .couleur_9 #bando_navigation .deroulant > li.actif > a {
+.couleur_9 #bando_navigation .deroulant > li:hover > a, .couleur_9 #bando_navigation .deroulant > li:focus > a, .couleur_9 #bando_navigation .deroulant > li.actif > a, .couleur_9 #bando_navigation .deroulant > li.actif_tempo > a {
     background-color: #3434a5;
 }
 
-#bando_navigation .deroulant > li:hover > a.couleur_9, #bando_navigation .deroulant > li:focus > a.couleur_9, #bando_navigation .deroulant > li.actif > a.couleur_9 {
+#bando_navigation .deroulant > li:hover > a.couleur_9, #bando_navigation .deroulant > li:focus > a.couleur_9, #bando_navigation .deroulant > li.actif > a.couleur_9, #bando_navigation .deroulant > li.actif_tempo > a.couleur_9 {
     background-color: #3434a5 !important;
 }
 
-.couleur_10 #bando_navigation .deroulant > li:hover > a, .couleur_10 #bando_navigation .deroulant > li:focus > a, .couleur_10 #bando_navigation .deroulant > li.actif > a {
+.couleur_10 #bando_navigation .deroulant > li:hover > a, .couleur_10 #bando_navigation .deroulant > li:focus > a, .couleur_10 #bando_navigation .deroulant > li.actif > a, .couleur_10 #bando_navigation .deroulant > li.actif_tempo > a {
     background-color: #873c3c;
 }
 
-#bando_navigation .deroulant > li:hover > a.couleur_10, #bando_navigation .deroulant > li:focus > a.couleur_10, #bando_navigation .deroulant > li.actif > a.couleur_10 {
+#bando_navigation .deroulant > li:hover > a.couleur_10, #bando_navigation .deroulant > li:focus > a.couleur_10, #bando_navigation .deroulant > li.actif > a.couleur_10, #bando_navigation .deroulant > li.actif_tempo > a.couleur_10 {
     background-color: #873c3c !important;
 }
 
-#bando_navigation .deroulant > li:hover > ul, #bando_navigation .deroulant > li:focus > ul, #bando_navigation .deroulant > li.actif > ul {
+#bando_navigation .deroulant > li:hover > ul, #bando_navigation .deroulant > li:focus > ul, #bando_navigation .deroulant > li.actif > ul, #bando_navigation .deroulant > li.actif_tempo > ul {
     display: block;
 }
 
@@ -6244,7 +6244,7 @@ fieldset > legend,
         margin: 0;
     }
 
-    #bando_navigation .deroulant > li:hover > ul, #bando_navigation .deroulant > li:focus > ul, #bando_navigation .deroulant > li.actif > ul {
+    #bando_navigation .deroulant > li:hover > ul, #bando_navigation .deroulant > li:focus > ul, #bando_navigation .deroulant > li.actif > ul, #bando_navigation .deroulant > li.actif_tempo > ul {
         opacity: 1;
         width: 11.8125rem;
     }
