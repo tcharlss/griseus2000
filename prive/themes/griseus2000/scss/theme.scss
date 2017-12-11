@@ -13,8 +13,8 @@
  * Ces imports ne génèrent aucun style CSS, ce sont des utilitaires ou sinon des styles de librairies
 **/
 @import "base/functions"; // fonctions du projet
-@import "base/mixins"; // mixins du projet
 @import "base/variables"; // variables globales (couleurs, typographie, etc.)
+@import "base/mixins"; // mixins du projet
 @import "frameworks/gridle/gridle/gridle"; // grille Gridle - http://gridle.org/
 @import "base/grid-settings"; // configuration de la grille
 @import "modules/fontello"; // icones de fontello

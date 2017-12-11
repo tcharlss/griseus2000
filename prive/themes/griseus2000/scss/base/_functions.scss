@@ -20,31 +20,108 @@
 }
 
 /**
- * Alias de la fonction change-color(), sauf qu'on peut utiliser une map en paramètre
+ * Changer une couleur avec des valeurs absolues (luminosité, saturation, teinte, opacité).
+ * 
+ * @example
+ * - Mettre la luminosité à 20% : traiter-couleur(red, (lightness: 20%))
+ * - Mettre la saturation à 50% : traiter-couleur(red, (saturation: 50%))
  *
  * @see change-color()
+ *
  * @param col $couleur - Couleur à traiter
- * @param map $traitements - Attention, pas de '$' au nom de la propriété : (lightness: 10%, saturation: 20%, alpha: 0.5).
+ * @param map $traitements - Map de traitements à effectuer
+ *   Clés possibles : lightness | saturation | alpha | hue
  * @return col
  */
- @function traiter-couleur($couleur, $traitements) {
-  @each $traitement, $valeur in $traitements {
-    // Luminosité
-    @if ($traitement == lightness) {
-      $couleur: change-color($couleur, $lightness: $valeur);
-    }
-    // Saturation
-    @if ($traitement == saturation) {
-      $couleur: change-color($couleur, $saturation: $valeur);
-    }
-    // Opacité
-    @if ($traitement == alpha) {
-      $couleur: change-color($couleur, $alpha: $valeur);
-    }
-    // Teinte
-    @if ($traitement == hue) {
-      $couleur: change-color($hue, $alpha: $valeur);
+@function changer-couleur($couleur, $traitements) {
+  @if (type-of($couleur) == color) {
+    @each $traitement, $valeur in $traitements {
+
+      // Luminosité
+      @if ($traitement == lightness) {
+        $couleur: change-color($couleur, $lightness: $valeur);
+      }
+
+      // Saturation
+      @if ($traitement == saturation) {
+        $couleur: change-color($couleur, $saturation: $valeur);
+      }
+
+      // Opacité
+      @if ($traitement == alpha) {
+        $couleur: change-color($couleur, $alpha: $valeur);
+      }
+
+      // Teinte
+      @if ($traitement == hue) {
+        $couleur: change-color($hue, $alpha: $valeur);
+      }
     }
   }
+
   @return $couleur;
+}
+
+/**
+ * Changer une couleur avec des valeurs relatives (luminosité, saturation, teinte, opacité).
+ * 
+ * @example
+ * - Augmenter la luminosité de 20% : ajuster-couleur(red, (lightness: 20%))
+ * - Baisser la saturation de 50% : ajuster-couleur(red, (saturation: -50%))
+ *
+ * @see adjust-color()
+ *
+ * @param col $couleur - Couleur à traiter
+ * @param map $traitements - Map de traitements à effectuer
+ *   Clés possibles : lightness | saturation | alpha | hue
+ * @return col
+ */
+@function ajuster-couleur($couleur, $traitements) {
+  @if (type-of($couleur) == color) {
+    @each $traitement, $valeur in $traitements {
+
+      // Luminosité
+      @if ($traitement == lightness) {
+        $couleur: adjust-color($couleur, $lightness: $valeur);
+      }
+
+      // Saturation
+      @if ($traitement == saturation) {
+        $couleur: adjust-color($couleur, $saturation: $valeur);
+      }
+
+      // Opacité
+      @if ($traitement == alpha) {
+        $couleur: adjust-color($couleur, $alpha: $valeur);
+      }
+
+      // Teinte
+      @if ($traitement == hue) {
+        $couleur: adjust-color($hue, $alpha: $valeur);
+      }
+    }
+  }
+
+  @return $couleur;
+}
+
+/**
+ * Égaliser des couleurs pour que leur luminosité et leur saturation soient cohérentes.
+ *
+ * @param map $couleurs
+ * @param number $force
+ * @return map
+ */
+@function egaliser-couleurs($couleurs, $force: 100%) {
+  $couleurs-egalisees: ();
+  @each $i, $couleur in $couleurs {
+    // On applique une luminosité et une saturation médiane
+    $couleur-ajustee: change-color($couleur, $saturation: 66%, $lightness: 50%);
+    // On pondère pour éviter que certaines couleurs se ressemblent trop
+    $couleur-ajustee: mix($couleur-ajustee, $couleur, $force);
+    // On remplace la couleur dans la map
+    $couleurs-egalisees: map-merge($couleurs-egalisees, ($i: $couleur-ajustee));
+  }
+
+  @return $couleurs-egalisees;
 }

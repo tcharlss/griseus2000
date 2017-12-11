@@ -24,17 +24,20 @@
  * @param prop $propriete - Propriété à utiliser
  * @param map $traitements - Map de traitements à effectuer, correspond aux paramètres de la fonction change-color : (lightness: 10%, saturation: 20%)
  */
-@mixin couleurs-spip($propriete: color, $traitements: null) {
+@mixin couleurs-spip($propriete: color, $traitements: false) {
   @each $i, $couleur in $couleurs-spip {
 
     // Ajustement éventuel de la couleur
-    @if (type-of($traitements) != null) {
-      $couleur: traiter-couleur($couleur, $traitements);
+    @if (type-of($traitements) == map) {
+      $couleur: ajuster-couleur($couleur, $traitements);
     }
 
     // go go go
     .couleur_#{$i} & {
       #{$propriete}: $couleur;
+    }
+    &.couleur_#{$i} {
+      #{$propriete}: $couleur !important;
     }
 
   }

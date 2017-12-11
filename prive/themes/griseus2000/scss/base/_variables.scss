@@ -6,6 +6,8 @@
 /* Palette de couleur */
 
 // Couleurs de SPIP (codées en dur)
+// On les ajuste pour avoir des couleurs de base cohérentes,
+// sinon certaines variantes sont trop claires/sombres selon les couleurs.
 $couleurs-spip: (
   1: #9DBA00,
   2: #D51B60,
@@ -18,6 +20,7 @@ $couleurs-spip: (
   9: #8F8FBD,
   10: #909090
 );
+$couleurs-spip: egaliser-couleurs($couleurs-spip, 25%);
 
 // Couleurs d'états (piochées dans celles de SPIP par cohérence)
 $couleur-succes: map-get($couleurs-spip, 1); // vert
@@ -37,19 +40,35 @@ $couleur-texte: $couleur-neutre-sombre;
 $couleur-code: navy;
 
 // Variantes de la couleur du thème
+// (Absolu)
 // Lighter
-$couleur-lighter-map: (lightness: 80%);
-$couleur-lighter: change-color($couleur-defaut, $lightness: map-get($couleur-lighter-map, lightness));
+// $couleur-lighter-map: (lightness: 70%);
+// $couleur-lighter: changer-couleur($couleur-defaut, $couleur-lighter-map);
+// // Light
+// $couleur-light-map: (lightness: 60%);
+// $couleur-light: changer-couleur($couleur-defaut, $couleur-light-map);
+// // Base
+// $couleur-base-map: (lightness: 50%);
+// $couleur-base: changer-couleur($couleur-defaut, $couleur-base-map);
+// // Dark
+// $couleur-dark-map: (lightness: 40%);
+// $couleur-dark: changer-couleur($couleur-defaut, $couleur-dark-map);
+// // Darker
+// $couleur-darker-map: (lightness: 30%);
+// $couleur-darker: changer-couleur($couleur-defaut, $couleur-darker-map);
+// (Relatif)
+// Lighter
+$couleur-lighter-map: (lightness: +30%, saturation: -10%);
+$couleur-lighter: ajuster-couleur($couleur-defaut, $couleur-lighter-map);
 // Light
-$couleur-light-map: (lightness: 70%);
-$couleur-light: change-color($couleur-defaut, $lightness: map-get($couleur-light-map, lightness));
+$couleur-light-map: (lightness: +15%, saturation: -5%);
+$couleur-light: ajuster-couleur($couleur-defaut, $couleur-light-map);
 // Dark
-$couleur-dark-map: (lightness: 40%);
-$couleur-dark: change-color($couleur-defaut, $lightness: map-get($couleur-dark-map, lightness));
+$couleur-dark-map: (lightness: -15%, saturation: +5%);
+$couleur-dark: ajuster-couleur($couleur-defaut, $couleur-dark-map);
 // Darker
-$couleur-darker-map: (lightness: 30%);
-$couleur-darker: change-color($couleur-defaut, $lightness: map-get($couleur-darker-map, lightness));
-
+$couleur-darker-map: (lightness: -30%, saturation: +10%);
+$couleur-darker: ajuster-couleur($couleur-defaut, $couleur-darker-map);
 
 /* Variables de typographie */
 $typo-font-size: em(14px);
