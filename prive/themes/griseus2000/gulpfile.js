@@ -18,8 +18,8 @@ var
 gulp.task('watch', function() {
   gulp.watch('./scss/**/*', gulp.series(
     'sass',
-    'css',
-    'minify'
+    'css'/*,
+    'minify'*/
   ));
 });
 
