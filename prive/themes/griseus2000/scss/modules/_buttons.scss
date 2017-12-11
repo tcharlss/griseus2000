@@ -27,7 +27,7 @@
   &:hover,
   &:focus {
     background-color: $couleur-dark;
-    @include couleurs-spip(background-color, $couleur-dark-map);
+    @include couleurs-spip(background-color, $couleur-dark-params);
     cursor: pointer;
     color: white;
   }
@@ -97,7 +97,7 @@
     &:hover,
     &:focus {
       border-color: $couleur-light;
-      @include couleurs-spip(border-color, $couleur-light-map);
+      @include couleurs-spip(border-color, $couleur-light-params);
       color: white;
     }
   }

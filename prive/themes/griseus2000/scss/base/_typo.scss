@@ -9,7 +9,7 @@ body {
   font-family: $font-family-texte;
   color: $couleur-texte;
   background-color: change-color($couleur-defaut, $lightness: 96%, $saturation: 15%);
-  @include couleurs-spip(background-color, (lightness: 96%, saturation: 15%));
+  @include couleurs-spip(background-color, (lightness: 96%, saturation: 15%), 'changer');
 }
 
 /* Marges sous les principaux blocs */
@@ -30,8 +30,8 @@ a {
   &:focus {
     text-decoration: underline;
     text-decoration-style: dotted;
-    color: change-color($couleur-defaut, $lightness: 44%, $saturation: 66%);
-    @include couleurs-spip(color, (lightness: 44%, saturation: 66%));
+    color: $couleur-dark;
+    @include couleurs-spip(color, $couleur-dark-params);
   }
 }
 
@@ -111,7 +111,7 @@ table {
   tbody {
     tr {
       &:hover {
-        background-color: $couleur-neutre-claire;
+        background-color: $couleur-neutre-claire-alpha;
       }
     }
     td {
@@ -172,20 +172,28 @@ blockquote {
 .gr-color {
   color: $couleur-defaut;
   @include couleurs-spip(color);
+  &_lightest {
+    color: $couleur-lightest;
+    @include couleurs-spip(color, $couleur-lightest-params);
+  }
   &_lighter {
     color: $couleur-lighter;
-    @include couleurs-spip(color, $couleur-lighter-map);
+    @include couleurs-spip(color, $couleur-lighter-params);
   }
   &_light {
     color: $couleur-light;
-    @include couleurs-spip(color, $couleur-light-map);
+    @include couleurs-spip(color, $couleur-light-params);
   }
   &_dark {
     color: $couleur-dark;
-    @include couleurs-spip(color, $couleur-dark-map);
+    @include couleurs-spip(color, $couleur-dark-params);
   }
   &_darker {
     color: $couleur-darker;
-    @include couleurs-spip(color, $couleur-darker-map);
+    @include couleurs-spip(color, $couleur-darker-params);
+  }
+  &_darkest {
+    color: $couleur-darkest;
+    @include couleurs-spip(color, $couleur-darkest-params);
   }
 }

@@ -160,7 +160,7 @@
   /*  Info */
   &.info {
     //border: 2px solid $couleur-light;
-    //@include couleurs-spip(border-color, $couleur-light-map);
+    //@include couleurs-spip(border-color, $couleur-light-params);
     .hd {
       background-color: $couleur-defaut;
       @include couleurs-spip(background-color);
@@ -180,7 +180,7 @@
   /* Note */
   &.note {
     border-left: $bs/2 solid $couleur-light;
-    @include couleurs-spip(border-color, $couleur-light-map);
+    @include couleurs-spip(border-color, $couleur-light-params);
     .hd {
       background-color: white;
       padding-top: $bs;

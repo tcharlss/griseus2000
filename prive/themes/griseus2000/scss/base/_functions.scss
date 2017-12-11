@@ -54,7 +54,7 @@
 
       // Teinte
       @if ($traitement == hue) {
-        $couleur: change-color($hue, $alpha: $valeur);
+        $couleur: change-color($couleur, $hue: $valeur);
       }
     }
   }
@@ -97,7 +97,7 @@
 
       // Teinte
       @if ($traitement == hue) {
-        $couleur: adjust-color($hue, $alpha: $valeur);
+        $couleur: adjust-color($couleur, $hue: $valeur);
       }
     }
   }

@@ -2,6 +2,34 @@
 
 <p>Une mini charte pour tester le rendu des composants de l’espace privé de SPIP avec le thème Griseus 2000.</p>
 
+<!-- onglets -->
+<section id="onglets">
+
+  <h2>Onglets</h2>
+
+  <h3>Barre d’onglets</h3>
+
+  [(#VAL{infos_perso}|barre_onglets{infos_perso})]
+
+  <h3>Onglets simples</h3>
+
+  <div class='onglets_simple clearfix'>
+    <ul>
+      <li><strong>Onglet exposé</strong></li>
+      <li><a>Onglet cliquable</a></li>
+      <li><a>Onglet cliquable</a></li>
+    </ul>
+  </div>
+  
+  <div class='onglets_simple second clearfix'>
+    <ul>
+      <li><strong>Onglet expos&eacute;</strong></li>
+      <li><a>Onglet cliquable</a></li>
+      <li><a>Onglet cliquable</a></li>
+    </ul>
+  </div>
+</section>
+
 <!-- Liste d'items -->
 <section id="listes">
 
@@ -316,103 +344,33 @@
 </section>
 
 <!-- Couleurs -->
-<style>
-  .previsu-couleurs [class*=gr-color]{font-size:2em}
-</style>
 <section id="couleurs">
+  <style>
+    .previsu-couleurs [class*=gr-color]{font-size:2em}
+  </style>
   <h2>Couleurs</h2>
   <table class="previsu-couleurs text-center">
     <thead>
       <tr>
         <th></th>
+        <th>lightest</th>
         <th>lighter</th>
         <th>light</th>
         <th>base</th>
         <th>dark</th>
         <th>darker</th>
+        <th>darkest</th>
       </tr>
     </thead>
     <tbody>
+      <BOUCLE_couleurs(DATA){enum 1,10}>
       <tr>
-        <td><code>.couleur_1</code></td>
-        <td><span class="couleur_1 gr-color_lighter">■</span></td>
-        <td><span class="couleur_1 gr-color_light">■</span></td>
-        <td><span class="couleur_1 gr-color">■</span></td>
-        <td><span class="couleur_1 gr-color_dark">■</span></td>
-        <td><span class="couleur_1 gr-color_darker">■</span></td>
+        <td><code>.couleur_#VALEUR</code></td>
+        <BOUCLE_nuances(DATA){source table, #LISTE{lightest,lighter,light,'',dark,darker,darkest}}>
+        <td><span class="couleur_[(#_couleurs:VALEUR)] gr-color[_(#VALEUR)]">■</span></td>
+        </BOUCLE_nuances>
       </tr>
-      <tr>
-        <td><code>.couleur_2</code></td>
-        <td><span class="couleur_2 gr-color_lighter">■</span></td>
-        <td><span class="couleur_2 gr-color_light">■</span></td>
-        <td><span class="couleur_2 gr-color">■</span></td>
-        <td><span class="couleur_2 gr-color_dark">■</span></td>
-        <td><span class="couleur_2 gr-color_darker">■</span></td>
-      </tr>
-      <tr>
-        <td><code>.couleur_3</code></td>
-        <td><span class="couleur_3 gr-color_lighter">■</span></td>
-        <td><span class="couleur_3 gr-color_light">■</span></td>
-        <td><span class="couleur_3 gr-color">■</span></td>
-        <td><span class="couleur_3 gr-color_dark">■</span></td>
-        <td><span class="couleur_3 gr-color_darker">■</span></td>
-      </tr>
-      <tr>
-        <td><code>.couleur_4</code></td>
-        <td><span class="couleur_4 gr-color_lighter">■</span></td>
-        <td><span class="couleur_4 gr-color_light">■</span></td>
-        <td><span class="couleur_4 gr-color">■</span></td>
-        <td><span class="couleur_4 gr-color_dark">■</span></td>
-        <td><span class="couleur_4 gr-color_darker">■</span></td>
-      </tr>
-      <tr>
-        <td><code>.couleur_5</code></td>
-        <td><span class="couleur_5 gr-color_lighter">■</span></td>
-        <td><span class="couleur_5 gr-color_light">■</span></td>
-        <td><span class="couleur_5 gr-color">■</span></td>
-        <td><span class="couleur_5 gr-color_dark">■</span></td>
-        <td><span class="couleur_5 gr-color_darker">■</span></td>
-      </tr>
-      <tr>
-        <td><code>.couleur_6</code></td>
-        <td><span class="couleur_6 gr-color_lighter">■</span></td>
-        <td><span class="couleur_6 gr-color_light">■</span></td>
-        <td><span class="couleur_6 gr-color">■</span></td>
-        <td><span class="couleur_6 gr-color_dark">■</span></td>
-        <td><span class="couleur_6 gr-color_darker">■</span></td>
-      </tr>
-      <tr>
-        <td><code>.couleur_7</code></td>
-        <td><span class="couleur_7 gr-color_lighter">■</span></td>
-        <td><span class="couleur_7 gr-color_light">■</span></td>
-        <td><span class="couleur_7 gr-color">■</span></td>
-        <td><span class="couleur_7 gr-color_dark">■</span></td>
-        <td><span class="couleur_7 gr-color_darker">■</span></td>
-      </tr>
-      <tr>
-        <td><code>.couleur_8</code></td>
-        <td><span class="couleur_8 gr-color_lighter">■</span></td>
-        <td><span class="couleur_8 gr-color_light">■</span></td>
-        <td><span class="couleur_8 gr-color">■</span></td>
-        <td><span class="couleur_8 gr-color_dark">■</span></td>
-        <td><span class="couleur_8 gr-color_darker">■</span></td>
-      </tr>
-      <tr>
-        <td><code>.couleur_9</code></td>
-        <td><span class="couleur_9 gr-color_lighter">■</span></td>
-        <td><span class="couleur_9 gr-color_light">■</span></td>
-        <td><span class="couleur_9 gr-color">■</span></td>
-        <td><span class="couleur_9 gr-color_dark">■</span></td>
-        <td><span class="couleur_9 gr-color_darker">■</span></td>
-      </tr>
-      <tr">
-        <td><code>.couleur_10</code></td>
-        <td><span class="couleur_10 gr-color_lighter">■</span></td>
-        <td><span class="couleur_10 gr-color_light">■</span></td>
-        <td><span class="couleur_10 gr-color">■</span></td>
-        <td><span class="couleur_10 gr-color_dark">■</span></td>
-        <td><span class="couleur_10 gr-color_darker">■</span></td>
-      </tr>
+      </BOUCLE_couleurs>
     </tbody>
   </table>
 </section>

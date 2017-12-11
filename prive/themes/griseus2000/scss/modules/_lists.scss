@@ -62,7 +62,7 @@
       // tri actif
       .on {
         color: $couleur-dark;
-        @include couleurs-spip(color, $couleur-dark-map);
+        @include couleurs-spip(color, $couleur-dark-params);
       }
       // liens
       a {
@@ -201,7 +201,7 @@
         // hover
         &:hover,
         &:focus {
-          background-color: $couleur-neutre-hover;
+          background-color: $couleur-neutre-claire-alpha;
         }
       }
     }
@@ -211,8 +211,8 @@
         padding-left: $bs/2;
         font-weight: bold;
         color: white;
-        background-color: $couleur-defaut;
-        @include couleurs-spip(background-color);
+        background-color: $couleur-dark;
+        @include couleurs-spip(background-color, $couleur-dark-params);
         // hover
         &:hover,
         &:focus {
@@ -252,8 +252,7 @@
           // hover
           &:hover,
           &:focus {
-            color: $couleur-texte;
-            background-color: $couleur-neutre-hover;
+            background-color: $couleur-neutre-claire-alpha;
             text-indent: $bs/4;
           }
         }
@@ -262,7 +261,7 @@
       &.on {
         a {
           color: $couleur-texte;
-          background-color: $couleur-neutre-hover;
+          background-color: $couleur-neutre-claire-alpha;
           border-left: $bs/2 solid $couleur-defaut;
           @include couleurs-spip(border-left-color);
         }

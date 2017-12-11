@@ -29,46 +29,58 @@ $couleur-notice: map-get($couleurs-spip, 3); // jaune
 $couleur-info:   map-get($couleurs-spip, 5); // bleu
 
 // Couleurs fonctionnelles
-$couleur-defaut: map-get($couleurs-spip, 9); // gris-violet
-//$couleur-neutre-claire: hsla(0, 0%, 0%, 0.03);
-//$couleur-neutre-sombre: hsla(0, 0%, 0%, 0.8);
-$couleur-neutre-claire: hsl(0, 0%, 97%);
-$couleur-neutre-sombre: hsl(0, 0%, 20%);
-$couleur-neutre-hover: hsla(0, 0%, 0%, 0.033);
-$couleur-neutre-bordure: hsla(0, 0%, 0%, 0.075);
-$couleur-texte: $couleur-neutre-sombre;
-$couleur-code: navy;
+$couleur-defaut:              map-get($couleurs-spip, 9); // gris-violet
+$couleur-neutre-claire:       hsl(0, 0%, 97%);
+$couleur-neutre-claire-alpha: hsla(0, 0%, 0%, 0.03);
+$couleur-neutre-sombre:       hsl(0, 0%, 20%);
+$couleur-neutre-sombre-alpha: hsla(0, 0%, 0%, 0.8);
+$couleur-neutre-bordure:      hsla(0, 0%, 0%, 0.075);
+$couleur-texte:               $couleur-neutre-sombre;
+$couleur-texte-light:         lighten($couleur-texte, 20);
+$couleur-code:                navy;
 
 // Variantes de la couleur du thème
 // (Absolu)
+// Lightest
+// $couleur-lightest-params: (lightness: 80%);
+// $couleur-lightest: changer-couleur($couleur-defaut, $couleur-lightest-params);
 // Lighter
-// $couleur-lighter-map: (lightness: 70%);
-// $couleur-lighter: changer-couleur($couleur-defaut, $couleur-lighter-map);
+// $couleur-lighter-params: (lightness: 70%);
+// $couleur-lighter: changer-couleur($couleur-defaut, $couleur-lighter-params);
 // // Light
-// $couleur-light-map: (lightness: 60%);
-// $couleur-light: changer-couleur($couleur-defaut, $couleur-light-map);
-// // Base
-// $couleur-base-map: (lightness: 50%);
-// $couleur-base: changer-couleur($couleur-defaut, $couleur-base-map);
+// $couleur-light-params: (lightness: 60%);
+// $couleur-light: changer-couleur($couleur-defaut, $couleur-light-params);
 // // Dark
-// $couleur-dark-map: (lightness: 40%);
-// $couleur-dark: changer-couleur($couleur-defaut, $couleur-dark-map);
+// $couleur-dark-params: (lightness: 40%);
+// $couleur-dark: changer-couleur($couleur-defaut, $couleur-dark-params);
 // // Darker
-// $couleur-darker-map: (lightness: 30%);
-// $couleur-darker: changer-couleur($couleur-defaut, $couleur-darker-map);
+// $couleur-darker-params: (lightness: 30%);
+// $couleur-darker: changer-couleur($couleur-defaut, $couleur-darker-params);
+// Darkest
+//$couleur-darkest-params: (lightness: 20%);
+//$couleur-darkest: changer-couleur($couleur-defaut, $couleur-darkest-params);
 // (Relatif)
+// Lightest
+$couleur-lightest-params: (lightness: +40%, saturation: -15%);
+$couleur-lightest: ajuster-couleur($couleur-defaut, $couleur-lightest-params);
 // Lighter
-$couleur-lighter-map: (lightness: +30%, saturation: -10%);
-$couleur-lighter: ajuster-couleur($couleur-defaut, $couleur-lighter-map);
+$couleur-lighter-params: (lightness: +30%, saturation: -10%);
+$couleur-lighter: ajuster-couleur($couleur-defaut, $couleur-lighter-params);
 // Light
-$couleur-light-map: (lightness: +15%, saturation: -5%);
-$couleur-light: ajuster-couleur($couleur-defaut, $couleur-light-map);
+$couleur-light-params: (lightness: +15%, saturation: -5%);
+$couleur-light: ajuster-couleur($couleur-defaut, $couleur-light-params);
 // Dark
-$couleur-dark-map: (lightness: -15%, saturation: +5%);
-$couleur-dark: ajuster-couleur($couleur-defaut, $couleur-dark-map);
+$couleur-dark-params: (lightness: -15%, saturation: +5%);
+$couleur-dark: ajuster-couleur($couleur-defaut, $couleur-dark-params);
 // Darker
-$couleur-darker-map: (lightness: -30%, saturation: +10%);
-$couleur-darker: ajuster-couleur($couleur-defaut, $couleur-darker-map);
+$couleur-darker-params: (lightness: -30%, saturation: +10%);
+$couleur-darker: ajuster-couleur($couleur-defaut, $couleur-darker-params);
+// Darkest
+$couleur-darkest-params: (lightness: -40%, saturation: +15%);
+$couleur-darkest: ajuster-couleur($couleur-defaut, $couleur-darkest-params);
+//
+$couleur-inverse-params: (hue: 180deg);
+$couleur-inverse: ajuster-couleur($couleur-defaut, $couleur-inverse-params);
 
 /* Variables de typographie */
 $typo-font-size: em(14px);

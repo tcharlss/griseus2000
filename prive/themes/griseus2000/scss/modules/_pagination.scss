@@ -5,4 +5,18 @@
 .pagination {
   padding: $bs/2 $bs;
   text-align: right;
+
+  // Item actif
+  .on {
+    padding: 0 0.3em;
+    //margin: 0 -0.3em;
+    background-color: $couleur-lighter;
+    @include couleurs-spip(background-color, $couleur-lighter-params);
+    border-radius: $radius;
+  }
+
+  // Séparation
+  .sep {
+    color: lighten($couleur-texte, 20);
+  }
 }

@@ -244,8 +244,10 @@
 }
 #bando_navigation {
   z-index: 10;
-  background-color: $couleur-neutre-sombre;
   color: $couleur-neutre-claire;
+  //background-color: $couleur-neutre-sombre;
+  background-color: $couleur-darkest;
+  @include couleurs-spip(background-color, $couleur-darkest-params);
 
   ul {
     @extend .list-none;
@@ -265,8 +267,8 @@
       &:focus,
       &.actif {
         > a {
-          background-color: change-color($couleur-defaut, $lightness: 40%);
-          @include couleurs-spip(background-color, (lightness: 40%));
+          background-color: $couleur-dark;
+          @include couleurs-spip(background-color, $couleur-dark-params);
         }
         // sous-menu
         > ul {
@@ -309,7 +311,7 @@
         li:focus,
         li.actif {
           > a {
-            background-color: $couleur-neutre-hover;
+            background-color: $couleur-neutre-claire-alpha;
           }
         }
       }

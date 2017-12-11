@@ -30,15 +30,25 @@
         padding: $bs/2 $bs;
         color: white;
         font-weight: bold;
+        border-bottom: 3px solid $couleur-dark;
+        @include couleurs-spip(border-bottom-color, $couleur-dark-params);
       }
       // Item actif
       strong {
-        background-color: $couleur-darker;
-        @include couleurs-spip(background-color, $couleur-darker-map);
+        background-color: $couleur-dark;
+        @include couleurs-spip(background-color, $couleur-dark-params);
       }
       // Items pas actifs
       a {
-        background-color: $couleur-neutre-sombre;
+        background-color: $couleur-darkest;
+        @include couleurs-spip(background-color, $couleur-darkest-params);
+        // hover
+        &:hover,
+        &:focus {
+          background-color: $couleur-defaut;
+          @include couleurs-spip(background-color);
+          color: white;
+        }
       }
       // Bordure arrondie au début et à la fin
       &:first-child {
@@ -88,16 +98,11 @@
   // Item actif
   strong {
     color: $couleur-dark;
-    @include couleurs-spip(color, $couleur-dark-map);
+    @include couleurs-spip(color, $couleur-dark-params);
   }
   // Items pas actifs
   a {
     font-weight: 600;
-    // hover
-    &:hover,
-    &:focus {
-      //color: $couleur-defaut;
-    }
   }
   img {
     display: none; // pollution visuelle
@@ -126,7 +131,7 @@
       &:hover,
       &:focus {
         border-bottom-color: $couleur-light;
-        @include couleurs-spip(border-bottom-color, $couleur-light-map);
+        @include couleurs-spip(border-bottom-color, $couleur-light-params);
       }
     }
     // Item actif
@@ -144,17 +149,15 @@
   &.second {
     ul { }
     li {
-      &:not(:last-child) {
-        a,
-        strong {
-          // Item pour séparer
-          &:after {
-            content: "•";
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-          }
+      &:not(:first-child) {
+        @extend .icon;
+        @extend .icon-dot;
+        &:before {
+          line-height: 0;
+          font-size: 2em;
+          position: relative;
+          top: 0.2em;
+          color: $couleur-texte-light;
         }
       }
     }
