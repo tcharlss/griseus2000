@@ -20,7 +20,7 @@ $couleurs-spip: (
   9: #8F8FBD,
   10: #909090
 );
-$couleurs-spip: egaliser-couleurs($couleurs-spip, 25%);
+$couleurs-spip: egaliser-couleurs($couleurs-spip, 50%);
 
 // Couleurs d'états (piochées dans celles de SPIP par cohérence)
 $couleur-succes: map-get($couleurs-spip, 1); // vert
@@ -61,22 +61,22 @@ $couleur-code:                navy;
 //$couleur-darkest: changer-couleur($couleur-defaut, $couleur-darkest-params);
 // (Relatif)
 // Lightest
-$couleur-lightest-params: (lightness: +40%, saturation: -15%);
+$couleur-lightest-params: (lightness: +35%, saturation: -9%);
 $couleur-lightest: ajuster-couleur($couleur-defaut, $couleur-lightest-params);
 // Lighter
-$couleur-lighter-params: (lightness: +30%, saturation: -10%);
+$couleur-lighter-params: (lightness: +30%, saturation: -6%);
 $couleur-lighter: ajuster-couleur($couleur-defaut, $couleur-lighter-params);
 // Light
-$couleur-light-params: (lightness: +15%, saturation: -5%);
+$couleur-light-params: (lightness: +15%, saturation: -3%);
 $couleur-light: ajuster-couleur($couleur-defaut, $couleur-light-params);
 // Dark
-$couleur-dark-params: (lightness: -15%, saturation: +5%);
+$couleur-dark-params: (lightness: -15%, saturation: +3%);
 $couleur-dark: ajuster-couleur($couleur-defaut, $couleur-dark-params);
 // Darker
-$couleur-darker-params: (lightness: -30%, saturation: +10%);
+$couleur-darker-params: (lightness: -30%, saturation: +6%);
 $couleur-darker: ajuster-couleur($couleur-defaut, $couleur-darker-params);
 // Darkest
-$couleur-darkest-params: (lightness: -40%, saturation: +15%);
+$couleur-darkest-params: (lightness: -35%, saturation: +9%);
 $couleur-darkest: ajuster-couleur($couleur-defaut, $couleur-darkest-params);
 //
 $couleur-inverse-params: (hue: 180deg);
