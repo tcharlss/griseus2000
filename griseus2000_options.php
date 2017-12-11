@@ -34,15 +34,24 @@ function griseus2000_header_prive($flux) {
  */
 function griseus2000_body_prive($flux) {
 
-	// Le numéro de la couleur de l'utilisateur
-	$couleur = isset($GLOBALS['visiteur_session']['prefs']['couleur'])
+	// Uniquement avant SPIP 3.3 ou la révision 23832
+	$spip_version = floatval(spip_version());
+	$revision = abs(version_svn_courante(_DIR_RACINE));
+	if ($spip_version < 3.3
+		or ($revision and $revision < 23832)
+	) {
+
+		// Le numéro de la couleur de l'utilisateur
+		$couleur = isset($GLOBALS['visiteur_session']['prefs']['couleur'])
 		? $GLOBALS['visiteur_session']['prefs']['couleur']
 		: 9;
 
-	// On ajoute la classe sous la forme couleur_N
-	$cherche = '/(<body[^>]*class=["\'][^"\']+)/i';
-	$remplace = "$1 couleur_$couleur";
-	$flux = preg_replace($cherche, $remplace, $flux);
+		// On ajoute la classe sous la forme couleur_N
+		$cherche = '/(<body[^>]*class=["\'][^"\']+)/i';
+		$remplace = "$1 couleur_$couleur";
+		$flux = preg_replace($cherche, $remplace, $flux);
+
+	}
 
 	return $flux;
 }
