@@ -3,13 +3,43 @@
  */
 
 .pagination {
-  padding: $bs/2 $bs;
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  padding: $bs/2 $bs/2;
 
-  // Item actif
+  // Tous les items
+  .pages,
+  .all {
+    display: flex;
+  }
+
+  // Liste des pages
+  .pages {
+    display: flex;
+    > * {
+      padding: 0 0.75em;
+    }
+  }
+
+  // Lien pour tout afficher
+  .all {
+
+  }
+
+  // liens
+  a {
+    &:not(:hover):not(:focus) {
+      color: $couleur-texte-light;
+    }
+    &:hover,
+    &:focus {
+      background-color: $couleur-neutre-claire;
+      border-radius: $radius;
+    }
+  }
+
+  // Item actif (<strong>)
   .on {
-    padding: 0 0.3em;
-    //margin: 0 -0.3em;
     background-color: $couleur-lighter;
     @include couleurs-spip(background-color, $couleur-lighter-params);
     border-radius: $radius;
@@ -17,6 +47,6 @@
 
   // Séparation
   .sep {
-    color: lighten($couleur-texte, 20);
+    display: none;
   }
 }

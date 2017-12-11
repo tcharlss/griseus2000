@@ -36,7 +36,7 @@ $couleur-neutre-sombre:       hsl(0, 0%, 20%);
 $couleur-neutre-sombre-alpha: hsla(0, 0%, 0%, 0.8);
 $couleur-neutre-bordure:      hsla(0, 0%, 0%, 0.075);
 $couleur-texte:               $couleur-neutre-sombre;
-$couleur-texte-light:         lighten($couleur-texte, 20);
+$couleur-texte-light:         lighten($couleur-texte, 33);
 $couleur-code:                navy;
 
 // Variantes de la couleur du thème
