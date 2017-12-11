@@ -4,29 +4,38 @@
 
 .pagination {
   display: flex;
-  justify-content: flex-end;
   padding: $bs/2 $bs/2;
 
   // Tous les items
   .pages,
   .all {
     display: flex;
+    justify-content: flex-end;
+    > * {
+      text-align: center;
+    }
   }
 
-  // Liste des pages
+  // Les pages
   .pages {
-    display: flex;
-    > * {
-      padding: 0 0.75em;
-    }
+    flex: 1 1 auto;
+     * {
+      flex: 0 1 2.5em; // largeur de base avec possibilité de se réduire si manque de place
+      .lat & {
+        flex-basis: 1.5em;
+      }
+     }
   }
 
   // Lien pour tout afficher
   .all {
-
+    flex: 0 1 auto;
+    a {
+      padding: 0 0.75em;
+    }
   }
 
-  // liens
+  // Liens
   a {
     &:not(:hover):not(:focus) {
       color: $couleur-texte-light;
