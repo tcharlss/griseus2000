@@ -44,7 +44,6 @@
  *
  * Ce sont des modèles cohérents, réutilisables quelque soit l'endroit où on les place
 **/
-@import "modules/firstnav"; // Menu principal
 @import "modules/buttons"; // Tous les boutons et leurs variantes
 @import "modules/forms"; // Les formulaires
 @import "modules/lists"; // Les différentes listes
@@ -55,6 +54,7 @@
 @import "modules/messages"; // Messages
 @import "modules/puce-statut"; // Puces de statut
 @import "modules/pagination"; // Pagination
+@import "modules/divers"; // Ce qu'on ne sait pas ranger ailleurs
 
 
 /**
@@ -62,9 +62,8 @@
  *
  * Styles spécifiques à des morceaux de pages, mais dans tout le site
 **/
-@import "sections/access"; // Accès rapide
-@import "sections/bando"; // Bando
-@import "sections/pied"; // pied
+@import "sections/bando"; // Bandeau : menu principal, liens d'évitement, outils
+@import "sections/pied"; // Pied de page
 @import "sections/breadcrumb"; // Chemin hiérarchique
 
 

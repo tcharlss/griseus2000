@@ -35,7 +35,7 @@ select {
   border-radius: 2px;
   &:focus {
     border-color: $couleur-defaut;
-    @include couleurs-spip(border-color, $map-sombre);
+    @include couleurs-spip(border-color, $couleur-dark-map);
     box-shadow: 0 0 0.5em rgba(saturate(lighten($couleur-defaut, 30), 30), 0.75);
     @each $i, $col in $couleurs-spip {
       .couleur_#{$i} & {
@@ -86,9 +86,9 @@ fieldset {
     padding-bottom: $bs/2;
     border-bottom: 2px solid $couleur-neutre-bordure;
     font-weight: 400;
-    color: $couleur-sombre;
+    color: $couleur-dark;
     color: lighten($couleur-texte, 33);
-    //@include couleurs-spip(color, $map-sombre);
+    //@include couleurs-spip(color, $couleur-dark-map);
   }
 }
 

@@ -26,8 +26,8 @@
   // Survol et focus
   &:hover,
   &:focus {
-    background-color: $couleur-sombre;
-    @include couleurs-spip(background-color, $map-sombre);
+    background-color: $couleur-dark;
+    @include couleurs-spip(background-color, $couleur-dark-map);
     cursor: pointer;
     color: white;
   }
@@ -96,8 +96,8 @@
     // Survol et focus
     &:hover,
     &:focus {
-      border-color: $couleur-claire;
-      @include couleurs-spip(border-color, $couleur-claire-map);
+      border-color: $couleur-light;
+      @include couleurs-spip(border-color, $couleur-light-map);
       color: white;
     }
   }
@@ -152,7 +152,7 @@ button {
   &[name^=supprimer] {
     //text-indent: -9999px;
     //white-space: nowrap;
-    // @extend .icon-cancel-2;
+    // @extend .icon-cancel;
     // &:before {
     //   font-family: "Icons";
     // }
@@ -161,7 +161,7 @@ button {
 
 // Les icônes d'aide : on change l'image
 .aide.popin {
-  @extend .icon-help-circled;
+  @extend .icon-help;
   display: inline-block;
   font-style: normal;
   &:before {

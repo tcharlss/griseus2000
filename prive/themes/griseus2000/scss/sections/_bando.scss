@@ -14,9 +14,9 @@
 }
 
 /**
- * ====================
- * Liens d'accès rapide
- * ====================
+ * =================
+ * Liens d'évitement
+ * =================
  */
 #bando_liens_rapides {
   display: none;
@@ -83,7 +83,6 @@
   align-items: center; // vertical
   height: $bs*1.5;
   background-color: white;
-  //border-bottom: 1px solid hsla(0, 0%, 0%, 0.05);
   box-shadow: 0 0.15em 0.15em hsla(0, 0%, 0%, 0.066);
 
   .largeur {
@@ -113,9 +112,9 @@
     &.actif > a,
     > a:hover,
     > a:focus {
-      //background-color: lighten($couleur-defaut, 40);
       filter: saturate(100%) opacity(100%);
-      border-color: lighten($couleur-defaut, 20);
+      border-color: $couleur-defaut;
+      @include couleurs-spip(border-color);
     }
   }
 
@@ -126,7 +125,7 @@
       z-index: 2;
       // icone
       > a {
-        @extend .icon-flow-tree;
+        @extend .icon-tree;
         @extend .icon;
         margin-right: $bs;
         font-size: $bs;
@@ -226,9 +225,209 @@
 
 
 /**
- * ==============
- * Menu principal
- * ==============
- * cf. _firstnav.scss
+ * ============================
+ * Menu de navigation principal
+ * ============================
+ *
+ * #bando_navigation
+ *   .largeur
+ *     ul.deroulant
+ *       li(.actif)
+ *         a#bando1_menu_XXX
+ *         ul
+ *           li.favori(.actif)
+ *           li.non-favori(.actif)
+ *
  */
-#bando_navigation {}
+.navigation_avec_icones a[id^=bando1_menu] {
+  background-image: none !important;
+}
+#bando_navigation {
+  z-index: 10;
+  background-color: $couleur-neutre-sombre;
+  color: $couleur-neutre-claire;
+
+  ul {
+    @extend .list-none;
+  }
+
+  .deroulant {
+    //@include gridle( row );
+    margin-bottom: 0;
+
+    > li {
+      //@include gridle( grow );
+      //@include gridle( row );
+      position: relative;
+
+      // actif
+      &:hover,
+      &:focus,
+      &.actif {
+        > a {
+          background-color: change-color($couleur-defaut, $lightness: 40%);
+          @include couleurs-spip(background-color, (lightness: 40%));
+        }
+        // sous-menu
+        > ul {
+          display: block;
+        }
+      }
+
+      // liens
+      > a {
+        @include gridle( grow );
+        position: relative;
+        padding: $bs*0.5;
+        font-weight: 600;
+        // hover
+        &:hover,
+        &:focus {
+          color: white;
+        }
+      }
+
+      // sous-menus
+      > ul {
+        display: none;
+        z-index: 1;
+        min-width: 100%;
+        position: absolute;
+        //background-color: lighten($couleur-neutre-sombre, 10);
+        background-color: $couleur-neutre-claire;
+        a {
+          display: block;
+          padding: $bs*0.5;
+          color: $couleur-texte;
+          // hover
+          &:hover,
+          &:focus {
+           // color: white;
+          }
+        }
+        li:hover,
+        li:focus,
+        li.actif {
+          > a {
+            background-color: $couleur-neutre-hover;
+          }
+        }
+      }
+    }
+  }
+
+  /* Responsive bureaux (voir aussi dans base/_layout.scss */
+  @include gridle_state( tablet-up) {
+    .largeur {
+      padding: 0;
+    }
+    .deroulant {
+      //display: block;
+      //flex-direction: column;
+      //flex-wrap: nowrap;
+      //justify-content: center; // vertical
+      //align-content: center; // pour resserer
+      margin: 0; // pas besoin de gouttière
+      height: 100vh;
+      padding-bottom: 5vh; // centrage vertical plus naturel
+
+      // tous les liens
+      a {
+        //background-repeat: no-repeat;
+        //background-position: $bs*0.5 center;
+      }
+
+      // --------
+      // Niveau 1
+      // --------
+      > li {
+        //flex-grow: 0;
+        width: 100%;
+        margin: 0; // pas besoin de gouttière
+
+        // Hover & actif
+        &:hover,
+        &:focus,
+        &.actif {
+          // Apparition du sous menu
+          > ul {
+            opacity: 1;
+            width: $largeur-menu;
+            //display: flex;
+            //flex-direction: column;
+            //justify-content: center; // vertical
+            //align-content: center; // pour resserer
+            //align-items: center;
+          }
+        }
+
+        // liens
+        > a {
+          display: block;
+          padding: $bs $bs*0.75;
+          //padding-left: $bs*2; // pour l'icône
+          //background-size: $bs auto;
+          &:hover,
+          &:focus {
+            &:before {
+              filter: none !important;
+              opacity: 1;
+            }
+          }
+          // Icône devant
+          &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            width: $bs;
+            height: $bs;
+            margin-right: 0.5em;
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            opacity: 0.66;
+          }
+          // TEST COLORISATION
+          $teinte_sepia: 60deg;
+          @each $i, $col in $couleurs-spip {
+            $teinte: hue($col);
+            $diff: $teinte - $teinte_sepia;
+            /*.couleur_#{$i} & {
+              &:before {
+                filter: brightness(60%) sepia(100%) hue-rotate($diff);
+              }
+            }*/
+          }
+        }
+
+        // --------
+        // Niveau 2
+        // --------
+        > ul {
+          position: fixed !important;
+          overflow: hidden;
+          top: 0 !important;
+          left: $largeur-menu;
+          width: 0;
+          min-width: auto;
+          height: 100vh;
+          padding-bottom: 5vh; // centrage vertical plus naturel
+          transition: opacity 0.2s;
+          box-shadow:
+            0.25em 0 0.25em rgba(0, 0, 0, 0.15)/*,
+            inset 0.1em 0 0.25em rgba(0, 0, 0, 0.2)*/;
+          li {
+            width: 100%;
+            text-align: center;
+            border-width: 0 0 1px;
+            border-style: solid;
+            border-color: $couleur-neutre-bordure;
+          }
+          a {
+            background-image: none;
+          }
+        }
+      }
+    }
+  }
+}

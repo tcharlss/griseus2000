@@ -5,28 +5,38 @@
 /**
  * Ajouter des variantes pour toutes les couleurs de SPIP
  *
+ * La couleur de l'utilisateur est renseignée par une classe dans le <body> :
+ * couleur_1, couleur_2 etc.
+ * Quand on veut utiliser la couleur du thème sur une propriété,
+ * il faut prendre en compte toutes les variantes.
+ *
  * @example
- *   @include couleurs-spip(color, (lightness: 10%, saturation: 20%));
+ *   .ma-classe {
+ *     @include couleurs-spip(color, (lightness: 10%, saturation: 20%));
+ *   }
  *   Résultat :
- *   .couleur_1 & { color: #xxx }
- *   .couleur_2 & { color: #yyy }
+ *   .couleur_1 .ma_classe { color: #xxx }
+ *   .couleur_2 .ma_classe { color: #yyy }
  *   etc.
  *
+ * @see traiter-couleur()
+ *
  * @param prop $propriete - Propriété à utiliser
- * @param map $traitements - Map de traitements à effectuer, correspond aux paramètres de la fonction change-color : (lightness: 10%, saturation: 20%).complement.
- * @output 
+ * @param map $traitements - Map de traitements à effectuer, correspond aux paramètres de la fonction change-color : (lightness: 10%, saturation: 20%)
  */
 @mixin couleurs-spip($propriete: color, $traitements: null) {
   @each $i, $couleur in $couleurs-spip {
+
     // Ajustement éventuel de la couleur
     @if (type-of($traitements) != null) {
       $couleur: traiter-couleur($couleur, $traitements);
     }
+
     // go go go
-    //&.couleur_#{$i},
     .couleur_#{$i} & {
       #{$propriete}: $couleur;
     }
+
   }
 }
 

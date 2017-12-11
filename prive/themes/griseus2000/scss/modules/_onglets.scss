@@ -6,6 +6,7 @@
  * ====================
  * Les barres d'onglets
  * ====================
+ * Pour naviguer entre différentes pages
  */
 .barre_onglet {
   margin-bottom: $bs;
@@ -17,45 +18,42 @@
   }
 
   ul {
-    @include gridle( row row-align middle center);
     @extend .list-none;
+    display: flex;
+    justify-content: center;
 
     li {
       @include gridle( adapt no-gutter );
-      // regrouper les pseudo-boutons
-      &:not(:first-child) {
+      // Tous les items
+      a,
+      strong {
+        padding: $bs/2 $bs;
+        color: white;
+        font-weight: bold;
+      }
+      // Item actif
+      strong {
+        background-color: $couleur-darker;
+        @include couleurs-spip(background-color, $couleur-darker-map);
+      }
+      // Items pas actifs
+      a {
+        background-color: $couleur-neutre-sombre;
+      }
+      // Bordure arrondie au début et à la fin
+      &:first-child {
         a,
         strong {
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 0;
-        }
-      }
-      &:not(:last-child) {
-        a,
-        strong {
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-        }
-      }
-      // arrondir les bords
-      /*&:first-child {
-        a, strong {
-          border-radius: 100em 0 0 100em;
+          border-top-left-radius: $radius;
+          border-bottom-left-radius: $radius;
         }
       }
       &:last-child {
-        a, strong {
-          border-radius: 0 100em 100em 0;
+        a,
+        strong {
+          border-top-right-radius: $radius;
+          border-bottom-right-radius: $radius;
         }
-      }*/
-
-      a,
-      strong {
-        @extend .button;
-        @extend .button.medium;
-      }
-      strong {
-        @extend .button.actif;
       }
     }
   }
@@ -70,6 +68,7 @@
  * ===================
  * Les onglets simples
  * ===================
+ * Pour naviguer entre différentes sections d'une même page
  */
 .onglets_simple {
   display: flex;
@@ -86,10 +85,12 @@
     display: flex;
     flex-flow: row wrap auto;
   }
+  // Item actif
   strong {
-    color: $couleur-sombre;
-    @include couleurs-spip(color, $map-sombre);
+    color: $couleur-dark;
+    @include couleurs-spip(color, $couleur-dark-map);
   }
+  // Items pas actifs
   a {
     font-weight: 600;
     // hover
@@ -111,6 +112,7 @@
     ul {
       border-bottom: 1px solid $couleur-neutre-bordure;
     }
+    // Tous les items
     a,
     strong {
       display: block;
@@ -119,13 +121,15 @@
       border-bottom: 4px solid transparent;
       transition: border 0.2s;
     }
+    // Items pas actifs
     a {
       &:hover,
       &:focus {
-        border-bottom-color: $couleur-claire;
-        @include couleurs-spip(border-bottom-color, $couleur-claire-map);
+        border-bottom-color: $couleur-light;
+        @include couleurs-spip(border-bottom-color, $couleur-light-map);
       }
     }
+    // Item actif
     strong {
       border-bottom-color: $couleur-defaut;
       @include couleurs-spip(border-bottom-color);
@@ -154,15 +158,18 @@
         }
       }
     }
+    // Tous les items
     a,
     strong {
       position: relative;
       padding: 0 $bs/2;
     }
+    // Items pas actifs
     a {
       &:hover,
       &:focus {}
     }
+    // Item actif
     strong {}
   }
 }

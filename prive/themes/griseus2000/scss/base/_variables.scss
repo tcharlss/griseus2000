@@ -4,6 +4,7 @@
  */
 
 /* Palette de couleur */
+
 // Couleurs de SPIP (codées en dur)
 $couleurs-spip: (
   1: #9DBA00,
@@ -17,11 +18,13 @@ $couleurs-spip: (
   9: #8F8FBD,
   10: #909090
 );
+
 // Couleurs d'états (piochées dans celles de SPIP par cohérence)
 $couleur-succes: map-get($couleurs-spip, 1); // vert
 $couleur-erreur: map-get($couleurs-spip, 8); // rouge
 $couleur-notice: map-get($couleurs-spip, 3); // jaune
 $couleur-info:   map-get($couleurs-spip, 5); // bleu
+
 // Couleurs fonctionnelles
 $couleur-defaut: map-get($couleurs-spip, 9); // gris-violet
 //$couleur-neutre-claire: hsla(0, 0%, 0%, 0.03);
@@ -32,24 +35,32 @@ $couleur-neutre-hover: hsla(0, 0%, 0%, 0.033);
 $couleur-neutre-bordure: hsla(0, 0%, 0%, 0.075);
 $couleur-texte: $couleur-neutre-sombre;
 $couleur-code: navy;
+
 // Variantes de la couleur du thème
-$couleur-claire-map: (lightness: 70%, saturation: 60%); // pour couleurs-spip()
-$couleur-claire: change-color($couleur-defaut, $lightness: map-get($couleur-claire-map,lightness));
-$map-sombre: (lightness: 40%, saturation: 80%); // pour couleurs-spip()
-$couleur-sombre: change-color($couleur-defaut, $lightness: map-get($map-sombre,lightness), $saturation: map-get($map-sombre,saturation));
-$couleur-highlight-map: (lightness: 60%, saturation: 60%); // pour couleurs-spip()
-$couleur-highlight: change-color($couleur-defaut, $lightness: map-get($couleur-highlight-map,lightness), $saturation: map-get($couleur-highlight-map,saturation));
-$couleur-highlight-hover-map: (lightness: 95%, saturation: 70%); // pour couleurs-spip()
-$couleur-highlight-hover: change-color($couleur-defaut, $lightness: map-get($couleur-highlight-hover-map,lightness), $saturation: map-get($couleur-highlight-hover-map,saturation));
+// Lighter
+$couleur-lighter-map: (lightness: 80%);
+$couleur-lighter: change-color($couleur-defaut, $lightness: map-get($couleur-lighter-map, lightness));
+// Light
+$couleur-light-map: (lightness: 70%);
+$couleur-light: change-color($couleur-defaut, $lightness: map-get($couleur-light-map, lightness));
+// Dark
+$couleur-dark-map: (lightness: 40%);
+$couleur-dark: change-color($couleur-defaut, $lightness: map-get($couleur-dark-map, lightness));
+// Darker
+$couleur-darker-map: (lightness: 30%);
+$couleur-darker: change-color($couleur-defaut, $lightness: map-get($couleur-darker-map, lightness));
+
 
 /* Variables de typographie */
 $typo-font-size: em(14px);
 $typo-line-height: 1.5;
 
-/* gouttière, rythme vertical, etc. */
+
+/* Gouttière, rythme vertical, etc. */
 $bs: $typo-font-size*$typo-line-height/1em*1rem; // base spacing = 1 hauteur de ligne
 $largeur-menu: $bs*9;
 $radius: 2px;
+
 
 /* Familles de polices */
 $font-family-texte:   "Source Sans Pro", sans-serif, sans; // Texte principal

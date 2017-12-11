@@ -167,3 +167,27 @@ blockquote {
     display: none; // pas de guillemets pour faire joli
   }
 }
+
+/* Couleurs */
+.gr-color {
+  @each $i, $col in $couleurs-spip {
+    color: $couleur-defaut;
+    @include couleurs-spip(color);
+    &_lighter {
+      color: $couleur-lighter;
+      @include couleurs-spip(color, $couleur-lighter-map);
+    }
+    &_light {
+      color: $couleur-light;
+      @include couleurs-spip(color, $couleur-light-map);
+    }
+    &_dark {
+      color: $couleur-dark;
+      @include couleurs-spip(color, $couleur-dark-map);
+    }
+    &_darker {
+      color: $couleur-darker;
+      @include couleurs-spip(color, $couleur-darker-map);
+    }
+  }
+}

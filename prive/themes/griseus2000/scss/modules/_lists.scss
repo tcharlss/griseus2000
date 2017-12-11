@@ -61,8 +61,8 @@
       }
       // tri actif
       .on {
-        color: $couleur-sombre;
-        @include couleurs-spip(color, $map-sombre);
+        color: $couleur-dark;
+        @include couleurs-spip(color, $couleur-dark-map);
       }
       // liens
       a {
@@ -211,8 +211,8 @@
         padding-left: $bs/2;
         font-weight: bold;
         color: white;
-        background-color: $couleur-highlight;
-        @include couleurs-spip(background-color, $couleur-highlight-map);
+        background-color: $couleur-defaut;
+        @include couleurs-spip(background-color);
         // hover
         &:hover,
         &:focus {
@@ -254,7 +254,6 @@
           &:focus {
             color: $couleur-texte;
             background-color: $couleur-neutre-hover;
-            //@include couleurs-spip(background-color, $couleur-highlight-hover-map);
             text-indent: $bs/4;
           }
         }
@@ -264,9 +263,8 @@
         a {
           color: $couleur-texte;
           background-color: $couleur-neutre-hover;
-          //@include couleurs-spip(background-color, $couleur-highlight-map);
-          border-left: $bs/2 solid $couleur-highlight;
-          @include couleurs-spip(border-left-color, $couleur-highlight-map);
+          border-left: $bs/2 solid $couleur-defaut;
+          @include couleurs-spip(border-left-color);
         }
       }
       // Pollution visuelle

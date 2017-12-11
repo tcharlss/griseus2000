@@ -87,8 +87,8 @@
         li:focus,
         li.actif {
           > a {
-            background-color: $couleur-highlight-hover;
-            @include couleurs-spip(background-color, $couleur-highlight-hover-map);
+            background-color: $couleur-lighter;
+            @include couleurs-spip(background-color, $couleur-lighter-map);
           }
         }
       }

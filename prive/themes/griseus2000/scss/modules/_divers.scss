@@ -1,0 +1,23 @@
+/**
+ * Module : divers
+ * Des choses qu'on ne sait pas où ranger exactement
+ */
+
+/* Boite infos d'un objet */
+.infos {
+  text-align: center;
+  // marge entre les éléments
+  > * {
+    margin-bottom: $bs/2;
+  }
+  // Numéro
+  .numero {
+    color: $couleur-dark;
+    @include couleurs-spip(color, $couleur-dark-map);
+    p {
+      font-size: 5em;
+      color: $couleur-defaut;
+      @include couleurs-spip;
+    }
+  }
+}
