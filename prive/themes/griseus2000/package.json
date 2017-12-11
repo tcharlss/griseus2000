@@ -13,6 +13,7 @@
   "license": "GPL-3.0",
   "devDependencies": {
     "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-sass": "latest",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean": "latest",
     "gulp-clean-css": "latest",
@@ -26,6 +27,8 @@
     "gulp-rename": "latest",
     "gulp-sass": "latest",
     "gulp-sourcemaps": "latest",
+    "gulp-fontello": "latest",
+    "gulp-clean": "latest",
     "gulp-strip-css-comments": "latest"
   }
 }
