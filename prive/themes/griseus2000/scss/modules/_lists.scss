@@ -103,7 +103,9 @@
    */
 
 
-  // Décoration minimale (pas de bordure, etc.)
+  /**
+   * Décoration minimale (pas de bordure, etc.)
+   */
   &.minimal,
   .minimal & {
     box-shadow: none;
@@ -120,13 +122,20 @@
     }
   }
 
-  // Cacher le contenu superflu (les colonnes inutiles)
+  /**
+   * Cacher le contenu superflu
+   * Dans l'idéal, il ne reste que les colonnes du titre et de l'id
+   */
   &.redux,
   &.redux-max,
   .redux &,
   .redux-max & {
+    tr {
+      display: flex;
+    }
     td,
     th {
+      flex: 1 1 auto;
       display: none;
       padding-top: $bs/4;
       padding-bottom: $bs/4;
@@ -145,7 +154,10 @@
     }
   }
 
-  // Affichage sous forme de liste
+  /**
+   * Affichage sous forme de liste.
+   * Pour gagner de la place dans les fiches des objets.
+   */
   &.inline,
   .inline & {
     thead,
