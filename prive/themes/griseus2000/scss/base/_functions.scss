@@ -115,10 +115,19 @@
 @function egaliser-couleurs($couleurs, $force: 100%) {
   $couleurs-egalisees: ();
   @each $i, $couleur in $couleurs {
-    // On applique une luminosité et une saturation médiane
-    $couleur-ajustee: change-color($couleur, $saturation: 66%, $lightness: 50%);
+
+    // On définit les nouvelles saturation et luminosité
+    $luminosite_nouvelle: 50%;
+    $saturation_actuelle: saturation($couleur);
+    $saturation_max: 66%;
+    $saturation_nouvelle: min($saturation_actuelle, $saturation_max);
+
+    // On applique une luminosité et/ou une saturation médiane
+    $couleur-ajustee: change-color($couleur, $saturation: $saturation_nouvelle, $lightness: $luminosite_nouvelle);
+
     // On pondère pour éviter que certaines couleurs se ressemblent trop
     $couleur-ajustee: mix($couleur-ajustee, $couleur, $force);
+
     // On remplace la couleur dans la map
     $couleurs-egalisees: map-merge($couleurs-egalisees, ($i: $couleur-ajustee));
   }
