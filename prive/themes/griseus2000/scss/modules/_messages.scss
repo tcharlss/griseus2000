@@ -24,7 +24,7 @@
   &--notice {
     background-repeat: no-repeat;
     background-position: $bs center;
-    background-size: $bs auto;
+    background-size: auto 1em;
   }
 
   &--success {

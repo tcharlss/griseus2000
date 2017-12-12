@@ -21,9 +21,6 @@
     flex: 1 1 auto;
      * {
       flex: 0 1 2.5em; // largeur de base avec possibilité de se réduire si manque de place
-      .lat & {
-        flex-basis: 1.5em;
-      }
      }
   }
 
