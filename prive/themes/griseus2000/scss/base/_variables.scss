@@ -60,24 +60,24 @@ $couleur-code:                navy;
 //$couleur-darkest: changer-couleur($couleur-defaut, $couleur-darkest-params);
 // (Relatif)
 // Lightest
-$couleur-lightest-params: (lightness: +35%);
+$couleur-lightest-params: (lightness: +30%);
 $couleur-lightest: ajuster-couleur($couleur-defaut, $couleur-lightest-params);
 // Lighter
-$couleur-lighter-params: (lightness: +30%);
+$couleur-lighter-params: (lightness: +20%);
 $couleur-lighter: ajuster-couleur($couleur-defaut, $couleur-lighter-params);
 // Light
-$couleur-light-params: (lightness: +15%);
+$couleur-light-params: (lightness: +10%);
 $couleur-light: ajuster-couleur($couleur-defaut, $couleur-light-params);
 // Dark
-$couleur-dark-params: (lightness: -15%);
+$couleur-dark-params: (lightness: -10%);
 $couleur-dark: ajuster-couleur($couleur-defaut, $couleur-dark-params);
 // Darker
-$couleur-darker-params: (lightness: -30%);
+$couleur-darker-params: (lightness: -20%);
 $couleur-darker: ajuster-couleur($couleur-defaut, $couleur-darker-params);
 // Darkest
-$couleur-darkest-params: (lightness: -35%);
+$couleur-darkest-params: (lightness: -25%);
 $couleur-darkest: ajuster-couleur($couleur-defaut, $couleur-darkest-params);
-//
+// Complémentaire
 $couleur-inverse-params: (hue: 180deg);
 $couleur-inverse: ajuster-couleur($couleur-defaut, $couleur-inverse-params);
 

@@ -23,7 +23,8 @@
     justify-content: center;
 
     li {
-      @include gridle( adapt no-gutter );
+      flex: 0 1 auto;
+      display: flex; // sinon overflow
       // Tous les items
       a,
       strong {
@@ -130,8 +131,8 @@
     a {
       &:hover,
       &:focus {
-        border-bottom-color: $couleur-light;
-        @include couleurs-spip(border-bottom-color, $couleur-light-params);
+        border-bottom-color: $couleur-lighter;
+        @include couleurs-spip(border-bottom-color, $couleur-lighter-params);
       }
     }
     // Item actif

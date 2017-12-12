@@ -61,6 +61,11 @@
 }
 
 /* Messages tout seuls */
+.success:not(.box),
+.error:not(.box),
+.notice:not(.box) {
+  margin-bottom: $bs;
+}
 .success:not(.box) {
   @extend .gr-message--success;
 }

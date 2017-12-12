@@ -202,46 +202,41 @@
   .item {
     padding: $bs/2 0;
     position: relative;
+    transition: background-color 0.2s;
 
-     // bordures
+     // Bordures
     &:not(:last-child) {
       border-bottom: 1px solid $couleur-neutre-bordure;
     }
 
-    // items pas actifs
+    // Items pas actifs
     &:not(.on) {
-      a {
-        // hover
-        &:hover,
-        &:focus {
-          background-color: $couleur-neutre-claire-alpha;
-        }
+      // hover
+      &:hover,
+      &:focus {
+        background-color: $couleur-neutre-claire-alpha;
       }
     }
-    // item actif
+    // Item actif
     &.on {
+      padding-left: $bs;
+      font-weight: bold;
+      color: white;
+      background-color: $couleur-dark;
+      @include couleurs-spip(background-color, $couleur-dark-params);
       a {
-        padding-left: $bs/2;
-        font-weight: bold;
-        color: white;
-        background-color: $couleur-dark;
-        @include couleurs-spip(background-color, $couleur-dark-params);
-        // hover
-        &:hover,
-        &:focus {
-          cursor: default;
-          text-decoration: none;
-        }
+        color: inherit;
+      }
+    }
+    // hover
+    &:hover,
+    &:focus {
+      a {
+        text-decoration: underline;
+        text-decoration-style: dotted;
       }
     }
 
-    // liens : faire en sorte qu'ils épousent la hauteur du conteneur (.item)
-    a {
-      display: block;
-      padding: inherit;
-      margin-top: -$bs/2;
-      margin-bottom: -$bs/2;
-    }
   }
 
   /**
@@ -250,7 +245,10 @@
    * ---------
    */
 
-  /* Sous navigation (menu de configuration, etc.) */
+  /**
+   * Sous navigation (menu de configuration, etc.)
+   * Les items sont censés contenir uniquement un lien
+   */
   &.sous_navigation {
     @extend .gr-card;
     //@extend .gr-card__content;
@@ -261,6 +259,7 @@
       }
       // items pas actifs
       &:not(.on) {
+        
         a {
           // hover
           &:hover,
@@ -272,15 +271,31 @@
       }
       // item actif
       &.on {
+        background-color: transparent;
         a {
+          margin-left: -$bs;
+          padding-left: $bs/2;
           color: $couleur-texte;
           background-color: $couleur-neutre-claire-alpha;
           border-left: $bs/2 solid $couleur-defaut;
           @include couleurs-spip(border-left-color);
+          // hover
+          &:hover,
+          &:focus {
+            cursor: default;
+            text-decoration: none;
+          }
         }
       }
-      // Pollution visuelle
+      // Liens
       a {
+        // liens : faire en sorte qu'ils épousent la hauteur du conteneur (.item)
+        display: block;
+        padding: inherit;
+        padding-left: $bs;
+        margin-top: -$bs/2;
+        margin-bottom: -$bs/2;
+        // Pollution visuelle
         background-image: none;
       }
     }
