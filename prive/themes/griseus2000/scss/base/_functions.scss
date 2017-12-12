@@ -119,7 +119,7 @@
     // On définit les nouvelles saturation et luminosité
     $luminosite_nouvelle: 50%;
     $saturation_actuelle: saturation($couleur);
-    $saturation_max: 66%;
+    $saturation_max: 75%;
     $saturation_nouvelle: min($saturation_actuelle, $saturation_max);
 
     // On applique une luminosité et/ou une saturation médiane

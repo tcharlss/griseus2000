@@ -5,9 +5,7 @@
 
 /* Palette de couleur */
 
-// Couleurs de SPIP (codées en dur)
-// On les ajuste pour avoir des couleurs de base cohérentes,
-// sinon certaines variantes sont trop claires/sombres selon les couleurs.
+// Couleurs de SPIP (codées en dur dans/inc/couleurs.php, on prend la «foncee»)
 $couleurs-spip: (
   1: #9DBA00,
   2: #D51B60,
@@ -20,6 +18,7 @@ $couleurs-spip: (
   9: #8F8FBD,
   10: #909090
 );
+// On les ajuste afin d'avoir des variantes cohérentes
 $couleurs-spip: egaliser-couleurs($couleurs-spip, 100%);
 
 // Couleurs d'états (piochées dans celles de SPIP par cohérence)
