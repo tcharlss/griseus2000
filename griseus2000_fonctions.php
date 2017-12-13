@@ -13,7 +13,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return string
  */
 function filtre_parametres_css_prive_dist() {
-
 	$args = array();
 	$args['v'] = $GLOBALS['spip_version_code'];
 	$args['p'] = substr(md5($GLOBALS['meta']['plugin']), 0, 4);
@@ -23,7 +22,7 @@ function filtre_parametres_css_prive_dist() {
 	$args['md5b'] = (function_exists('md5_boutons_plugins') ? md5_boutons_plugins() : '');
 
 	// Il faudrait qu’on ne les utilise plus du tout.
-	// Cela dit la couleur par défaut historique écrite dans les squelette est bleu vif…
+	// Cela dit la couleur par défaut historique écrite dans les squelette est bleu vif, surchageons !
 	$args['couleur_foncee'] = '808080';
 	$args['couleur_claire'] = '909090';
 
@@ -34,7 +33,20 @@ function filtre_parametres_css_prive_dist() {
 	return http_build_query($args);
 }
 
-
+/**
+ * Retourne une couleur proche de celle choisie par l’utilisateur
+ *
+ * On limite le nombre de couleurs possibles (~24), c'est surtout pour générer le favicon !
+ * Un jour... il y aura des favicon en SVG stylables en CSS... Un jour !
+ *
+ */
+function utilisateur_couleur_favicon() {
+	$h = isset($GLOBALS['visiteur_session']['prefs']['teinte']) ? $GLOBALS['visiteur_session']['prefs']['teinte'] : 0;
+	$s = isset($GLOBALS['visiteur_session']['prefs']['saturation']) ? $GLOBALS['visiteur_session']['prefs']['saturation'] : 10;
+	$h = intval($h / 30) * 30;
+	$s = ($s < 40) ? 20 : 70;
+	return GriseusColors::hslToHex([$h/360, $s/100, .5]);
+}
 
 
 /**

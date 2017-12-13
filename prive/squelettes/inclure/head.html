@@ -33,7 +33,7 @@ var error_on_ajaxform='<:erreur_technique_ajaxform|html2unicode|addslashes|unico
 [<link rel="stylesheet" type="text/css" href="(#CHEMIN{minipres.css}|timestamp|url_absolue)" />]
 ][<!--
 (#REM) Favicon
--->]<INCLURE{fond=prive/squelettes/inclure/favicon-head, couleur=#ENV{paramcss}|parametre_url{couleur_foncee}} />
+-->]<INCLURE{fond=prive/squelettes/inclure/favicon-head, couleur=#VAL|utilisateur_couleur_favicon} />
 
 <link rel="alternate" type="application/rss+xml" title="[(#NOM_SITE_SPIP|attribut_html)]" href="#URL_PAGE{backend}" />
 <link rel="help" type="text/html" title="<:icone_aide_ligne|attribut_html:>" href="#URL_PAGE{aide,var_lang=#LANG}" />

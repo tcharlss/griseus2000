@@ -85,7 +85,6 @@
 				var $val  = $(this).val();
 				var $class = $name  + '-' + $val;
 				$('body').removeClassBeginWith($name).addClass($class).attr('data-' + $name, $val);
-				console.log('input range', $val);
 			});
 			$form.find('.editer_propositions_couleurs .apercu-couleur').click(function(event){
 				event.stopPropagation();
@@ -95,7 +94,6 @@
 				$form.find('.editer_saturation input').val(saturation).trigger('input').trigger('change');
 			});
 			$form.find('input[type=radio], input[type=checkbox], input[type=range]').on('change',function(){
-				console.log('input submit');
 				$(this).parents('form').submit();
 			});
 		});
