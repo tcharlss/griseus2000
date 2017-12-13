@@ -79,7 +79,6 @@
 			};
 
 			var $form = $('div.formulaire_#FORM form');
-			$form.find('.boutons').hide();
 			$form.find('input[type=range]').on('input', function(){
 				var $name = $(this).attr('name');
 				var $val  = $(this).val();
@@ -92,9 +91,6 @@
 				var saturation = $(this).data('saturation');
 				$form.find('.editer_teinte input').val(teinte).trigger('input');
 				$form.find('.editer_saturation input').val(saturation).trigger('input').trigger('change');
-			});
-			$form.find('input[type=radio], input[type=checkbox], input[type=range]').on('change',function(){
-				$(this).parents('form').submit();
 			});
 		});
 	</script>
