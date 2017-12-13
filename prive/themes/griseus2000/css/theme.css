@@ -1898,10 +1898,6 @@ blockquote:before {
     visibility: visible;
 }
 
-button img {
-    display: none;
-}
-
 .aide.popin {
     display: inline-block;
     font-style: normal;
@@ -2504,13 +2500,13 @@ fieldset > legend,
     border-radius: 0 0 2px 2px;
 }
 
-.gr-card__footer, .box .ft, .gr-card__pseudo-footer, .formulaire_spip .boutons {
+.gr-card__footer, .box .ft, .gr-card__pseudo-footer, .formulaire_spip > form > div > .boutons:last-child {
     padding: 0.65625rem 1.3125rem;
     border-radius: 0 0 2px 2px;
     background-color: #f7f7f7;
 }
 
-.gr-card__pseudo-footer, .formulaire_spip .boutons {
+.gr-card__pseudo-footer, .formulaire_spip > form > div > .boutons:last-child {
     margin-bottom: -1.3125rem;
     margin-left: -1.3125rem;
     margin-right: -1.3125rem;
@@ -2907,19 +2903,19 @@ fieldset > legend,
     display: none;
 }
 
-.infos {
+.box .infos {
     text-align: center;
 }
 
-.infos > * {
+.box .infos > * {
     margin-bottom: 0.65625rem;
 }
 
-.infos .numero {
+.box .infos .numero {
     color: hsl(var(--teinte, 240), var(--saturation, 25%), 40%);
 }
 
-.infos .numero p {
+.box .infos .numero p {
     font-size: 5em;
     color: hsl(var(--teinte, 240), var(--saturation, 25%), 50%);
 }
