@@ -2797,19 +2797,19 @@ fieldset > legend,
 }
 
 .gr-message--success, .success:not(.box), .reponse_formulaire.reponse_formulaire_ok, .box.success .hd {
-    background-color: #c1df20;
+    background-color: #8ea800;
     color: white;
     font-weight: bold;
 }
 
 .gr-message--error, .error:not(.box), .reponse_formulaire.reponse_formulaire_erreur, .box.error .hd {
-    background-color: #da2725;
+    background-color: #DF4543;
     color: white;
     font-weight: bold;
 }
 
 .gr-message--notice, .notice:not(.box), .reponse_formulaire.reponse_formulaire_notice, .box.notice .hd {
-    background-color: #df9620;
+    background-color: #fa9a00;
     color: white;
     font-weight: bold;
 }

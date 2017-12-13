@@ -2,54 +2,6 @@
  * Base : les mixins utilisées dans le projet
 **/
 
-/**
- * Ajouter des variantes pour toutes les couleurs de SPIP
- *
- * La couleur de l'utilisateur est renseignée par une classe dans le <body> :
- * couleur_1, couleur_2 etc.
- * Quand on veut utiliser la couleur du thème sur une propriété,
- * il faut prendre en compte toutes les variantes.
- *
- * @example
- *   .ma-classe {
- *     @include couleurs-spip(color, (lightness: 10%, saturation: 20%));
- *   }
- *   Résultat :
- *   .couleur_1 .ma_classe { color: #xxx }
- *   .couleur_2 .ma_classe { color: #yyy }
- *   etc.
- *
- * @see traiter-couleur()
- *
- * @param prop $propriete - Propriété à utiliser
- * @param map $traitements - Map de traitements à effectuer, correspond aux paramètres de la fonction change-color : (lightness: 10%, saturation: 20%)
- * @param string $type - 'ajuster' pour un traitement relatif, 'changer' pour un traitement absolu
- */
-@mixin couleurs-spip($propriete: color, $traitements: false, $type: 'ajuster') {
-  @each $i, $couleur in $couleurs-spip {
-
-    // Ajustement éventuel de la couleur
-    @if (type-of($traitements) == map) {
-      @if ($type == 'ajuster') {
-        $couleur: ajuster-couleur($couleur, $traitements);
-      }
-      @if ($type == 'changer') {
-        $couleur: changer-couleur($couleur, $traitements);
-      }
-    }
-
-    // go go go
-    .couleur_#{$i} & {
-      #{$propriete}: $couleur;
-    }
-    &.couleur_#{$i} {
-      #{$propriete}: $couleur !important;
-    }
-
-  }
-}
-
-
 /* Liste sans style */
 @mixin list-none() {
   list-style: none;

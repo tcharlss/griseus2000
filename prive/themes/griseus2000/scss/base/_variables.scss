@@ -5,30 +5,11 @@
 
 /* Palette de couleur */
 
-// Couleurs de SPIP (codées en dur dans/inc/couleurs.php, on prend la «foncee»)
-$couleurs-spip: (
-  1: #9DBA00,
-  2: #D51B60,
-  3: #fa9a00,
-  4: #CDA261,
-  5: #5da7c5,
-  6: #85909A,
-  7: #999966,
-  8: #DF4543,
-  9: #8F8FBD,
-  10: #909090
-);
-// On les ajuste afin d'avoir des variantes cohérentes
-$couleurs-spip: egaliser-couleurs($couleurs-spip, 100%);
-
-
-$teinte-fallback: 240;
-
 // Couleurs d'états (piochées dans celles de SPIP par cohérence)
-$couleur-succes: map-get($couleurs-spip, 1); // vert
-$couleur-erreur: map-get($couleurs-spip, 8); // rouge
-$couleur-notice: map-get($couleurs-spip, 3); // jaune
-$couleur-info:   map-get($couleurs-spip, 5); // bleu
+$couleur-succes: #8ea800; // vert
+$couleur-erreur: #DF4543; // rouge
+$couleur-notice: #fa9a00; // jaune
+$couleur-info:   #5da7c5; // bleu
 
 // Couleur par défaut si on ne connait pas les variables
 $couleur-fallback: #8F8FBD;
@@ -59,11 +40,6 @@ $couleur-lightest: _hsl($teinte, $saturation, 80%);
 $couleur-dark: _hsl($teinte, $saturation, 40%);
 $couleur-darker: _hsl($teinte, $saturation, 30%);
 $couleur-darkest: _hsl($teinte, $saturation, 20%);
-
-
-// Complémentaire
-//$couleur-inverse-params: (hue: 180deg);
-//$couleur-inverse: ajuster-couleur($couleur-defaut, $couleur-inverse-params);
 
 /* Variables de typographie */
 $typo-font-size: em(14px);
