@@ -44,15 +44,17 @@ function griseus2000_body_prive($flux) {
 	// Teinte / Saturation  de l’utilisateur
 	$prefs = isset($GLOBALS['visiteur_session']['prefs']) ? $GLOBALS['visiteur_session']['prefs'] : [];
 	$css = '';
+	$data = '';
 	foreach ($valeurs as $nom => $def) {
 		$valeurs[$nom] = isset($prefs[$nom]) ? intval($prefs[$nom]) : $valeurs[$nom];
 		$css .= " $nom-{$valeurs[$nom]}";
+		$data .= " data-$nom='{$valeurs[$nom]}'";
 	}
 
-	// On ajoute la classe sous la forme teinte-240 saturation-20
-	$cherche = '/(<body[^>]*class=["\'][^"\']+)/i';
-	$remplace = "$1$css";
-	$flux = preg_replace($cherche, $remplace, $flux);
+	// On ajoute les classes sous la forme teinte-240 saturation-20
+	$flux = preg_replace('/(<body[^>]*class=["\'][^"\']+)/i', "$1$css", $flux);
+	// On ajoute les datas sous la forme data-teinte=240 data-saturation=20
+	$flux = preg_replace('/(<body[^>]*)/i', "$1$data", $flux);
 
 	return $flux;
 }

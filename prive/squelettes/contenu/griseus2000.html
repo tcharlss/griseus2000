@@ -342,9 +342,25 @@
   </style>
   <h2>Couleurs</h2>
 
-  <input data-name="teinte" type="range" min="0" max="350" step="10" />
-  <input data-name="saturation" type="range" min="0" max="100" step="10" />
-  <input data-name="luminosite" type="range" min="0" max="100" step="10" />
+  <div class="formulaire_spip">
+    <form>
+      <div class="editer-groupe">
+        <div class="editer editer_teinte">
+          <label for="colorier-teinte">Teinte</label>
+          <input id="colorier-teinte" data-name="teinte" type="range" min="0" max="350" step="10" />
+        </div>
+        <div class="editer editer_saturation">
+          <label for="colorier-saturation">Saturation</label>
+          <input id="colorier-saturation" data-name="saturation" type="range" min="0" max="100" step="10" />
+        </div>
+        [(#REM)
+        <div class="editer editer_luminosite">
+          <label for="colorier-luminosite">Luminosité</label>
+          <input id="colorier-luminosite" data-name="luminosite" type="range" min="0" max="100" step="10" />
+        </div>]
+      </div>
+    </form>
+  </div>
 
   <table class="previsu-couleurs text-center">
     <thead>
@@ -360,14 +376,20 @@
       </tr>
     </thead>
     <tbody>
-      <BOUCLE_couleurs(DATA){source tableau, #VAL|recuperer_couleurs_espace_prive}{par cle}>
-      <tr class="couleur_#CLE">
-        <td><code>.couleur_#CLE</code></td>
-        <BOUCLE_nuances(DATA){source table, #LISTE{lightest,lighter,light,'',dark,darker,darkest}}>
+    <tr>
+      <td>Teinte / saturation actuelle</td>
+      <BOUCLE_nuances1(DATA){source table, #LISTE{lightest,lighter,light,'',dark,darker,darkest}}>
+      <td><span class="gr-color[-(#VALEUR)]">■</span></td>
+      </BOUCLE_nuances1>
+    </tr>
+      <BOUCLE_saturations(DATA){enum 0, 100, 10}>
+      <tr class="saturation-#VALEUR">
+        <td><code>.saturation-#VALEUR</code></td>
+        <BOUCLE_nuances2(DATA){source table, #LISTE{lightest,lighter,light,'',dark,darker,darkest}}>
         <td><span class="gr-color[-(#VALEUR)]">■</span></td>
-        </BOUCLE_nuances>
+        </BOUCLE_nuances2>
       </tr>
-      </BOUCLE_couleurs>
+      </BOUCLE_saturations>
     </tbody>
   </table>
   <script type="text/javascript">
@@ -382,10 +404,14 @@
             $('body').removeClassBeginWith('couleur_').addClass($(this).attr('class'));
       });
       $('#couleurs input[type=range]').on('input', function(){
-      	$name = $(this).data('name') + '-';
-      	$val  = $(this).val();
-      	$class = $name + $val;
-	      $('body').removeClassBeginWith($name).addClass($class);
+      	var $name = $(this).data('name');
+      	var $val  = $(this).val();
+      	var $class = $name  + '-' + $val;
+      	$('body').removeClassBeginWith($name).addClass($class).attr('data-' + $name, $val);
+      }).each(function(){
+	      var $name = $(this).data('name');
+	      var $val = $('body').data($name);
+	      $(this).val($val);
       });
     });
   </script>
