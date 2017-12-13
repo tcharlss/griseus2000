@@ -45,9 +45,9 @@ function formulaires_configurer_preferences_charger_dist() {
 	$couleurs = charger_fonction('couleurs', 'inc');
 	$les_couleurs = $couleurs(array(), true);
 	foreach ($les_couleurs as $k => $c) {
-		$valeurs['_couleurs_url'][$k] = generer_url_public('style_prive.css', 'ltr='
+		/*$valeurs['_couleurs_url'][$k] = generer_url_public('style_prive.css', 'ltr='
 			. $GLOBALS['spip_lang_left'] . '&'
-			. $couleurs($k));
+			. $couleurs($k));*/
 		$valeurs['couleurs'][$k] = $c;
 	}
 
