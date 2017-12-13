@@ -8,8 +8,7 @@ body {
   line-height: $typo-line-height;
   font-family: $font-family-texte;
   color: $couleur-texte;
-  background-color: change-color($couleur-defaut, $lightness: 96%, $saturation: 15%);
-  @include couleurs-spip(background-color, (lightness: 96%, saturation: 15%), 'changer');
+  background-color: change-color($couleur-fallback, $lightness: 96%, $saturation: 15%);
 }
 
 /* Marges sous les principaux blocs */
@@ -31,7 +30,6 @@ a {
     text-decoration: underline;
     text-decoration-style: dotted;
     color: $couleur-dark;
-    @include couleurs-spip(color, $couleur-dark-params);
   }
 }
 
@@ -108,6 +106,9 @@ table {
       }
     }
   }
+  &.text-center thead th {
+    text-align:center;
+  }
   // body
   tbody {
     tr {
@@ -135,6 +136,7 @@ table {
     width: 2em;
   }*/
 }
+
 
 /* Icônes (complément à fontello) */
 .icon {
@@ -172,29 +174,22 @@ blockquote {
 /* Couleurs */
 .gr-color {
   color: $couleur-defaut;
-  @include couleurs-spip(color);
-  &_lightest {
+  &-lightest {
     color: $couleur-lightest;
-    @include couleurs-spip(color, $couleur-lightest-params);
   }
-  &_lighter {
+  &-lighter {
     color: $couleur-lighter;
-    @include couleurs-spip(color, $couleur-lighter-params);
   }
-  &_light {
+  &-light {
     color: $couleur-light;
-    @include couleurs-spip(color, $couleur-light-params);
   }
-  &_dark {
+  &-dark {
     color: $couleur-dark;
-    @include couleurs-spip(color, $couleur-dark-params);
   }
-  &_darker {
+  &-darker {
     color: $couleur-darker;
-    @include couleurs-spip(color, $couleur-darker-params);
   }
-  &_darkest {
+  &-darkest {
     color: $couleur-darkest;
-    @include couleurs-spip(color, $couleur-darkest-params);
   }
 }

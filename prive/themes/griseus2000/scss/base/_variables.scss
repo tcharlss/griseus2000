@@ -21,14 +21,28 @@ $couleurs-spip: (
 // On les ajuste afin d'avoir des variantes cohérentes
 $couleurs-spip: egaliser-couleurs($couleurs-spip, 100%);
 
+
+$teinte-fallback: 240;
+
 // Couleurs d'états (piochées dans celles de SPIP par cohérence)
 $couleur-succes: map-get($couleurs-spip, 1); // vert
 $couleur-erreur: map-get($couleurs-spip, 8); // rouge
 $couleur-notice: map-get($couleurs-spip, 3); // jaune
 $couleur-info:   map-get($couleurs-spip, 5); // bleu
 
+// Couleur par défaut si on ne connait pas les variables
+$couleur-fallback: #8F8FBD;
+$teinte-fallback: 240;
+$saturation-fallback: 25%;
+$luminosite-fallback: 65%;
+
+// Variables de couleur
+$teinte: var(--teinte, $teinte-fallback);
+$saturation: var(--saturation, $saturation-fallback);
+$luminosite: var(--luminosite, $luminosite-fallback);
+
 // Couleurs fonctionnelles
-$couleur-defaut:              map-get($couleurs-spip, 9); // gris-violet
+$couleur-defaut:              _hsl($teinte, $saturation, 50%);
 $couleur-neutre-claire:       hsl(0, 0%, 97%);
 $couleur-neutre-claire-alpha: hsla(0, 0%, 0%, 0.03);
 $couleur-neutre-sombre:       hsl(0, 0%, 20%);
@@ -39,47 +53,17 @@ $couleur-texte-light:         lighten($couleur-texte, 33);
 $couleur-code:                navy;
 
 // Variantes de la couleur du thème
-// (Absolu)
-// Lightest
-// $couleur-lightest-params: (lightness: 80%);
-// $couleur-lightest: changer-couleur($couleur-defaut, $couleur-lightest-params);
-// Lighter
-// $couleur-lighter-params: (lightness: 70%);
-// $couleur-lighter: changer-couleur($couleur-defaut, $couleur-lighter-params);
-// // Light
-// $couleur-light-params: (lightness: 60%);
-// $couleur-light: changer-couleur($couleur-defaut, $couleur-light-params);
-// // Dark
-// $couleur-dark-params: (lightness: 40%);
-// $couleur-dark: changer-couleur($couleur-defaut, $couleur-dark-params);
-// // Darker
-// $couleur-darker-params: (lightness: 30%);
-// $couleur-darker: changer-couleur($couleur-defaut, $couleur-darker-params);
-// Darkest
-//$couleur-darkest-params: (lightness: 20%);
-//$couleur-darkest: changer-couleur($couleur-defaut, $couleur-darkest-params);
-// (Relatif)
-// Lightest
-$couleur-lightest-params: (lightness: +30%);
-$couleur-lightest: ajuster-couleur($couleur-defaut, $couleur-lightest-params);
-// Lighter
-$couleur-lighter-params: (lightness: +20%);
-$couleur-lighter: ajuster-couleur($couleur-defaut, $couleur-lighter-params);
-// Light
-$couleur-light-params: (lightness: +10%);
-$couleur-light: ajuster-couleur($couleur-defaut, $couleur-light-params);
-// Dark
-$couleur-dark-params: (lightness: -10%);
-$couleur-dark: ajuster-couleur($couleur-defaut, $couleur-dark-params);
-// Darker
-$couleur-darker-params: (lightness: -20%);
-$couleur-darker: ajuster-couleur($couleur-defaut, $couleur-darker-params);
-// Darkest
-$couleur-darkest-params: (lightness: -25%);
-$couleur-darkest: ajuster-couleur($couleur-defaut, $couleur-darkest-params);
+$couleur-light: _hsl($teinte, $saturation, 60%);
+$couleur-lighter: _hsl($teinte, $saturation, 70%);
+$couleur-lightest: _hsl($teinte, $saturation, 80%);
+$couleur-dark: _hsl($teinte, $saturation, 40%);
+$couleur-darker: _hsl($teinte, $saturation, 30%);
+$couleur-darkest: _hsl($teinte, $saturation, 20%);
+
+
 // Complémentaire
-$couleur-inverse-params: (hue: 180deg);
-$couleur-inverse: ajuster-couleur($couleur-defaut, $couleur-inverse-params);
+//$couleur-inverse-params: (hue: 180deg);
+//$couleur-inverse: ajuster-couleur($couleur-defaut, $couleur-inverse-params);
 
 /* Variables de typographie */
 $typo-font-size: em(14px);

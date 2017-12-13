@@ -63,7 +63,6 @@
       // Tri actif
       .on {
         color: $couleur-dark;
-        @include couleurs-spip(color, $couleur-dark-params);
       }
       // Liens
       a {
@@ -74,7 +73,6 @@
         &:hover:before,
         &:focus:before {
           color: $couleur-defaut;
-          @include couleurs-spip(color);
         }
       }
       // Pollution visuelle !
@@ -223,7 +221,6 @@
       font-weight: bold;
       color: white;
       background-color: $couleur-dark;
-      @include couleurs-spip(background-color, $couleur-dark-params);
       a {
         color: inherit;
       }
@@ -278,7 +275,6 @@
           color: $couleur-texte;
           background-color: $couleur-neutre-claire-alpha;
           border-left: $bs/2 solid $couleur-defaut;
-          @include couleurs-spip(border-left-color);
           // hover
           &:hover,
           &:focus {

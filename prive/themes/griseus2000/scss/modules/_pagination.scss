@@ -47,7 +47,6 @@
   // Item actif (<strong>)
   .on {
     background-color: $couleur-lighter;
-    @include couleurs-spip(background-color, $couleur-lighter-params);
     border-radius: $radius;
   }
 

@@ -32,22 +32,18 @@
         color: white;
         font-weight: bold;
         border-bottom: 3px solid $couleur-dark;
-        @include couleurs-spip(border-bottom-color, $couleur-dark-params);
       }
       // Item actif
       strong {
         background-color: $couleur-dark;
-        @include couleurs-spip(background-color, $couleur-dark-params);
       }
       // Items pas actifs
       a {
         background-color: $couleur-darkest;
-        @include couleurs-spip(background-color, $couleur-darkest-params);
         // hover
         &:hover,
         &:focus {
           background-color: $couleur-defaut;
-          @include couleurs-spip(background-color);
           color: white;
         }
       }
@@ -99,7 +95,6 @@
   // Item actif
   strong {
     color: $couleur-dark;
-    @include couleurs-spip(color, $couleur-dark-params);
   }
   // Items pas actifs
   a {
@@ -132,13 +127,11 @@
       &:hover,
       &:focus {
         border-bottom-color: $couleur-lighter;
-        @include couleurs-spip(border-bottom-color, $couleur-lighter-params);
       }
     }
     // Item actif
     strong {
       border-bottom-color: $couleur-defaut;
-      @include couleurs-spip(border-bottom-color);
     }
   }
 

@@ -160,10 +160,8 @@
   /*  Info */
   &.info {
     //border: 2px solid $couleur-light;
-    //@include couleurs-spip(border-color, $couleur-light-params);
     .hd {
       background-color: $couleur-defaut;
-      @include couleurs-spip(background-color);
       color: white;
     }
   }
@@ -180,7 +178,6 @@
   /* Note */
   &.note {
     border-left: $bs/2 solid $couleur-light;
-    @include couleurs-spip(border-color, $couleur-light-params);
     .hd {
       background-color: white;
       padding-top: $bs;
@@ -209,8 +206,7 @@
     &.highlight {
       .hd,
       .bd {
-        background-color: change-color($couleur-defaut, $lightness: 70%, $saturation: 50%);
-        @include couleurs-spip(background-color, (lightness: 70%, saturation: 55%));
+        background-color: change-color($couleur-fallback, $lightness: 70%, $saturation: 50%);
       }
       .hd {
         padding-bottom: 0;

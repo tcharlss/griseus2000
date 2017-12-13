@@ -355,11 +355,11 @@
       </tr>
     </thead>
     <tbody>
-      <BOUCLE_couleurs(DATA){enum 1,10}>
-      <tr>
-        <td><code>.couleur_#VALEUR</code></td>
+      <BOUCLE_couleurs(DATA){source tableau, #VAL|recuperer_couleurs_espace_prive}{par cle}>
+      <tr class="couleur_#CLE">
+        <td><code>.couleur_#CLE</code></td>
         <BOUCLE_nuances(DATA){source table, #LISTE{lightest,lighter,light,'',dark,darker,darkest}}>
-        <td><span class="couleur_[(#_couleurs:VALEUR)] gr-color[_(#VALEUR)]">■</span></td>
+        <td><span class="gr-color[-(#VALEUR)]">■</span></td>
         </BOUCLE_nuances>
       </tr>
       </BOUCLE_couleurs>

@@ -13,11 +13,9 @@
   // Numéro
   .numero {
     color: $couleur-dark;
-    @include couleurs-spip(color, $couleur-dark-params);
     p {
       font-size: 5em;
       color: $couleur-defaut;
-      @include couleurs-spip;
     }
   }
 }

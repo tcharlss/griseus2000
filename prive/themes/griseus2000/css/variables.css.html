@@ -1,0 +1,14 @@
+#CACHE{3600*100,cache-client}
+#HTTP_HEADER{Content-Type: text/css; charset=utf-8}
+#HTTP_HEADER{Vary: Accept-Encoding}
+
+
+#SET{couleurs,#VAL|recuperer_couleurs_espace_prive}
+
+<BOUCLE_couleurs(DATA){source tableau, #GET{couleurs}}>
+[(#COMPTEUR_BOUCLE|=={1}|oui):root, ].couleur_#CLE {
+--teinte: [(#COULEUR_FONCEE|couleur_hsl{teinte})];
+--saturation: [(#COULEUR_FONCEE|couleur_hsl{saturation})];
+--luminosite: [(#COULEUR_FONCEE|couleur_hsl{luminosite})];
+}
+</BOUCLE_couleurs>

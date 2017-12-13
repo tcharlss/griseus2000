@@ -114,7 +114,6 @@
     > a:focus {
       filter: saturate(100%) opacity(100%);
       border-color: $couleur-defaut;
-      @include couleurs-spip(border-color);
     }
   }
 
@@ -153,7 +152,7 @@
           padding: $bs/4 $bs;
           &:hover,
           &:focus {
-            background-color: lighten($couleur-defaut, 50);
+            background-color: lighten($couleur-fallback, 50);
           }
         }
       }
@@ -247,7 +246,6 @@
   color: $couleur-neutre-claire;
   //background-color: $couleur-neutre-sombre;
   background-color: $couleur-darkest;
-  @include couleurs-spip(background-color, $couleur-darkest-params);
 
   ul {
     @extend .list-none;
@@ -269,7 +267,6 @@
       &.actif_tempo {
         > a {
           background-color: $couleur-dark;
-          @include couleurs-spip(background-color, $couleur-dark-params);
         }
         // sous-menu
         > ul {
@@ -390,17 +387,6 @@
             background-position: center center;
             background-repeat: no-repeat;
             opacity: 0.66;
-          }
-          // TEST COLORISATION
-          $teinte_sepia: 60deg;
-          @each $i, $col in $couleurs-spip {
-            $teinte: hue($col);
-            $diff: $teinte - $teinte_sepia;
-            /*.couleur_#{$i} & {
-              &:before {
-                filter: brightness(60%) sepia(100%) hue-rotate($diff);
-              }
-            }*/
           }
         }
 

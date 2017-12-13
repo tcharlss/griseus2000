@@ -1,6 +1,13 @@
 /**
  * Fonctions utiles au projet
  */
+@function _hsl($h, $s, $l) {
+  @return unquote('hsl(#{$h}, #{$s}, #{$l})');
+}
+
+@function _hsla($h, $s, $l, $a) {
+  @return unquote('hsla(#{$h}, #{$s}, #{$l}, #{$a})');
+}
 
 /**
  * Convertir des px en em
