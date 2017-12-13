@@ -7,8 +7,8 @@
 
 <BOUCLE_couleurs(DATA){source tableau, #GET{couleurs}}>
 [(#COMPTEUR_BOUCLE|=={1}|oui):root, ].couleur_#CLE {
---teinte: [(#COULEUR_FONCEE|couleur_hsl{teinte})];
---saturation: [(#COULEUR_FONCEE|couleur_hsl{saturation}|min{70})%];
---luminosite: [(#COULEUR_FONCEE|couleur_hsl{luminosite})%];
+--teinte: [(#COULEUR_FONCEE|couleur_hsl{h})];
+--saturation: [(#COULEUR_FONCEE|couleur_hsl{s}|min{70})%];
+--luminosite: [(#COULEUR_FONCEE|couleur_hsl{l})%];
 }
 </BOUCLE_couleurs>

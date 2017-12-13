@@ -365,4 +365,14 @@
       </BOUCLE_couleurs>
     </tbody>
   </table>
+  <script type="text/javascript">
+  jQuery(function($){
+      $('.previsu-couleurs tr').on('click', function(){
+            $('body')
+                .removeClass(function(i, c) {
+                    return (c.match (/(^|\s)couleur_\S+/g) || []).join(' ');
+                }).addClass($(this).attr('class'));
+      });
+  });
+  </script>
 </section>

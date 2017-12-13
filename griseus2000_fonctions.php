@@ -25,68 +25,116 @@ function recuperer_couleurs_espace_prive($couleur = null) {
 }
 
 /**
- * Calculer la teinte depuis une couleur hexa
+ * Calculer les valeurs hsl depuis une couleur hexa
+ *
  * @param string $hex
- * @return string
+ * @param string|null $type Type souhaité : h,l,s ou 'all'
+ * @return string|array
+ *     - valeur demandé si type h, l ou s
+ *     - tableau [h,l,s] si type 'all'
+ *     - couleur CSS 'hls(h,l,s)' sinon.
  */
 function couleur_hsl($hex, $type = null) {
-	list($h, $s, $l) = hexToHsl($hex);
+	list($h, $s, $l) = GriseusColors::hexToHsl($hex);
 	$hd = intval($h * 360);
 	$sp = intval($s * 100);
 	$lp = intval($l * 100);
 	switch ($type) {
-		case 'teinte':
+		case 'h':
 			return $hd;
 			break;
-		case 'saturation':
+		case 's':
 			return $sp;
 			break;
-		case 'luminosite':
+		case 'l':
 			return $lp;
 			break;
+		case 'all':
+			return [$hd, $sp, $lp];
+			break;
 	}
-	return [$hd, $sp, $lp];
+	return "hsl($hd, $sp, $lp)";
 }
 
 /**
- * Passe une couleur hexa en hsl
- * @see https://gist.github.com/bedeabza/10463089
+ * Passe une couleur hexa en hsl et vice versa
  *
- * @param string $hex
- * @return array
+ * @see https://gist.github.com/bedeabza/10463089
  */
-function hexToHsl($hex) {
-	$hex = ltrim($hex, '#');
-	$hex = array($hex[0].$hex[1], $hex[2].$hex[3], $hex[4].$hex[5]);
-	$rgb = array_map(function($part) {
-		return hexdec($part) / 255;
-	}, $hex);
+class GriseusColors {
 
-	$max = max($rgb);
-	$min = min($rgb);
+	public static function hexToHsl($hex) {
+		$hex = ltrim($hex, '#');
+		$hex = array($hex[0].$hex[1], $hex[2].$hex[3], $hex[4].$hex[5]);
+		$rgb = array_map(function($part) {
+			return hexdec($part) / 255;
+		}, $hex);
 
-	$l = ($max + $min) / 2;
+		$max = max($rgb);
+		$min = min($rgb);
 
-	if ($max == $min) {
-		$h = $s = 0;
-	} else {
-		$diff = $max - $min;
-		$s = $l > 0.5 ? $diff / (2 - $max - $min) : $diff / ($max + $min);
+		$l = ($max + $min) / 2;
 
-		switch($max) {
-			case $rgb[0]:
-				$h = ($rgb[1] - $rgb[2]) / $diff + ($rgb[1] < $rgb[2] ? 6 : 0);
-				break;
-			case $rgb[1]:
-				$h = ($rgb[2] - $rgb[0]) / $diff + 2;
-				break;
-			case $rgb[2]:
-				$h = ($rgb[0] - $rgb[1]) / $diff + 4;
-				break;
+		if ($max == $min) {
+			$h = $s = 0;
+		} else {
+			$diff = $max - $min;
+			$s = $l > 0.5 ? $diff / (2 - $max - $min) : $diff / ($max + $min);
+
+			switch($max) {
+				case $rgb[0]:
+					$h = ($rgb[1] - $rgb[2]) / $diff + ($rgb[1] < $rgb[2] ? 6 : 0);
+					break;
+				case $rgb[1]:
+					$h = ($rgb[2] - $rgb[0]) / $diff + 2;
+					break;
+				case $rgb[2]:
+					$h = ($rgb[0] - $rgb[1]) / $diff + 4;
+					break;
+			}
+
+			$h /= 6;
 		}
 
-		$h /= 6;
+		return array($h, $s, $l);
 	}
 
-	return array($h, $s, $l);
+	public static function hslToHex($hsl)
+	{
+		list($h, $s, $l) = $hsl;
+
+		if ($s == 0) {
+			$r = $g = $b = 1;
+		} else {
+			$q = $l < 0.5 ? $l * (1 + $s) : $l + $s - $l * $s;
+			$p = 2 * $l - $q;
+
+			$r = GriseusColors::hue2rgb($p, $q, $h + 1/3);
+			$g = GriseusColors::hue2rgb($p, $q, $h);
+			$b = GriseusColors::hue2rgb($p, $q, $h - 1/3);
+		}
+
+		return GriseusColors::rgb2hex($r) . GriseusColors::rgb2hex($g) . GriseusColors::rgb2hex($b);
+	}
+
+	public static function hue2rgb($p, $q, $t) {
+		if ($t < 0) $t += 1;
+		if ($t > 1) $t -= 1;
+		if ($t < 1/6) return $p + ($q - $p) * 6 * $t;
+		if ($t < 1/2) return $q;
+		if ($t < 2/3) return $p + ($q - $p) * (2/3 - $t) * 6;
+
+		return $p;
+	}
+
+	public static function rgb2hex($rgb) {
+		return str_pad(dechex($rgb * 255), 2, '0', STR_PAD_LEFT);
+	}
+
 }
+
+
+
+
+
+
