@@ -32,8 +32,8 @@ function recuperer_couleurs_espace_prive($couleur = null) {
 function couleur_hsl($hex, $type = null) {
 	list($h, $s, $l) = hexToHsl($hex);
 	$hd = intval($h * 360);
-	$sp = intval($s * 100) . '%';
-	$lp = intval($l * 100) . '%';
+	$sp = intval($s * 100);
+	$lp = intval($l * 100);
 	switch ($type) {
 		case 'teinte':
 			return $hd;
