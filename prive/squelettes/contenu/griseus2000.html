@@ -400,9 +400,6 @@
               return (c.match (new RegExp(find, "g")) || []).join(' ');
           });
       };
-      $('.previsu-couleurs tr').on('click', function(){
-            $('body').removeClassBeginWith('couleur_').addClass($(this).attr('class'));
-      });
       $('#couleurs input[type=range]').on('input', function(){
       	var $name = $(this).data('name');
       	var $val  = $(this).val();

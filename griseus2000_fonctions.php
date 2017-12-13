@@ -50,7 +50,7 @@ function couleur_hsl($hex, $type = null) {
 			return $lp;
 			break;
 		case 'all':
-			return [$hd, $sp, $lp];
+			return ['h' => $hd, 's' => $sp, 'l' => $lp];
 			break;
 	}
 	return "hsl($hd, $sp, $lp)";

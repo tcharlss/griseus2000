@@ -35,20 +35,30 @@ function formulaires_configurer_preferences_charger_dist() {
 	include_spip('inc/meta');
 	lire_metas();
 
-	$valeurs = array();
-	$valeurs['display_navigation'] = isset($GLOBALS['visiteur_session']['prefs']['display_navigation']) ? $GLOBALS['visiteur_session']['prefs']['display_navigation'] : 'navigation_avec_icones';
-	$valeurs['display_outils'] = isset($GLOBALS['visiteur_session']['prefs']['display_outils']) ? $GLOBALS['visiteur_session']['prefs']['display_outils'] : 'oui';
-	$valeurs['display'] = (isset($GLOBALS['visiteur_session']['prefs']['display']) and $GLOBALS['visiteur_session']['prefs']['display'] > 0) ? $GLOBALS['visiteur_session']['prefs']['display'] : 2;
-	$valeurs['couleur'] = (isset($GLOBALS['visiteur_session']['prefs']['couleur']) and $GLOBALS['visiteur_session']['prefs']['couleur'] > 0) ? $GLOBALS['visiteur_session']['prefs']['couleur'] : 1;
-	$valeurs['spip_ecran'] = $GLOBALS['spip_ecran'];
+	// Teinte / Saturation  par défaut
+	$valeurs = [
+		'teinte' => 240,
+		'saturation' => 30,
+		#'luminosite' => 60,
+	];
+	$prefs = isset($GLOBALS['visiteur_session']['prefs']) ? $GLOBALS['visiteur_session']['prefs'] : [];
+	foreach ($valeurs as $nom => $def) {
+		$valeurs[$nom] = isset($prefs[$nom]) ? intval($prefs[$nom]) : $valeurs[$nom];
+	}
 
 	$couleurs = charger_fonction('couleurs', 'inc');
 	$les_couleurs = $couleurs(array(), true);
+
+	include_spip('griseus2000_fonctions');
 	foreach ($les_couleurs as $k => $c) {
-		/*$valeurs['_couleurs_url'][$k] = generer_url_public('style_prive.css', 'ltr='
-			. $GLOBALS['spip_lang_left'] . '&'
-			. $couleurs($k));*/
-		$valeurs['couleurs'][$k] = $c;
+		$couleur = $c['couleur_foncee'];
+		$hsl = couleur_hsl($couleur,'all');
+		$valeurs['couleurs'][$k] = [
+			'couleur' => $couleur,
+			'teinte' => intval($hsl['h'] / 10) * 10,
+			'saturation' => intval($hsl['s'] / 10) * 10,
+			//'luminosite' => $hsl['l'],
+		];
 	}
 
 	$valeurs['imessage'] = $GLOBALS['visiteur_session']['imessage'];
@@ -64,19 +74,19 @@ function formulaires_configurer_preferences_charger_dist() {
  **/
 function formulaires_configurer_preferences_traiter_dist() {
 
-	if ($couleur = _request('couleur')) {
-		$GLOBALS['visiteur_session']['prefs']['couleur'] = $couleur;
-	}
-	if ($display = _request('display')) {
-		$GLOBALS['visiteur_session']['prefs']['display'] = $display;
-	}
-	if ($display_navigation = _request('display_navigation')) {
-		$GLOBALS['visiteur_session']['prefs']['display_navigation'] = $display_navigation;
-	}
-	if (!is_null($display_outils = _request('display_outils'))) {
-		$GLOBALS['visiteur_session']['prefs']['display_outils'] = $display_outils;
-	}
+	// non utilisé dans ce thème
+	unset($GLOBALS['visiteur_session']['prefs']['couleur']);
+	unset($GLOBALS['visiteur_session']['prefs']['display']);
+	unset($GLOBALS['visiteur_session']['prefs']['display_navigation']);
+	unset($GLOBALS['visiteur_session']['prefs']['display_outils']);
+	// 'spip_ecran' également non utilisé
 
+	if ($teinte = _request('teinte')) {
+		$GLOBALS['visiteur_session']['prefs']['teinte'] = $teinte;
+	}
+	if ($saturation = _request('saturation')) {
+		$GLOBALS['visiteur_session']['prefs']['saturation'] = $saturation;
+	}
 	if (intval($GLOBALS['visiteur_session']['id_auteur'])) {
 		include_spip('action/editer_auteur');
 		$c = array('prefs' => serialize($GLOBALS['visiteur_session']['prefs']));
@@ -86,14 +96,6 @@ function formulaires_configurer_preferences_traiter_dist() {
 		}
 
 		auteur_modifier($GLOBALS['visiteur_session']['id_auteur'], $c);
-	}
-
-	if ($spip_ecran = _request('spip_ecran')) {
-		// Poser un cookie,
-		// car ce reglage depend plus du navigateur que de l'utilisateur
-		$GLOBALS['spip_ecran'] = $spip_ecran;
-		include_spip('inc/cookie');
-		spip_setcookie('spip_ecran', $_COOKIE['spip_ecran'] = $spip_ecran, time() + 365 * 24 * 3600);
 	}
 
 	return array('message_ok' => _T('config_info_enregistree'), 'editable' => true);
