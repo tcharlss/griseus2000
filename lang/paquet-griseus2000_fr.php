@@ -10,5 +10,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// G
 	'griseus2000_nom' => 'Griseus 2000',
 	'griseus2000_slogan' => 'Un thème pour SPIP',
-	'griseus2000_description' => ''
+	'griseus2000_description' => 'Une charte de test par ici : [->?exec=griseus2000]'
 );
