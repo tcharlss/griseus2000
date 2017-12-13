@@ -5,24 +5,37 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 /**
- * Retourne la liste des couleurs de l’espace privé où d’une couleur
+ * Retourne les paramètres de personnalisation css de l'espace privé
  *
- * @see inc_couleurs_dist()
- * @param null|int $couleur
- * @return array
+ * Surcharge pour virer les couleurs !
+ *
+ * @see parametres_css_prive()
+ * @return string
  */
-function recuperer_couleurs_espace_prive($couleur = null) {
-	$couleurs = charger_fonction('couleurs', 'inc');
-	$couleurs = $couleurs();
-	if ($couleur and $couleur = intval($couleur)) {
-		return isset($couleurs[$couleur]) ? $couleurs[$couleur] : [];
+function filtre_parametres_css_prive_dist() {
+
+	$args = array();
+	$args['v'] = $GLOBALS['spip_version_code'];
+	$args['p'] = substr(md5($GLOBALS['meta']['plugin']), 0, 4);
+	$args['themes'] = implode(',', lister_themes_prives());
+	$args['ltr'] = $GLOBALS['spip_lang_left'];
+	// un md5 des menus : si un menu change il faut maj la css
+	$args['md5b'] = (function_exists('md5_boutons_plugins') ? md5_boutons_plugins() : '');
+
+	// Il faudrait qu’on ne les utilise plus du tout.
+	// Cela dit la couleur par défaut historique écrite dans les squelette est bleu vif…
+	$args['couleur_foncee'] = '808080';
+	$args['couleur_claire'] = '909090';
+
+	if (_request('var_mode') == 'recalcul' or (defined('_VAR_MODE') and _VAR_MODE == 'recalcul')) {
+		$args['var_mode'] = 'recalcul';
 	}
-	// mettre la couleur par défaut en premier.
-	$couleur_defaut = 9;
-	ksort($couleurs);
-	$couleurs = [$couleur_defaut => $couleurs[$couleur_defaut]] + $couleurs;
-	return $couleurs;
+
+	return http_build_query($args);
 }
+
+
+
 
 /**
  * Calculer les valeurs hsl depuis une couleur hexa
@@ -55,6 +68,9 @@ function couleur_hsl($hex, $type = null) {
 	}
 	return "hsl($hd, $sp, $lp)";
 }
+
+
+
 
 /**
  * Passe une couleur hexa en hsl et vice versa
