@@ -35,7 +35,7 @@ select {
   border-radius: 2px;
   &:focus {
     border-color: $couleur-defaut;
-    box-shadow: 0 0 0.5em rgba(saturate(lighten($couleur-fallback, 30), 30), 0.75);
+    box-shadow: 0 0 0.5em _hsla($teinte, 70%, 70%, 0.75);
   }
 }
 

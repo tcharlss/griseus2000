@@ -206,7 +206,7 @@
     &.highlight {
       .hd,
       .bd {
-        background-color: change-color($couleur-fallback, $lightness: 70%, $saturation: 50%);
+        background-color: _hsl($teinte, 50%, 70%);
       }
       .hd {
         padding-bottom: 0;

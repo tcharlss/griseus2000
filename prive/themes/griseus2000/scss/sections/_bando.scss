@@ -152,7 +152,7 @@
           padding: $bs/4 $bs;
           &:hover,
           &:focus {
-            background-color: lighten($couleur-fallback, 50);
+            background-color: _hsl($teinte, $saturation, 95%);
           }
         }
       }

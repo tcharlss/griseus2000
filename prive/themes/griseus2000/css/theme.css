@@ -1386,7 +1386,7 @@ body {
     line-height: 1.5;
     font-family: "Source Sans Pro", sans-serif, sans;
     color: #333333;
-    background-color: #f3f3f6;
+    background-color: hsl(var(--teinte, 240), 15%, 96%);
 }
 
 p, table, pre, ul, ol, address, dl, blockquote {
@@ -1941,7 +1941,7 @@ input.text:focus,
   textarea:focus,
   select:focus {
     border-color: hsl(var(--teinte, 240), var(--saturation, 25%), 50%);
-    box-shadow: 0 0 0.5em rgba(236, 236, 249, 0.75);
+    box-shadow: 0 0 0.5em hsla(var(--teinte, 240), 70%, 70%, 0.75);
 }
 
 input.text,
@@ -2584,7 +2584,7 @@ fieldset > legend,
 
 .box.basic.highlight .hd,
   .box.basic.highlight .bd {
-    background-color: #8c8cd9;
+    background-color: hsl(var(--teinte, 240), 50%, 70%);
 }
 
 .box.basic.highlight .hd {
@@ -3052,7 +3052,7 @@ fieldset > legend,
 }
 
 #bando_outils .bandeau_rubriques .plan_site ul a:hover, #bando_outils .bandeau_rubriques .plan_site ul a:focus {
-    background-color: white;
+    background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 95%);
 }
 
 #bando_outils .bandeau_rubriques .plan_site.actif > ul {
