@@ -164,9 +164,11 @@ fieldset {
     color: lighten($couleur-texte, 20);
   }
 
-  // Footer avec les boutons
-  .boutons {
+  // Les boutons à la fin représentent le footer
+  > form > div > .boutons:last-child {
     @extend .gr-card__pseudo-footer;
+  }
+  .boutons {
     //margin-top: $bs;
     display: flex;
     justify-content: flex-end;
