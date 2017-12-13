@@ -34,24 +34,25 @@ function griseus2000_header_prive($flux) {
  */
 function griseus2000_body_prive($flux) {
 
-	// Uniquement avant SPIP 3.3 ou la révision 23832
-	$spip_version = floatval(spip_version());
-	$revision = abs(version_svn_courante(_DIR_RACINE));
-	if ($spip_version < 3.3
-		or ($revision and $revision < 23832)
-	) {
+	// Teinte / Saturation  par défaut
+	$valeurs = [
+		'teinte' => 240,
+		'saturation' => 30,
+		#'luminosite' => 60,
+	];
 
-		// Le numéro de la couleur de l'utilisateur
-		$couleur = isset($GLOBALS['visiteur_session']['prefs']['couleur'])
-		? $GLOBALS['visiteur_session']['prefs']['couleur']
-		: 9;
-
-		// On ajoute la classe sous la forme couleur_N
-		$cherche = '/(<body[^>]*class=["\'][^"\']+)/i';
-		$remplace = "$1 couleur_$couleur";
-		$flux = preg_replace($cherche, $remplace, $flux);
-
+	// Teinte / Saturation  de l’utilisateur
+	$prefs = isset($GLOBALS['visiteur_session']['prefs']) ? $GLOBALS['visiteur_session']['prefs'] : [];
+	$css = '';
+	foreach ($valeurs as $nom => $def) {
+		$valeurs[$nom] = isset($prefs[$nom]) ? intval($prefs[$nom]) : $valeurs[$nom];
+		$css .= " $nom-{$valeurs[$nom]}";
 	}
+
+	// On ajoute la classe sous la forme teinte-240 saturation-20
+	$cherche = '/(<body[^>]*class=["\'][^"\']+)/i';
+	$remplace = "$1$css";
+	$flux = preg_replace($cherche, $remplace, $flux);
 
 	return $flux;
 }

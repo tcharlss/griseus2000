@@ -2,13 +2,12 @@
 #HTTP_HEADER{Content-Type: text/css; charset=utf-8}
 #HTTP_HEADER{Vary: Accept-Encoding}
 
-
-#SET{couleurs,#VAL|recuperer_couleurs_espace_prive}
-
-<BOUCLE_couleurs(DATA){source tableau, #GET{couleurs}}>
-[(#COMPTEUR_BOUCLE|=={1}|oui):root, ].couleur_#CLE {
---teinte: [(#COULEUR_FONCEE|couleur_hsl{h})];
---saturation: [(#COULEUR_FONCEE|couleur_hsl{s}|min{70})%];
---luminosite: [(#COULEUR_FONCEE|couleur_hsl{l})%];
-}
-</BOUCLE_couleurs>
+<BOUCLE_teintes(DATA){enum 0, 359, 10}>
+.teinte-#VALEUR { --teinte: #VALEUR; }[(#REM)
+]</BOUCLE_teintes>
+<BOUCLE_saturations(DATA){enum 0, 100, 10}>
+.saturation-#VALEUR { --saturation: #VALEUR%; }[(#REM)
+]</BOUCLE_saturations>
+<BOUCLE_luminosites(DATA){enum 0, 100, 10}>
+.luminosite-#VALEUR { --luminosite: #VALEUR%; }[(#REM)
+]</BOUCLE_luminosites>

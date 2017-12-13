@@ -341,6 +341,11 @@
     .previsu-couleurs [class*=gr-color]{font-size:2em}
   </style>
   <h2>Couleurs</h2>
+
+  <input data-name="teinte" type="range" min="0" max="350" step="10" />
+  <input data-name="saturation" type="range" min="0" max="100" step="10" />
+  <input data-name="luminosite" type="range" min="0" max="100" step="10" />
+
   <table class="previsu-couleurs text-center">
     <thead>
       <tr>
@@ -366,13 +371,22 @@
     </tbody>
   </table>
   <script type="text/javascript">
-  jQuery(function($){
+    jQuery(function($){
+      $.fn.removeClassBeginWith = function(className) {
+          return $(this).removeClass(function(i, c) {
+              var find = "(^|\\s)" + className + "\\S+";
+              return (c.match (new RegExp(find, "g")) || []).join(' ');
+          });
+      };
       $('.previsu-couleurs tr').on('click', function(){
-            $('body')
-                .removeClass(function(i, c) {
-                    return (c.match (/(^|\s)couleur_\S+/g) || []).join(' ');
-                }).addClass($(this).attr('class'));
+            $('body').removeClassBeginWith('couleur_').addClass($(this).attr('class'));
       });
-  });
+      $('#couleurs input[type=range]').on('input', function(){
+      	$name = $(this).data('name') + '-';
+      	$val  = $(this).val();
+      	$class = $name + $val;
+	      $('body').removeClassBeginWith($name).addClass($class);
+      });
+    });
   </script>
 </section>
