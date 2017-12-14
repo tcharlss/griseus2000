@@ -176,6 +176,7 @@
     .markItUpPreview,
     .markItUpEditor {
       margin-top: $bs*2; // hauteur de la barre
+      padding: $bs*2 $bs;
       border: none;
     }
     .markItUpTabs {
@@ -183,6 +184,10 @@
         @extend .icon-resize-small;
         background-image: none !important;
       }
+    }
+    .markItUpPreview {
+      background-color: $couleur-neutre-light;
+      box-shadow: inset 0.1em -0.1em 0.1em hsla(0, 0%, 0%, 0.15); 
     }
 
   }
