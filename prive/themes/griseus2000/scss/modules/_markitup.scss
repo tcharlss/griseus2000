@@ -18,18 +18,22 @@
     top: 1px;
     right: 1px;
     padding: 0;
-    font-size: 0.9em;
+    font-size: 0.8em;
     font-weight: bold;
-    background-color: $couleur-neutre-light-alpha;
+    background-color: transparent;
+    box-shadow: inset 0 -0.1em -0.1em hsla(0, 0%, 0%, 0.1);
     a {
       @extend .icon;
       display: flex;
-      align-items: center; // vertical
-      padding: 0 $bs;
+      flex-direction: column;
+      justify-content: center; // vertical
+      align-items: center; // horizontal
+      padding: 0 $bs/2;
       margin: 0;
       border-radius: 0;
-      border: 1px solid $couleur-neutre-bordure;
-      border-width: 0 0 0 1px;
+      border: 3px solid transparent;
+      border-width: 3px 0;
+      background-color: transparent;
       &:last-child {
         border-top-right-radius: $radius;
       }
@@ -37,12 +41,19 @@
       &:not(.on) {
         &:hover,
         &:focus {
-          background-color: white;
+          color: $couleur-theme;
+          border-bottom-color: $couleur-theme-lightest;
+          background-color: transparent;
         }
       }
       // Items actifs
       &.on {
+        position: relative;
         color: $couleur-theme-dark;
+        box-shadow: none;
+        border-bottom-color: $couleur-theme-light;
+        border-width: 0 0 3px;
+        background-color: transparent;
       }
       // Item prévisu
       &.previsuVoir {
@@ -52,19 +63,17 @@
       &.previsuEditer {
         @extend .icon-edit;
       }
-      // Item Fullscreen
+      // Item fullscreen
       &.fullscreen {
         @extend .icon-resize-full;
         background-image: none !important;
-        width: 1em;
-        &:before {
-          text-indent: 0;
-          margin: 0;
-        }
+        width: auto;
+        text-indent: 0;
       }
       // Icônes
       &:before {
-        margin-right: 0.5em;
+        margin: 0;
+        font-size: 1rem;
       }
     }
   }
