@@ -22,8 +22,7 @@ $teinte: var(--teinte, $teinte-fallback);
 $saturation: var(--saturation, $saturation-fallback);
 $luminosite: var(--luminosite, $luminosite-fallback);
 
-// Couleurs fonctionnelles
-$couleur-defaut:              _hsl($teinte, $saturation, 50%);
+// Couleurs neutres fonctionnelles
 $couleur-neutre-claire:       hsl(0, 0%, 97%);
 $couleur-neutre-claire-alpha: hsla(0, 0%, 0%, 0.03);
 $couleur-neutre-sombre:       hsl(0, 0%, 20%);
@@ -33,22 +32,24 @@ $couleur-texte:               $couleur-neutre-sombre;
 $couleur-texte-light:         lighten($couleur-texte, 33);
 $couleur-code:                navy;
 
-// Variantes de la couleur du thème
-$couleur-light: _hsl($teinte, $saturation, 60%);
-$couleur-lighter: _hsl($teinte, $saturation, 70%);
+// Couleurs du thème
+$couleur-defaut:   _hsl($teinte, $saturation, 50%);
+$couleur-light:    _hsl($teinte, $saturation, 60%);
+$couleur-lighter:  _hsl($teinte, $saturation, 70%);
 $couleur-lightest: _hsl($teinte, $saturation, 80%);
-$couleur-dark: _hsl($teinte, $saturation, 40%);
-$couleur-darker: _hsl($teinte, $saturation, 30%);
-$couleur-darkest: _hsl($teinte, $saturation, 20%);
+$couleur-dark:     _hsl($teinte, $saturation, 40%);
+$couleur-darker:   _hsl($teinte, $saturation, 30%);
+$couleur-darkest:  _hsl($teinte, $saturation, 20%);
 
 /* Variables de typographie */
-$typo-font-size: em(16px);
+$typo-font-size: em(15px);
 $typo-line-height: 1.5;
 
 
 /* Gouttière, rythme vertical, etc. */
 $bs: $typo-font-size*$typo-line-height/1em*1rem; // base spacing = 1 hauteur de ligne
-$largeur-menu: $bs*9;
+$largeur-menu: $bs*8;
+$largeur-navigation: $bs*12;
 $radius: 2px;
 
 

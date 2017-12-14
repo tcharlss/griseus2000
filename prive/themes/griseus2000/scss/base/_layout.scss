@@ -83,7 +83,7 @@
   }
   #navigation {
     @include gridle( adapt );
-    max-width: $bs*14;
+    max-width: $largeur-navigation;
   }
   #contenu {
     @include gridle( grow );
@@ -116,6 +116,7 @@
     margin-left: $bs;
     @include clear-after;
   }
+
   // Des colonnes pour la page de mini-charte
   [class*=par-] {
     @include gridle_state( desktop-up ) {
