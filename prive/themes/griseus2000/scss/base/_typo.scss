@@ -135,6 +135,13 @@ table {
   /*.id, .picto, .statut {
     width: 2em;
   }*/
+
+  /* Classe virtuelle */
+  &.gr-minimal {
+    th, td {
+      padding: $bs/4;
+    }
+  }
 }
 
 

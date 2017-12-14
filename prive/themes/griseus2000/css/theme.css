@@ -1555,6 +1555,10 @@ table .id:last-child,
     text-align: right;
 }
 
+table.gr-minimal th, table.gr-minimal td {
+    padding: 0.35156rem;
+}
+
 .icon:before, .liste-objets thead th a:before,
 .liste-objets thead th .on:before, .box.sous-rub .titrem:before, .onglets_simple.second li:not(:first-child):before, .markItUp .markItUpTabs a:before, .markItUp .markItUpHeader ul .markItUpDropMenu > a:before, .markItUp .markItUpHeader ul [class*=outil_] > a > em:before, #bando_principal .deroulant > li.actif > ul li.haschild > a:before, #bando_outils .bando_rubriques .plan_site > a:before {
     font-family: "Icons";
