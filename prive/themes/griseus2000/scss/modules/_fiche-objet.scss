@@ -26,6 +26,7 @@
     // Essayons d'afficher la liste et le bouton d'ajout côte-à-côte
     form > div {
       display: flex;
+      flex-wrap: wrap;
       // lien d'ajout à droite
       .toggle_box_link {
         margin-left: auto;
@@ -35,8 +36,8 @@
         flex-grow: 1;
         min-width: 50%;
         padding: $bs/2;
-        //background-color: $couleur-neutre-light;
-        border: 1px solid darken($couleur-neutre-light, 10);
+        background-color: $couleur-neutre-light;
+        //border: 1px solid darken($couleur-neutre-light, 10);
         .titrem,
         h3 {
           margin: 0 0 $bs/2;
@@ -52,6 +53,12 @@
     input[type=submit],
     button {
       //@extend .button.small;
+    }
+
+    // Les titres éventuels uniformisés
+    h2, h3, h4, h5, h6 {
+      font-size: 1em;
+      margin: 0;
     }
   }
 

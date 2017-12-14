@@ -187,6 +187,7 @@ fieldset {
   @include gridle_state( large-up ) {
     .editer-groupe {
       @include gridle( row );
+      flex-grow: 1;
       //max-width: initial;
 
       // 2 colonnes...

@@ -159,16 +159,22 @@
    */
   &.inline,
   .inline & {
+    .liste {
+      display: flex;
+      flex-flow: row wrap;
+    }
+    caption {
+      padding: 0;
+      margin-right: $bs;
+      text-align: left;
+    }
     thead,
     tfoot {
       display: none;
     }
-    caption {
-      text-align: left;
-    }
     tbody {
       display: flex;
-      flex-flow: row wrap auto;
+      flex-flow: row wrap;
       tr {
         display: flex;
         flex-flow: row nowrap;
