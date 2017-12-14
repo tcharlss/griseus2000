@@ -34,7 +34,7 @@
       // boîte d'ajout
       .selecteur {
         flex-grow: 1;
-        min-width: 50%;
+        min-width: 100%;
         padding: $bs/2;
         background-color: $couleur-neutre-light;
         //border: 1px solid darken($couleur-neutre-light, 10);
@@ -62,12 +62,15 @@
     }
   }
 
-  /* Listes d'objets (dans des formulaires en principe) */
+  /* Listes d'objets liés */
   /* On affiche sous forme de liste et on cache tout ce qui est superflu */
-  .liste-objets {
+  .liste-objets-lies {
     @extend .liste-objets.redux-max;
     @extend .liste-objets.minimal;
     @extend .liste-objets.inline;
+  }
+  .liste-objets-associer {
+    background-color: transparent;
   }
 
   // ??

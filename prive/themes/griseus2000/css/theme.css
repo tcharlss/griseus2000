@@ -2338,34 +2338,34 @@ fieldset > legend,
     display: none;
 }
 
-.liste-objets.minimal, .box .liste-objets, .fiche_objet .liste-objets,
+.liste-objets.minimal, .box .liste-objets, .fiche_objet .liste-objets-lies,
   .minimal .liste-objets {
     box-shadow: none;
     padding: 0;
     margin: 0;
 }
 
-.liste-objets.minimal .liste, .box .liste-objets .liste, .fiche_objet .liste-objets .liste,
+.liste-objets.minimal .liste, .box .liste-objets .liste, .fiche_objet .liste-objets-lies .liste,
     .minimal .liste-objets .liste {
     margin: 0;
 }
 
-.liste-objets.minimal caption, .box .liste-objets caption, .fiche_objet .liste-objets caption,
+.liste-objets.minimal caption, .box .liste-objets caption, .fiche_objet .liste-objets-lies caption,
     .minimal .liste-objets caption {
     padding: 0.70312rem 0;
     margin: 0;
     background-color: transparent;
 }
 
-.liste-objets.redux tr, .lat .liste-objets tr, .liste-objets.redux-max tr, .fiche_objet .liste-objets tr,
+.liste-objets.redux tr, .lat .liste-objets tr, .liste-objets.redux-max tr, .fiche_objet .liste-objets-lies tr,
   .redux .liste-objets tr,
   .redux-max .liste-objets tr {
     display: flex;
 }
 
 .liste-objets.redux td, .lat .liste-objets td,
-  .liste-objets.redux th, .lat .liste-objets th, .liste-objets.redux-max td, .fiche_objet .liste-objets td,
-  .liste-objets.redux-max th, .fiche_objet .liste-objets th,
+  .liste-objets.redux th, .lat .liste-objets th, .liste-objets.redux-max td, .fiche_objet .liste-objets-lies td,
+  .liste-objets.redux-max th, .fiche_objet .liste-objets-lies th,
   .redux .liste-objets td,
   .redux .liste-objets th,
   .redux-max .liste-objets td,
@@ -2381,12 +2381,12 @@ fieldset > legend,
     .liste-objets.redux th.titre, .lat .liste-objets th.titre,
     .liste-objets.redux th.nom, .lat .liste-objets th.nom,
     .liste-objets.redux th.action, .lat .liste-objets th.action,
-    .liste-objets.redux th.id, .lat .liste-objets th.id, .liste-objets.redux-max td.principale, .fiche_objet .liste-objets td.principale, .liste-objets.redux-max td.titre, .fiche_objet .liste-objets td.titre, .liste-objets.redux-max td.nom, .fiche_objet .liste-objets td.nom, .liste-objets.redux-max td.action, .fiche_objet .liste-objets td.action, .liste-objets.redux-max td.id, .fiche_objet .liste-objets td.id,
-    .liste-objets.redux-max th.principale, .fiche_objet .liste-objets th.principale,
-    .liste-objets.redux-max th.titre, .fiche_objet .liste-objets th.titre,
-    .liste-objets.redux-max th.nom, .fiche_objet .liste-objets th.nom,
-    .liste-objets.redux-max th.action, .fiche_objet .liste-objets th.action,
-    .liste-objets.redux-max th.id, .fiche_objet .liste-objets th.id,
+    .liste-objets.redux th.id, .lat .liste-objets th.id, .liste-objets.redux-max td.principale, .fiche_objet .liste-objets-lies td.principale, .liste-objets.redux-max td.titre, .fiche_objet .liste-objets-lies td.titre, .liste-objets.redux-max td.nom, .fiche_objet .liste-objets-lies td.nom, .liste-objets.redux-max td.action, .fiche_objet .liste-objets-lies td.action, .liste-objets.redux-max td.id, .fiche_objet .liste-objets-lies td.id,
+    .liste-objets.redux-max th.principale, .fiche_objet .liste-objets-lies th.principale,
+    .liste-objets.redux-max th.titre, .fiche_objet .liste-objets-lies th.titre,
+    .liste-objets.redux-max th.nom, .fiche_objet .liste-objets-lies th.nom,
+    .liste-objets.redux-max th.action, .fiche_objet .liste-objets-lies th.action,
+    .liste-objets.redux-max th.id, .fiche_objet .liste-objets-lies th.id,
     .redux .liste-objets td.principale,
     .redux .liste-objets td.titre,
     .redux .liste-objets td.nom,
@@ -2410,52 +2410,52 @@ fieldset > legend,
     display: table-cell;
 }
 
-.liste-objets.redux-max td.id, .fiche_objet .liste-objets td.id,
-  .liste-objets.redux-max th.id, .fiche_objet .liste-objets th.id,
+.liste-objets.redux-max td.id, .fiche_objet .liste-objets-lies td.id,
+  .liste-objets.redux-max th.id, .fiche_objet .liste-objets-lies th.id,
   .redux-max .liste-objets td.id,
   .redux-max .liste-objets th.id {
     display: none;
 }
 
-.liste-objets.inline .liste, .fiche_objet .liste-objets .liste,
+.liste-objets.inline .liste, .fiche_objet .liste-objets-lies .liste,
   .inline .liste-objets .liste {
     display: flex;
     flex-flow: row wrap;
 }
 
-.liste-objets.inline caption, .fiche_objet .liste-objets caption,
+.liste-objets.inline caption, .fiche_objet .liste-objets-lies caption,
   .inline .liste-objets caption {
     padding: 0;
     margin-right: 1.40625rem;
     text-align: left;
 }
 
-.liste-objets.inline thead, .fiche_objet .liste-objets thead,
-  .liste-objets.inline tfoot, .fiche_objet .liste-objets tfoot,
+.liste-objets.inline thead, .fiche_objet .liste-objets-lies thead,
+  .liste-objets.inline tfoot, .fiche_objet .liste-objets-lies tfoot,
   .inline .liste-objets thead,
   .inline .liste-objets tfoot {
     display: none;
 }
 
-.liste-objets.inline tbody, .fiche_objet .liste-objets tbody,
+.liste-objets.inline tbody, .fiche_objet .liste-objets-lies tbody,
   .inline .liste-objets tbody {
     display: flex;
     flex-flow: row wrap;
 }
 
-.liste-objets.inline tbody tr, .fiche_objet .liste-objets tbody tr,
+.liste-objets.inline tbody tr, .fiche_objet .liste-objets-lies tbody tr,
     .inline .liste-objets tbody tr {
     display: flex;
     flex-flow: row nowrap;
 }
 
-.liste-objets.inline tbody td, .fiche_objet .liste-objets tbody td,
+.liste-objets.inline tbody td, .fiche_objet .liste-objets-lies tbody td,
     .inline .liste-objets tbody td {
     padding: 0;
     border: none;
 }
 
-.liste-objets.inline tbody td:visible, .fiche_objet .liste-objets tbody td:visible,
+.liste-objets.inline tbody td:visible, .fiche_objet .liste-objets-lies tbody td:visible,
       .inline .liste-objets tbody td:visible {
     display: inline-block;
 }
@@ -2832,7 +2832,7 @@ fieldset > legend,
 
 .fiche_objet .formulaire_spip form > div .selecteur {
     flex-grow: 1;
-    min-width: 50%;
+    min-width: 100%;
     padding: 0.70312rem;
     background-color: #f7f7f7;
 }
@@ -2850,6 +2850,10 @@ fieldset > legend,
 .fiche_objet .formulaire_spip h2, .fiche_objet .formulaire_spip h3, .fiche_objet .formulaire_spip h4, .fiche_objet .formulaire_spip h5, .fiche_objet .formulaire_spip h6 {
     font-size: 1em;
     margin: 0;
+}
+
+.fiche_objet .liste-objets-associer {
+    background-color: transparent;
 }
 
 .fiche_objet .over {
