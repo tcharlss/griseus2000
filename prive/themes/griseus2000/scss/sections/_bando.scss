@@ -25,113 +25,42 @@
 
 /**
  * ==============================
- * Infos visiteur, connexion etc.
+ * Ordonnancement général
  * ==============================
  */
-#bando_identite {
-  display: flex;
-  align-items: center; // vertical
-  height: $bs*1.5;
-  background-color: white;
-  //border-bottom: 1px dotted hsla(0, 0%, 0%, 0.15);
-
-  .largeur {
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-between;
-  }
-  p {
-    margin: 0;
-  }
-  a {
-    padding: 0 $bs/4;
-  }
-  .menu_lang {
-    position: relative;
-    &:before {
-      content: '';
-      display: inline-block;
-      width: 15px;
-      height: 18px;
-      margin-right: 0.33em;
-      background-image: url(images/language.svg);
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: contain;
-      opacity: 0.66;
-    }
-    &:hover,
-    &:focus {
-      &:before {
-        opacity: 1;
-      }
-    }
-    img {
-      display: none;
-    }
-  }
-}
-
-
-/**
- * ============================
- * Boutons de créations rapides
- * ============================
- */
-#bando_outils {
+#bando_principal {
   display: flex;
   align-items: center; // vertical
   height: $bs*1.5;
   background-color: white;
   box-shadow: 0 0.15em 0.15em hsla(0, 0%, 0%, 0.066);
 
-  .largeur {
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  // Plan + boutons
-  .bandeau_rubriques,
-  .rapides {
-    display: flex;
-    align-items: flex-end; // vertical
-  }
-  .bouton,
-  .plan_site {
-    display: flex;
-    > a {
-      display: inline-block;
-      width: $bs;
-      height: $bs*1.5;
-      border: 3px solid transparent;
-      border-width: 0 0 3px;
-      filter: saturate(0%) opacity(75%);
-    }
-    // actif
-    &.actif > a,
-    > a:hover,
-    > a:focus {
-      filter: saturate(100%) opacity(100%);
-      border-color: $couleur-theme;
-    }
-  }
-
-  // Plan
-  .bandeau_rubriques {
-    .plan_site {
+  // Menus déroulants
+  .deroulant {
+    & > li {
+      display:flex;
       position: relative;
       z-index: 2;
+      align-items: flex-end; // vertical
       // icone
       > a {
-        @extend .icon-tree;
-        @extend .icon;
         margin-right: $bs;
         font-size: $bs;
         line-height: 1;
-        img {
-          display: none;
-        }
+        display: inline-block;
+        min-width: $bs;
+        height: $bs*1.5;
+        border: 3px solid transparent;
+        border-width: 0 0 3px;
+        filter: saturate(0%) opacity(75%);
+        text-align:center;
+      }
+      // actif
+      &.actif > a,
+      > a:hover,
+      > a:focus {
+        filter: saturate(100%) opacity(100%);
+        border-color: $couleur-theme;
       }
       // sous-menus
       ul {
@@ -144,9 +73,6 @@
         padding: $bs 0;
         background-color: white;
         box-shadow: 0 0.2em 0.2em hsla(0, 0%, 0%, 0.15);
-        .toutsite {
-          border-bottom: 1px dotted hsla(0, 0%, 0%, 0.2);
-        }
         a {
           display: block;
           padding: $bs/4 $bs;
@@ -194,33 +120,77 @@
   // Boutons
   .rapides {
     .bouton {
-      margin-right: $bs/2;
-
       a {
-        background-position: center center;
+        background-position: left center;
         background-repeat: no-repeat;
-        // le label
-        span {
-          @extend .visually-hidden;
-        }
       }
     }
   }
 
-  // Boutons de création rapide
-  .creer {}
+}
 
-  // Boutons de messagerie et recherche
-  #rapides {
-    margin-left: auto; // pour pousser à droite
-    display: flex;
-    align-items: center; // vertical
+#bando_site { order:1; }
+#bando_outils { order:2; }
+#bando_rechercher { order:3; }
+#bando_identite { order:4; }
+#bando_collaborer { order:5; }
 
-    .collaborer {
-      margin-right: $bs;
+/**
+ * ==============================
+ * Infos visiteur, connexion etc.
+ * ==============================
+ */
+#bando_site {
+  .nom_site_spip {
+    .info { margin:0 $bs; }
+  }
+}
+
+#bandeau_rechercher {
+  flex: 1 0 auto;
+  margin:auto;
+}
+
+#bando_identite {
+  margin-left:auto;
+  .deroulant .identite {
+    > a {
+      font-size: 1rem;
     }
   }
 }
+
+
+/**
+ * ============================
+ * Boutons de créations rapides
+ * ============================
+ */
+#bando_outils {
+  display: flex;
+
+  // Plan
+  .bando_rubriques {
+    .plan_site {
+      // icone
+      > a {
+        @extend .icon-tree;
+        @extend .icon;
+        img {
+          display: none;
+        }
+      }
+      // sous-menus
+      ul {
+        .toutsite {
+          border-bottom: 1px dotted hsla(0, 0%, 0%, 0.2);
+        }
+      }
+    }
+  }
+}
+
+
 
 
 /**

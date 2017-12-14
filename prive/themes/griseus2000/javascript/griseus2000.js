@@ -21,5 +21,4 @@
 		}
 	}
 	navigation_lat_sticky();
-
 });
