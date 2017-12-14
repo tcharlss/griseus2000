@@ -43,7 +43,7 @@ function filtre_parametres_css_prive_dist() {
 function utilisateur_couleur_favicon() {
 	$h = isset($GLOBALS['visiteur_session']['prefs']['teinte']) ? $GLOBALS['visiteur_session']['prefs']['teinte'] : 0;
 	$s = isset($GLOBALS['visiteur_session']['prefs']['saturation']) ? $GLOBALS['visiteur_session']['prefs']['saturation'] : 10;
-	$h = intval($h / 30) * 30;
+	$h = intval(round($h / 30)) * 30;
 	$s = ($s < 40) ? 20 : 70;
 	return GriseusColors::hslToHex([$h/360, $s/100, .5]);
 }

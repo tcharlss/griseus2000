@@ -55,8 +55,8 @@ function formulaires_configurer_preferences_charger_dist() {
 		$hsl = couleur_hsl($couleur,'all');
 		$valeurs['couleurs'][$k] = [
 			'couleur' => $couleur,
-			'teinte' => intval($hsl['h'] / 10) * 10,
-			'saturation' => intval($hsl['s'] / 10) * 10,
+			'teinte' => intval(round($hsl['h'] / 5)) * 5,
+			'saturation' => intval(round($hsl['s'] / 10)) * 10,
 			//'luminosite' => $hsl['l'],
 		];
 	}
