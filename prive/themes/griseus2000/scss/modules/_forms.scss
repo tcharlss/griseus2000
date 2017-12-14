@@ -19,6 +19,13 @@ button {
   @extend .button.secondary;
 }
 
+// Tous les inputs
+input,
+select,
+textarea {
+  font-family:$font-family-texte;
+}
+
 // Les inputs avec un cadre
 input.text,
 input[type=text],
@@ -35,7 +42,7 @@ select {
   border-radius: 2px;
   &:focus {
     border-color: $couleur-defaut;
-    box-shadow: 0 0 0.5em _hsla($teinte, 70%, 70%, 0.75);
+    box-shadow: 0 0 0.5em _hsla($teinte, 70%, 70%, 0.5);
   }
 }
 
@@ -47,7 +54,7 @@ input[type=number],
 input[type=url],
 input[type=telephone],
 select:not([multiple]) {
-  height: $bs*1.5;
+  height: $bs*2;
   padding: 0 $bs/2;
 }
 
@@ -55,7 +62,7 @@ select:not([multiple]) {
 textarea {
   height: auto;
   min-height: $bs*3;
-  padding: $bs/2;
+  padding: $bs $bs/2;
 }
 
 // Selects
@@ -167,9 +174,9 @@ fieldset {
   // Les boutons à la fin représentent le footer
   > form > div > .boutons:last-child {
     @extend .gr-card__pseudo-footer;
+    margin-top: $bs;
   }
   .boutons {
-    //margin-top: $bs;
     display: flex;
     justify-content: flex-end;
   }

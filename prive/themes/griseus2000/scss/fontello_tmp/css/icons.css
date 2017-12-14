@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'icons';
-  src: url('../font/icons.eot?51994997');
-  src: url('../font/icons.eot?51994997#iefix') format('embedded-opentype'),
-       url('../font/icons.woff2?51994997') format('woff2'),
-       url('../font/icons.woff?51994997') format('woff'),
-       url('../font/icons.ttf?51994997') format('truetype'),
-       url('../font/icons.svg?51994997#icons') format('svg');
+  src: url('../font/icons.eot?59031816');
+  src: url('../font/icons.eot?59031816#iefix') format('embedded-opentype'),
+       url('../font/icons.woff2?59031816') format('woff2'),
+       url('../font/icons.woff?59031816') format('woff'),
+       url('../font/icons.ttf?59031816') format('truetype'),
+       url('../font/icons.svg?59031816#icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'icons';
-    src: url('../font/icons.svg?51994997#icons') format('svg');
+    src: url('../font/icons.svg?59031816#icons') format('svg');
   }
 }
 */
@@ -64,7 +64,7 @@
 .icon-right:before { content: '\e806'; } /* '' */
 .icon-up:before { content: '\e807'; } /* '' */
 .icon-dot:before { content: '\e808'; } /* '' */
-.icon-add-1:before { content: '\e809'; } /* '' */
+.icon-eye:before { content: '\e809'; } /* '' */
 .icon-delete:before { content: '\e80a'; } /* '' */
 .icon-remove:before { content: '\e80b'; } /* '' */
 .icon-help:before { content: '\e80c'; } /* '' */
@@ -73,6 +73,10 @@
 .icon-resize-full:before { content: '\e80f'; } /* '' */
 .icon-resize-small:before { content: '\e810'; } /* '' */
 .icon-forbidden:before { content: '\e811'; } /* '' */
+.icon-down-fill:before { content: '\e812'; } /* '' */
+.icon-left-fill:before { content: '\e813'; } /* '' */
+.icon-right-fill:before { content: '\e814'; } /* '' */
+.icon-up-fill:before { content: '\e815'; } /* '' */
 .icon-down-open:before { content: '\f004'; } /* '' */
 .icon-up-open:before { content: '\f005'; } /* '' */
 .icon-right-open:before { content: '\f006'; } /* '' */

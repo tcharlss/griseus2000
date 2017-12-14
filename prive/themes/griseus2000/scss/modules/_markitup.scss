@@ -1,0 +1,138 @@
+/**
+ * Module : markitup
+ */
+
+.markItUp {
+
+  // Onglets et barre d'outil {
+  .markItUpTabs,
+  .markItUpHeader ul {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch; // vertical
+    height: $bs*2;
+  }
+
+  // Onglets édition / prévisu  /plein écran
+  .markItUpTabs {
+    top: 1px;
+    right: 1px;
+    padding: 0;
+    font-size: 0.9em;
+    font-weight: bold;
+    background-color: $couleur-neutre-claire-alpha;
+    a {
+      @extend .icon;
+      display: flex;
+      align-items: center; // vertical
+      padding: 0 $bs;
+      margin: 0;
+      border-radius: 0;
+      border: 1px solid $couleur-neutre-bordure;
+      border-width: 0 0 0 1px;
+      &:last-child {
+        border-top-right-radius: $radius;
+      }
+      // Items pas actifs
+      &:not(.on) {
+        &:hover,
+        &:focus {
+          background-color: white;
+        }
+      }
+      // Items actifs
+      &.on {
+        color: $couleur-dark;
+      }
+      // Item prévisu
+      &.previsuVoir {
+        @extend .icon-eye;
+      }
+      // Item édition
+      &.previsuEditer {
+        @extend .icon-edit;
+      }
+      // Item Fullscreen
+      &.fullscreen {
+        @extend .icon-resize-full;
+        background-image: none !important;
+        width: 1em;
+        &:before {
+          text-indent: 0;
+          margin: 0;
+        }
+      }
+      // Icônes
+      &:before {
+        margin-right: 0.5em;
+      }
+    }
+  }
+
+  // Header = barre d'outils
+  .markItUpHeader {
+    border-bottom: none;
+    border-radius: $radius;
+     ul {
+      background-color: $couleur-neutre-claire;
+      
+      li {
+        display: flex;
+        align-items: stretch; // vertical
+      }
+      a {
+        display: flex;
+        align-items: center; // vertical
+        padding: 0 $bs/2;
+      }
+      .separateur {
+        border-left: 1px dotted hsla(0, 0%, 0%, 0.2);
+      }
+      // Item avec un sous menu
+      .markItUpDropMenu > a {
+        @extend .icon;
+        @extend .icon-down-fill;
+        position: relative;
+        &:before {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          color: lighten($couleur-texte, 50);
+          line-height: 0.66;
+        }
+        &:hover,
+        &:focus {
+          &:before {
+            color: _hsl($teinte, 90%, 50%);
+          }
+        }
+      }
+      // Sous menu
+      a:hover + ul,
+      a:focus + ul,
+      ul:hover,
+      ul:focus {
+        display: flex !important; // en js = block
+      }
+      ul {
+        top: auto;
+        bottom: -100%;
+        width: auto;
+      }
+    }
+  }
+
+  // Textarea
+  .markItUpEditor {
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  // Preview
+  .markItUpPreview {
+    border-top: none;
+  }
+
+}

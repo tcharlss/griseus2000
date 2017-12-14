@@ -28,8 +28,8 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding-right: 0.65625rem;
-    padding-left: 0.65625rem;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
 }
 
 @media screen and (min-width: 30em) {
@@ -75,8 +75,8 @@
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        padding-right: 0.65625rem;
-        padding-left: 0.65625rem;
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
     }
 }
 
@@ -103,8 +103,8 @@
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        padding-right: 0.65625rem;
-        padding-left: 0.65625rem;
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
     }
 }
 
@@ -148,8 +148,8 @@
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        padding-right: 0.65625rem;
-        padding-left: 0.65625rem;
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
     }
 }
 
@@ -175,7 +175,7 @@
     content: '\e800';
 }
 
-.icon-edit:before {
+.icon-edit:before, .markItUp .markItUpTabs a.previsuEditer:before {
     content: '\e801';
 }
 
@@ -208,7 +208,7 @@
     content: '\e808';
 }
 
-.icon-add-1:before {
+.icon-eye:before, .markItUp .markItUpTabs a.previsuVoir:before {
     content: '\e809';
 }
 
@@ -232,7 +232,7 @@
     content: '\e80e';
 }
 
-.icon-resize-full:before {
+.icon-resize-full:before, .markItUp .markItUpTabs a.fullscreen:before {
     content: '\e80f';
 }
 
@@ -242,6 +242,22 @@
 
 .icon-forbidden:before {
     content: '\e811';
+}
+
+.icon-down-fill:before, .markItUp .markItUpHeader ul .markItUpDropMenu > a:before {
+    content: '\e812';
+}
+
+.icon-left-fill:before {
+    content: '\e813';
+}
+
+.icon-right-fill:before {
+    content: '\e814';
+}
+
+.icon-up-fill:before {
+    content: '\e815';
 }
 
 .icon-down-open:before {
@@ -1382,7 +1398,7 @@ figure.right {
 }
 
 body {
-    font-size: 0.875em;
+    font-size: 1em;
     line-height: 1.5;
     font-family: "Source Sans Pro", sans-serif, sans;
     color: #333333;
@@ -1390,7 +1406,7 @@ body {
 }
 
 p, table, pre, ul, ol, address, dl, blockquote {
-    margin-bottom: 1.3125rem;
+    margin-bottom: 1.5rem;
 }
 
 a {
@@ -1422,7 +1438,7 @@ h2, .h2, fieldset > legend,
 fieldset .legend,
 h3, .h3,
 h4, .h4 {
-    margin-top: 2.625rem;
+    margin-top: 3rem;
 }
 
 .grostitre {
@@ -1455,7 +1471,7 @@ table tr:last-child td {
 
 table th,
   table td {
-    padding: 0.65625rem 1.3125rem;
+    padding: 0.75rem 1.5rem;
 }
 
 table caption {
@@ -1492,7 +1508,7 @@ table .id:last-child,
 }
 
 .icon:before, .liste-objets thead th a:before,
-.liste-objets thead th .on:before, .box.sous-rub .titrem:before, .onglets_simple.second li:not(:first-child):before, #bando_outils .bandeau_rubriques .plan_site > a:before, #bando_outils .bandeau_rubriques .plan_site.actif > ul li.haschild > a:before {
+.liste-objets thead th .on:before, .box.sous-rub .titrem:before, .onglets_simple.second li:not(:first-child):before, .markItUp .markItUpTabs a:before, .markItUp .markItUpHeader ul .markItUpDropMenu > a:before, #bando_outils .bandeau_rubriques .plan_site > a:before, #bando_outils .bandeau_rubriques .plan_site.actif > ul li.haschild > a:before {
     font-family: "Icons";
     font-weight: normal;
 }
@@ -1503,13 +1519,13 @@ code, pre, .code, .pre {
 }
 
 hr {
-    margin: 2.625rem 0;
+    margin: 3rem 0;
     border-style: dotted;
     border-color: rgba(0, 0, 0, 0.25);
 }
 
 blockquote {
-    padding-left: 1.3125rem;
+    padding-left: 1.5rem;
     border-left: 4px solid #333333;
     font-family: "Source Serif Pro", serif;
     font-style: italic;
@@ -1607,7 +1623,7 @@ blockquote:before {
 }
 
 .largeur {
-    padding: 0 1.3125rem;
+    padding: 0 1.5rem;
 }
 
 .largeur.clearfix {
@@ -1619,23 +1635,23 @@ blockquote:before {
 }
 
 #haut {
-    margin-top: 1.3125rem;
+    margin-top: 1.5rem;
 }
 
 #conteneur {
-    margin-top: 1.3125rem;
+    margin-top: 1.5rem;
 }
 
 @media screen and (min-width: 30em) {
     body {
-        padding-left: 11.8125rem;
+        padding-left: 13.5rem;
     }
 
     #bando_navigation {
         position: fixed;
         top: 0;
         left: 0;
-        width: 11.8125rem;
+        width: 13.5rem;
         height: 100vh;
         overflow-y: auto;
     }
@@ -1671,8 +1687,8 @@ blockquote:before {
         flex-direction: row;
         padding-left: 0 !important;
         padding-right: 0 !important;
-        margin-left: -0.65625rem;
-        margin-right: -0.65625rem;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
     }
 
     [class*="no-gutter"] > #conteneur {
@@ -1681,35 +1697,35 @@ blockquote:before {
     }
 
     #conteneur #conteneur {
-        margin-left: -0.65625rem;
-        margin-right: -0.65625rem;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
     }
 }
 
 @media screen and (min-width: 30em) and (min-width: 30em) and (min-width: 30em) and (min-width: 30em) {
     #conteneur #conteneur {
-        margin-left: -0.65625rem;
-        margin-right: -0.65625rem;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
     }
 }
 
 @media screen and (min-width: 30em) and (min-width: 30em) and (min-width: 30em) and (min-width: 60em) {
     #conteneur #conteneur {
-        margin-left: -0.65625rem;
-        margin-right: -0.65625rem;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
     }
 }
 
 @media screen and (min-width: 30em) and (min-width: 30em) and (min-width: 30em) and (min-width: 75em) {
     #conteneur #conteneur {
-        margin-left: -0.65625rem;
-        margin-right: -0.65625rem;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
     }
 }
 
 @media screen and (min-width: 30em) {
     #navigation {
-        max-width: 18.375rem;
+        max-width: 21rem;
     }
 
     #contenu {
@@ -1718,18 +1734,18 @@ blockquote:before {
 
     .nav-is-stuck #navigation {
         position: fixed;
-        top: 1.3125rem;
-        height: calc( 100vh - 1.3125rem);
+        top: 1.5rem;
+        height: calc( 100vh - 1.5rem);
         overflow-y: auto;
     }
 
     .nav-is-stuck #contenu {
-        margin-left: 18.375rem;
+        margin-left: 21rem;
     }
 
     #contenu .gauche,
   #contenu .droite {
-        width: calc(50% - (1.3125rem / 2)) !important;
+        width: calc(50% - (1.5rem / 2)) !important;
     }
 
     .gauche {
@@ -1738,7 +1754,7 @@ blockquote:before {
 
     .droite {
         float: right;
-        margin-left: 1.3125rem;
+        margin-left: 1.5rem;
     }
 
     .droite:after {
@@ -1756,13 +1772,13 @@ blockquote:before {
 
     [class*=par-] > * {
         flex: 0 1 auto;
-        margin-right: 1.3125rem;
+        margin-right: 1.5rem;
     }
 }
 
 @media screen and (min-width: 30em) and (min-width: 60em) {
     .par-2 > * {
-        flex-basis: calc(50% - 1.3125rem);
+        flex-basis: calc(50% - 1.5rem);
         max-width: 50%;
     }
 
@@ -1773,7 +1789,7 @@ blockquote:before {
 
 @media screen and (min-width: 30em) and (min-width: 60em) {
     .par-3 > * {
-        flex-basis: calc(33.33% - 1.3125rem);
+        flex-basis: calc(33.33% - 1.5rem);
         max-width: 33.33%;
     }
 
@@ -1784,7 +1800,7 @@ blockquote:before {
 
 @media screen and (min-width: 30em) and (min-width: 60em) {
     .par-4 > * {
-        flex-basis: calc(25% - 1.3125rem);
+        flex-basis: calc(25% - 1.5rem);
         max-width: 25%;
     }
 
@@ -1795,7 +1811,7 @@ blockquote:before {
 
 .button {
     display: inline-block;
-    padding: 0.32812rem 0.65625rem;
+    padding: 0.375rem 0.75rem;
     vertical-align: middle;
     text-align: center;
     transition: background-color 0.2s;
@@ -1812,15 +1828,15 @@ blockquote:before {
 }
 
 .button.small {
-    padding: 0.21875rem 0.32812rem;
+    padding: 0.25rem 0.375rem;
 }
 
 .button.medium {
-    padding: 0.65625rem 1.3125rem;
+    padding: 0.75rem 1.5rem;
 }
 
 .button.large {
-    padding: 0.65625rem 1.3125rem;
+    padding: 0.75rem 1.5rem;
     font-size: 1.25em;
 }
 
@@ -1917,6 +1933,12 @@ button {
     font-size: 1em;
 }
 
+input,
+select,
+textarea {
+    font-family: "Source Sans Pro", sans-serif, sans;
+}
+
 input.text,
 input[type=text],
 input[type=password],
@@ -1941,7 +1963,7 @@ input.text:focus,
   textarea:focus,
   select:focus {
     border-color: hsl(var(--teinte, 240), var(--saturation, 25%), 50%);
-    box-shadow: 0 0 0.5em hsla(var(--teinte, 240), 70%, 70%, 0.75);
+    box-shadow: 0 0 0.5em hsla(var(--teinte, 240), 70%, 70%, 0.5);
 }
 
 input.text,
@@ -1951,14 +1973,14 @@ input[type=number],
 input[type=url],
 input[type=telephone],
 select:not([multiple]) {
-    height: 1.96875rem;
-    padding: 0 0.65625rem;
+    height: 3rem;
+    padding: 0 0.75rem;
 }
 
 textarea {
     height: auto;
-    min-height: 3.9375rem;
-    padding: 0.65625rem;
+    min-height: 4.5rem;
+    padding: 1.5rem 0.75rem;
 }
 
 select {
@@ -1970,7 +1992,7 @@ select {
 }
 
 fieldset {
-    margin: 2.625rem 0;
+    margin: 3rem 0;
 }
 
 fieldset > legend,
@@ -1978,7 +2000,7 @@ fieldset > legend,
     display: block;
     width: 100%;
     margin-top: 0;
-    padding-bottom: 0.65625rem;
+    padding-bottom: 0.75rem;
     border-bottom: 2px solid rgba(0, 0, 0, 0.075);
     font-weight: 400;
     color: hsl(var(--teinte, 240), var(--saturation, 25%), 40%);
@@ -1991,7 +2013,7 @@ fieldset > legend,
 }
 
 .formulaire_spip {
-    margin-bottom: 1.3125rem;
+    margin-bottom: 1.5rem;
     font-family: "Source Sans Pro", sans-serif, sans;
 }
 
@@ -2002,7 +2024,7 @@ fieldset > legend,
 }
 
 .formulaire_spip .editer {
-    margin-bottom: 1.3125rem;
+    margin-bottom: 1.5rem;
     overflow: hidden;
 }
 
@@ -2011,22 +2033,22 @@ fieldset > legend,
 }
 
 .formulaire_spip .editer label {
-    margin-bottom: 0.4375rem;
+    margin-bottom: 0.5rem;
     display: block;
     font-weight: bold;
 }
 
 .formulaire_spip .editer .explication {
-    margin-bottom: 0.65625rem;
+    margin-bottom: 0.75rem;
 }
 
 .formulaire_spip .choix {
     display: inline-block;
-    margin-right: 1.3125rem;
+    margin-right: 1.5rem;
 }
 
 .formulaire_spip .choix input {
-    margin: 0 0.32812rem 0 0;
+    margin: 0 0.375rem 0 0;
     position: relative;
     top: 0.3em;
 }
@@ -2041,6 +2063,10 @@ fieldset > legend,
 .formulaire_spip .explication {
     font-style: italic;
     color: #666666;
+}
+
+.formulaire_spip > form > div > .boutons:last-child {
+    margin-top: 1.5rem;
 }
 
 .formulaire_spip .boutons {
@@ -2058,8 +2084,8 @@ fieldset > legend,
         flex-direction: row;
         padding-left: 0 !important;
         padding-right: 0 !important;
-        margin-left: -0.65625rem;
-        margin-right: -0.65625rem;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
     }
 
     [class*="no-gutter"] > .formulaire_spip .editer-groupe {
@@ -2068,29 +2094,29 @@ fieldset > legend,
     }
 
     .formulaire_spip .editer-groupe .formulaire_spip .editer-groupe {
-        margin-left: -0.65625rem;
-        margin-right: -0.65625rem;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
     }
 }
 
 @media screen and (min-width: 75em) and (min-width: 75em) and (min-width: 75em) and (min-width: 30em) {
     .formulaire_spip .editer-groupe .formulaire_spip .editer-groupe {
-        margin-left: -0.65625rem;
-        margin-right: -0.65625rem;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
     }
 }
 
 @media screen and (min-width: 75em) and (min-width: 75em) and (min-width: 75em) and (min-width: 60em) {
     .formulaire_spip .editer-groupe .formulaire_spip .editer-groupe {
-        margin-left: -0.65625rem;
-        margin-right: -0.65625rem;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
     }
 }
 
 @media screen and (min-width: 75em) and (min-width: 75em) and (min-width: 75em) and (min-width: 75em) {
     .formulaire_spip .editer-groupe .formulaire_spip .editer-groupe {
-        margin-left: -0.65625rem;
-        margin-right: -0.65625rem;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
     }
 }
 
@@ -2211,7 +2237,7 @@ fieldset > legend,
 }
 
 .liste-objets caption {
-    padding: 1.3125rem;
+    padding: 1.5rem;
 }
 
 .liste-objets thead tr.first_row {
@@ -2230,7 +2256,7 @@ fieldset > legend,
 .liste-objets thead th a,
     .liste-objets thead th strong {
     display: block;
-    padding: 0.32812rem 0;
+    padding: 0.375rem 0;
 }
 
 .liste-objets thead th a:before,
@@ -2269,7 +2295,7 @@ fieldset > legend,
 
 .liste-objets.minimal caption, .box .liste-objets caption, .fiche_objet .liste-objets caption,
     .minimal .liste-objets caption {
-    padding: 0.65625rem 0;
+    padding: 0.75rem 0;
     margin: 0;
     background-color: transparent;
 }
@@ -2289,8 +2315,8 @@ fieldset > legend,
   .redux-max .liste-objets th {
     flex: 1 1 auto;
     display: none;
-    padding-top: 0.32812rem;
-    padding-bottom: 0.32812rem;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
 }
 
 .liste-objets.redux td.principale, .lat .liste-objets td.principale, .liste-objets.redux td.titre, .lat .liste-objets td.titre, .liste-objets.redux td.nom, .lat .liste-objets td.nom, .liste-objets.redux td.action, .lat .liste-objets td.action, .liste-objets.redux td.id, .lat .liste-objets td.id,
@@ -2375,7 +2401,7 @@ fieldset > legend,
 
 .liste_items .item,
   .liste-items .item {
-    padding: 0.65625rem 0;
+    padding: 0.75rem 0;
     position: relative;
     transition: background-color 0.2s;
 }
@@ -2393,7 +2419,7 @@ fieldset > legend,
 
 .liste_items .item.on,
     .liste-items .item.on {
-    padding-left: 1.3125rem;
+    padding-left: 1.5rem;
     font-weight: bold;
     color: white;
     background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 40%);
@@ -2413,15 +2439,15 @@ fieldset > legend,
 
 .liste_items.sous_navigation .item a,
   .liste-items.sous_navigation .item a {
-    padding-left: 1.3125rem;
-    padding-right: 1.3125rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 .liste_items.sous_navigation .item:not(.on) a:hover, .liste_items.sous_navigation .item:not(.on) a:focus,
   .liste-items.sous_navigation .item:not(.on) a:hover,
   .liste-items.sous_navigation .item:not(.on) a:focus {
     background-color: rgba(0, 0, 0, 0.03);
-    text-indent: 0.32812rem;
+    text-indent: 0.375rem;
 }
 
 .liste_items.sous_navigation .item.on,
@@ -2431,11 +2457,11 @@ fieldset > legend,
 
 .liste_items.sous_navigation .item.on a,
     .liste-items.sous_navigation .item.on a {
-    margin-left: -1.3125rem;
-    padding-left: 0.65625rem;
+    margin-left: -1.5rem;
+    padding-left: 0.75rem;
     color: #333333;
     background-color: rgba(0, 0, 0, 0.03);
-    border-left: 0.65625rem solid hsl(var(--teinte, 240), var(--saturation, 25%), 50%);
+    border-left: 0.75rem solid hsl(var(--teinte, 240), var(--saturation, 25%), 50%);
 }
 
 .liste_items.sous_navigation .item.on a:hover, .liste_items.sous_navigation .item.on a:focus,
@@ -2449,23 +2475,23 @@ fieldset > legend,
   .liste-items.sous_navigation .item a {
     display: block;
     padding: inherit;
-    padding-left: 1.3125rem;
-    margin-top: -0.65625rem;
-    margin-bottom: -0.65625rem;
+    padding-left: 1.5rem;
+    margin-top: -0.75rem;
+    margin-bottom: -0.75rem;
     background-image: none;
 }
 
 .gr-card, .formulaire_spip, .liste-objets, .liste_items.sous_navigation,
 .liste-items.sous_navigation, .box {
     position: relative;
-    margin-bottom: 1.3125rem;
+    margin-bottom: 1.5rem;
     background-color: white;
     border-radius: 2px;
     box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.12);
 }
 
 .gr-card__header, .cadre-formulaire-editer .entete-formulaire, .box .hd, .gr-card__pseudo-header, .formulaire_spip > h3:first-child {
-    padding: 0.65625rem 1.3125rem;
+    padding: 0.75rem 1.5rem;
     background-color: #f7f7f7;
     border-radius: 2px 2px 0 0;
 }
@@ -2485,9 +2511,9 @@ fieldset > legend,
 }
 
 .gr-card__pseudo-header, .formulaire_spip > h3:first-child {
-    margin-top: -1.3125rem;
-    margin-left: -1.3125rem;
-    margin-right: -1.3125rem;
+    margin-top: -1.5rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
 }
 
 .gr-card .cadre-icone, .formulaire_spip .cadre-icone, .liste-objets .cadre-icone, .liste_items.sous_navigation .cadre-icone,
@@ -2496,20 +2522,20 @@ fieldset > legend,
 }
 
 .gr-card__content, .formulaire_spip, .box .bd {
-    padding: 1.3125rem;
+    padding: 1.5rem;
     border-radius: 0 0 2px 2px;
 }
 
 .gr-card__footer, .box .ft, .gr-card__pseudo-footer, .formulaire_spip > form > div > .boutons:last-child {
-    padding: 0.65625rem 1.3125rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 0 0 2px 2px;
     background-color: #f7f7f7;
 }
 
 .gr-card__pseudo-footer, .formulaire_spip > form > div > .boutons:last-child {
-    margin-bottom: -1.3125rem;
-    margin-left: -1.3125rem;
-    margin-right: -1.3125rem;
+    margin-bottom: -1.5rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
 }
 
 .box {
@@ -2560,12 +2586,12 @@ fieldset > legend,
 }
 
 .box.note {
-    border-left: 0.65625rem solid hsl(var(--teinte, 240), var(--saturation, 25%), 60%);
+    border-left: 0.75rem solid hsl(var(--teinte, 240), var(--saturation, 25%), 60%);
 }
 
 .box.note .hd {
     background-color: white;
-    padding-top: 1.3125rem;
+    padding-top: 1.5rem;
     padding-bottom: 0;
 }
 
@@ -2578,7 +2604,7 @@ fieldset > legend,
 }
 
 .box.basic .hd {
-    padding-top: 1.3125rem;
+    padding-top: 1.5rem;
     padding-bottom: 0;
 }
 
@@ -2603,7 +2629,7 @@ fieldset > legend,
 }
 
 .barre_onglet {
-    margin-bottom: 1.3125rem;
+    margin-bottom: 1.5rem;
 }
 
 #haut .barre_onglet:last-child {
@@ -2622,7 +2648,7 @@ fieldset > legend,
 
 .barre_onglet ul li a,
       .barre_onglet ul li strong {
-    padding: 0.65625rem 1.3125rem;
+    padding: 0.75rem 1.5rem;
     color: white;
     font-weight: bold;
     border-bottom: 3px solid hsl(var(--teinte, 240), var(--saturation, 25%), 40%);
@@ -2660,7 +2686,7 @@ fieldset > legend,
 .onglets_simple {
     display: flex;
     justify-content: center;
-    margin-bottom: 1.3125rem;
+    margin-bottom: 1.5rem;
 }
 
 .onglets_simple > ul {
@@ -2687,7 +2713,7 @@ fieldset > legend,
 .onglets_simple:not(.second) a,
   .onglets_simple:not(.second) strong {
     display: block;
-    padding: 0.65625rem 1.3125rem;
+    padding: 0.75rem 1.5rem;
     margin-bottom: -1px;
     border-bottom: 4px solid transparent;
     transition: border 0.2s;
@@ -2712,7 +2738,7 @@ fieldset > legend,
 .onglets_simple.second a,
   .onglets_simple.second strong {
     position: relative;
-    padding: 0 0.65625rem;
+    padding: 0 0.75rem;
 }
 
 .fiche_objet {
@@ -2725,8 +2751,8 @@ fieldset > legend,
 .fiche_objet .formulaire_spip {
     box-shadow: none;
     padding: 0;
-    padding-bottom: 0.65625rem;
-    margin-bottom: 0.65625rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
     border-bottom: 1px dotted #dedede;
 }
 
@@ -2741,13 +2767,13 @@ fieldset > legend,
 .fiche_objet .formulaire_spip form > div .selecteur {
     flex-grow: 1;
     min-width: 50%;
-    padding: 0.65625rem;
+    padding: 0.75rem;
     border: 1px solid #dedede;
 }
 
 .fiche_objet .formulaire_spip form > div .selecteur .titrem,
         .fiche_objet .formulaire_spip form > div .selecteur h3 {
-    margin: 0 0 0.65625rem;
+    margin: 0 0 0.75rem;
 }
 
 .fiche_objet .formulaire_spip form > div .selecteur .boutons {
@@ -2761,7 +2787,7 @@ fieldset > legend,
 
 #wysiwyg {
     max-width: 50em;
-    margin: 5.25rem auto;
+    margin: 6rem auto;
 }
 
 #wysiwyg .invisible {
@@ -2779,20 +2805,20 @@ fieldset > legend,
 }
 
 .markItUpPreview {
-    padding: 1.3125rem;
+    padding: 1.5rem;
 }
 
 .gr-message, .success:not(.box),
 .error:not(.box),
 .notice:not(.box),
 .reponse_formulaire {
-    padding: 1.3125rem 1.3125rem 1.3125rem 3.9375rem;
+    padding: 1.5rem 1.5rem 1.5rem 4.5rem;
     border-radius: 2px;
 }
 
 .gr-message--success, .success:not(.box), .reponse_formulaire.reponse_formulaire_ok, .box.success .hd, .gr-message--error, .error:not(.box), .reponse_formulaire.reponse_formulaire_erreur, .box.error .hd, .gr-message--notice, .notice:not(.box), .reponse_formulaire.reponse_formulaire_notice, .box.notice .hd {
     background-repeat: no-repeat;
-    background-position: 1.3125rem center;
+    background-position: 1.5rem center;
     background-size: auto 1em;
 }
 
@@ -2817,11 +2843,11 @@ fieldset > legend,
 .success:not(.box),
 .error:not(.box),
 .notice:not(.box) {
-    margin-bottom: 1.3125rem;
+    margin-bottom: 1.5rem;
 }
 
 .box.success .hd, .box.error .hd, .box.notice .hd {
-    padding-left: 3.9375rem;
+    padding-left: 4.5rem;
 }
 
 .puce_objet {
@@ -2855,7 +2881,7 @@ fieldset > legend,
 
 .pagination {
     display: flex;
-    padding: 0.65625rem 0.65625rem;
+    padding: 0.75rem 0.75rem;
 }
 
 .pagination .pages,
@@ -2903,12 +2929,129 @@ fieldset > legend,
     display: none;
 }
 
+.markItUp .markItUpTabs,
+.markItUp .markItUpHeader ul {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    height: 3rem;
+}
+
+.markItUp .markItUpTabs {
+    top: 1px;
+    right: 1px;
+    padding: 0;
+    font-size: 0.9em;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.markItUp .markItUpTabs a {
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    margin: 0;
+    border-radius: 0;
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    border-width: 0 0 0 1px;
+}
+
+.markItUp .markItUpTabs a:last-child {
+    border-top-right-radius: 2px;
+}
+
+.markItUp .markItUpTabs a:not(.on):hover, .markItUp .markItUpTabs a:not(.on):focus {
+    background-color: white;
+}
+
+.markItUp .markItUpTabs a.on {
+    color: hsl(var(--teinte, 240), var(--saturation, 25%), 40%);
+}
+
+.markItUp .markItUpTabs a.fullscreen {
+    background-image: none !important;
+    width: 1em;
+}
+
+.markItUp .markItUpTabs a.fullscreen:before {
+    text-indent: 0;
+    margin: 0;
+}
+
+.markItUp .markItUpTabs a:before {
+    margin-right: 0.5em;
+}
+
+.markItUp .markItUpHeader {
+    border-bottom: none;
+    border-radius: 2px;
+}
+
+.markItUp .markItUpHeader ul {
+    background-color: #f7f7f7;
+}
+
+.markItUp .markItUpHeader ul li {
+    display: flex;
+    align-items: stretch;
+}
+
+.markItUp .markItUpHeader ul a {
+    display: flex;
+    align-items: center;
+    padding: 0 0.75rem;
+}
+
+.markItUp .markItUpHeader ul .separateur {
+    border-left: 1px dotted rgba(0, 0, 0, 0.2);
+}
+
+.markItUp .markItUpHeader ul .markItUpDropMenu > a {
+    position: relative;
+}
+
+.markItUp .markItUpHeader ul .markItUpDropMenu > a:before {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #b3b3b3;
+    line-height: 0.66;
+}
+
+.markItUp .markItUpHeader ul .markItUpDropMenu > a:hover:before, .markItUp .markItUpHeader ul .markItUpDropMenu > a:focus:before {
+    color: hsl(var(--teinte, 240), 90%, 50%);
+}
+
+.markItUp .markItUpHeader ul a:hover + ul,
+    .markItUp .markItUpHeader ul a:focus + ul,
+    .markItUp .markItUpHeader ul ul:hover,
+    .markItUp .markItUpHeader ul ul:focus {
+    display: flex !important;
+}
+
+.markItUp .markItUpHeader ul ul {
+    top: auto;
+    bottom: -100%;
+    width: auto;
+}
+
+.markItUp .markItUpEditor {
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.markItUp .markItUpPreview {
+    border-top: none;
+}
+
 .box .infos {
     text-align: center;
 }
 
 .box .infos > * {
-    margin-bottom: 0.65625rem;
+    margin-bottom: 0.75rem;
 }
 
 .box .infos .numero {
@@ -2927,7 +3070,7 @@ fieldset > legend,
 #bando_identite {
     display: flex;
     align-items: center;
-    height: 1.96875rem;
+    height: 2.25rem;
     background-color: white;
 }
 
@@ -2942,7 +3085,7 @@ fieldset > legend,
 }
 
 #bando_identite a {
-    padding: 0 0.32812rem;
+    padding: 0 0.375rem;
 }
 
 #bando_identite .menu_lang {
@@ -2973,7 +3116,7 @@ fieldset > legend,
 #bando_outils {
     display: flex;
     align-items: center;
-    height: 1.96875rem;
+    height: 2.25rem;
     background-color: white;
     box-shadow: 0 0.15em 0.15em rgba(0, 0, 0, 0.066);
 }
@@ -2998,8 +3141,8 @@ fieldset > legend,
 #bando_outils .bouton > a,
     #bando_outils .plan_site > a {
     display: inline-block;
-    width: 1.3125rem;
-    height: 1.96875rem;
+    width: 1.5rem;
+    height: 2.25rem;
     border: 3px solid transparent;
     border-width: 0 0 3px;
     filter: saturate(0%) opacity(75%);
@@ -3021,8 +3164,8 @@ fieldset > legend,
 }
 
 #bando_outils .bandeau_rubriques .plan_site > a {
-    margin-right: 1.3125rem;
-    font-size: 1.3125rem;
+    margin-right: 1.5rem;
+    font-size: 1.5rem;
     line-height: 1;
 }
 
@@ -3037,7 +3180,7 @@ fieldset > legend,
     bottom: 0;
     transform: translateY(100%);
     min-width: 14em;
-    padding: 1.3125rem 0;
+    padding: 1.5rem 0;
     background-color: white;
     box-shadow: 0 0.2em 0.2em rgba(0, 0, 0, 0.15);
 }
@@ -3048,7 +3191,7 @@ fieldset > legend,
 
 #bando_outils .bandeau_rubriques .plan_site ul a {
     display: block;
-    padding: 0.32812rem 1.3125rem;
+    padding: 0.375rem 1.5rem;
 }
 
 #bando_outils .bandeau_rubriques .plan_site ul a:hover, #bando_outils .bandeau_rubriques .plan_site ul a:focus {
@@ -3066,13 +3209,13 @@ fieldset > legend,
 #bando_outils .bandeau_rubriques .plan_site.actif > ul li.haschild > a:before {
     position: absolute;
     top: 50%;
-    right: 0.65625rem;
+    right: 0.75rem;
     transform: translateY(-50%);
 }
 
 #bando_outils .bandeau_rubriques .plan_site.actif > ul li.haschild > ul {
     right: 0;
-    top: -1.3125rem;
+    top: -1.5rem;
     bottom: initial;
 }
 
@@ -3082,7 +3225,7 @@ fieldset > legend,
 }
 
 #bando_outils .rapides .bouton {
-    margin-right: 0.65625rem;
+    margin-right: 0.75rem;
 }
 
 #bando_outils .rapides .bouton a {
@@ -3097,7 +3240,7 @@ fieldset > legend,
 }
 
 #bando_outils #rapides .collaborer {
-    margin-right: 1.3125rem;
+    margin-right: 1.5rem;
 }
 
 .navigation_avec_icones a[id^=bando1_menu] {
@@ -3128,7 +3271,7 @@ fieldset > legend,
 
 #bando_navigation .deroulant > li > a {
     position: relative;
-    padding: 0.65625rem;
+    padding: 0.75rem;
     font-weight: 600;
 }
 
@@ -3146,7 +3289,7 @@ fieldset > legend,
 
 #bando_navigation .deroulant > li > ul a {
     display: block;
-    padding: 0.65625rem;
+    padding: 0.75rem;
     color: #333333;
 }
 
@@ -3174,12 +3317,12 @@ fieldset > legend,
 
     #bando_navigation .deroulant > li:hover > ul, #bando_navigation .deroulant > li:focus > ul, #bando_navigation .deroulant > li.actif > ul, #bando_navigation .deroulant > li.actif_tempo > ul {
         opacity: 1;
-        width: 11.8125rem;
+        width: 13.5rem;
     }
 
     #bando_navigation .deroulant > li > a {
         display: block;
-        padding: 1.3125rem 0.98438rem;
+        padding: 1.5rem 1.125rem;
     }
 
     #bando_navigation .deroulant > li > a:hover:before, #bando_navigation .deroulant > li > a:focus:before {
@@ -3191,8 +3334,8 @@ fieldset > legend,
         content: '';
         display: inline-block;
         vertical-align: middle;
-        width: 1.3125rem;
-        height: 1.3125rem;
+        width: 1.5rem;
+        height: 1.5rem;
         margin-right: 0.5em;
         background-size: contain;
         background-position: center center;
@@ -3204,7 +3347,7 @@ fieldset > legend,
         position: fixed !important;
         overflow: hidden;
         top: 0 !important;
-        left: 11.8125rem;
+        left: 13.5rem;
         width: 0;
         min-width: auto;
         height: 100vh;
@@ -3228,7 +3371,7 @@ fieldset > legend,
 
 #pied {
     position: relative;
-    padding: 1.3125rem 0;
+    padding: 1.5rem 0;
     background-color: white;
     color: #878787;
     text-align: right;
@@ -3244,11 +3387,11 @@ fieldset > legend,
 }
 
 .accueil_informations {
-    margin-bottom: 1.3125rem;
+    margin-bottom: 1.5rem;
 }
 
 .accueil_informations h2, .accueil_informations h3, .accueil_informations h4 {
-    margin-bottom: 0.65625rem;
+    margin-bottom: 0.75rem;
 }
 
 .accueil_informations h2 img, .accueil_informations h3 img, .accueil_informations h4 img {
