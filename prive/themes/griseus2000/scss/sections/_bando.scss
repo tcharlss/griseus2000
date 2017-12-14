@@ -54,6 +54,12 @@
         border-width: 0 0 3px;
         filter: saturate(0%) opacity(75%);
         text-align:center;
+        &:after {
+          content:"▼";
+          color: lighten($couleur-texte, 50%);
+          font-size:.6rem;
+          padding-left:3px;
+        }
       }
       // actif
       &.actif > a,
@@ -61,6 +67,9 @@
       > a:focus {
         filter: saturate(100%) opacity(100%);
         border-color: $couleur-theme;
+        &:after {
+          color: $couleur-theme;
+        }
       }
       // sous-menus
       ul {
@@ -141,8 +150,11 @@
  * ==============================
  */
 #bando_site {
+  margin:0 $bs;
   .nom_site_spip {
-    .info { margin:0 $bs; }
+    .voir {
+      margin-left: $bs;
+    }
   }
 }
 

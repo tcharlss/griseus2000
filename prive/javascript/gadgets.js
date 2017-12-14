@@ -106,7 +106,7 @@ jQuery(function(){
 	});
 
 	jQuery('#bando_navigation .deroulant > li').menuFocus();
-	jQuery('#bando_outils ul.bandeau_rubriques li').menuFocus();
+	jQuery('#bando_principal .deroulant li').menuFocus();
 
 	jQuery('#bandeau_haut #formRecherche input').on('hover touchstart', function(){
 		jQuery('#bandeau_haut ul.actif').trigger('mouseout');
