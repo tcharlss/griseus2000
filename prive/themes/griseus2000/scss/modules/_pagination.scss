@@ -39,14 +39,14 @@
     }
     &:hover,
     &:focus {
-      background-color: $couleur-neutre-claire;
+      background-color: $couleur-neutre-light;
       border-radius: $radius;
     }
   }
 
   // Item actif (<strong>)
   .on {
-    background-color: $couleur-lighter;
+    background-color: $couleur-theme-lighter;
     border-radius: $radius;
   }
 

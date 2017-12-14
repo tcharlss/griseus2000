@@ -23,7 +23,7 @@
   &__header,
   &__pseudo-header {
     padding: $bs/2 $bs;
-    background-color: $couleur-neutre-claire;
+    background-color: $couleur-neutre-light;
     border-radius: 2px 2px 0 0;
     img {
       display: none;
@@ -54,7 +54,7 @@
   &__pseudo-footer {
     padding: $bs/2 $bs;
     border-radius: 0 0 2px 2px;
-    background-color: $couleur-neutre-claire;
+    background-color: $couleur-neutre-light;
   }
   &__pseudo-footer {
     margin-bottom: -$bs;
@@ -159,9 +159,9 @@
 
   /*  Info */
   &.info {
-    //border: 2px solid $couleur-light;
+    //border: 2px solid $couleur-theme-light;
     .hd {
-      background-color: $couleur-defaut;
+      background-color: $couleur-theme;
       color: white;
     }
   }
@@ -170,14 +170,14 @@
   &.important {
     //border: 2px solid $couleur-texte;
     .hd {
-      background-color: lighten($couleur-neutre-sombre, 10);
+      background-color: lighten($couleur-neutre-dark, 10);
       color: white;
     }
   }
 
   /* Note */
   &.note {
-    border-left: $bs/2 solid $couleur-light;
+    border-left: $bs/2 solid $couleur-theme-light;
     .hd {
       background-color: white;
       padding-top: $bs;
@@ -191,7 +191,7 @@
       border-bottom: 1px solid $couleur-neutre-bordure;
     }
     .bd {
-      background-color: $couleur-neutre-claire;
+      background-color: $couleur-neutre-light;
     }
   }
 
@@ -217,7 +217,7 @@
     &.inverse {
       .hd,
       .bd {
-        background-color: lighten($couleur-neutre-sombre, 10);
+        background-color: lighten($couleur-neutre-dark, 10);
         color: white;
       }
       .hd {

@@ -20,7 +20,7 @@
     padding: 0;
     font-size: 0.9em;
     font-weight: bold;
-    background-color: $couleur-neutre-claire-alpha;
+    background-color: $couleur-neutre-light-alpha;
     a {
       @extend .icon;
       display: flex;
@@ -42,7 +42,7 @@
       }
       // Items actifs
       &.on {
-        color: $couleur-dark;
+        color: $couleur-theme-dark;
       }
       // Item prévisu
       &.previsuVoir {
@@ -74,7 +74,7 @@
     border-bottom: none;
     border-radius: $radius;
      ul {
-      background-color: $couleur-neutre-claire;
+      background-color: $couleur-neutre-light;
       
       li {
         display: flex;

@@ -41,7 +41,7 @@ select {
   transition: box-shadow 0.2s;
   border-radius: 2px;
   &:focus {
-    border-color: $couleur-defaut;
+    border-color: $couleur-theme;
     box-shadow: 0 0 0.5em _hsla($teinte, 70%, 70%, 0.5);
   }
 }
@@ -87,7 +87,7 @@ fieldset {
     padding-bottom: $bs/2;
     border-bottom: 2px solid $couleur-neutre-bordure;
     font-weight: 400;
-    color: $couleur-dark;
+    color: $couleur-theme-dark;
     color: lighten($couleur-texte, 33);
   }
 }
@@ -252,7 +252,7 @@ fieldset {
         padding-left: 0;
         border-style: solid;
         border-width: 0 0 2px;
-        border-color: $couleur-defaut;
+        border-color: $couleur-theme;
         border-radius: 0;
         background: transparent;
         &:focus {

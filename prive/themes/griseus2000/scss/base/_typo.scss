@@ -29,7 +29,7 @@ a {
   &:focus {
     text-decoration: underline;
     text-decoration-style: dotted;
-    color: $couleur-dark;
+    color: $couleur-theme-dark;
   }
 }
 
@@ -113,7 +113,7 @@ table {
   tbody {
     tr {
       &:hover {
-        background-color: $couleur-neutre-claire-alpha;
+        background-color: $couleur-neutre-light-alpha;
       }
     }
     td {
@@ -173,23 +173,23 @@ blockquote {
 
 /* Couleurs */
 .gr-color {
-  color: $couleur-defaut;
+  color: $couleur-theme;
   &-lightest {
-    color: $couleur-lightest;
+    color: $couleur-theme-lightest;
   }
   &-lighter {
-    color: $couleur-lighter;
+    color: $couleur-theme-lighter;
   }
   &-light {
-    color: $couleur-light;
+    color: $couleur-theme-light;
   }
   &-dark {
-    color: $couleur-dark;
+    color: $couleur-theme-dark;
   }
   &-darker {
-    color: $couleur-darker;
+    color: $couleur-theme-darker;
   }
   &-darkest {
-    color: $couleur-darkest;
+    color: $couleur-theme-darkest;
   }
 }

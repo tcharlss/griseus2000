@@ -11,35 +11,35 @@ $couleur-erreur: #DF4543; // rouge
 $couleur-notice: #fa9a00; // jaune
 $couleur-info:   #5da7c5; // bleu
 
-// Couleur par défaut si on ne connait pas les variables
-$couleur-fallback: #8F8FBD;
-$teinte-fallback: 240;
-$saturation-fallback: 25%;
-$luminosite-fallback: 65%;
-
-// Variables de couleur
-$teinte: var(--teinte, $teinte-fallback);
-$saturation: var(--saturation, $saturation-fallback);
-$luminosite: var(--luminosite, $luminosite-fallback);
-
-// Couleurs neutres fonctionnelles
-$couleur-neutre-claire:       hsl(0, 0%, 97%);
-$couleur-neutre-claire-alpha: hsla(0, 0%, 0%, 0.03);
-$couleur-neutre-sombre:       hsl(0, 0%, 20%);
-$couleur-neutre-sombre-alpha: hsla(0, 0%, 0%, 0.8);
-$couleur-neutre-bordure:      hsla(0, 0%, 0%, 0.075);
-$couleur-texte:               $couleur-neutre-sombre;
+// Couleurs neutres indépendantes du thème choisi par l'utilisateur.ice
+$couleur-neutre-light:      hsl(0, 0%, 97%);
+$couleur-neutre-light-alpha:hsla(0, 0%, 0%, 0.03);
+$couleur-neutre-dark:       hsl(0, 0%, 20%);
+$couleur-neutre-dark-alpha: hsla(0, 0%, 0%, 0.8);
+$couleur-neutre-bordure:    hsla(0, 0%, 0%, 0.075);
+$couleur-texte:               $couleur-neutre-dark;
 $couleur-texte-light:         lighten($couleur-texte, 33);
 $couleur-code:                navy;
 
-// Couleurs du thème
-$couleur-defaut:   _hsl($teinte, $saturation, 50%);
-$couleur-light:    _hsl($teinte, $saturation, 60%);
-$couleur-lighter:  _hsl($teinte, $saturation, 70%);
-$couleur-lightest: _hsl($teinte, $saturation, 80%);
-$couleur-dark:     _hsl($teinte, $saturation, 40%);
-$couleur-darker:   _hsl($teinte, $saturation, 30%);
-$couleur-darkest:  _hsl($teinte, $saturation, 20%);
+// Couleur par défaut si on ne connait pas les variables
+$couleur-fallback: #8F8FBD;
+$teinte-fallback:     240;
+$saturation-fallback: 25%;
+$luminosite-fallback: 65%;
+
+// Variables de couleur déclarées dans le HTML
+$teinte:     var(--teinte, $teinte-fallback);
+$saturation: var(--saturation, $saturation-fallback);
+$luminosite: var(--luminosite, $luminosite-fallback);
+
+// Couleurs du thème choisi par l'utilisateur.ice
+$couleur-theme:          _hsl($teinte, $saturation, 50%);
+$couleur-theme-light:    _hsl($teinte, $saturation, 60%);
+$couleur-theme-lighter:  _hsl($teinte, $saturation, 70%);
+$couleur-theme-lightest: _hsl($teinte, $saturation, 80%);
+$couleur-theme-dark:     _hsl($teinte, $saturation, 40%);
+$couleur-theme-darker:   _hsl($teinte, $saturation, 30%);
+$couleur-theme-darkest:  _hsl($teinte, $saturation, 20%);
 
 /* Variables de typographie */
 $typo-font-size: em(15px);

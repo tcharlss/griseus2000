@@ -12,10 +12,10 @@
   }
   // Numéro
   .numero {
-    color: $couleur-dark;
+    color: $couleur-theme-dark;
     p {
       font-size: 5em;
-      color: $couleur-defaut;
+      color: $couleur-theme;
     }
   }
 }

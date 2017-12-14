@@ -31,19 +31,19 @@
         padding: $bs/2 $bs;
         color: white;
         font-weight: bold;
-        border-bottom: 3px solid $couleur-dark;
+        border-bottom: 3px solid $couleur-theme-dark;
       }
       // Item actif
       strong {
-        background-color: $couleur-dark;
+        background-color: $couleur-theme-dark;
       }
       // Items pas actifs
       a {
-        background-color: $couleur-darkest;
+        background-color: $couleur-theme-darkest;
         // hover
         &:hover,
         &:focus {
-          background-color: $couleur-defaut;
+          background-color: $couleur-theme;
           color: white;
         }
       }
@@ -94,7 +94,7 @@
   }
   // Item actif
   strong {
-    color: $couleur-dark;
+    color: $couleur-theme-dark;
   }
   // Items pas actifs
   a {
@@ -126,12 +126,12 @@
     a {
       &:hover,
       &:focus {
-        border-bottom-color: $couleur-lighter;
+        border-bottom-color: $couleur-theme-lighter;
       }
     }
     // Item actif
     strong {
-      border-bottom-color: $couleur-defaut;
+      border-bottom-color: $couleur-theme;
     }
   }
 

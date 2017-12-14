@@ -113,7 +113,7 @@
     > a:hover,
     > a:focus {
       filter: saturate(100%) opacity(100%);
-      border-color: $couleur-defaut;
+      border-color: $couleur-theme;
     }
   }
 
@@ -163,7 +163,7 @@
             position: relative;
             > a {
               //text-decoration: underline;
-              //text-decoration-color: lighten($couleur-defaut, 20);
+              //text-decoration-color: lighten($couleur-theme, 20);
               //text-decoration-style: dotted;
               @extend .icon-right-open;
               @extend .icon;
@@ -243,9 +243,9 @@
 }
 #bando_navigation {
   z-index: 10;
-  color: $couleur-neutre-claire;
-  //background-color: $couleur-neutre-sombre;
-  background-color: $couleur-darkest;
+  color: $couleur-neutre-light;
+  //background-color: $couleur-neutre-dark;
+  background-color: $couleur-theme-darkest;
 
   ul {
     @extend .list-none;
@@ -266,7 +266,7 @@
       &.actif,
       &.actif_tempo {
         > a {
-          background-color: $couleur-dark;
+          background-color: $couleur-theme-dark;
         }
         // sous-menu
         > ul {
@@ -293,8 +293,8 @@
         z-index: 1;
         min-width: 100%;
         position: absolute;
-        //background-color: lighten($couleur-neutre-sombre, 10);
-        background-color: $couleur-neutre-claire;
+        //background-color: lighten($couleur-neutre-dark, 10);
+        background-color: $couleur-neutre-light;
         a {
           display: block;
           padding: $bs*0.5;
@@ -309,7 +309,7 @@
         li:focus,
         li.actif {
           > a {
-            background-color: $couleur-neutre-claire-alpha;
+            background-color: $couleur-neutre-light-alpha;
           }
         }
       }

@@ -33,7 +33,7 @@
   thead {
     // la ligne principale, en principe
     tr.first_row {
-      background-color: $couleur-neutre-claire;
+      background-color: $couleur-neutre-light;
       //border-top: 1px solid $couleur-neutre-bordure;
       th {
         border: none;
@@ -62,7 +62,7 @@
       }
       // Tri actif
       .on {
-        color: $couleur-dark;
+        color: $couleur-theme-dark;
       }
       // Liens
       a {
@@ -72,7 +72,7 @@
         }
         &:hover:before,
         &:focus:before {
-          color: $couleur-defaut;
+          color: $couleur-theme;
         }
       }
       // Pollution visuelle !
@@ -212,7 +212,7 @@
       // hover
       &:hover,
       &:focus {
-        background-color: $couleur-neutre-claire-alpha;
+        background-color: $couleur-neutre-light-alpha;
       }
     }
     // Item actif
@@ -220,7 +220,7 @@
       padding-left: $bs;
       font-weight: bold;
       color: white;
-      background-color: $couleur-dark;
+      background-color: $couleur-theme-dark;
       a {
         color: inherit;
       }
@@ -261,7 +261,7 @@
           // hover
           &:hover,
           &:focus {
-            background-color: $couleur-neutre-claire-alpha;
+            background-color: $couleur-neutre-light-alpha;
             text-indent: $bs/4;
           }
         }
@@ -273,8 +273,8 @@
           margin-left: -$bs;
           padding-left: $bs/2;
           color: $couleur-texte;
-          background-color: $couleur-neutre-claire-alpha;
-          border-left: $bs/2 solid $couleur-defaut;
+          background-color: $couleur-neutre-light-alpha;
+          border-left: $bs/2 solid $couleur-theme;
           // hover
           &:hover,
           &:focus {

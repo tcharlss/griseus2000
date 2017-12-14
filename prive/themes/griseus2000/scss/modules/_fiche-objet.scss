@@ -21,7 +21,7 @@
     padding: 0;
     padding-bottom: $bs/2;
     margin-bottom: $bs/2;
-    border-bottom: 1px dotted darken($couleur-neutre-claire, 10);
+    border-bottom: 1px dotted darken($couleur-neutre-light, 10);
 
     // Essayons d'afficher la liste et le bouton d'ajout côte-à-côte
     form > div {
@@ -35,8 +35,8 @@
         flex-grow: 1;
         min-width: 50%;
         padding: $bs/2;
-        //background-color: $couleur-neutre-claire;
-        border: 1px solid darken($couleur-neutre-claire, 10);
+        //background-color: $couleur-neutre-light;
+        border: 1px solid darken($couleur-neutre-light, 10);
         .titrem,
         h3 {
           margin: 0 0 $bs/2;
