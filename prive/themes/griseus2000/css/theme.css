@@ -1450,7 +1450,7 @@ body {
     line-height: 1.5;
     font-family: "Source Sans Pro", sans-serif, sans;
     color: #333333;
-    background-color: hsl(var(--teinte, 240), 15%, 96%);
+    background-color: hsl(var(--teinte, 240), 20%, 95%);
 }
 
 p, table, pre, ul, ol, address, dl, blockquote {
@@ -1774,10 +1774,12 @@ blockquote:before {
 @media screen and (min-width: 30em) {
     #navigation {
         max-width: 16.875rem;
+        order: 2;
     }
 
     #contenu {
         flex-basis: 0;
+        order: 1;
     }
 
     .nav-is-stuck #navigation {
@@ -2122,6 +2124,12 @@ fieldset > legend,
     justify-content: flex-end;
 }
 
+@media screen and (min-width: 75em) {
+    .formulaire_spip .editer-groupe {
+        flex-grow: 1;
+    }
+}
+
 @media screen and (min-width: 75em) and (min-width: 75em) and (min-width: 75em) {
     .formulaire_spip .editer-groupe {
         -webkit-box-direction: normal;
@@ -2187,8 +2195,8 @@ fieldset > legend,
 
 @media screen and (min-width: 75em) {
     .cadre-formulaire-editer .formulaire_spip .editer-groupe,
-    .formulaire_spip .editer-groupe .editer:only-of-type,
-    .formulaire_spip .editer-groupe > .fieldset {
+      .formulaire_spip .editer-groupe .editer:only-of-type,
+      .formulaire_spip .editer-groupe > .fieldset {
         max-width: initial !important;
     }
 }
@@ -2409,6 +2417,19 @@ fieldset > legend,
     display: none;
 }
 
+.liste-objets.inline .liste, .fiche_objet .liste-objets .liste,
+  .inline .liste-objets .liste {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.liste-objets.inline caption, .fiche_objet .liste-objets caption,
+  .inline .liste-objets caption {
+    padding: 0;
+    margin-right: 1.40625rem;
+    text-align: left;
+}
+
 .liste-objets.inline thead, .fiche_objet .liste-objets thead,
   .liste-objets.inline tfoot, .fiche_objet .liste-objets tfoot,
   .inline .liste-objets thead,
@@ -2416,15 +2437,10 @@ fieldset > legend,
     display: none;
 }
 
-.liste-objets.inline caption, .fiche_objet .liste-objets caption,
-  .inline .liste-objets caption {
-    text-align: left;
-}
-
 .liste-objets.inline tbody, .fiche_objet .liste-objets tbody,
   .inline .liste-objets tbody {
     display: flex;
-    flex-flow: row wrap auto;
+    flex-flow: row wrap;
 }
 
 .liste-objets.inline tbody tr, .fiche_objet .liste-objets tbody tr,
@@ -2807,6 +2823,7 @@ fieldset > legend,
 
 .fiche_objet .formulaire_spip form > div {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .fiche_objet .formulaire_spip form > div .toggle_box_link {
@@ -2817,7 +2834,7 @@ fieldset > legend,
     flex-grow: 1;
     min-width: 50%;
     padding: 0.70312rem;
-    border: 1px solid #dedede;
+    background-color: #f7f7f7;
 }
 
 .fiche_objet .formulaire_spip form > div .selecteur .titrem,
@@ -2830,8 +2847,17 @@ fieldset > legend,
     padding: 0;
 }
 
+.fiche_objet .formulaire_spip h2, .fiche_objet .formulaire_spip h3, .fiche_objet .formulaire_spip h4, .fiche_objet .formulaire_spip h5, .fiche_objet .formulaire_spip h6 {
+    font-size: 1em;
+    margin: 0;
+}
+
 .fiche_objet .over {
     display: none !important;
+}
+
+.fiche_objet .box.propose {
+    margin-top: 4.21875rem;
 }
 
 #wysiwyg {
@@ -3258,11 +3284,17 @@ fieldset > legend,
 .markItUp .markItUpContainer.fullscreen .markItUpPreview,
 .markItUp .markItUpContainer.fullscreen .markItUpEditor {
     margin-top: 2.8125rem;
+    padding: 2.8125rem 1.40625rem;
     border: none;
 }
 
 .markItUp .markItUpContainer.fullscreen .markItUpTabs .fullscreen {
     background-image: none !important;
+}
+
+.markItUp .markItUpContainer.fullscreen .markItUpPreview {
+    background-color: #f7f7f7;
+    box-shadow: inset 0.1em -0.1em 0.1em rgba(0, 0, 0, 0.15);
 }
 
 .box .infos {
