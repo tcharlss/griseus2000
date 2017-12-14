@@ -84,10 +84,12 @@
   #navigation {
     @include gridle( adapt );
     max-width: $largeur-navigation;
+    order: 2;
   }
   #contenu {
     @include gridle( grow );
     flex-basis: 0;
+    order: 1;
   }
   // en sticky
   .nav-is-stuck {
