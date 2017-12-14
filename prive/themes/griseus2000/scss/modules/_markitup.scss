@@ -90,9 +90,15 @@
         align-items: stretch; // vertical
       }
       a {
+        position: relative;
         display: flex;
         align-items: center; // vertical
         padding: 0 $bs/2;
+        color: lighten($couleur-texte, 20);
+        &:hover,
+        &:focus {
+          color: $couleur-theme;
+        }
       }
       .separateur {
         border-left: 1px dotted hsla(0, 0%, 0%, 0.2);
@@ -107,15 +113,11 @@
           bottom: 0;
           left: 50%;
           transform: translateX(-50%);
-          color: lighten($couleur-texte, 50);
-          line-height: 0.66;
+          line-height: 1;
         }
-        &:hover,
-        &:focus {
-          &:before {
-            color: _hsl($teinte, 90%, 50%);
-          }
-        }
+        /*&:not(:hover):not(:focus):before {
+          color: $couleur-texte-light;
+        }*/
       }
       // Sous menu
       a:hover + ul,
@@ -129,6 +131,30 @@
         bottom: -100%;
         width: auto;
       }
+      /* Les icônes */
+      [class*=outil_] > a {
+          > em {
+          @extend .icon;
+          font-style: normal;
+          &:before {
+            text-indent: 0;
+          }
+        }
+      }
+      $outils: (header1, bold, italic, liste_ul, liste_ol, link, notes,caracteres, guillemets, guillemets_simples, indenter, desindenter, code);
+      @each $outil in $outils {
+        .outil_#{$outil} > a > em {
+          @extend .icon-#{$outil};
+          background-image: none;
+          &:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+          }
+        }
+      }
+      
     }
   }
 
@@ -142,6 +168,23 @@
   // Preview
   .markItUpPreview {
     border-top: none;
+  }
+
+  // Mode fullscreen
+  .markItUpContainer.fullscreen {
+
+    .markItUpPreview,
+    .markItUpEditor {
+      margin-top: $bs*2; // hauteur de la barre
+      border: none;
+    }
+    .markItUpTabs {
+      .fullscreen {
+        @extend .icon-resize-small;
+        background-image: none !important;
+      }
+    }
+
   }
 
 }
