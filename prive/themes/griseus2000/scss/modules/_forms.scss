@@ -229,6 +229,7 @@ fieldset {
     }
     input[name=recherche] {
       width: 10em;
+      height: $bs*1.5;
       padding-right: 2em; // pour l'icone
       border-radius: 100em;
       transition: width 0.2s;
