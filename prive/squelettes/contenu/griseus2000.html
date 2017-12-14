@@ -100,11 +100,11 @@
   </div>
 
   <div class="droite">
-    <h3>Dans la fiche d'un objet</h3>
+    <h3>Les contenus associés dans la fiche d'un objet</h3>
     <p>Affichage réduit et sous forme de liste.</p>
-    <p><strong class="code">.fiche_objet .liste-objets</strong></p>
+    <p><strong class="code">.fiche_objet .liste-objets-lies</strong></p>
     #BOITE_OUVRIR{'',fiche_objet}
-    <INCLURE{fond=prive/objets/liste/articles, nb=4} />
+    <INCLURE{fond=prive/objets/liste/auteurs_lies, objet_source=auteur, objet=article, id_objet=#VAL{1}|range{50}, _objet_lien=auteur, nb=4} />
     #BOITE_FERMER
   </div>
 
