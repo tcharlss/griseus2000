@@ -135,7 +135,7 @@
   text-align: right;
   // cachons les crochets
   visibility: hidden;
-  button {
+  > * {
     visibility: visible;
   }
 }
