@@ -432,3 +432,38 @@
     });
   </script>
 </section>
+
+<!-- Les styles de la page à l'arrache en bas -->
+<style>
+  @media (min-width: 60em) {
+    [class*=par-] {
+      display: flex;
+      flex-flow: row wrap;
+    }
+    [class*=par-] > * {
+      flex: 1 1 auto;
+      margin-right: 1em;
+    }
+    .par-2 > * {
+      flex-basis: calc(50% - 1em);
+      max-width: 50%;
+    }
+    .par-2 > *:nth-child(2n) {
+      margin-right: 0;
+    }
+    .par-3 > * {
+      flex-basis: calc(33.33% - 1em);
+      max-width: 33.33%;
+    }
+    .par-3:nth-child(3n) > * {
+      margin-right: 0;
+    }
+    .par-4 > * {
+      flex-basis: calc(25% - 1em);
+      max-width: 25%;
+    }
+    .par-4 > *:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+</style>

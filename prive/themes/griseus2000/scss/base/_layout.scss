@@ -23,7 +23,7 @@
   box-sizing: border-box;
 }
 
-/* conteneur générique */
+/* Conteneur générique */
 .largeur {
   @include gridle_container();
   padding: 0 $bs;
@@ -36,11 +36,11 @@
    }
 }
 
-/* en haut du contenu principal */
+/* En haut du contenu principal */
 #haut {
   margin-top: $bs;
 }
-/* Conteneur du contenu principal */
+/* Contenu principal */
 #conteneur {
   margin-top: $bs;
 }
@@ -117,45 +117,6 @@
     float: right;
     margin-left: $bs;
     @include clear-after;
-  }
-
-  // Des colonnes pour la page de mini-charte
-  [class*=par-] {
-    @include gridle_state( desktop-up ) {
-      display: flex;
-      flex-flow: row wrap;
-      > * {
-        flex: 0 1 auto;
-        margin-right: $bs;
-      }
-    }
-  }
-  .par-2 > * {
-    @include gridle_state( desktop-up ) {
-      flex-basis: calc(50% - #{$bs});
-      max-width: 50%;
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
-    }
-  }
-  .par-3 > * {
-    @include gridle_state( desktop-up ) {
-      flex-basis: calc(33.33% - #{$bs});
-      max-width: 33.33%;
-      &:nth-child(3n) {
-        margin-right: 0;
-      }
-    }
-  }
-  .par-4 > * {
-    @include gridle_state( desktop-up ) {
-      flex-basis: calc(25% - #{$bs});
-      max-width: 25%;
-      &:nth-child(4n) {
-        margin-right: 0;
-      }
-    }
   }
 
 }
