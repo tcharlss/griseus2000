@@ -99,8 +99,12 @@
           right:-2em;
           bottom:-2em;
           background-color:transparent;
-          border:1px solid blue;
+          /*border:1px solid blue;*/
           content:'';
+        }
+        /* contour du 2è niveau */
+        ul:before {
+          top:-2em;
         }
         a {
           display: block;
@@ -112,7 +116,7 @@
         }
       }
       &.actif,
-      &:hover,
+      /*&:hover,*/
       &:focus {
         > ul {
           display: block;

@@ -28,14 +28,19 @@ jQuery(function($){
 		var $racine = $(this);
 		var $deroulants = $racine.find('.deroulant');
 
-		$deroulants.find('li')
-			// le replier si un hover de souris sur un autre onglet,
-			.on('mouseenter', function(){
+		$deroulants
+			// ouvrir celui ci, fermer les autres
+			.on('mouseenter', 'li', function(){
 				var $parents_and_me = $(this).parents('li').add($(this)).addClass('actif');
-				$deroulants.find('.actif').not($parents_and_me).removeClass('.actif');
+				$deroulants.find('.actif').not($parents_and_me).removeClass('actif').blur();
 			})
-			.on('mouseleave', function(){
+			.on('mouseleave', 'li', function(){
 				$(this).removeClass('actif');
+			})
+			// navigation au clavier : deplier le ul enfant
+			.on('focus', 'li > a', function(){
+				var $parents = $(this).parents('li').addClass('actif');
+				$deroulants.find('.actif').not($parents).removeClass('actif');
 			})
 			// navigation au doigt des items déroulants
 			.has('ul').find(' > a')
@@ -45,16 +50,8 @@ jQuery(function($){
 				if (me.hasClass('actif')) {
 					me.trigger('mouseleave').find('> a').trigger('blur');
 				} else {
-					me.siblings('.actif').trigger('mouseleave').find('> a').trigger('blur');
 					me.trigger('mouseenter').find('> a').trigger('focus');
 				}
-			})
-			.end().end()
-			.find('> a, li > a')
-			// navigation au clavier : deplier le ul enfant
-			.on('focus', function(){
-				var $parents = $(this).parents('li').addClass('actif');
-				$deroulants.find('.actif').not($parents).removeClass('actif');
 			});
 		return this;
 	}
