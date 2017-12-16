@@ -2,135 +2,153 @@
  * Module : boutons
  */
 
-/**
- * ==========================
- * Classe virtuelle générique
- * ==========================
- * Utilisée pour étendre les boutons de SPIP
- */
-.button {
 
-  display: inline-block;
-  padding: $bs/4 $bs/2;
-  vertical-align: middle;
-  text-align: center;
-  transition: background-color 0.2s;
-  //background-color: $couleur-theme;
-  color: $couleur-neutre-light;
-  border-radius: 2px;
-  border: 0;
-  font-weight: bold;
-  //box-shadow: inset 0 -2px 0 hsla(0, 0%, 0%, 0.1);
-
-  // Survol et focus
-  &:hover,
-  &:focus {
-    background-color: $couleur-theme-dark;
-    cursor: pointer;
-    color: white;
-  }
-
-  /**
-   * ---------
-   * Variantes
-   * ---------
-   */
-
-  /* Tailles */
-  &.small {
-    padding: $bs/6 $bs/4;
-  }
-  &.medium {
-    padding: $bs/2 $bs;
-  }
-  &.large {
-    padding: $bs/2 $bs;
-    font-size: 1.25em;
-  }
-
-  /* Actif */
-  &.actif {
-    background-color: $couleur-neutre-dark;
-    [class*=couleur_] & {
-      background-color: $couleur-neutre-dark;
-    }
-    box-shadow: inset 0 -2px 0 hsla(0, 0%, 100%, 0.33);
-  }
-
-  /* Non cliquable */
-  &.disabled {
-    background-color: $couleur-theme-lightest;
-    &:hover,
-    &:focus {
-      cursor: disabled;
-    }
-  }
-
-  /* Fusionnés */
-  &.merged {
-    &:not(:first-child) {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-    &:not(:last-child) {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-  }
-
-  /* Secondaires */
-  &.secondary {
-    color: lighten($couleur-texte, 25);
-    border: 1px solid lighten($couleur-texte, 50);
-    background-color: transparent;
-    [class*=couleur_] & {
-      color: lighten($couleur-texte, 25);
-      border: 1px solid lighten($couleur-texte, 50);
-      background-color: transparent;
-    }
-    box-shadow: none;
-    //font-weight: normal;
-
-    // Survol et focus
-    &:hover,
-    &:focus {
-      border-color: $couleur-theme-light;
-      color: white;
-    }
-  }
-}
-
-
-/**
+ /**
  * ===================
  * les boutons de SPIP
  * ===================
  */
 
 
-// Les icônes (en général des liens vers des pages d'édition)
+/**
+ * Les icônes
+ * (en général des liens vers des pages d'édition)
+ */
 .icone {
   display: inline-block;
-
   a {
-    @extend .button.secondary;
-    display: inherit;
+    position: relative;
+    padding: $bs/3 $bs/2;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center; // horizontal
+    align-items: center; // vertical
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 1;
+    color: $couleur-theme-dark;
+    background-color: transparent;
+    border-radius: $radius;
+
+    &:hover {
+      background-color: $couleur-theme-lightest;
+      box-shadow: 0 0.1em 0.1em hsla(0, 0%, 0%, 0.1);
+      color: black;
+    }
     b {
       font-weight: inherit;
     }
+    img {
+      display: none; // pollution visuelle !
+    }
+    &:before {
+      font-size: 1.2em;
+      margin-right: $bs/4; // icône éventuelle
+    }
   }
-  img {
-    display: none; // pollution visuelle !
-  }
-  &.horizontale {
 
-  }
+  &.horizontale {} // par défaut
   &.verticale {
-
+    a {
+      flex-flow: column nowrap;
+      max-width: 8em;
+      &:before {
+        font-size: 1.5em;
+        margin: 0 0 $bs/6;
+      }
+    }
+  }
+  &.center {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-// Les liens pour afficher des trucs cachés
+/**
+ * Ajout d'icônes génériques
+ */
+// Toutes
+.icone[class*=-edit-] a,
+.icone[class*=-add-] a,
+.icone[class*=-new-] a,
+.icone[class*=-del-] a,
+.icone[class*=preview] a,
+.icone.ajouter a,
+.icone.retour a,
+.toggle_box_link,
+.toggle_box_link > * {
+  @extend .icon;
+  &:before {
+    visibility: visible;
+  }
+}
+// Édition
+.icone[class*=-edit-] a,
+.formulaire_dater .toggle_box_link {
+  @extend .icon-edit;
+}
+// Ajout / création
+.icone[class*=-new-] a,
+.icone[class*=-add-] a,
+.icone.ajouter a,
+.formulaire_editer_liens form > div > .toggle_box_link > * {
+  @extend .icon-add;
+}
+// Suppression
+.icone[class*=-del-] a,
+.icone[class*=-suppr-] a {
+  @extend .icon-delete;
+}
+button.link.delete {
+  text-indent: -9999px;
+  width: 0.8em;
+  height: 0.8em;
+  opacity: 0.66;
+  img {
+    display: none;
+  }
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+// Preview
+.icone[class*=preview] a {
+  @extend .icon-eye;
+}
+// Retour
+.icone.retour a {
+  @extend .icon-left;
+}
+
+
+/**
+ * Les boutons liens + toggle
+ */
+button.link,
+.toggle_box_link,
+.toggle_box_link:before {
+  font-weight: bold;
+  color: $couleur-theme-dark;
+  font-size: 0.9rem;
+}
+button.link {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 0.8em auto;
+  background-position: 0 center;
+  padding: 0;
+  border: none;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+  }
+}
 .toggle_box_link {
   text-align: right;
   // cachons les crochets
@@ -140,23 +158,22 @@
   }
 }
 
-// Tous les boutons
+
+/**
+ * Tous les boutons
+ */
 button {
   img {
     //display: none; // Pollution visuelle !
   }
   &.delete,
   &[name^=supprimer] {
-    //text-indent: -9999px;
-    //white-space: nowrap;
-    // @extend .icon-cancel;
-    // &:before {
-    //   font-family: "Icons";
-    // }
   }
 }
 
-// Les icônes d'aide : on change l'image
+/**
+ * Les icônes d'aide
+ */
 .aide.popin {
   @extend .icon-help;
   display: inline-block;
@@ -169,7 +186,9 @@ button {
   }
 }
 
-// Les icônes d'info
+/**
+ * Les icônes d'info
+ */
 .plus_info {
   
 }

@@ -9,51 +9,18 @@
     h1 {
       margin-top: 0;
     }
-    // icone modifier
-    .icone a {
-      //@extend .button.large;
-    }
   }
 
-  /* formulaires (dans affiche_milieu, affiche_complement_objet etc.) */
+  /**
+   * Formulaires
+   * Dans affiche_milieu, affiche_complement_objet, ...
+   */
   .formulaire_spip {
     box-shadow: none;
     padding: 0;
     padding-bottom: $bs/2;
     margin-bottom: $bs/2;
     border-bottom: 1px dotted darken($couleur-neutre-light, 10);
-
-    // Essayons d'afficher la liste et le bouton d'ajout côte-à-côte
-    form > div {
-      display: flex;
-      flex-wrap: wrap;
-      // lien d'ajout à droite
-      .toggle_box_link {
-        margin-left: auto;
-      }
-      // boîte d'ajout
-      .selecteur {
-        flex-grow: 1;
-        min-width: 100%;
-        padding: $bs/2;
-        background-color: $couleur-neutre-light;
-        //border: 1px solid darken($couleur-neutre-light, 10);
-        .titrem,
-        h3 {
-          margin: 0 0 $bs/2;
-        }
-        .boutons {
-          margin: 0;
-          padding: 0;
-        }
-      }
-    }
-
-    // boutons en petit
-    input[type=submit],
-    button {
-      //@extend .button.small;
-    }
 
     // Les titres éventuels uniformisés
     h2, h3, h4, h5, h6 {
@@ -62,15 +29,14 @@
     }
   }
 
-  /* Listes d'objets liés */
-  /* On affiche sous forme de liste et on cache tout ce qui est superflu */
+  /**
+   * Listes d'objets liés
+  /* On affiche sous forme de liste et on cache tout ce qui est superflu
+   */
   .liste-objets-lies {
     @extend .liste-objets.redux-max;
     @extend .liste-objets.minimal;
     @extend .liste-objets.inline;
-  }
-  .liste-objets-associer {
-    background-color: transparent;
   }
 
   // ??

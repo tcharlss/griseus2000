@@ -175,7 +175,8 @@
     content: '\e800';
 }
 
-.icon-edit:before, .markItUp .markItUpTabs a.previsuEditer:before {
+.icon-edit:before, .icone[class*=-edit-] a:before,
+.formulaire_dater .toggle_box_link:before, .markItUp .markItUpTabs a.previsuEditer:before {
     content: '\e801';
 }
 
@@ -183,7 +184,10 @@
     content: '\e802';
 }
 
-.icon-add:before {
+.icon-add:before, .icone[class*=-new-] a:before,
+.icone[class*=-add-] a:before,
+.icone.ajouter a:before,
+.formulaire_editer_liens form > div > .toggle_box_link > :before {
     content: '\e803';
 }
 
@@ -192,7 +196,7 @@
     content: '\e804';
 }
 
-.icon-left:before {
+.icon-left:before, .icone.retour a:before {
     content: '\e805';
 }
 
@@ -208,11 +212,12 @@
     content: '\e808';
 }
 
-.icon-eye:before, .markItUp .markItUpTabs a.previsuVoir:before {
+.icon-eye:before, .icone[class*=preview] a:before, .markItUp .markItUpTabs a.previsuVoir:before {
     content: '\e809';
 }
 
-.icon-delete:before {
+.icon-delete:before, .icone[class*=-del-] a:before,
+.icone[class*=-suppr-] a:before {
     content: '\e80a';
 }
 
@@ -1559,7 +1564,15 @@ table.gr-minimal th, table.gr-minimal td {
     padding: 0.35156rem;
 }
 
-.icon:before, .liste-objets thead th a:before,
+.icon:before, .icone[class*=-edit-] a:before,
+.icone[class*=-add-] a:before,
+.icone[class*=-new-] a:before,
+.icone[class*=-del-] a:before,
+.icone[class*=preview] a:before,
+.icone.ajouter a:before,
+.icone.retour a:before,
+.toggle_box_link:before,
+.toggle_box_link > :before, .liste-objets thead th a:before,
 .liste-objets thead th .on:before, .box.sous-rub .titrem:before, .onglets_simple.second li:not(:first-child):before, .markItUp .markItUpTabs a:before, .markItUp .markItUpHeader ul .markItUpDropMenu > a:before, .markItUp .markItUpHeader ul [class*=outil_] > a > em:before, #bando_principal .deroulant > li.actif > ul li.haschild > a:before, #bando_outils .bando_rubriques .plan_site > a:before {
     font-family: "Icons";
     font-weight: normal;
@@ -1818,145 +1831,110 @@ blockquote:before {
     }
 }
 
-@media screen and (min-width: 30em) and (min-width: 60em) {
-    [class*=par-] {
-        display: flex;
-        flex-flow: row wrap;
-    }
-
-    [class*=par-] > * {
-        flex: 0 1 auto;
-        margin-right: 1.40625rem;
-    }
-}
-
-@media screen and (min-width: 30em) and (min-width: 60em) {
-    .par-2 > * {
-        flex-basis: calc(50% - 1.40625rem);
-        max-width: 50%;
-    }
-
-    .par-2 > *:nth-child(2n) {
-        margin-right: 0;
-    }
-}
-
-@media screen and (min-width: 30em) and (min-width: 60em) {
-    .par-3 > * {
-        flex-basis: calc(33.33% - 1.40625rem);
-        max-width: 33.33%;
-    }
-
-    .par-3 > *:nth-child(3n) {
-        margin-right: 0;
-    }
-}
-
-@media screen and (min-width: 30em) and (min-width: 60em) {
-    .par-4 > * {
-        flex-basis: calc(25% - 1.40625rem);
-        max-width: 25%;
-    }
-
-    .par-4 > *:nth-child(4n) {
-        margin-right: 0;
-    }
-}
-
-.button {
-    display: inline-block;
-    padding: 0.35156rem 0.70312rem;
-    vertical-align: middle;
-    text-align: center;
-    transition: background-color 0.2s;
-    color: #f7f7f7;
-    border-radius: 2px;
-    border: 0;
-    font-weight: bold;
-}
-
-.button:hover, .button:focus {
-    background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 40%);
-    cursor: pointer;
-    color: white;
-}
-
-.button.small {
-    padding: 0.23438rem 0.35156rem;
-}
-
-.button.medium {
-    padding: 0.70312rem 1.40625rem;
-}
-
-.button.large {
-    padding: 0.70312rem 1.40625rem;
-    font-size: 1.25em;
-}
-
-.button.actif {
-    background-color: #333333;
-    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.33);
-}
-
-[class*=couleur_] .button.actif {
-    background-color: #333333;
-}
-
-.button.disabled {
-    background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 80%);
-}
-
-.button.disabled:hover, .button.disabled:focus {
-    cursor: disabled;
-}
-
-.button.merged:not(:first-child) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.button.merged:not(:last-child) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.button.secondary, .icone a, input[type=submit],
-  button {
-    color: #737373;
-    border: 1px solid #b3b3b3;
-    background-color: transparent;
-    box-shadow: none;
-}
-
-[class*=couleur_] .button.secondary, [class*=couleur_] .icone a, .icone [class*=couleur_] a, [class*=couleur_] input[type=submit], [class*=couleur_]
-    button {
-    color: #737373;
-    border: 1px solid #b3b3b3;
-    background-color: transparent;
-}
-
-.button.secondary:hover, .icone a:hover, input[type=submit]:hover,
-    button:hover, .button.secondary:focus, .icone a:focus, input[type=submit]:focus,
-    button:focus {
-    border-color: hsl(var(--teinte, 240), var(--saturation, 25%), 60%);
-    color: white;
-}
-
 .icone {
     display: inline-block;
 }
 
 .icone a {
-    display: inherit;
+    position: relative;
+    padding: 0.46875rem 0.70312rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 1;
+    color: hsl(var(--teinte, 240), var(--saturation, 25%), 40%);
+    background-color: transparent;
+    border-radius: 2px;
+}
+
+.icone a:hover {
+    background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 80%);
+    box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.1);
+    color: black;
 }
 
 .icone a b {
     font-weight: inherit;
 }
 
-.icone img {
+.icone a img {
     display: none;
+}
+
+.icone a:before {
+    font-size: 1.2em;
+    margin-right: 0.35156rem;
+}
+
+.icone.verticale a {
+    flex-flow: column nowrap;
+    max-width: 8em;
+}
+
+.icone.verticale a:before {
+    font-size: 1.5em;
+    margin: 0 0 0.23438rem;
+}
+
+.icone.center {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icone[class*=-edit-] a:before,
+.icone[class*=-add-] a:before,
+.icone[class*=-new-] a:before,
+.icone[class*=-del-] a:before,
+.icone[class*=preview] a:before,
+.icone.ajouter a:before,
+.icone.retour a:before,
+.toggle_box_link:before,
+.toggle_box_link > *:before {
+    visibility: visible;
+}
+
+button.link.delete {
+    text-indent: -9999px;
+    width: 0.8em;
+    height: 0.8em;
+    opacity: 0.66;
+}
+
+button.link.delete img {
+    display: none;
+}
+
+button.link.delete:hover, button.link.delete:focus {
+    opacity: 1;
+}
+
+button.link,
+.toggle_box_link,
+.toggle_box_link:before {
+    font-weight: bold;
+    color: hsl(var(--teinte, 240), var(--saturation, 25%), 40%);
+    font-size: 0.9rem;
+}
+
+button.link {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 0.8em auto;
+    background-position: 0 center;
+    padding: 0;
+    border: none;
+}
+
+button.link:hover, button.link:focus {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: dotted;
 }
 
 .toggle_box_link {
@@ -1964,7 +1942,7 @@ blockquote:before {
     visibility: hidden;
 }
 
-.toggle_box_link button {
+.toggle_box_link > * {
     visibility: visible;
 }
 
@@ -2222,6 +2200,48 @@ fieldset > legend,
     padding: 0;
 }
 
+.formulaire_spip.formulaire_editer_liens form > div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formulaire_spip.formulaire_editer_liens form > div > .toggle_box_link {
+    margin-left: auto;
+}
+
+.formulaire_spip.formulaire_editer_liens .selecteur {
+    flex-grow: 1;
+    min-width: 100%;
+    padding: 0.70312rem;
+    background-color: #f7f7f7;
+    position: relative;
+}
+
+.formulaire_spip.formulaire_editer_liens .selecteur .toggle_box_link {
+    display: none;
+}
+
+.formulaire_spip.formulaire_editer_liens .selecteur .titrem,
+    .formulaire_spip.formulaire_editer_liens .selecteur h3 {
+    margin: 0 0 0.70312rem;
+    text-align: center;
+}
+
+.formulaire_spip.formulaire_editer_liens .selecteur label {
+    display: inline-block;
+    margin-right: 1.40625rem;
+}
+
+.formulaire_spip.formulaire_editer_liens .selecteur .boutons {
+    margin: 0;
+    padding: 0;
+}
+
+.formulaire_spip.formulaire_editer_liens .liste-objets-associer {
+    margin-bottom: 0.70312rem;
+    background-color: transparent;
+}
+
 .formulaire_spip.formulaire_recherche {
     float: right;
     position: relative;
@@ -2411,7 +2431,7 @@ fieldset > legend,
     .redux-max .liste-objets th.nom,
     .redux-max .liste-objets th.action,
     .redux-max .liste-objets th.id {
-    display: table-cell;
+    display: flex;
 }
 
 .liste-objets.redux-max td.id, .fiche_objet .liste-objets-lies td.id,
@@ -2451,17 +2471,29 @@ fieldset > legend,
     .inline .liste-objets tbody tr {
     display: flex;
     flex-flow: row nowrap;
+    align-items: center;
+}
+
+.liste-objets.inline tbody tr + tr, .fiche_objet .liste-objets-lies tbody tr + tr,
+      .inline .liste-objets tbody tr + tr {
+    margin-left: 1.40625rem;
+}
+
+.liste-objets.inline tbody tr:hover, .fiche_objet .liste-objets-lies tbody tr:hover,
+      .inline .liste-objets tbody tr:hover {
+    background-color: transparent;
 }
 
 .liste-objets.inline tbody td, .fiche_objet .liste-objets-lies tbody td,
     .inline .liste-objets tbody td {
+    align-items: center;
     padding: 0;
     border: none;
 }
 
-.liste-objets.inline tbody td:visible, .fiche_objet .liste-objets-lies tbody td:visible,
-      .inline .liste-objets tbody td:visible {
-    display: inline-block;
+.liste-objets.inline tbody .action, .fiche_objet .liste-objets-lies tbody .action,
+    .inline .liste-objets tbody .action {
+    margin-left: 0.23438rem;
 }
 
 .liste_items,
@@ -2825,39 +2857,9 @@ fieldset > legend,
     border-bottom: 1px dotted #dedede;
 }
 
-.fiche_objet .formulaire_spip form > div {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.fiche_objet .formulaire_spip form > div .toggle_box_link {
-    margin-left: auto;
-}
-
-.fiche_objet .formulaire_spip form > div .selecteur {
-    flex-grow: 1;
-    min-width: 100%;
-    padding: 0.70312rem;
-    background-color: #f7f7f7;
-}
-
-.fiche_objet .formulaire_spip form > div .selecteur .titrem,
-        .fiche_objet .formulaire_spip form > div .selecteur h3 {
-    margin: 0 0 0.70312rem;
-}
-
-.fiche_objet .formulaire_spip form > div .selecteur .boutons {
-    margin: 0;
-    padding: 0;
-}
-
 .fiche_objet .formulaire_spip h2, .fiche_objet .formulaire_spip h3, .fiche_objet .formulaire_spip h4, .fiche_objet .formulaire_spip h5, .fiche_objet .formulaire_spip h6 {
     font-size: 1em;
     margin: 0;
-}
-
-.fiche_objet .liste-objets-associer {
-    background-color: transparent;
 }
 
 .fiche_objet .over {

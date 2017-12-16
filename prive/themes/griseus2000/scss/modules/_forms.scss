@@ -8,7 +8,7 @@
  * =======================
  */
 
-// boutons
+// Les boutons
 input,
 button {
   font-family: $font-family-texte; // sinon styles OS
@@ -16,14 +16,14 @@ button {
 }
 input[type=submit],
 button {
-  @extend .button.secondary;
+  
 }
 
 // Tous les inputs
 input,
 select,
 textarea {
-  font-family:$font-family-texte;
+  font-family: $font-family-texte;
 }
 
 // Les inputs avec un cadre
@@ -217,6 +217,48 @@ fieldset {
    * Formulaires spécifiques
    * =======================
    */
+
+  &.formulaire_editer_liens {
+    // Essayons d'afficher la liste des contenus liés et le bouton d'ajout côte-à-côte
+    form > div {
+      display: flex;
+      flex-wrap: wrap;
+      // lien d'ajout quand le sélecteur n'est pas affiché
+      > .toggle_box_link {
+        margin-left: auto;
+      }
+    }
+    // boîte d'ajout
+    .selecteur {
+      flex-grow: 1;
+      min-width: 100%; // Doit passer à la ligne
+      padding: $bs/2;
+      background-color: $couleur-neutre-light;
+      position: relative;
+      // Lien pour fermer
+      .toggle_box_link {
+        display: none; // Il y a déjà un bouton pour fermer en principe (dans le form)
+      }
+      .titrem,
+      h3 {
+        margin: 0 0 $bs/2;
+        text-align: center;
+      }
+      label {
+        display: inline-block;
+        margin-right: $bs;
+      }
+      .boutons {
+        margin: 0;
+        padding: 0;
+      }
+    }
+    // Liste des contenus à ajouter
+    .liste-objets-associer {
+      margin-bottom: $bs/2;
+      background-color: transparent;
+    }
+  }
 
   &.formulaire_recherche {
     float: right;

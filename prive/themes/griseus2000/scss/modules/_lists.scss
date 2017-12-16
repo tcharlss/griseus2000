@@ -139,7 +139,7 @@
       padding-top: $bs/4;
       padding-bottom: $bs/4;
       &.principale, &.titre, &.nom, &.action, &.id {
-        display: table-cell;
+        display: flex; // Ou table-cell
       }
     }
   }
@@ -178,13 +178,21 @@
       tr {
         display: flex;
         flex-flow: row nowrap;
+        align-items: center;
+        & + tr {
+          margin-left: $bs;
+        }
+        &:hover {
+          background-color: transparent;
+        }
       }
       td {
+        align-items: center;
         padding: 0;
         border: none;
-        &:visible {
-          display: inline-block;
-        }
+      }
+      .action {
+        margin-left: $bs/6;
       }
     }
   }

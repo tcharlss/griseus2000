@@ -5,465 +5,481 @@
 <!-- onglets -->
 <section id="onglets">
 
-  <h2>Onglets</h2>
+	<h2>Onglets</h2>
 
-  <h3>Barre d’onglets</h3>
+	<h3>Barre d’onglets</h3>
 
-  [(#VAL{infos_perso}|barre_onglets{infos_perso})]
+	[(#VAL{infos_perso}|barre_onglets{infos_perso})]
 
-  <h3>Onglets simples</h3>
+	<h3>Onglets simples</h3>
 
-  <div class='onglets_simple clearfix'>
-    <ul>
-      <li><strong>Onglet exposé</strong></li>
-      <li><a>Onglet cliquable</a></li>
-      <li><a>Onglet cliquable</a></li>
-    </ul>
-  </div>
-  
-  <div class='onglets_simple second clearfix'>
-    <ul>
-      <li><strong>Onglet expos&eacute;</strong></li>
-      <li><a>Onglet cliquable</a></li>
-      <li><a>Onglet cliquable</a></li>
-    </ul>
-  </div>
+	<div class='onglets_simple clearfix'>
+		<ul>
+			<li><strong>Onglet exposé</strong></li>
+			<li><a>Onglet cliquable</a></li>
+			<li><a>Onglet cliquable</a></li>
+		</ul>
+	</div>
+	
+	<div class='onglets_simple second clearfix'>
+		<ul>
+			<li><strong>Onglet expos&eacute;</strong></li>
+			<li><a>Onglet cliquable</a></li>
+			<li><a>Onglet cliquable</a></li>
+		</ul>
+	</div>
 </section>
 
 <!-- Liste d'items -->
 <section id="listes">
 
-  <h2>Liste d'items</h2>
+	<h2>Liste d'items</h2>
 
-  <div class="gauche">
-    <h3>Basique</h3>
-    <p><strong class="code">.liste_items</strong></p>
-    <ul class="liste_items">
-        <li class="item">
-          <a href="#">Patate</a> primate
-        </li>
-        <li class="item">
-          <a href="#">Poireau</a> dévot
-        </li>
-          <li class="item on">
-          <a href="#">Courgette</a> distraite
-        </li>
-        <li class="item">
-          <a href="#">Betterave</a> pourrave
-        </li>
-      </ul>
-  </div>
+	<div class="gauche">
+		<h3>Basique</h3>
+		<p><code>.liste_items</code></p>
+		<ul class="liste_items">
+				<li class="item">
+					<a href="#">Patate</a> primate
+				</li>
+				<li class="item">
+					<a href="#">Poireau</a> dévot
+				</li>
+					<li class="item on">
+					<a href="#">Courgette</a> distraite
+				</li>
+				<li class="item">
+					<a href="#">Betterave</a> pourrave
+				</li>
+			</ul>
+	</div>
 
-  <div class="droite">
-    <h3>Menu de navigation</h3>
-    <p><strong class="code">.liste_items.sous_navigation</strong></p>
-    <ul class="liste_items sous_navigation">
-      <li class="item favori">
-        <a href="#" class="bando2_configurer_identite">
-          Identité du site
-        </a>
-      </li>
-      <li class="item favori">
-        <a href="#" class="bando2_admin_plugin">
-          Gestion des plugins
-        </a>
-      </li>
-        <li class="item on execfound non_favori">
-        <a href="#" class="bando2_configurer_urls">
-          Configurer les URLs
-        </a>
-      </li>
-      <li class="item non_favori">
-        <a href="#" class="bando2_configurer_contenu">
-          Contenu du site
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="nettoyeur"></div>
+	<div class="droite">
+		<h3>Menu de navigation</h3>
+		<p><code>.liste_items.sous_navigation</code></p>
+		<ul class="liste_items sous_navigation">
+			<li class="item favori">
+				<a href="#" class="bando2_configurer_identite">
+					Identité du site
+				</a>
+			</li>
+			<li class="item favori">
+				<a href="#" class="bando2_admin_plugin">
+					Gestion des plugins
+				</a>
+			</li>
+				<li class="item on execfound non_favori">
+				<a href="#" class="bando2_configurer_urls">
+					Configurer les URLs
+				</a>
+			</li>
+			<li class="item non_favori">
+				<a href="#" class="bando2_configurer_contenu">
+					Contenu du site
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="nettoyeur"></div>
 </section>
 
 <!-- Listes d'objets -->
 <section id="liste-objets">
 
-  <h2>Liste d'objets</h2>
+	<h2>Liste d'objets</h2>
 
-  <h3>Normale</h3>
-  <p><strong class="code">.liste-objets</strong></p>
-  <INCLURE{fond=prive/objets/liste/articles, nb=4} />
+	<h3>Normale</h3>
+	<p><code>.liste-objets</code></p>
+	<INCLURE{fond=prive/objets/liste/articles, nb=4} />
 
-  <div class="gauche lat">
-    <h3>Dans la navigation latérale</h3>
-    <p>Affichage réduit : on n'affiche que les colonnes importantes.</p>
-    <p><strong class="code">.box .liste-objets</strong></p>
-    <INCLURE{fond=prive/objets/liste/articles, nb=4} />
-  </div>
+	<div class="gauche lat">
+		<h3>Dans la navigation latérale</h3>
+		<p>Affichage réduit : on n'affiche que les colonnes importantes.</p>
+		<p><code>.box .liste-objets</code></p>
+		<INCLURE{fond=prive/objets/liste/articles, nb=4} />
+	</div>
 
-  <div class="droite">
-    <h3>Les contenus associés dans la fiche d'un objet</h3>
-    <p>Affichage réduit et sous forme de liste.</p>
-    <p><strong class="code">.fiche_objet .liste-objets-lies</strong></p>
-    #BOITE_OUVRIR{'',fiche_objet}
-    <INCLURE{fond=prive/objets/liste/auteurs_lies, objet_source=auteur, objet=article, id_objet=#VAL{1}|range{50}, _objet_lien=auteur, nb=4} />
-    #BOITE_FERMER
-  </div>
+	<div class="droite">
+		<h3>Les contenus associés dans la fiche d'un objet</h3>
+		<p>Affichage réduit et sous forme de liste.</p>
+		<p><code>.fiche_objet .liste-objets-lies</code></p>
+		#BOITE_OUVRIR{'',fiche_objet}
+		<INCLURE{fond=prive/objets/liste/auteurs_lies, objet_source=auteur, objet=article, id_objet=#VAL{1}|range{50}, _objet_lien=auteur, nb=4} />
+		#BOITE_FERMER
+	</div>
 
-  <div class="nettoyeur"></div>
+	<div class="nettoyeur"></div>
 
-  [(#REM)
-  <h3>Classes virtuelles</h3>
-  <div class="par-2">
-    <div class="minimal">
-      <p><strong class="code">.liste-objets.minimal</strong></p>
-      <INCLURE{fond=prive/objets/liste/articles, nb=2} />
-    </div>
-    <div class="inline">
-      <p><strong class="code">.liste-objets.inline</strong></p>
-      <INCLURE{fond=prive/objets/liste/articles, nb=2} />
-    </div>
-    <div class="redux">
-      <p><strong class="code">.liste-objets.redux</strong></p>
-      <INCLURE{fond=prive/objets/liste/articles, nb=2} />
-    </div>
-    <div class="redux-max">
-      <p><strong class="code">.liste-objets.redux-max</strong></p>
-      <INCLURE{fond=prive/objets/liste/articles, nb=2} />
-    </div>
-  </div>
-  ]
+	[(#REM)
+	<h3>Classes virtuelles</h3>
+	<div class="par-2">
+		<div class="minimal">
+			<p><code>.liste-objets.minimal</code></p>
+			<INCLURE{fond=prive/objets/liste/articles, nb=2} />
+		</div>
+		<div class="inline">
+			<p><code>.liste-objets.inline</code></p>
+			<INCLURE{fond=prive/objets/liste/articles, nb=2} />
+		</div>
+		<div class="redux">
+			<p><code>.liste-objets.redux</code></p>
+			<INCLURE{fond=prive/objets/liste/articles, nb=2} />
+		</div>
+		<div class="redux-max">
+			<p><code>.liste-objets.redux-max</code></p>
+			<INCLURE{fond=prive/objets/liste/articles, nb=2} />
+		</div>
+	</div>
+	]
+
+</section>
+
+<section id="boutons">
+
+	<h2>les boutons</h2>
+
+	[(#SELF|icone_verticale{<:icone_ecrire_article:>, article, 'new', left})]
+	[(#SELF|icone_verticale{<:icone_ecrire_article:>, article, 'del', right})]
+	[(#SELF|icone_verticale{<:icone_ecrire_article:>, article, 'edit', center})]
+	<div class="nettoyeur"></div>
+	[(#SELF|icone_horizontale{<:icone_ecrire_article:>, article, 'new', left})]
+	[(#SELF|icone_horizontale{<:icone_ecrire_article:>, article, 'del', right})]
+	[(#SELF|icone_horizontale{<:icone_ecrire_article:>, article, 'edit', center})]
+	<div class="nettoyeur"></div>
 
 </section>
 
 <!-- Messages -->
 <section id="messages">
 
-  <h2>Messages</h2>
+	<h2>Messages</h2>
 
-  <h3>Succès</h3>
+	<h3>Succès</h3>
 
-  <div class="par-3">
-    <div>
-      <strong class="code">.success</strong>
-      <div class="success">
-        Un message de succès
-      </div>
-    </div>
-    <div>
-      <strong class="code">.box.success</strong>
-      #BOITE_OUVRIR{'Titre',success}
-        Une boîte de succès
-      #BOITE_FERMER
-    </div>
-    <div>
-      <strong class="code">.reponse_formulaire.reponse_formulaire_ok</strong>
-      <div class="reponse_formulaire reponse_formulaire_ok">
-        Une réponse de formulaire quand tout s'est bien passé
-      </div>
-    </div>
-  </div>
+	<div class="par-3">
+		<div>
+			<code>.success</code>
+			<div class="success">
+				Un message de succès
+			</div>
+		</div>
+		<div>
+			<code>.box.success</code>
+			#BOITE_OUVRIR{'Titre',success}
+				Une boîte de succès
+			#BOITE_FERMER
+		</div>
+		<div>
+			<span class="code">.reponse_formulaire_ok</span>
+			<div class="reponse_formulaire reponse_formulaire_ok">
+				Une réponse de formulaire quand tout s'est bien passé
+			</div>
+		</div>
+	</div>
 
-  <h3>Erreur</h3>
+	<h3>Erreur</h3>
 
-  <div class="par-3">
-    <div>
-      <strong class="code">.error</strong>
-      <div class="error">
-        Un message d'erreur
-      </div>
-    </div>
-    <div>
-      <strong class="code">.box.error</strong>
-      #BOITE_OUVRIR{'Titre',error}
-        Une boîte d'erreur
-      #BOITE_FERMER
-    </div>
-    <div>
-      <strong class="code">.reponse_formulaire.reponse_formulaire_erreur</strong>
-      <div class="reponse_formulaire reponse_formulaire_erreur">
-        Une réponse de formulaire en erreur
-      </div>
-    </div>
-  </div>
+	<div class="par-3">
+		<div>
+			<code>.error</code>
+			<div class="error">
+				Un message d'erreur
+			</div>
+		</div>
+		<div>
+			<code>.box.error</code>
+			#BOITE_OUVRIR{'Titre',error}
+				Une boîte d'erreur
+			#BOITE_FERMER
+		</div>
+		<div>
+			<code>.reponse_formulaire_erreur</code>
+			<div class="reponse_formulaire reponse_formulaire_erreur">
+				Une réponse de formulaire en erreur
+			</div>
+		</div>
+	</div>
 
-  <h3>Notice</h3>
+	<h3>Notice</h3>
 
-  <div class="par-3">
-    <div>
-      <strong class="code">.notice</strong>
-      <div class="notice">
-        Un message de notice
-      </div>
-    </div>
-    <div>
-      <strong class="code">.box.notice</strong>
-      #BOITE_OUVRIR{'Titre',notice}
-        Une boîte de notice
-      #BOITE_FERMER
-    </div>
-    [(#REM)
-    <div>
-      <strong class="code">.reponse_formulaire.reponse_formulaire_ok</strong>
-      <div class="reponse_formulaire reponse_formulaire_notice">
-        Une réponse de formulaire de notice
-      </div>
-    </div>
-    ]
-  </div>
+	<div class="par-3">
+		<div>
+			<code>.notice</code>
+			<div class="notice">
+				Un message de notice
+			</div>
+		</div>
+		<div>
+			<code>.box.notice</code>
+			#BOITE_OUVRIR{'Titre',notice}
+				Une boîte de notice
+			#BOITE_FERMER
+		</div>
+		[(#REM)
+		<div>
+			<code>.reponse_formulaire.reponse_formulaire_ok</code>
+			<div class="reponse_formulaire reponse_formulaire_notice">
+				Une réponse de formulaire de notice
+			</div>
+		</div>
+		]
+	</div>
 
 </section>
 
 <!-- Boiboîtes -->
 <section id="boites">
 
-  <h2>Boîtes</h2>
+	<h2>Boîtes</h2>
 
-  <div class="par-4">
+	<div class="par-4">
 
-    <div>
-      <strong class="code">.box</strong> / <strong class="code">.box.simple</strong>
-      #BOITE_OUVRIR{Boîte}
-        La boîte de base.
-      #BOITE_PIED
-        Le footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box</code> / <code>.box.simple</code>
+			#BOITE_OUVRIR{Boîte}
+				La boîte de base.
+			#BOITE_PIED
+				Le footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.simple</strong>
-      #BOITE_OUVRIR{}
-        La boîte de base sans header ni footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.simple</code>
+			#BOITE_OUVRIR{}
+				La boîte de base sans header ni footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.info</strong>
-      #BOITE_OUVRIR{Boîte d’info,info}
-        Une boîte d'infos.
-      #BOITE_PIED
-        Le footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.info</code>
+			#BOITE_OUVRIR{Boîte d’info,info}
+				Une boîte d'infos.
+			#BOITE_PIED
+				Le footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.info</strong>
-      #BOITE_OUVRIR{'',info}
-        Une boîte d'infos sans header ni footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.info</code>
+			#BOITE_OUVRIR{'',info}
+				Une boîte d'infos sans header ni footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.important</strong>
-      #BOITE_OUVRIR{Boîte importante,important}
-        Une boîte importante.
-      #BOITE_PIED
-        Le footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.important</code>
+			#BOITE_OUVRIR{Boîte importante,important}
+				Une boîte importante.
+			#BOITE_PIED
+				Le footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.important</strong>
-      #BOITE_OUVRIR{'',important}
-        Une boîte importante sans header ni footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.important</code>
+			#BOITE_OUVRIR{'',important}
+				Une boîte importante sans header ni footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.note</strong>
-      #BOITE_OUVRIR{Boîte de note,note}
-        Une boîte de notes.
-      #BOITE_PIED
-        Le footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.note</code>
+			#BOITE_OUVRIR{Boîte de note,note}
+				Une boîte de notes.
+			#BOITE_PIED
+				Le footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.note</strong>
-      #BOITE_OUVRIR{'',note}
-        Une boîte de notes sans header ni footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.note</code>
+			#BOITE_OUVRIR{'',note}
+				Une boîte de notes sans header ni footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.raccourcis</strong>
-      #BOITE_OUVRIR{Boîte de raccourcis,raccourcis}
-        Une boîte de raccourcis.
-      #BOITE_PIED
-        Le footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.raccourcis</code>
+			#BOITE_OUVRIR{Boîte de raccourcis,raccourcis}
+				Une boîte de raccourcis.
+			#BOITE_PIED
+				Le footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.raccourcis</strong>
-      #BOITE_OUVRIR{'',raccourcis}
-        Une boîte de raccourcis sans header ni footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.raccourcis</code>
+			#BOITE_OUVRIR{'',raccourcis}
+				Une boîte de raccourcis sans header ni footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.basic.inverse</strong>
-      #BOITE_OUVRIR{Boîte inverse,basic inverse}
-        Une boîte basic inverse
-      #BOITE_PIED
-        Le footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.basic.inverse</code>
+			#BOITE_OUVRIR{Boîte inverse,basic inverse}
+				Une boîte basic inverse
+			#BOITE_PIED
+				Le footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.basic.inverse</strong>
-      #BOITE_OUVRIR{'',basic inverse}
-        Une boîte basic inverse sans header ni footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.basic.inverse</code>
+			#BOITE_OUVRIR{'',basic inverse}
+				Une boîte basic inverse sans header ni footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.basic.highlight</strong>
-      #BOITE_OUVRIR{Boîte highlight,basic highlight}
-        Une boîte basic highlight.
-      #BOITE_PIED
-        Le footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.basic.highlight</code>
+			#BOITE_OUVRIR{Boîte highlight,basic highlight}
+				Une boîte basic highlight.
+			#BOITE_PIED
+				Le footer.
+			#BOITE_FERMER
+		</div>
 
-    <div>
-      <strong class="code">.box.basic.highlight</strong>
-      #BOITE_OUVRIR{'',basic highlight}
-        Une boîte basic highlight sans header ni footer.
-      #BOITE_FERMER
-    </div>
+		<div>
+			<code>.box.basic.highlight</code>
+			#BOITE_OUVRIR{'',basic highlight}
+				Une boîte basic highlight sans header ni footer.
+			#BOITE_FERMER
+		</div>
 
-  </div>
+	</div>
 
 </section>
 
 <!-- Les icônes -->
 <section id="icones">
-  <h2>Icônes</h2>
-  <p>Les icônes Fontello (classe <code>.icon-[code]</code> dans <code>scss/modules/_fontello-codes.scss</code>)</p>
-  #SET{codes,#CHEMIN{prive/themes/griseus2000/scss/modules/_fontello-codes.scss}|contenu_document|trim|explode{#CONST{PHP_EOL}}}
-  <table>
-    <tbody>
-      <BOUCLE_icones_lignes(DATA){source table, #GET{codes}|array_chunk{6}}>
-        <tr>
-          <BOUCLE_icones(DATA){source table, #VALEUR}>
-          #SET{code,#VALEUR|match{-\[\w\-\]+:}|replace{^-}|replace{:}}
-          <td><i class="icon-#GET{code}"></i> <code>#GET{code}</code></td>
-          </BOUCLE_icones>
-        </tr>
-      </BOUCLE_icones_lignes>
-    </tbody>
-  </table>
+	<h2>Icônes</h2>
+	<p>Les icônes Fontello (classe <code>.icon-[code]</code> dans <code>scss/modules/_fontello-codes.scss</code>)</p>
+	#SET{codes,#CHEMIN{prive/themes/griseus2000/scss/modules/_fontello-codes.scss}|contenu_document|trim|explode{#CONST{PHP_EOL}}}
+	<table>
+		<tbody>
+			<BOUCLE_icones_lignes(DATA){source table, #GET{codes}|array_chunk{6}}>
+				<tr>
+					<BOUCLE_icones(DATA){source table, #VALEUR}>
+					#SET{code,#VALEUR|match{-\[\w\-\]+:}|replace{^-}|replace{:}}
+					<td><i class="icon-#GET{code}"></i> <code>#GET{code}</code></td>
+					</BOUCLE_icones>
+				</tr>
+			</BOUCLE_icones_lignes>
+		</tbody>
+	</table>
 </section>
 
 <!-- Couleurs -->
 <section id="couleurs">
-  <style>
-    .previsu-couleurs [class*=gr-color]{font-size:4em;line-height:0.6;position:relative;top:0.06em}
-  </style>
-  <h2>Couleurs</h2>
+	<style>
+		.previsu-couleurs [class*=gr-color]{font-size:4em;line-height:0.6;position:relative;top:0.06em}
+	</style>
+	<h2>Couleurs</h2>
 
-  <div class="formulaire_spip">
-    <form>
-      <div class="editer-groupe">
-        <div class="editer editer_teinte">
-          <label for="colorier-teinte">Teinte</label>
-          <input id="colorier-teinte" data-name="teinte" type="range" min="0" max="350" step="10" />
-        </div>
-        <div class="editer editer_saturation">
-          <label for="colorier-saturation">Saturation</label>
-          <input id="colorier-saturation" data-name="saturation" type="range" min="0" max="100" step="10" />
-        </div>
-        [(#REM)
-        <div class="editer editer_luminosite">
-          <label for="colorier-luminosite">Luminosité</label>
-          <input id="colorier-luminosite" data-name="luminosite" type="range" min="0" max="100" step="10" />
-        </div>]
-      </div>
-    </form>
-  </div>
+	<div class="formulaire_spip">
+		<form>
+			<div class="editer-groupe">
+				<div class="editer editer_teinte">
+					<label for="colorier-teinte">Teinte</label>
+					<input id="colorier-teinte" data-name="teinte" type="range" min="0" max="350" step="10" />
+				</div>
+				<div class="editer editer_saturation">
+					<label for="colorier-saturation">Saturation</label>
+					<input id="colorier-saturation" data-name="saturation" type="range" min="0" max="100" step="10" />
+				</div>
+				[(#REM)
+				<div class="editer editer_luminosite">
+					<label for="colorier-luminosite">Luminosité</label>
+					<input id="colorier-luminosite" data-name="luminosite" type="range" min="0" max="100" step="10" />
+				</div>]
+			</div>
+		</form>
+	</div>
 
-  <table class="previsu-couleurs text-center gr-minimal">
-    <thead>
-      <tr>
-        <th></th>
-        <th>lightest</th>
-        <th>lighter</th>
-        <th>light</th>
-        <th>base</th>
-        <th>dark</th>
-        <th>darker</th>
-        <th>darkest</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>Teinte / saturation actuelle</td>
-      <BOUCLE_nuances1(DATA){source table, #LISTE{lightest,lighter,light,'',dark,darker,darkest}}>
-      <td><span class="gr-color[-(#VALEUR)]">■</span></td>
-      </BOUCLE_nuances1>
-    </tr>
-      <BOUCLE_saturations(DATA){enum 0, 100, 10}>
-      <tr class="saturation-#VALEUR">
-        <td><code>.saturation-#VALEUR</code></td>
-        <BOUCLE_nuances2(DATA){source table, #LISTE{lightest,lighter,light,'',dark,darker,darkest}}>
-        <td><span class="gr-color[-(#VALEUR)]">■</span></td>
-        </BOUCLE_nuances2>
-      </tr>
-      </BOUCLE_saturations>
-    </tbody>
-  </table>
-  <script type="text/javascript">
-    jQuery(function($){
-      $.fn.removeClassBeginWith = function(className) {
-          return $(this).removeClass(function(i, c) {
-              var find = "(^|\\s)" + className + "\\S+";
-              return (c.match (new RegExp(find, "g")) || []).join(' ');
-          });
-      };
-      $('#couleurs input[type=range]').on('input', function(){
-      	var $name = $(this).data('name');
-      	var $val  = $(this).val();
-      	var $class = $name  + '-' + $val;
-      	$('body').removeClassBeginWith($name).addClass($class).attr('data-' + $name, $val);
-      }).each(function(){
-	      var $name = $(this).data('name');
-	      var $val = $('body').data($name);
-	      $(this).val($val);
-      });
-    });
-  </script>
+	<table class="previsu-couleurs text-center gr-minimal">
+		<thead>
+			<tr>
+				<th></th>
+				<th>lightest</th>
+				<th>lighter</th>
+				<th>light</th>
+				<th>base</th>
+				<th>dark</th>
+				<th>darker</th>
+				<th>darkest</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>Teinte / saturation actuelle</td>
+			<BOUCLE_nuances1(DATA){source table, #LISTE{lightest,lighter,light,'',dark,darker,darkest}}>
+			<td><span class="gr-color[-(#VALEUR)]">■</span></td>
+			</BOUCLE_nuances1>
+		</tr>
+			<BOUCLE_saturations(DATA){enum 0, 100, 10}>
+			<tr class="saturation-#VALEUR">
+				<td><code>.saturation-#VALEUR</code></td>
+				<BOUCLE_nuances2(DATA){source table, #LISTE{lightest,lighter,light,'',dark,darker,darkest}}>
+				<td><span class="gr-color[-(#VALEUR)]">■</span></td>
+				</BOUCLE_nuances2>
+			</tr>
+			</BOUCLE_saturations>
+		</tbody>
+	</table>
+	<script type="text/javascript">
+		jQuery(function($){
+			$.fn.removeClassBeginWith = function(className) {
+					return $(this).removeClass(function(i, c) {
+							var find = "(^|\\s)" + className + "\\S+";
+							return (c.match (new RegExp(find, "g")) || []).join(' ');
+					});
+			};
+			$('#couleurs input[type=range]').on('input', function(){
+				var $name = $(this).data('name');
+				var $val  = $(this).val();
+				var $class = $name  + '-' + $val;
+				$('body').removeClassBeginWith($name).addClass($class).attr('data-' + $name, $val);
+			}).each(function(){
+				var $name = $(this).data('name');
+				var $val = $('body').data($name);
+				$(this).val($val);
+			});
+		});
+	</script>
 </section>
 
 <!-- Les styles de la page à l'arrache en bas -->
 <style>
-  @media (min-width: 60em) {
-    [class*=par-] {
-      display: flex;
-      flex-flow: row wrap;
-    }
-    [class*=par-] > * {
-      flex: 1 1 auto;
-      margin-right: 1em;
-    }
-    .par-2 > * {
-      flex-basis: calc(50% - 1em);
-      max-width: 50%;
-    }
-    .par-2 > *:nth-child(2n) {
-      margin-right: 0;
-    }
-    .par-3 > * {
-      flex-basis: calc(33.33% - 1em);
-      max-width: 33.33%;
-    }
-    .par-3:nth-child(3n) > * {
-      margin-right: 0;
-    }
-    .par-4 > * {
-      flex-basis: calc(25% - 1em);
-      max-width: 25%;
-    }
-    .par-4 > *:nth-child(4n) {
-      margin-right: 0;
-    }
-  }
+	.bg-dark {background-color: #444;}
+	@media (min-width: 60em) {
+		[class*=par-] {
+			display: flex;
+			flex-flow: row wrap;
+		}
+		[class*=par-] > * {
+			flex: 0 1 auto;
+			margin-right: 1em;
+		}
+		.par-2 > * {
+			flex-basis: calc(50% - 1em);
+			max-width: 50%;
+		}
+		.par-2 > *:nth-child(2n) {
+			margin-right: 0;
+		}
+		.par-3 > * {
+			flex-basis: calc(33.33% - 1em);
+			max-width: 33.33%;
+		}
+		.par-3 > *:nth-child(3n) {
+			margin-right: 0;
+		}
+		.par-4 > * {
+			flex-basis: calc(25% - 1em);
+			max-width: 25%;
+		}
+		.par-4 > *:nth-child(4n) {
+			margin-right: 0;
+		}
+	}
 </style>
