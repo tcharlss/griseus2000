@@ -54,11 +54,18 @@
         border-width: 0 0 3px;
         filter: saturate(0%) opacity(75%);
         text-align:center;
+        position: relative;
         &:after {
-          content:"▼";
-          color: lighten($couleur-texte, 50%);
-          font-size:.6rem;
-          padding-left:3px;
+          font-family: "Icons";
+          font-weight: normal;
+          content: '\e812';
+          position: absolute;
+          bottom: -3px;
+          left: 50%;
+          transform: translateX(-50%);
+          line-height: 1;
+          font-size:.7rem;
+          color: hsl(0, 0%, 80%);
         }
       }
       // actif

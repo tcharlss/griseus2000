@@ -3354,13 +3354,20 @@ fieldset > legend,
     border-width: 0 0 3px;
     filter: saturate(0%) opacity(75%);
     text-align: center;
+    position: relative;
 }
 
 #bando_principal .deroulant > li > a:after {
-    content: "▼";
-    color: #b3b3b3;
-    font-size: .6rem;
-    padding-left: 3px;
+    font-family: "Icons";
+    font-weight: normal;
+    content: '\e812';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
+    font-size: .7rem;
+    color: #cccccc;
 }
 
 #bando_principal .deroulant > li.actif > a,
@@ -3638,4 +3645,15 @@ fieldset > legend,
 
 .joindre_mode__new.none-js {
     display: none;
+}
+
+div.stats_hit {
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 20%);
+    color: white;
+    padding: 0.70312rem 1.40625rem;
 }
