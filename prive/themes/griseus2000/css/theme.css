@@ -313,7 +313,7 @@
     content: '\f005';
 }
 
-.icon-right-open:before, #bando_principal .deroulant > li.actif > ul li.haschild > a:before {
+.icon-right-open:before, #bando_principal .deroulant > li.actif > ul li.haschild > a:before, #bando_principal .deroulant > li:hover > ul li.haschild > a:before, #bando_principal .deroulant > li:focus > ul li.haschild > a:before {
     content: '\f006';
 }
 
@@ -1233,7 +1233,7 @@ a:visited {
 
 a:focus {
     outline: thin dotted;
-    background: #222222 !important;
+    background-color: #222222 !important;
     border-color: #222222 !important;
     color: #f8f8f8 !important;
     text-shadow: none;
@@ -1573,7 +1573,7 @@ table.gr-minimal th, table.gr-minimal td {
 .icone.retour a:before,
 .toggle_box_link:before,
 .toggle_box_link > :before, .liste-objets thead th a:before,
-.liste-objets thead th .on:before, .box.sous-rub .titrem:before, .onglets_simple.second li:not(:first-child):before, .markItUp .markItUpTabs a:before, .markItUp .markItUpHeader ul .markItUpDropMenu > a:before, .markItUp .markItUpHeader ul [class*=outil_] > a > em:before, #bando_principal .deroulant > li.actif > ul li.haschild > a:before, #bando_outils .bando_rubriques .plan_site > a:before {
+.liste-objets thead th .on:before, .box.sous-rub .titrem:before, .onglets_simple.second li:not(:first-child):before, .markItUp .markItUpTabs a:before, .markItUp .markItUpHeader ul .markItUpDropMenu > a:before, .markItUp .markItUpHeader ul [class*=outil_] > a > em:before, #bando_principal .deroulant > li.actif > ul li.haschild > a:before, #bando_principal .deroulant > li:hover > ul li.haschild > a:before, #bando_principal .deroulant > li:focus > ul li.haschild > a:before, #bando_outils .bando_rubriques .plan_site > a:before {
     font-family: "Icons";
     font-weight: normal;
 }
@@ -3341,11 +3341,11 @@ fieldset > legend,
     position: relative;
     z-index: 2;
     align-items: flex-end;
+    margin-right: 0.35156rem;
 }
 
 #bando_principal .deroulant > li > a {
     height: 2.8125rem;
-    margin-right: 0.35156rem;
     font-size: 1.40625rem;
     line-height: 1;
     display: inline-block;
@@ -3356,6 +3356,7 @@ fieldset > legend,
     filter: saturate(0%) opacity(75%);
     text-align: center;
     position: relative;
+    text-decoration: none;
 }
 
 #bando_principal .deroulant > li > a:after {
@@ -3376,7 +3377,6 @@ fieldset > legend,
     #bando_principal .deroulant > li > a:focus {
     filter: saturate(100%) opacity(100%);
     border-color: hsl(var(--teinte, 240), var(--saturation, 25%), 50%);
-    text-decoration: none;
 }
 
 #bando_principal .deroulant > li.actif > a:after,
@@ -3397,6 +3397,18 @@ fieldset > legend,
     box-shadow: 0 0.2em 0.2em rgba(0, 0, 0, 0.15);
 }
 
+#bando_principal .deroulant > li ul:before {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: -2em;
+    right: -2em;
+    bottom: -2em;
+    background-color: transparent;
+    border: 1px solid blue;
+    content: '';
+}
+
 #bando_principal .deroulant > li ul a {
     display: block;
     padding: 0.35156rem 1.40625rem;
@@ -3406,28 +3418,28 @@ fieldset > legend,
     background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 95%);
 }
 
-#bando_principal .deroulant > li.actif > ul {
+#bando_principal .deroulant > li.actif > ul, #bando_principal .deroulant > li:hover > ul, #bando_principal .deroulant > li:focus > ul {
     display: block;
 }
 
-#bando_principal .deroulant > li.actif > ul li.haschild {
+#bando_principal .deroulant > li.actif > ul li.haschild, #bando_principal .deroulant > li:hover > ul li.haschild, #bando_principal .deroulant > li:focus > ul li.haschild {
     position: relative;
 }
 
-#bando_principal .deroulant > li.actif > ul li.haschild > a:before {
+#bando_principal .deroulant > li.actif > ul li.haschild > a:before, #bando_principal .deroulant > li:hover > ul li.haschild > a:before, #bando_principal .deroulant > li:focus > ul li.haschild > a:before {
     position: absolute;
     top: 50%;
     right: 0.70312rem;
     transform: translateY(-50%);
 }
 
-#bando_principal .deroulant > li.actif > ul li.haschild > ul {
+#bando_principal .deroulant > li.actif > ul li.haschild > ul, #bando_principal .deroulant > li:hover > ul li.haschild > ul, #bando_principal .deroulant > li:focus > ul li.haschild > ul {
     right: 0;
     top: -1.40625rem;
     bottom: initial;
 }
 
-#bando_principal .deroulant > li.actif > ul li.haschild.actif > ul {
+#bando_principal .deroulant > li.actif > ul li.haschild.actif > ul, #bando_principal .deroulant > li:hover > ul li.haschild.actif > ul, #bando_principal .deroulant > li:focus > ul li.haschild.actif > ul {
     display: block;
     transform: translateX(100%);
 }
@@ -3517,11 +3529,11 @@ fieldset > legend,
     position: relative;
 }
 
-#bando_navigation .deroulant > li:hover > a, #bando_navigation .deroulant > li:focus > a, #bando_navigation .deroulant > li.actif > a, #bando_navigation .deroulant > li.actif_tempo > a {
+#bando_navigation .deroulant > li:hover > a, #bando_navigation .deroulant > li:focus > a, #bando_navigation .deroulant > li.actif > a {
     background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 40%);
 }
 
-#bando_navigation .deroulant > li:hover > ul, #bando_navigation .deroulant > li:focus > ul, #bando_navigation .deroulant > li.actif > ul, #bando_navigation .deroulant > li.actif_tempo > ul {
+#bando_navigation .deroulant > li:hover > ul, #bando_navigation .deroulant > li:focus > ul, #bando_navigation .deroulant > li.actif > ul {
     display: block;
 }
 
@@ -3571,7 +3583,7 @@ fieldset > legend,
         margin: 0;
     }
 
-    #bando_navigation .deroulant > li:hover > ul, #bando_navigation .deroulant > li:focus > ul, #bando_navigation .deroulant > li.actif > ul, #bando_navigation .deroulant > li.actif_tempo > ul {
+    #bando_navigation .deroulant > li:hover > ul, #bando_navigation .deroulant > li:focus > ul, #bando_navigation .deroulant > li.actif > ul {
         opacity: 1;
         width: 11.25rem;
     }

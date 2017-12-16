@@ -41,10 +41,10 @@
       position: relative;
       z-index: 2;
       align-items: flex-end; // vertical
+      margin-right: $bs/4;
       // icone
       > a {
         height:$bs*2;
-        margin-right: $bs/4;
         font-size: $bs;
         line-height: 1;
         display: inline-block;
@@ -55,6 +55,7 @@
         filter: saturate(0%) opacity(75%);
         text-align:center;
         position: relative;
+        text-decoration:none;
         &:after {
           font-family: "Icons";
           font-weight: normal;
@@ -74,7 +75,6 @@
       > a:focus {
         filter: saturate(100%) opacity(100%);
         border-color: $couleur-theme;
-        text-decoration:none;
         &:after {
           color: $couleur-theme;
         }
@@ -90,6 +90,18 @@
         padding: $bs 0;
         background-color: white;
         box-shadow: 0 0.2em 0.2em hsla(0, 0%, 0%, 0.15);
+        /* contour du ul pour faciliter le survol à la souris */
+        &:before {
+          z-index:-1;
+          position:absolute;
+          top:0;
+          left:-2em;
+          right:-2em;
+          bottom:-2em;
+          background-color:transparent;
+          border:1px solid blue;
+          content:'';
+        }
         a {
           display: block;
           padding: $bs/4 $bs;
@@ -99,7 +111,9 @@
           }
         }
       }
-      &.actif {
+      &.actif,
+      &:hover,
+      &:focus {
         > ul {
           display: block;
           li.haschild {
@@ -260,8 +274,7 @@
       // actif
       &:hover,
       &:focus,
-      &.actif,
-      &.actif_tempo {
+      &.actif {
         > a {
           background-color: $couleur-theme-dark;
         }
@@ -345,8 +358,7 @@
         // Hover & actif
         &:hover,
         &:focus,
-        &.actif,
-        &.actif_tempo {
+        &.actif {
           // Apparition du sous menu
           > ul {
             opacity: 1;
