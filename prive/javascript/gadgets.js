@@ -42,6 +42,41 @@ jQuery(function($){
 				var $parents = $(this).parents('li').addClass('actif');
 				$deroulants.find('.actif').not($parents).removeClass('actif');
 			})
+			// navigation flèches
+			.on('keypress', 'li > a', function(event) {
+				// tout en haut dans le bando_principal
+				if ($(this).closest('ul').is('.deroulant') && $(this).parents('#bando_principal').length) {
+					if (event.key === 'ArrowDown') {
+						$(this).parent().find('> ul > li:first-child a').focus();
+						event.stopPropagation(); // éviter scroll navigateur
+						return false;
+					} else if (event.key === 'ArrowRight') {
+						$(this).closest('ul').next().find('a').first().focus();
+					} else if (event.key === 'ArrowLeft') {
+						$(this).closest('ul').prev().find('a').first().focus();
+					}
+				// navigation dans les menus… ailleurs
+				} else {
+					if ( event.key === 'ArrowDown') {
+						var $next = $(this).parent().next();
+						var $sel = ($next.length) ? $next : $(this).closest('ul').find('> li:first-child');
+						$sel.find('> a').first().focus();
+						event.stopPropagation(); // éviter scroll navigateur
+						return false;
+					} else if ( event.key === 'ArrowUp') {
+						var $prev = $(this).parent().prev();
+						var $sel = ($prev.length) ? $prev : $(this).closest('ul').find('> li:last-child');
+						$sel.find('> a').first().focus();
+						event.stopPropagation(); // éviter scroll navigateur
+						return false;
+					} else if ( event.key === 'ArrowRight') {
+						$(this).parent().find('> ul > li:first-child > a').focus();
+					} else if ( event.key === 'ArrowLeft') {
+						$(this).closest('ul').parent().find('> a').focus();
+					}
+				}
+			})
+
 			// navigation au doigt des items déroulants
 			.has('ul').find(' > a')
 			.on('touchend', function(event) {
