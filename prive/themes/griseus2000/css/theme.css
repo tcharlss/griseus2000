@@ -2282,6 +2282,7 @@ fieldset > legend,
     border-color: hsl(var(--teinte, 240), var(--saturation, 25%), 50%);
     border-radius: 0;
     background: transparent;
+    height: 2.8125rem;
 }
 
 #bando_rechercher .formulaire_spip.formulaire_recherche input[name=recherche]:focus {
@@ -3331,7 +3332,6 @@ fieldset > legend,
 #bando_principal {
     display: flex;
     align-items: center;
-    height: 2.10938rem;
     background-color: white;
     box-shadow: 0 0.15em 0.15em rgba(0, 0, 0, 0.066);
 }
@@ -3344,12 +3344,13 @@ fieldset > legend,
 }
 
 #bando_principal .deroulant > li > a {
-    margin-right: 1.40625rem;
+    height: 2.8125rem;
+    margin-right: 0.35156rem;
     font-size: 1.40625rem;
     line-height: 1;
     display: inline-block;
     min-width: 1.40625rem;
-    height: 2.10938rem;
+    padding: 0.70312rem 0.70312rem;
     border: 3px solid transparent;
     border-width: 0 0 3px;
     filter: saturate(0%) opacity(75%);
@@ -3375,6 +3376,7 @@ fieldset > legend,
     #bando_principal .deroulant > li > a:focus {
     filter: saturate(100%) opacity(100%);
     border-color: hsl(var(--teinte, 240), var(--saturation, 25%), 50%);
+    text-decoration: none;
 }
 
 #bando_principal .deroulant > li.actif > a:after,
@@ -3431,8 +3433,13 @@ fieldset > legend,
 }
 
 #bando_principal .rapides .bouton a {
-    background-position: left center;
+    background-position: 0.70312rem 0.6392rem;
     background-repeat: no-repeat;
+    padding-left: 2.53125rem;
+}
+
+#bando_principal .rapides.deroulant ul {
+    min-width: 16em;
 }
 
 #bando_site {
@@ -3443,29 +3450,28 @@ fieldset > legend,
     order: 2;
 }
 
-#bando_rechercher {
+#bando_collaborer {
     order: 3;
 }
 
-#bando_identite {
+#bando_rechercher {
     order: 4;
 }
 
-#bando_collaborer {
+#bando_identite {
     order: 5;
 }
 
 #bando_site {
-    margin: 0 1.40625rem;
+    margin: 0 0.70312rem 0 1.40625rem;
 }
 
 #bando_site .nom_site_spip .voir {
     margin-left: 1.40625rem;
 }
 
-#bandeau_rechercher {
-    flex: 1 0 auto;
-    margin: auto;
+#bando_rechercher {
+    margin-left: 0.70312rem;
 }
 
 #bando_identite {
@@ -3474,6 +3480,11 @@ fieldset > legend,
 
 #bando_identite .deroulant .identite > a {
     font-size: 1rem;
+}
+
+#bando_identite .deroulant .identite ul {
+    left: auto;
+    right: 0;
 }
 
 #bando_outils {

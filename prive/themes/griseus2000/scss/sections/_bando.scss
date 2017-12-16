@@ -31,7 +31,6 @@
 #bando_principal {
   display: flex;
   align-items: center; // vertical
-  height: $bs*1.5;
   background-color: white;
   box-shadow: 0 0.15em 0.15em hsla(0, 0%, 0%, 0.066);
 
@@ -44,12 +43,13 @@
       align-items: flex-end; // vertical
       // icone
       > a {
-        margin-right: $bs;
+        height:$bs*2;
+        margin-right: $bs/4;
         font-size: $bs;
         line-height: 1;
         display: inline-block;
         min-width: $bs;
-        height: $bs*1.5;
+        padding:$bs/2 $bs/2;
         border: 3px solid transparent;
         border-width: 0 0 3px;
         filter: saturate(0%) opacity(75%);
@@ -74,6 +74,7 @@
       > a:focus {
         filter: saturate(100%) opacity(100%);
         border-color: $couleur-theme;
+        text-decoration:none;
         &:after {
           color: $couleur-theme;
         }
@@ -137,9 +138,13 @@
   .rapides {
     .bouton {
       a {
-        background-position: left center;
+        background-position: $bs/2 $bs/2.2;
         background-repeat: no-repeat;
+        padding-left: 1.8*$bs;
       }
+    }
+    &.deroulant ul {
+      min-width:16em;
     }
   }
 
@@ -147,9 +152,9 @@
 
 #bando_site { order:1; }
 #bando_outils { order:2; }
-#bando_rechercher { order:3; }
-#bando_identite { order:4; }
-#bando_collaborer { order:5; }
+#bando_collaborer { order:3; }
+#bando_rechercher { order:4; }
+#bando_identite { order:5; }
 
 /**
  * ==============================
@@ -157,7 +162,7 @@
  * ==============================
  */
 #bando_site {
-  margin:0 $bs;
+  margin:0 $bs/2 0 $bs;
   .nom_site_spip {
     .voir {
       margin-left: $bs;
@@ -165,9 +170,8 @@
   }
 }
 
-#bandeau_rechercher {
-  flex: 1 0 auto;
-  margin:auto;
+#bando_rechercher {
+  margin-left:$bs/2;
 }
 
 #bando_identite {
@@ -175,6 +179,10 @@
   .deroulant .identite {
     > a {
       font-size: 1rem;
+    }
+    ul {
+      left:auto;
+      right:0;
     }
   }
 }
