@@ -6,3 +6,12 @@
 .joindre_mode__new.none-js {
   display: none;
 }
+
+// portfolio
+.portfolios h3 {
+  background-color: $couleur-neutre-light;
+  color: $couleur-theme-darkest;
+  padding: $bs/4 $bs/2;
+  border-radius: $radius;
+  margin-bottom: $bs;
+}

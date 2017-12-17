@@ -1,5 +1,15 @@
 /**
  * Section : bando
+ *
+ * #bando_haut
+ *   #bando_liens_rapides
+ *   #bando_principal
+ *      #bando_identite
+ *      #bando_site
+ *      #bando_outils
+ *      #bando_rechercher
+ *      #bando_collaborer
+ *   #bando_navigation
  */
 
 /**
@@ -13,67 +23,89 @@
   }
 }
 
+
 /**
- * =================
- * Liens d'évitement
- * =================
+ * =========================
+ * Bandeau liens d'évitement
+ * =========================
  */
 #bando_liens_rapides {
   display: none;
-  a {}
 }
 
+
 /**
- * ==============================
- * Ordonnancement général
- * ==============================
+ * =================
+ * Bandeau principal
+ * =================
  */
+
+/* Ordonnancement général et alignement */
+#bando_site       { order: 5; }
+#bando_outils     { order: 2; }
+#bando_rechercher { order: 4; }
+#bando_identite   { order: 1; }
+#bando_collaborer { order: 3; }
+
+/* Conteneur et choses communes aux sous bandos */
+$bando_principal_height: $bs*2;
 #bando_principal {
   display: flex;
   align-items: center; // vertical
+  height: $bando_principal_height;
+  padding: 0 $bs;
   background-color: white;
   box-shadow: 0 0.15em 0.15em hsla(0, 0%, 0%, 0.066);
 
-  // Menus déroulants
+  // Tous les sous bandos
+  > * {
+    align-self: strech; // prendre toute la hauteur du conteneur
+    display: flex;
+    align-items: center; // vertical
+    // espacements
+    &:not(:last-child) {
+      margin-right: $bs;
+    }
+    .deroulant + .deroulant {
+      margin-left: $bs;
+    }
+  }
+
+  // Tous les menus déroulants
   .deroulant {
-    & > li {
-      display:flex;
+    > li {
+      display: flex;
       position: relative;
       z-index: 2;
       align-items: flex-end; // vertical
       margin-right: $bs/4;
       // icone
       > a {
-        height:$bs*2;
-        font-size: $bs;
-        line-height: 1;
-        display: inline-block;
+        position: relative;
+        display: flex;
+        justify-content: center; // horizontal
+        align-items: center; // vertical
         min-width: $bs;
-        padding:$bs/2 $bs/2;
+        height: $bando_principal_height;
+        line-height: 1;
         border: 3px solid transparent;
         border-width: 0 0 3px;
-        filter: saturate(0%) opacity(75%);
-        text-align:center;
-        position: relative;
-        text-decoration:none;
+        text-align: center;
+        // Icône pour indiquer qu'il y a un sous-menu
         &:after {
-          font-family: "Icons";
-          font-weight: normal;
-          content: '\e812';
+          content: '\e812'; // = .icon-down-fill;
+          font-family: icons;
           position: absolute;
-          bottom: -3px;
+          bottom: 0;
           left: 50%;
           transform: translateX(-50%);
-          line-height: 1;
-          font-size:.7rem;
-          color: hsl(0, 0%, 80%);
         }
       }
       // actif
       &.actif > a,
       > a:hover,
       > a:focus {
-        filter: saturate(100%) opacity(100%);
+        color: $couleur-theme;
         border-color: $couleur-theme;
         &:after {
           color: $couleur-theme;
@@ -81,13 +113,13 @@
       }
       // sous-menus
       ul {
-        display: none; // temp
+        display: none;
         position: absolute;
         left: 0;
         bottom: 0;
         transform: translateY(100%);
         min-width: 14em;
-        padding: $bs 0;
+        padding: 0;
         background-color: white;
         box-shadow: 0 0.2em 0.2em hsla(0, 0%, 0%, 0.15);
         /* contour du ul pour faciliter le survol à la souris */
@@ -108,7 +140,8 @@
         }
         a {
           display: block;
-          padding: $bs/4 $bs;
+          padding: $bs/2 $bs;
+          line-height: 1.1;
           &:hover,
           &:focus {
             background-color: _hsl($teinte, $saturation, 95%);
@@ -123,11 +156,9 @@
           li.haschild {
             position: relative;
             > a {
-              //text-decoration: underline;
-              //text-decoration-color: lighten($couleur-theme, 20);
-              //text-decoration-style: dotted;
-              @extend .icon-right-open;
+              // Icône pour indiquer qu'il y a un autre sous-menu
               @extend .icon;
+              @extend .icon-right-open;
               &:before {
                 position: absolute;
                 top: 50%;
@@ -156,7 +187,7 @@
   .rapides {
     .bouton {
       a {
-        background-position: $bs/2 $bs/2.2;
+        background-position: left $bs/4 center;
         background-repeat: no-repeat;
         padding-left: 1.8*$bs;
       }
@@ -168,53 +199,29 @@
 
 }
 
-#bando_site { order:1; }
-#bando_outils { order:2; }
-#bando_collaborer { order:3; }
-#bando_rechercher { order:4; }
-#bando_identite { order:5; }
-
-/**
- * ==============================
- * Infos visiteur, connexion etc.
- * ==============================
- */
+/* Nom du site et lien public */
 #bando_site {
-  margin:0 $bs/2 0 $bs;
-  .nom_site_spip {
-    .voir {
-      margin-left: $bs;
-    }
+  .voir {
+    margin-left: $bs;
   }
 }
 
+/* Recherche */
 #bando_rechercher {
-  margin-left:$bs/2;
-}
-
-#bando_identite {
-  margin-left:auto;
-  .deroulant .identite {
-    > a {
-      font-size: 1rem;
-    }
-    ul {
-      left:auto;
-      right:0;
-    }
+  flex: 1 1 auto;
+  justify-content: center;
+  input[name=recherche] {
+    height: $bando_principal_height;
   }
 }
 
+/* Nom de l'utilisateurice */
+#bando_identite {}
 
-/**
- * ============================
- * Boutons de créations rapides
- * ============================
- */
+/* Boutons de créations rapides */
 #bando_outils {
-  display: flex;
 
-  // Plan
+  // Plan du site
   .bando_rubriques {
     .plan_site {
       // icone
@@ -233,15 +240,40 @@
       }
     }
   }
+
+  // Création rapide
+  .outil_creer {
+    > a {
+      @extend .icon;
+      @extend .icon-create;
+      text-indent: -999999px; // cacher le texte
+    }
+    > ul > li > a{
+      padding-left: $bs*1.5; // place pour les icônes
+    }
+  }
+}
+
+/* Agenda et forum interne */
+#bando_collaborer {
+  // Création rapide
+  .outil_collaborer {
+    > a {
+      @extend .icon;
+      @extend .icon-calendar-empty;
+      text-indent: -999999px; // cacher le texte
+    }
+    > ul > li > a{
+      padding-left: $bs*1.5; // place pour les icônes
+    }
+  }
 }
 
 
-
-
 /**
- * ============================
- * Menu de navigation principal
- * ============================
+ * ==============================
+ * Bando de navigation principale
+ * ==============================
  *
  * #bando_navigation
  *   .largeur
@@ -267,12 +299,9 @@
   }
 
   .deroulant {
-    //@include gridle( row );
     margin-bottom: 0;
 
     > li {
-      //@include gridle( grow );
-      //@include gridle( row );
       position: relative;
 
       // actif
@@ -336,14 +365,9 @@
       padding: 0;
     }
     .deroulant {
-      //display: block;
-      //flex-direction: column;
-      //flex-wrap: nowrap;
-      //justify-content: center; // vertical
-      //align-content: center; // pour resserer
+      padding-top: $bando_principal_height;
       margin: 0; // pas besoin de gouttière
       height: 100vh;
-      padding-bottom: 5vh; // centrage vertical plus naturel
 
       // tous les liens
       a {
@@ -415,8 +439,8 @@
           left: $largeur-menu;
           /*width: 0;*/
           min-width: auto;
-          /*height: 100vh;*/
-          /*padding-bottom: 5vh;*/ // centrage vertical plus naturel
+          height: 100vh;
+          padding-top: $bando_principal_height;
           transition: opacity 0.2s;
           box-shadow:
             0.25em 0 0.25em rgba(0, 0, 0, 0.15)/*,

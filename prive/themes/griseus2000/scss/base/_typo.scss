@@ -147,9 +147,12 @@ table {
 
 /* Icônes (complément à fontello) */
 .icon {
-  &:before {
+  &:before,
+  &:after {
     font-family: "Icons";
     font-weight: normal;
+    text-indent: 0; // si on a caché le texte
+    display: inline-block;
   }
 }
 

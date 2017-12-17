@@ -81,6 +81,9 @@
  * Plugins
  *
  * Styles spécifiques à des plugins
+ * On entoure du sélecteur html pour avoir la priorité
 **/
-@import "plugins/medias";
-@import "plugins/dev";
+html {
+  @import "plugins/medias";
+  @import "plugins/dev";
+}
