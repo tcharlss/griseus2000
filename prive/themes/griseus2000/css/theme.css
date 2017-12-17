@@ -3553,8 +3553,6 @@ fieldset > legend,
 #bando_navigation .deroulant > li > ul {
     display: none;
     z-index: 1;
-    min-width: 100%;
-    position: absolute;
     background-color: #f7f7f7;
 }
 
@@ -3615,16 +3613,23 @@ fieldset > legend,
     }
 
     #bando_navigation .deroulant > li > ul {
-        position: fixed !important;
-        overflow: hidden;
-        top: 0 !important;
+        position: fixed;
+        margin-top: -4.21875rem;
         left: 11.25rem;
-        width: 0;
         min-width: auto;
-        height: 100vh;
-        padding-bottom: 5vh;
         transition: opacity 0.2s;
         box-shadow: 0.25em 0 0.25em rgba(0, 0, 0, 0.15);
+    }
+
+    #bando_navigation .deroulant > li > ul:before {
+        z-index: -1;
+        position: absolute;
+        top: -2em;
+        left: 0em;
+        right: -2em;
+        bottom: -2em;
+        background-color: transparent;
+        content: '';
     }
 
     #bando_navigation .deroulant > li > ul li {

@@ -33,14 +33,25 @@ jQuery(function($){
 			.on('mouseenter', 'li', function(){
 				var $parents_and_me = $(this).parents('li').add($(this)).addClass('actif');
 				$deroulants.find('.actif').not($parents_and_me).removeClass('actif').blur();
+				// le sous menu de navigation
+				if (
+					$(this).parents('#bando_navigation').length
+					&& $(this).parent('.deroulant').length
+					&& $(this).find('> ul').length
+				) {
+					var $sous_menu = $(this).find('> ul');
+					if (($sous_menu.position().top + $sous_menu.height()) > $(window).height()) {
+						$sous_menu
+							.css('top', $(this).position().top + $(this).height() - $sous_menu.height()).css('margin-top', 0);
+					}
+				}
 			})
 			.on('mouseleave', 'li', function(){
 				$(this).removeClass('actif');
 			})
 			// navigation au clavier : deplier le ul enfant
 			.on('focus', 'li > a', function(){
-				var $parents = $(this).parents('li').addClass('actif');
-				$deroulants.find('.actif').not($parents).removeClass('actif');
+				$(this).parent('li').trigger('mouseenter');
 			})
 			// navigation flèches
 			.on('keypress', 'li > a', function(event) {

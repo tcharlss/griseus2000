@@ -305,10 +305,10 @@
       > ul {
         display: none;
         z-index: 1;
-        min-width: 100%;
-        position: absolute;
+        /*min-width: 100%;*/
         //background-color: lighten($couleur-neutre-dark, 10);
         background-color: $couleur-neutre-light;
+
         a {
           display: block;
           padding: $bs*0.5;
@@ -407,18 +407,32 @@
         // Niveau 2
         // --------
         > ul {
-          position: fixed !important;
-          overflow: hidden;
-          top: 0 !important;
+          /*position: fixed !important;*/
+          /*overflow: hidden;*/
+          /*top: 0 !important;*/
+          position:fixed; // ne pas définir top: pour être relatif au parent
+          margin-top:-3 * $bs;
           left: $largeur-menu;
-          width: 0;
+          /*width: 0;*/
           min-width: auto;
-          height: 100vh;
-          padding-bottom: 5vh; // centrage vertical plus naturel
+          /*height: 100vh;*/
+          /*padding-bottom: 5vh;*/ // centrage vertical plus naturel
           transition: opacity 0.2s;
           box-shadow:
             0.25em 0 0.25em rgba(0, 0, 0, 0.15)/*,
             inset 0.1em 0 0.25em rgba(0, 0, 0, 0.2)*/;
+          /* contour du ul pour faciliter le survol à la souris */
+          &:before {
+            z-index:-1;
+            position:absolute;
+            top:-2em;
+            left:0em;
+            right:-2em;
+            bottom:-2em;
+            background-color:transparent;
+            /*border:1px solid blue;*/
+            content:'';
+          }
           li {
             width: 100%;
             text-align: center;
