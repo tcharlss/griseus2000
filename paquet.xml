@@ -16,4 +16,6 @@
 	<!--<pipeline nom="header_prive" inclure="griseus2000_options.php" />-->
 	<pipeline nom="body_prive" inclure="griseus2000_options.php" />
 
+	<menu nom="griseus2000" titre="griseus2000:titre_menu" parent="menu_developpement" icone="images/charte-16.png" action="charte" />
+
 </paquet>
