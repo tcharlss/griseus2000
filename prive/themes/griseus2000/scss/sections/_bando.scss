@@ -439,8 +439,8 @@ $bando_principal_height: $bs*2;
           left: $largeur-menu;
           /*width: 0;*/
           min-width: auto;
-          height: 100vh;
-          padding-top: $bando_principal_height;
+          /*height: 100vh;*/
+          /*padding-top: $bando_principal_height;*/
           transition: opacity 0.2s;
           box-shadow:
             0.25em 0 0.25em rgba(0, 0, 0, 0.15)/*,
