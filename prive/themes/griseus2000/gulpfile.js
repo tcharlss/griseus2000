@@ -72,9 +72,9 @@ gulp.task('fontello', function(done) {
     .pipe(gulp.dest('./scss/fontello_tmp'));
   // renommer les fichiers importés
   gulp.src('./scss/fontello_tmp/font/icons.woff')
-    .pipe(rename('./polices/fontello/fontello.woff'));
+    .pipe(gulp.dest('./polices/icons/icons.woff'));
   gulp.src('./scss/fontello_tmp/css/icons-codes.css')
-    .pipe(rename('./scss/modules/_fontello-codes.scss'));
+    .pipe(gulp.dest('./scss/modules/_icons-codes.scss'));
   done();
 });
 
