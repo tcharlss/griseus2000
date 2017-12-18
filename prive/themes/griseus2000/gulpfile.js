@@ -71,10 +71,10 @@ gulp.task('fontello', function(done) {
     }))
     .pipe(gulp.dest('./scss/fontello_tmp'));
   // renommer les fichiers importés
-  gulp.src('./scss/fontello_tmp/font/icons.woff')
-    .pipe(gulp.dest('./polices/icons/icons.woff'));
-  gulp.src('./scss/fontello_tmp/css/icons-codes.css')
-    .pipe(gulp.dest('./scss/modules/_icons-codes.scss'));
+  // gulp.src('./scss/fontello_tmp/font/icons.woff')
+  //   .pipe(gulp.dest('./polices/icons/icons.woff'));
+  // gulp.src('./scss/fontello_tmp/css/icons-codes.css')
+  //   .pipe(gulp.dest('./scss/modules/_icons-codes.scss'));
   done();
 });
 
