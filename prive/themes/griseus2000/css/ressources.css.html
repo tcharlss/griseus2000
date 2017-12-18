@@ -50,7 +50,7 @@
 /* FONTELLO */
 @font-face {
   font-family: 'Icons';
-  src: url('#CHEMIN{prive/themes/griseus2000/polices/fontello/fontello.woff}') format('woff');
+  src: url('#CHEMIN{prive/themes/griseus2000/polices/icons/icons.woff}') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -64,9 +64,6 @@
 /* Icônes du bando de navigation */
 #SET{menus, #LISTE{accueil, edition, publication, activite, squelette, administration, configuration, dev}}
 <BOUCLE_bando_navigation(DATA){source table, #GET{menus}}>
-/*\#bando_navigation .deroulant > li > a\[id*=#VALEUR\] {
-	background-image: url\(#CHEMIN{prive/themes/griseus2000/images/bando/#VALEUR-invert.svg}\);
-}*/
 #bando_navigation .deroulant > li > a\[id*=#VALEUR\]:before {
 	background-image: url\(#CHEMIN{prive/themes/griseus2000/images/bando/#VALEUR-invert.svg}\);
 }

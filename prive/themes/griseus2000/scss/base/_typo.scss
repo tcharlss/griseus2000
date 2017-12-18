@@ -31,6 +31,12 @@ a {
     text-decoration-style: dotted;
     color: $couleur-theme-dark;
   }
+  // Annuler des règles tiny typo
+  &:before,
+  &:after {
+    font-size: 100%;
+    opacity: 1;
+  }
 }
 
 /* Titres */
@@ -141,18 +147,6 @@ table {
     th, td {
       padding: $bs/4;
     }
-  }
-}
-
-
-/* Icônes (complément à fontello) */
-.icon {
-  &:before,
-  &:after {
-    font-family: "Icons";
-    font-weight: normal;
-    text-indent: 0; // si on a caché le texte
-    display: inline-block;
   }
 }
 

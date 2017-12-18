@@ -47,7 +47,7 @@
 #bando_identite   { order: 1; }
 #bando_collaborer { order: 3; }
 
-/* Conteneur et choses communes aux sous bandos */
+/* Conteneur et choses communes à tous les bandos */
 $bando_principal_height: $bs*2;
 #bando_principal {
   display: flex;
@@ -62,12 +62,15 @@ $bando_principal_height: $bs*2;
     align-self: strech; // prendre toute la hauteur du conteneur
     display: flex;
     align-items: center; // vertical
-    // espacements
-    &:not(:last-child) {
-      margin-right: $bs;
-    }
-    .deroulant + .deroulant {
-      margin-left: $bs;
+  }
+
+  // Tous les liens
+  a {
+    color: $couleur-theme-dark;
+    &:hover,
+    &:focus,
+    .actif & {
+      color: $couleur-theme-darkest;
     }
   }
 
@@ -78,8 +81,7 @@ $bando_principal_height: $bs*2;
       position: relative;
       z-index: 2;
       align-items: flex-end; // vertical
-      margin-right: $bs/4;
-      // icone
+      // Le lien/icône qui fait apparaître le sous-menu
       > a {
         position: relative;
         display: flex;
@@ -87,31 +89,19 @@ $bando_principal_height: $bs*2;
         align-items: center; // vertical
         min-width: $bs;
         height: $bando_principal_height;
+        padding: 0 $bs/1.5; // espace les icônes et facilite l'apparition du sous-menu
         line-height: 1;
-        border: 3px solid transparent;
-        border-width: 0 0 3px;
-        text-align: center;
-        // Icône pour indiquer qu'il y a un sous-menu
+        // dropdown pour indiquer qu'il y a un sous-menu
         &:after {
           content: '\e812'; // = .icon-down-fill;
           font-family: icons;
           position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
+          top: 50%;
+          right: 0%;
+          transform: translateY(-50%);
         }
       }
-      // actif
-      &.actif > a,
-      > a:hover,
-      > a:focus {
-        color: $couleur-theme;
-        border-color: $couleur-theme;
-        &:after {
-          color: $couleur-theme;
-        }
-      }
-      // sous-menus
+      // Sous-menus
       ul {
         display: none;
         position: absolute;
@@ -122,17 +112,17 @@ $bando_principal_height: $bs*2;
         padding: 0;
         background-color: white;
         box-shadow: 0 0.2em 0.2em hsla(0, 0%, 0%, 0.15);
-        /* contour du ul pour faciliter le survol à la souris */
+        /* contour caché pour faciliter le survol à la souris */
         &:before {
-          z-index:-1;
-          position:absolute;
-          top:0;
-          left:-2em;
-          right:-2em;
-          bottom:-2em;
-          background-color:transparent;
+          z-index: -1;
+          position: absolute;
+          top: 0;
+          left: -2em;
+          right: -2em;
+          bottom: -2em;
+          background-color: transparent;
           /*border:1px solid blue;*/
-          content:'';
+          content: '';
         }
         /* contour du 2è niveau */
         ul:before {
@@ -148,9 +138,13 @@ $bando_principal_height: $bs*2;
           }
         }
       }
+      // Actif
       &.actif,
-      /*&:hover,*/
       &:focus {
+        > a {
+          background-color: $couleur-theme;
+          color: white;
+        }
         > ul {
           display: block;
           li.haschild {
@@ -201,8 +195,24 @@ $bando_principal_height: $bs*2;
 
 /* Nom du site et lien public */
 #bando_site {
+  .nom_site_spip {
+    display: flex;
+  }
+  a {
+    height: $bando_principal_height;
+    display: flex;
+    align-items: center; // vertical
+  }
   .voir {
     margin-left: $bs;
+    padding: 0 $bs/2;
+    background-color: $couleur-theme;
+    color: white;
+    &:hover,
+    &:focus {
+      background-color: $couleur-theme-darkest;
+      color: white;
+    }
   }
 }
 
@@ -226,7 +236,7 @@ $bando_principal_height: $bs*2;
     .plan_site {
       // icone
       > a {
-        @extend .icon-tree;
+        @extend .icon-sitemap;
         @extend .icon;
         img {
           display: none;
@@ -260,7 +270,7 @@ $bando_principal_height: $bs*2;
   .outil_collaborer {
     > a {
       @extend .icon;
-      @extend .icon-calendar-empty;
+      @extend .icon-calendar;
       text-indent: -999999px; // cacher le texte
     }
     > ul > li > a{

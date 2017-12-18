@@ -45,7 +45,6 @@
     }
     &:before {
       font-size: 1.2em;
-      margin-right: $bs/4; // icône éventuelle
     }
   }
 
@@ -68,8 +67,9 @@
 }
 
 /**
- * Ajout d'icônes génériques
+ * Des icônes pour les actions génériques
  */
+
 // Toutes
 .icone[class*=-edit-] a,
 .icone[class*=-add-] a,
@@ -85,11 +85,13 @@
     visibility: visible;
   }
 }
+
 // Édition
 .icone[class*=-edit-] a,
 .formulaire_dater .toggle_box_link {
   @extend .icon-edit;
 }
+
 // Ajout / création
 .icone[class*=-new-] a,
 .icone[class*=-add-] a,
@@ -97,6 +99,7 @@
 .formulaire_editer_liens form > div > .toggle_box_link > * {
   @extend .icon-add;
 }
+
 // Suppression
 .icone[class*=-del-] a,
 .icone[class*=-suppr-] a {
@@ -115,10 +118,12 @@ button.link.delete {
     opacity: 1;
   }
 }
+
 // Preview
 .icone[class*=preview] a {
   @extend .icon-eye;
 }
+
 // Retour
 .icone.retour a {
   @extend .icon-left;
@@ -175,12 +180,10 @@ button {
  * Les icônes d'aide
  */
 .aide.popin {
+  @extend .icon;
   @extend .icon-help;
   display: inline-block;
   font-style: normal;
-  &:before {
-    font-family: "Icons";
-  }
   img {
     display: none;
   }

@@ -17,8 +17,6 @@
 @import "base/mixins"; // mixins du projet
 @import "frameworks/gridle/gridle/gridle"; // grille Gridle - http://gridle.org/
 @import "base/grid-settings"; // configuration de la grille
-@import "modules/fontello"; // icones de fontello
-@import "modules/fontello-codes"; // codes des icones de fontello
 
 
 /**
@@ -45,6 +43,8 @@
  *
  * Ce sont des modèles cohérents, réutilisables quelque soit l'endroit où on les place
 **/
+@import "modules/icons"; // Police icones (fontello)
+@import "modules/icons-codes"; // Codes des icones
 @import "modules/buttons"; // Tous les boutons et leurs variantes
 @import "modules/forms"; // Les formulaires
 @import "modules/lists"; // Les différentes listes

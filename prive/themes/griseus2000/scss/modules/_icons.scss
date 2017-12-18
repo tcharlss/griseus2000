@@ -1,3 +1,9 @@
+/**
+ * Module : icônes fontface
+ *
+ * PAS les .icone de SPIP ! Voir dans _buttons.scss
+ */
+
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
 /*
@@ -8,6 +14,23 @@
   }
 }
 */
+
+/* Complément (pour les @extend) */
+.icon {
+  &:before,
+  &:after {
+    font-family: "Icons";
+    font-weight: normal;
+    text-indent: 0; // si on a caché le texte
+    display: inline-block;
+  }
+  &:before {
+    margin-right: $bs/4;
+  }
+  &:after {
+    margin-left: $bs/4;
+  }
+}
 
 [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "Icons";

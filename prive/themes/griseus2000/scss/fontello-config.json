@@ -133,22 +133,10 @@
       "src": "fontawesome"
     },
     {
-      "uid": "8a1d446e5555e76f82ddb1c8b526f579",
-      "css": "tree",
-      "code": 59392,
-      "src": "entypo"
-    },
-    {
       "uid": "d2c6b59d9a239140cb76be0627480855",
       "css": "dot",
       "code": 59400,
       "src": "entypo"
-    },
-    {
-      "uid": "1dq4tek4k8ea7zlj4kc3w83itnutaxg5",
-      "css": "delete",
-      "code": 59402,
-      "src": "typicons"
     },
     {
       "uid": "43fl9m553j1z5937vfjz0lgolrlspxwl",
@@ -196,12 +184,6 @@
       "uid": "98d9c83c1ee7c2c25af784b518c522c5",
       "css": "forbidden",
       "code": 59409,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "ead4c82d04d7758db0f076584893a8c1",
-      "css": "calendar-empty",
-      "code": 61747,
       "src": "fontawesome"
     },
     {
@@ -347,6 +329,30 @@
       "search": [
         "guillemets"
       ]
+    },
+    {
+      "uid": "c759418c008e9562944080fee617fc76",
+      "css": "close",
+      "code": 59424,
+      "src": "entypo"
+    },
+    {
+      "uid": "4c2a3128819fef9548d6f0d38a5e291a",
+      "css": "calendar",
+      "code": 59425,
+      "src": "typicons"
+    },
+    {
+      "uid": "6fe95ffc3c807e62647d4f814a96e0d7",
+      "css": "sitemap",
+      "code": 61672,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "06301c50d89b5d3e651bd07ebd6d7de7",
+      "css": "delete",
+      "code": 59392,
+      "src": "mfglabs"
     }
   ]
 }
