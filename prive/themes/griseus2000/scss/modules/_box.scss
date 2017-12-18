@@ -32,6 +32,12 @@
       margin: 0;
       display: inline-block;
     }
+    .lat & {
+      font-size: 1em;
+      h2, h3, h4, h5 {
+        font-size: inherit;
+      }
+    }
   }
   &__pseudo-header {
     margin-top: -$bs;

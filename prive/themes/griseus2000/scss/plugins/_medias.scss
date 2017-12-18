@@ -41,8 +41,56 @@
     }
 
   }
-
 }
+
+/* Documents joints en mode édition */
+#documents_joints {
+  .item {
+    @extend .gr-card;
+    border: none;
+    // Header
+    .titrem {
+      @extend .gr-card__header;
+      //padding: $bs/4 $bs/2;
+      font-size: 1em;
+      .fichier {
+        color: inherit;
+      }
+    }
+    // Content
+    .infos {
+      @extend .gr-card__content;
+      //padding: $bs/4 $bs/2;
+    }
+    .titre {
+      font-weight: normal;
+    }
+    .sanstitre {}
+    .raccourcis {
+      @extend .code;
+      padding: $bs/2 0;
+      font-size: 0.8em;
+    }
+    div.mode,
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9em;
+      opacity: 1;
+    }
+    div.mode {
+      @extend .gr-card__pseudo-footer;
+      justify-content: center;
+    }
+    .actions {
+      @extend .gr-card__pseudo-footer;
+      >* {
+        opacity: 1;
+      }
+    }
+  }
+}
+
 
 /* Galerie */
 .galerie {
