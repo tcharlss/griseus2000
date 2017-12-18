@@ -1,10 +1,10 @@
 div.stats_hit {
-	position:absolute;
-	top:auto;
-	left:auto;
-	right:0;
-	bottom:0;
+	position: fixed;
+	top: auto;
+	left: auto;
+	right: 0;
+	bottom: 0;
 	background-color: $couleur-theme-darkest;
-	color:white;
-	padding:$bs/2 $bs;
+	color: white;
+	padding: $bs/2 $bs;
 }
