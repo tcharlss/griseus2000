@@ -2,16 +2,43 @@
  * Plugin : medias
  */
 
-// Les méthodes d'ajouts cachées
+// Les méthodes d'ajouts cachées (devrait être de base dans médias...)
 .joindre_mode__new.none-js {
   display: none;
 }
 
-// portfolio
-.portfolios h3 {
-  background-color: $couleur-neutre-light;
-  color: $couleur-theme-darkest;
-  padding: $bs/4 $bs/2;
-  border-radius: $radius;
-  margin-bottom: $bs;
+// Portfolios
+.portfolios {
+
+  // Titre du bloc
+  h3 {
+    background-color: $couleur-neutre-light;
+    color: $couleur-theme-darkest;
+    padding: $bs/4 $bs/2;
+    border-radius: $radius;
+    margin-bottom: $bs;
+  }
+
+  // Liste des documents
+  .liste_items.documents {
+
+    // Items
+  .item {
+    &.document-en-mouvement {
+      background-color: $couleur-theme;
+      color: white;
+    }
+  }
+
+  // Vue : cases
+  &.documents_cases {
+    .item {
+      width: auto;
+      height: auto;
+      padding: $bs/4;
+      margin: 0 $bs/2 $bs/2 0;
+    }
+  }
+
+  }
 }
