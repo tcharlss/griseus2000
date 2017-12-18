@@ -105,10 +105,11 @@
 .icone[class*=-suppr-] a {
   @extend .icon-delete;
 }
-button.link.delete {
+button.link.delete,
+input[value*=supprimer] ~ button[type=submit] {
   text-indent: -9999px;
-  width: 0.6em;
-  height: 0.6em;
+  width: 1em;
+  height: 1em;
   opacity: 0.66;
   img {
     display: none;
@@ -140,10 +141,11 @@ button.link,
   color: $couleur-theme-dark;
   font-size: 0.9rem;
 }
-button.link {
+button.link,
+button[type=submit] {
   background-color: transparent;
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: auto 60%;
   background-position: 0 center;
   padding: 0;
   border: none;
