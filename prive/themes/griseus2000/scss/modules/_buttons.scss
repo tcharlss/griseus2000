@@ -107,8 +107,8 @@
 }
 button.link.delete {
   text-indent: -9999px;
-  width: 0.8em;
-  height: 0.8em;
+  width: 0.6em;
+  height: 0.6em;
   opacity: 0.66;
   img {
     display: none;
@@ -143,7 +143,7 @@ button.link,
 button.link {
   background-color: transparent;
   background-repeat: no-repeat;
-  background-size: 0.8em auto;
+  background-size: auto 100%;
   background-position: 0 center;
   padding: 0;
   border: none;
