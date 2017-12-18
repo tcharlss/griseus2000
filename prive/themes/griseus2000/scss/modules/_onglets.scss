@@ -90,7 +90,12 @@
   > ul {
     @extend .list-none;
     display: flex;
-    flex-flow: row wrap auto;
+    flex-flow: row wrap;
+    align-items: space-between;
+  }
+  li {
+    display: flex;
+    align-items: center;
   }
   // Item actif
   strong {
@@ -141,25 +146,28 @@
    * ----------
    */
   &.second {
-    ul { }
+    ul {
+      flex-wrap: nowrap;
+     }
     li {
-      &:not(:first-child) {
-        @extend .icon;
-        @extend .icon-dot;
-        &:before {
-          line-height: 0;
-          font-size: 2em;
-          position: relative;
-          top: 0.2em;
-          color: $couleur-texte-light;
-        }
-      }
+      // &:not(:first-child) {
+      //   @extend .icon;
+      //   @extend .icon-dot;
+      //   &:before {
+      //     line-height: 0;
+      //     font-size: 2em;
+      //     color: $couleur-texte-light;
+      //   }
+      // }
     }
     // Tous les items
     a,
     strong {
       position: relative;
-      padding: 0 $bs/2;
+      padding: 0 $bs/3;
+      border-style: solid;
+      border-width: 0 0 2px;
+      border-color: transparent; // uniquement les actifs
     }
     // Items pas actifs
     a {
@@ -167,6 +175,8 @@
       &:focus {}
     }
     // Item actif
-    strong {}
+    strong {
+      border-color: $couleur-theme;
+    }
   }
 }
