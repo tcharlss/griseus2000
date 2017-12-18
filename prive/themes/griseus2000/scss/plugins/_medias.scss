@@ -7,7 +7,7 @@
   display: none;
 }
 
-// Portfolios
+/* Portfolios */
 .portfolios {
 
   // Titre du bloc
@@ -23,22 +23,40 @@
   .liste_items.documents {
 
     // Items
-  .item {
-    &.document-en-mouvement {
-      background-color: $couleur-theme;
-      color: white;
-    }
-  }
-
-  // Vue : cases
-  &.documents_cases {
     .item {
-      width: auto;
-      height: auto;
-      padding: $bs/4;
-      margin: 0 $bs/2 $bs/2 0;
+      &.document-en-mouvement {
+        background-color: $couleur-theme;
+        color: white;
+      }
     }
+
+    // Vue : cases
+    &.documents_cases {
+      .item {
+        width: auto;
+        height: auto;
+        padding: $bs/4;
+        margin: 0 $bs/2 $bs/2 0;
+      }
+    }
+
   }
 
+}
+
+/* Galerie */
+.galerie {
+  table {
+    @extend .gr-card;
+    thead {
+      @extend .gr-card__pseudo-header;
+      background-image: none;
+      th {
+        background-image: none;
+      }
+    }
+    th, td {
+      border-color: $couleur-neutre-bordure;
+    }
   }
 }
