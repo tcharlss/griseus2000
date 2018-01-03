@@ -64,7 +64,7 @@
 /* Icônes du bando de navigation */
 #SET{menus, #LISTE{accueil, edition, publication, activite, squelette, administration, configuration, dev}}
 <BOUCLE_bando_navigation(DATA){source table, #GET{menus}}>
-#bando_navigation .deroulant > li > a\[id*=#VALEUR\]:before {
+#bando_navigation .depliant > li > a\[id*=#VALEUR\]:before {
 	background-image: url\(#CHEMIN{prive/themes/griseus2000/images/bando/#VALEUR-invert.svg}\);
 }
 </BOUCLE_bando_navigation>

@@ -11,7 +11,7 @@
 
 	<div id="bando_principal">
 		<div id="bando_identite">
-			<ul class="bando_session deroulant">
+			<ul class="bando_session depliant">
 				<li class="identite">
 					<a title="<:icone_informations_personnelles|attribut_html:> \(<:auteur|attribut_html:> ##SESSION{id_auteur}\)"
 					   href="#URL_ECRIRE{infos_perso}">
@@ -52,7 +52,7 @@
 		</div>
 
 		<div id="bando_outils">
-			<ul class="bando_rubriques deroulant">
+			<ul class="bando_rubriques depliant">
 				<li class="plan_site"><a
 						href="#URL_ECRIRE{plan}"
 						id="boutonbandeautoutsite">[(#CHEMIN_IMAGE{plan_site-24.png}|balise_img)]</a>
@@ -60,7 +60,7 @@
 				</li>
 			</ul>
 			<B_creer>
-				<ul class="bando_creer rapides deroulant">
+				<ul class="bando_creer rapides depliant">
 					<li class="outil_creer">
 						<a title="Ajouter" href="#">+</a>
 						<ul>
@@ -79,7 +79,7 @@
 
 		<div id="bando_collaborer">
 			<B_collaborer>
-				<ul class="bando_collaborer rapides deroulant">
+				<ul class="bando_collaborer rapides depliant">
 					<li class="outil_collaborer">
 						<a title="Collaborer" href="#">✉</a>
 						<ul>
@@ -104,7 +104,7 @@
 	<div id="bando_navigation">
 		<div class="largeur clearfix">
 			<B_boutons>
-				<ul class="deroulant">
+				<ul class="depliant">
 					<BOUCLE_boutons(DATA)
 					{source tableau, #GET{boutons}}
 					{cle!=outils_rapides}

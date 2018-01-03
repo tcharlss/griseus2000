@@ -4,8 +4,8 @@ function focus_zone(selecteur){
 }
 
 jQuery(function($){
-	function init_gadgets(url_menu_rubrique){
-		$('#boutonbandeautoutsite').one('mouseover',function(){
+	function init_gadgets(url_menu_rubrique) {
+		$('#boutonbandeautoutsite').one('click', function(){
 			$(this).siblings('ul').find('li:first>a').animeajax();
 			$.ajax({
 				url: url_menu_rubrique,
@@ -14,21 +14,36 @@ jQuery(function($){
 					$('#boutonbandeautoutsite').after(c).parent().find('li').menuFocus();
 				}
 			});
-		}).one('focus touchend', function(){
-			$(this).trigger('mouseover');
 		});
 	}
 
 	init_gadgets(url_menu_rubrique);
 
-	// deplier le menu au focus clavier,
-	// enlever ce depliement si passage a la souris,
-	// delai de fermeture.
-	$.fn.menuFocus = function(){
+	// deplier le menu au click
+	$.fn.menuFocus = function() {
 		var $racine = $(this);
-		var $deroulants = $racine.find('.deroulant');
+		var $depliants = $racine.find('.depliant');
 
-		$deroulants
+		$depliants
+			.on('click', '> li > a', function(){
+				var $parent = $(this).parent();
+				if ($parent.is('.actif')) {
+					$parent.removeClass('actif').find('.actif').removeClass('actif');
+				} else {
+					$parent.addClass('actif');
+				}
+				return false;
+			})
+			.on('blur', '> li > a', function() {
+				$(this).parent().removeClass('actif');
+			})
+			.on('mouseenter hover', '> li li', function() {
+				$(this).addClass('actif');
+			})
+			.on('mouseleave blur', '> li li', function() {
+				$(this).removeClass('actif');
+			});
+			/*
 			// ouvrir celui ci, fermer les autres
 			.on('mouseenter', 'li', function(){
 				var $parents_and_me = $(this).parents('li').add($(this)).addClass('actif');
@@ -86,19 +101,8 @@ jQuery(function($){
 						$(this).closest('ul').parent().find('> a').focus();
 					}
 				}
-			})
+			})*/
 
-			// navigation au doigt des items déroulants
-			.has('ul').find(' > a')
-			.on('touchend', function(event) {
-				event.preventDefault();
-				var me = jQuery(this).parent();
-				if (me.hasClass('actif')) {
-					me.trigger('mouseleave').find('> a').trigger('blur');
-				} else {
-					me.trigger('mouseenter').find('> a').trigger('focus');
-				}
-			});
 		return this;
 	}
 
@@ -106,8 +110,8 @@ jQuery(function($){
 		.menuFocus()
 		// le focus de certains éléments doit replier les menus dépliés
 		.find('#bando_rechercher input, #bando_liens_rapides a, #bando_site a')
-		.on('focus touchstart', function() {
-			$('#bando_haut').find('.deroulant .actif').removeClass('actif');
+		.on('click', function() {
+			$('#bando_haut').find('.depliant .actif').removeClass('actif');
 		});
 
 	if (typeof window.test_accepte_ajax != "undefined") {
