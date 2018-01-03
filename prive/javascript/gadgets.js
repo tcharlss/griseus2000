@@ -22,7 +22,7 @@ jQuery(function($){
 	/**
 	 * Gérer le dépleement des boutons / liste de navigation du bandeau.
 	 */
-	$.fn.gererMenuPrincipal = function() {
+	$('#bando_principal').each(function() {
 		var $menu = $(this);
 		var $navs = $menu.find('nav.depliant');
 		$navs
@@ -45,108 +45,62 @@ jQuery(function($){
 			.on('mouseenter focus', 'li', function() {
 				$(this).parent().find('.actif').removeClass('actif');
 				$(this).addClass('actif');
+			})
+			// navigation flèches
+			.on('keypress', '> .toggle', function(event) {
+				// tout en haut dans le bando_principal
+				var ouvert = $(this).attr('aria-expanded') === 'true';
+				if (event.key === 'ArrowDown') {
+					// si non ouvert, on ouvre le menu
+					if (!ouvert) { $(this).trigger('click'); }
+					$(this).parent().find('> ul > li:first-child a').focus();
+					event.stopPropagation(); // éviter scroll navigateur
+					return false;
+				} else if (event.key === 'ArrowRight') {
+					// si le menu était ouvert, on ouvre le menu suivant aussi
+					var $next = $(this).closest('nav').next().find('> .toggle').first().focus();
+					if (ouvert) {  $next.trigger('click'); }
+				} else if (event.key === 'ArrowLeft') {
+					// si le menu était ouvert, on ouvre le menu précédent aussi
+					var $last = $(this).closest('nav').prev().find('> .toggle').first().focus();
+					if (ouvert) {  $last.trigger('click'); }
+				}
+			})
+			.on('keypress', 'li > a', function(event) {
+				// dans la liste qui s’est ouverte
+				if ( event.key === 'ArrowDown') {
+					var $next = $(this).parent().next();
+					var $sel = ($next.length) ? $next : $(this).closest('ul').find('> li:first-child');
+					$sel.find('> a').first().focus();
+					event.stopPropagation(); // éviter scroll navigateur
+					return false;
+				} else if ( event.key === 'ArrowUp') {
+					// si on remonte tout en haut, repasser sur le bouton .toggle
+					var $prev = $(this).parent().prev();
+					if ($prev.length) {
+						$prev.find('> a').first().focus();
+					} else if ($(this).parent().parent().parent().is('nav')) {
+						$(this).closest('nav').find('> .toggle').focus();
+					} else {
+						$(this).closest('ul').find('> li:last-child > a').first().focus();
+					}
+					event.stopPropagation(); // éviter scroll navigateur
+					return false;
+				} else if ( event.key === 'ArrowRight') {
+					$(this).parent().find('> ul > li:first-child > a').focus();
+				} else if ( event.key === 'ArrowLeft') {
+					$(this).closest('ul').parent().find('> a').focus();
+				}
 			});
-	};
-
-	$('#bando_principal').gererMenuPrincipal();
+	});
 
 	$('#bando_navigation');
 
-
-	// deplier le menu au click
-	$.fn.menuFocus = function() {
-		var $racine = $(this);
-		var $depliants = $racine.find('.depliant');
-
-		$depliants
-			.on('click', '> li > a', function(){
-				var $parent = $(this).parent();
-				if ($parent.is('.actif')) {
-					$parent.removeClass('actif').find('.actif').removeClass('actif');
-				} else {
-					$parent.addClass('actif');
-				}
-				return false;
-			})
-			.on('blur', '> li > a', function() {
-				$(this).parent().removeClass('actif');
-			})
-			.on('mouseenter hover', '> li li', function() {
-				$(this).addClass('actif');
-			})
-			.on('mouseleave blur', '> li li', function() {
-				$(this).removeClass('actif');
-			});
-			/*
-			// ouvrir celui ci, fermer les autres
-			.on('mouseenter', 'li', function(){
-				var $parents_and_me = $(this).parents('li').add($(this)).addClass('actif');
-				$deroulants.find('.actif').not($parents_and_me).removeClass('actif').blur();
-				// le sous menu de navigation
-				if (
-					$(this).parents('#bando_navigation').length
-					&& $(this).parent('.deroulant').length
-					&& $(this).find('> ul').length
-				) {
-					var $sous_menu = $(this).find('> ul');
-					if (($sous_menu.position().top + $sous_menu.height()) > $(window).height()) {
-						$sous_menu
-							.css('top', $(this).position().top + $(this).height() - $sous_menu.height()).css('margin-top', 0);
-					}
-				}
-			})
-			.on('mouseleave', 'li', function(){
-				$(this).removeClass('actif');
-			})
-			// navigation au clavier : deplier le ul enfant
-			.on('focus', 'li > a', function(){
-				$(this).parent('li').trigger('mouseenter');
-			})
-			// navigation flèches
-			.on('keypress', 'li > a', function(event) {
-				// tout en haut dans le bando_principal
-				if ($(this).closest('ul').is('.deroulant') && $(this).parents('#bando_principal').length) {
-					if (event.key === 'ArrowDown') {
-						$(this).parent().find('> ul > li:first-child a').focus();
-						event.stopPropagation(); // éviter scroll navigateur
-						return false;
-					} else if (event.key === 'ArrowRight') {
-						$(this).closest('ul').next().find('a').first().focus();
-					} else if (event.key === 'ArrowLeft') {
-						$(this).closest('ul').prev().find('a').first().focus();
-					}
-				// navigation dans les menus… ailleurs
-				} else {
-					if ( event.key === 'ArrowDown') {
-						var $next = $(this).parent().next();
-						var $sel = ($next.length) ? $next : $(this).closest('ul').find('> li:first-child');
-						$sel.find('> a').first().focus();
-						event.stopPropagation(); // éviter scroll navigateur
-						return false;
-					} else if ( event.key === 'ArrowUp') {
-						var $prev = $(this).parent().prev();
-						var $sel = ($prev.length) ? $prev : $(this).closest('ul').find('> li:last-child');
-						$sel.find('> a').first().focus();
-						event.stopPropagation(); // éviter scroll navigateur
-						return false;
-					} else if ( event.key === 'ArrowRight') {
-						$(this).parent().find('> ul > li:first-child > a').focus();
-					} else if ( event.key === 'ArrowLeft') {
-						$(this).closest('ul').parent().find('> a').focus();
-					}
-				}
-			})*/
-
-		return this;
-	}
-
-	$('#bando_haut')
-		/*.menuFocus()*/
-		// le focus de certains éléments doit replier les menus dépliés
-		.find('#bando_rechercher input, #bando_liens_rapides a, #bando_site a')
-		.on('click', function() {
-			$('#bando_haut').find('.depliant .actif').removeClass('actif');
-		});
+	// le focus de certains éléments doit replier les menus dépliés
+	$('#bando_rechercher input, #bando_site a')
+	.on('focus', function() {
+		$('#bando_haut').find('.toggle[aria-expanded=true]').attr('aria-expanded', 'false');
+	});
 
 	if (typeof window.test_accepte_ajax != "undefined") {
 		test_accepte_ajax();
