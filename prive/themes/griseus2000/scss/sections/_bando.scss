@@ -41,11 +41,12 @@
  */
 
 /* Ordonnancement général et alignement */
-#bando_site       { order: 5; }
-#bando_outils     { order: 2; }
-#bando_rechercher { order: 4; }
 #bando_identite   { order: 1; }
-#bando_collaborer { order: 3; }
+#bando_plan       { order: 2; }
+#bando_outils     { order: 3; }
+#bando_collaborer { order: 4; }
+#bando_rechercher { order: 5; }
+#bando_site       { order: 6; }
 
 /* Conteneur et choses communes à tous les bandos */
 $bando_principal_height: $bs*2;
@@ -74,101 +75,115 @@ $bando_principal_height: $bs*2;
     }
   }
 
+
   // Tous les menus déroulants
-  .depliant {
-    > li {
-      display: flex;
+  nav.depliant {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    align-items: flex-end; // vertical
+    > .toggle {
       position: relative;
-      z-index: 2;
-      align-items: flex-end; // vertical
-      // Le lien/icône qui fait apparaître le sous-menu
-      > a {
-        position: relative;
-        display: flex;
-        justify-content: center; // horizontal
-        align-items: center; // vertical
-        min-width: $bs;
-        height: $bando_principal_height;
-        padding: 0 $bs/1.5; // espace les icônes et facilite l'apparition du sous-menu
-        line-height: 1;
-        // dropdown pour indiquer qu'il y a un sous-menu
-        &:after {
-          content: '\e812'; // = .icon-down-fill;
-          font-family: icons;
-          position: absolute;
-          top: 50%;
-          right: 0%;
-          transform: translateY(-50%);
-        }
+      display: flex;
+      justify-content: center; // horizontal
+      align-items: center; // vertical
+      min-width: $bs;
+      height: $bando_principal_height;
+      padding: 0 $bs/1.5; // espace les icônes et facilite l'apparition du sous-menu
+      line-height: 1;
+      border:0;
+      background:transparent;
+      color:$couleur-theme-dark;
+      &:hover,
+      &:focus {
+        color: $couleur-theme-darkest;
       }
-      // Sous-menus
-      ul {
-        display: none;
+
+      // dropdown pour indiquer qu'il y a un sous-menu
+      &:after {
+        content: '\e812'; // = .icon-down-fill;
+        font-family: icons;
         position: absolute;
-        left: 0;
-        bottom: 0;
-        transform: translateY(100%);
-        min-width: 14em;
-        padding: 0;
-        background-color: white;
-        box-shadow: 0 0.2em 0.2em hsla(0, 0%, 0%, 0.15);
-        /* contour caché pour faciliter le survol à la souris */
-        &:before {
-          z-index: -1;
-          position: absolute;
-          top: 0;
-          left: -2em;
-          right: -2em;
-          bottom: -2em;
-          background-color: transparent;
-          /*border:1px solid blue;*/
-          content: '';
-        }
-        /* contour du 2è niveau */
-        ul:before {
-          top:-2em;
-        }
-        a {
-          display: block;
-          padding: $bs/2 $bs;
-          line-height: 1.1;
-          &:hover,
-          &:focus {
-            background-color: _hsl($teinte, $saturation, 95%);
-          }
+        top: 50%;
+        right: 0%;
+        transform: translateY(-50%);
+        opacity:.2;
+        color: $couleur-theme-dark;
+        transition: opacity .2s, color .2s;
+      }
+      &:hover:after,
+      &:focus:after {
+        opacity:1;
+        color: $couleur-theme-darkest;
+      }
+    }
+    ul {
+      display: none;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform: translateY(100%);
+      min-width: 14em;
+      padding: 0;
+      background-color: white;
+      box-shadow: 0 0.2em 0.2em hsla(0, 0%, 0%, 0.15);
+      /* contour caché pour faciliter le survol à la souris */
+      &:before {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: -2em;
+        right: -2em;
+        bottom: -2em;
+        background-color: transparent;
+        /*border:1px solid blue;*/
+        content: '';
+      }
+      /* contour du 2è niveau */
+      ul:before {
+        top:-2em;
+      }
+
+      a {
+        display: block;
+        padding: $bs/2 $bs;
+        line-height: 1.1;
+        &:hover,
+        &:focus {
+          background-color: _hsl($teinte, $saturation, 95%);
         }
       }
-      // Actif
-      &.actif {
-        > a {
-          background-color: $couleur-theme;
-          color: white;
-        }
-        > ul {
-          display: block;
-          li.haschild {
-            position: relative;
-            > a {
-              // Icône pour indiquer qu'il y a un autre sous-menu
-              @extend .icon;
-              @extend .icon-right-open;
-              &:before {
-                position: absolute;
-                top: 50%;
-                right: $bs/2;
-                transform: translateY(-50%);
-              }
+    }
+
+    > .toggle[aria-expanded=true] {
+      background-color: $couleur-theme;
+      color: white;
+
+      & + ul {
+        display: block;
+
+        li.haschild {
+          position: relative;
+          > a {
+            // Icône pour indiquer qu'il y a un autre sous-menu
+            @extend .icon;
+            @extend .icon-right-open;
+            &:before {
+              position: absolute;
+              top: 50%;
+              right: $bs/2;
+              transform: translateY(-50%);
             }
+          }
+          > ul {
+            top: 0;
+            right: 0;
+            bottom: initial;
+          }
+          &.actif {
             > ul {
-              right: 0;
-              top: -$bs;
-              bottom: initial;
-            }
-            &.actif {
-              > ul {
-                display: block;
-                transform: translateX(100%);
-              }
+              display: block;
+              transform: translateX(100%);
             }
           }
         }

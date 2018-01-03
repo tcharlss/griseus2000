@@ -2,101 +2,92 @@
 #SET{boutons,#GET{contexte}|definir_barre_boutons{0}|trier_boutons_enfants_par_favoris_alpha}
 <div id="bando_haut" role="navigation">
 	<div id="bando_liens_rapides">
-		<div class="largeur clearfix">
+		<nav class="largeur clearfix" aria-label="Accès rapides">
 			<a href="#conteneur" onclick="return focus_zone('#conteneur')">Aller au contenu</a> |
 			<a href="#bando_navigation" onclick="return focus_zone('#bando_navigation')">Aller &agrave; la navigation</a> |
 			<a href="#recherche" onclick="return focus_zone('#bando_rechercher')">Aller &agrave; la recherche</a>
-		</div>
+		</nav>
 	</div>
 
 	<div id="bando_principal">
-		<div id="bando_identite">
-			<ul class="bando_session depliant">
-				<li class="identite">
-					<a title="<:icone_informations_personnelles|attribut_html:> \(<:auteur|attribut_html:> ##SESSION{id_auteur}\)"
-					   href="#URL_ECRIRE{infos_perso}">
-						<strong class="nom">[(#SESSION{nom}|trim|sinon{#SESSION{login}}|typo|couper{30})]</strong>
+		<nav id="bando_identite" class="depliant" aria-label="<:icone_informations_personnelles|attribut_html:>">
+			<button
+				class="toggle" aria-expanded="false" aria-controls="nav_identite"
+				title="<:icone_informations_personnelles|attribut_html:> \(<:auteur|attribut_html:> ##SESSION{id_auteur}\)">
+				<strong class="nom">[(#SESSION{nom}|trim|sinon{#SESSION{login}}|typo|couper{30})]</strong>
+			</button>
+			<ul id="nav_identite">
+				<li class="menu_infos_persos"><a href="#URL_ECRIRE{infos_perso}"><:icone_mes_infos:></a></li>
+				<li class="menu_lang">
+					<a href="#URL_ECRIRE{configurer_langage}" title="<:titre_config_langage|attribut_html:>">
+						<:icone_ma_langue:> <strong>[(#LANG|traduire_nom_langue)]</strong>
 					</a>
-					<ul>
-						<li class="menu_infos_persos"><a href="#URL_ECRIRE{infos_perso}"><:icone_mes_infos:></a></li>
-						<li class="menu_lang">
-							<a href="#URL_ECRIRE{configurer_langage}" title="<:titre_config_langage|attribut_html:>">
-								<:icone_ma_langue:> <strong>[(#LANG|traduire_nom_langue)]</strong>
-							</a>
-						</li>
-						<li class="menu_preferences"><a href="#URL_ECRIRE{configurer_preferences}"><:icone_mes_preferences:></a></li>
+				</li>
+				<li class="menu_preferences"><a href="#URL_ECRIRE{configurer_preferences}"><:icone_mes_preferences:></a></li>
 
-						[(#PLUGIN{aide}|oui)
-						<li class="menu_aide">
-							<a class="aide popin" target="_blank" href="#URL_ECRIRE{aide,var_lang=#LANG}">
-								<:icone_aide_ligne:>
-							</a>
-						</li>]
-						<li class="menu_logout">
-							<a href="[(#VAL{logout}|generer_url_action{logout=prive})]"><:icone_deconnecter:></a>
-						</li>
-					</ul>
+				[(#PLUGIN{aide}|oui)
+				<li class="menu_aide">
+					<a class="aide popin" target="_blank" href="#URL_ECRIRE{aide,var_lang=#LANG}">
+						<:icone_aide_ligne:>
+					</a>
+				</li>]
+				<li class="menu_logout">
+					<a href="[(#VAL{logout}|generer_url_action{logout=prive})]"><:icone_deconnecter:></a>
 				</li>
 			</ul>
+		</nav>
+
+		<nav id="bando_plan" class="depliant" aria-label="<:plan_site|attribut_html:>">
+			<button id="boutonbandeautoutsite" class="toggle" aria-expanded="false" aria-controls="nav_plan" title="<:plan_site|attribut_html:>">
+				[(#CHEMIN_IMAGE{plan_site-24.png}|balise_img)]
+			</button>
+			[(#REM|menu_rubriques)]
+		</nav>
+
+		<B_creer>
+			<nav id="bando_outils" class="depliant" aria-label="Ajouter">
+				<button class="toggle" aria-expanded="false" aria-controls="nav_outils"  title="Ajouter">+</button>
+				<ul id="nav_outils">
+					<BOUCLE_creer(DATA)
+					{source tableau, #GET{boutons}}
+					{cle=outils_rapides}><BOUCLE_creersous(DATA){source tableau, #SOUSMENU}{par position}>[<li class="bouton"><a
+						href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]"
+						title="[(#VALEUR{libelle}|_T|attribut_html)]"
+						class="bando2_#CLE"><span>(#VALEUR{libelle}|_T)</span></a></li>]
+					</BOUCLE_creersous></BOUCLE_creer>
+				</ul>
+			</nav>
+		</B_creer>
+
+
+		<nav id="bando_collaborer" class="depliant" aria-label="Collaborer">
+			<B_collaborer>
+				<button class="toggle" aria-expanded="false" aria-controls="nav_collaborer"  title="Collaborer">✉</button>
+				<ul id="nav_collaborer">
+					<BOUCLE_collaborer(DATA)
+					{source tableau, #GET{boutons}}
+					{cle=outils_collaboratifs}><BOUCLE_collaborersous(DATA){source tableau, #SOUSMENU}>[<li class="bouton"><a
+						href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]"
+						title="[(#VALEUR{libelle}|_T|attribut_html)]"
+						class="bando2_#CLE"><span>(#VALEUR{libelle}|_T)</span></a></li>]</BOUCLE_collaborersous></BOUCLE_collaborer>
+				</ul>
+			</B_collaborer>
+		</nav>
+
+		<div id="bando_rechercher">
+			#FORMULAIRE_RECHERCHE_ECRIRE
 		</div>
+
 
 		<div id="bando_site">
 			<p class="nom_site_spip">
 				[(#SET{configurer,#AUTORISER{configurer}|?{oui}})]
 				[(#GET{configurer}|oui)
 				<a class="info" title="<:titre_identite_site|attribut_html:>" href="#URL_ECRIRE{configurer_identite}">
-				]<strong class="nom">[ (#NOM_SITE_SPIP|couper{35}) ]</strong>
-				[</a>(#GET{configurer}|oui)]
+					]<strong class="nom">[ (#NOM_SITE_SPIP|couper{35}) ]</strong>
+					[</a>(#GET{configurer}|oui)]
 				<a class="voir" href="#URL_SITE_SPIP"><:icone_visiter_site:></a>
 			</p>
-		</div>
-
-		<div id="bando_outils">
-			<ul class="bando_rubriques depliant">
-				<li class="plan_site"><a
-						href="#URL_ECRIRE{plan}"
-						id="boutonbandeautoutsite">[(#CHEMIN_IMAGE{plan_site-24.png}|balise_img)]</a>
-					[(#REM|menu_rubriques)]
-				</li>
-			</ul>
-			<B_creer>
-				<ul class="bando_creer rapides depliant">
-					<li class="outil_creer">
-						<a title="Ajouter" href="#">+</a>
-						<ul>
-							<BOUCLE_creer(DATA)
-							{source tableau, #GET{boutons}}
-							{cle=outils_rapides}><BOUCLE_creersous(DATA){source tableau, #SOUSMENU}{par position}>[<li class="bouton"><a
-								href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]"
-								title="[(#VALEUR{libelle}|_T|attribut_html)]"
-								class="bando2_#CLE"><span>(#VALEUR{libelle}|_T)</span></a></li>]
-							</BOUCLE_creersous></BOUCLE_creer>
-						</ul>
-					</li>
-				</ul>
-			</B_creer>
-		</div>
-
-		<div id="bando_collaborer">
-			<B_collaborer>
-				<ul class="bando_collaborer rapides depliant">
-					<li class="outil_collaborer">
-						<a title="Collaborer" href="#">✉</a>
-						<ul>
-							<BOUCLE_collaborer(DATA)
-							{source tableau, #GET{boutons}}
-							{cle=outils_collaboratifs}><BOUCLE_collaborersous(DATA){source tableau, #SOUSMENU}>[<li class="bouton"><a
-								href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]"
-								title="[(#VALEUR{libelle}|_T|attribut_html)]"
-								class="bando2_#CLE"><span>(#VALEUR{libelle}|_T)</span></a></li>]</BOUCLE_collaborersous></BOUCLE_collaborer>
-						</ul>
-					</li>
-				</ul>
-			</B_collaborer>
-		</div>
-
-		<div id="bando_rechercher">
-			#FORMULAIRE_RECHERCHE_ECRIRE
 		</div>
 
 	</div>
@@ -104,34 +95,36 @@
 	<div id="bando_navigation">
 		<div class="largeur clearfix">
 			<B_boutons>
-				<ul class="depliant">
-					<BOUCLE_boutons(DATA)
-					{source tableau, #GET{boutons}}
-					{cle!=outils_rapides}
-					{cle!=outils_collaboratifs}>
-					[<li (#CLE|=={menu_accueil}|ou{#VALEUR{sousmenu}}|?{' ',#SET{li,''}}) #SET{li,'</li>'}[class="(#VAL{first}|unique)"]>
-					<a href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]" id="bando1_#CLE">
-						[(#LIBELLE|_T)]
-					</a>
-					][(#REM)
-					permettra d'ajouter une classe sur les entrées non favorites
-					si le menu a des entrées favorites, pour faciliter le stylage CSS
-					][(#SET{has_favoris,0})]
-					<B_sous>
-						<ul[ (#TOTAL_BOUCLE|>{20}|oui)class="menu-2col"]>
-						<BOUCLE_sous(DATA){source tableau, #SOUSMENU}>
-						[(#FAVORI|oui)#SET{has_favoris,1}]
-						[<li[ class="(#FAVORI|?{favori,[(#GET{has_favoris}|?{non_favori})]})"]>
-						<a href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]" class="bando2_#CLE">
-							(#LIBELLE|_T)
+				<nav aria-label="Menu principal">
+					<ul class="depliant">
+						<BOUCLE_boutons(DATA)
+						{source tableau, #GET{boutons}}
+						{cle!=outils_rapides}
+						{cle!=outils_collaboratifs}>
+						[<li (#CLE|=={menu_accueil}|ou{#VALEUR{sousmenu}}|?{' ',#SET{li,''}}) #SET{li,'</li>'}[class="(#VAL{first}|unique)"]>
+						<a href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]" id="bando1_#CLE">
+							[(#LIBELLE|_T)]
 						</a>
-						</li>]
-						</BOUCLE_sous>
-				</ul>
-				</B_sous>
-				#GET{li}
-				</BOUCLE_boutons>
-				</ul>
+						][(#REM)
+						permettra d'ajouter une classe sur les entrées non favorites
+						si le menu a des entrées favorites, pour faciliter le stylage CSS
+						][(#SET{has_favoris,0})]
+						<B_sous>
+							<ul[ (#TOTAL_BOUCLE|>{20}|oui)class="menu-2col"]>
+							<BOUCLE_sous(DATA){source tableau, #SOUSMENU}>
+							[(#FAVORI|oui)#SET{has_favoris,1}]
+							[<li[ class="(#FAVORI|?{favori,[(#GET{has_favoris}|?{non_favori})]})"]>
+							<a href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]" class="bando2_#CLE">
+								(#LIBELLE|_T)
+							</a>
+							</li>]
+							</BOUCLE_sous>
+					</ul>
+					</B_sous>
+					#GET{li}
+					</BOUCLE_boutons>
+					</ul>
+				</nav>
 			</B_boutons>
 		</div>
 	</div>

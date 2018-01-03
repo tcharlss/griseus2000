@@ -19,6 +19,39 @@ jQuery(function($){
 
 	init_gadgets(url_menu_rubrique);
 
+	/**
+	 * Gérer le dépleement des boutons / liste de navigation du bandeau.
+	 */
+	$.fn.gererMenuPrincipal = function() {
+		var $menu = $(this);
+		var $navs = $menu.find('nav.depliant');
+		$navs
+			.on('click', '> .toggle', function(event){
+				$menu.find('.actif').removeClass('actif');
+				event.stopPropagation();
+				if ($(this).attr('aria-expanded') === 'false') {
+					$menu.find('.toggle[aria-expanded=true]').attr('aria-expanded', 'false');
+					$(this).attr('aria-expanded', 'true');
+					// fermer le menu sur un clic extérieur
+					$('html').one('click', function() {
+						$menu.find('.toggle[aria-expanded=true]').attr('aria-expanded', 'false');
+					});
+				} else {
+					$(this).attr('aria-expanded', 'false');
+				}
+				return false;
+			})
+			.on('mouseenter focus', 'li', function() {
+				$(this).parent().find('.actif').removeClass('actif');
+				$(this).addClass('actif');
+			});
+	};
+
+	$('#bando_principal').gererMenuPrincipal();
+
+	$('#bando_navigation');
+
+
 	// deplier le menu au click
 	$.fn.menuFocus = function() {
 		var $racine = $(this);
@@ -107,7 +140,7 @@ jQuery(function($){
 	}
 
 	$('#bando_haut')
-		.menuFocus()
+		/*.menuFocus()*/
 		// le focus de certains éléments doit replier les menus dépliés
 		.find('#bando_rechercher input, #bando_liens_rapides a, #bando_site a')
 		.on('click', function() {
