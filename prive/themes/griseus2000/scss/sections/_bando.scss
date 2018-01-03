@@ -94,27 +94,36 @@ $bando_principal_height: $bs*2;
       border:0;
       background:transparent;
       color:$couleur-theme-dark;
-      &:hover,
-      &:focus {
+      &:hover {
         color: $couleur-theme-darkest;
       }
+      &:focus {
+        background-color: $couleur-theme-darkest;
+        color:white;
+      }
+      &::-moz-focus-inner {
+        border:0;
+      }
 
-      // dropdown pour indiquer qu'il y a un sous-menu
+        // dropdown pour indiquer qu'il y a un sous-menu
       &:after {
         content: '\e812'; // = .icon-down-fill;
         font-family: icons;
         position: absolute;
         top: 50%;
-        right: 0%;
+        right: $bs/4;
         transform: translateY(-50%);
         opacity:.2;
         color: $couleur-theme-dark;
         transition: opacity .2s, color .2s;
       }
-      &:hover:after,
-      &:focus:after {
+      &:hover:after {
         opacity:1;
         color: $couleur-theme-darkest;
+      }
+      &:focus:after {
+        opacity:1;
+        color:white;
       }
     }
     ul {
@@ -158,6 +167,11 @@ $bando_principal_height: $bs*2;
     > .toggle[aria-expanded=true] {
       background-color: $couleur-theme;
       color: white;
+      &:focus { background-color: $couleur-theme-darkest; }
+
+      &:after {
+        color: white;
+      }
 
       & + ul {
         display: block;
@@ -191,11 +205,11 @@ $bando_principal_height: $bs*2;
     }
   }
 
-  // Boutons
+  // Boutons avec icones
   .rapides {
     .bouton {
       a {
-        background-position: left $bs/4 center;
+        background-position: left $bs/2 center;
         background-repeat: no-repeat;
         padding-left: 1.8*$bs;
       }
@@ -240,56 +254,51 @@ $bando_principal_height: $bs*2;
 }
 
 /* Nom de l'utilisateurice */
-#bando_identite {}
+#bando_principal #bando_identite {
+  > .toggle {
+    padding-right:$bs;
+  }
+}
 
-/* Boutons de créations rapides */
-#bando_outils {
-
-  // Plan du site
-  .bando_rubriques {
-    .plan_site {
-      // icone
-      > a {
-        @extend .icon-sitemap;
-        @extend .icon;
-        img {
-          display: none;
-        }
-      }
-      // sous-menus
-      ul {
-        .toutsite {
-          border-bottom: 1px dotted hsla(0, 0%, 0%, 0.2);
-        }
-      }
+// Plan du site
+#bando_plan {
+  // icone
+  > .toggle {
+    @extend .icon-sitemap;
+    @extend .icon;
+    img {
+      display: none;
     }
   }
+  // sous-menus
+  ul {
+    .toutsite {
+      border-bottom: 1px dotted hsla(0, 0%, 0%, 0.2);
+    }
+  }
+}
 
-  // Création rapide
-  .outil_creer {
-    > a {
-      @extend .icon;
-      @extend .icon-create;
-      text-indent: -999999px; // cacher le texte
-    }
-    > ul > li > a{
-      padding-left: $bs*1.5; // place pour les icônes
-    }
+/* Boutons de créations rapides */
+#bando_outils  {
+  > .toggle {
+    @extend .icon;
+    @extend .icon-create;
+    text-indent: -999999px; // cacher le texte
+  }
+  > ul > li > a {
+    padding-left: $bs*1.5; // place pour les icônes
   }
 }
 
 /* Agenda et forum interne */
 #bando_collaborer {
-  // Création rapide
-  .outil_collaborer {
-    > a {
-      @extend .icon;
-      @extend .icon-calendar;
-      text-indent: -999999px; // cacher le texte
-    }
-    > ul > li > a{
-      padding-left: $bs*1.5; // place pour les icônes
-    }
+  > .toggle {
+    @extend .icon;
+    @extend .icon-calendar;
+    text-indent: -999999px; // cacher le texte
+  }
+  > ul > li > a{
+    padding-left: $bs*1.5; // place pour les icônes
   }
 }
 

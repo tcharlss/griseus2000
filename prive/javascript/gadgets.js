@@ -29,6 +29,7 @@ jQuery(function($){
 			.on('click', '> .toggle', function(event){
 				$menu.find('.actif').removeClass('actif');
 				event.stopPropagation();
+				$(this).focus();
 				if ($(this).attr('aria-expanded') === 'false') {
 					$menu.find('.toggle[aria-expanded=true]').attr('aria-expanded', 'false');
 					$(this).attr('aria-expanded', 'true');
