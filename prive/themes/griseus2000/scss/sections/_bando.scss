@@ -310,12 +310,13 @@ $bando_principal_height: $bs*2;
  *
  * #bando_navigation
  *   .largeur
- *     ul.depliant
- *       li(.actif)
- *         a#bando1_menu_XXX
- *         ul
- *           li.favori(.actif)
- *           li.non-favori(.actif)
+ *     nav
+ *       ul.depliant
+ *         li(.actif)
+ *           a#bando1_menu_XXX
+ *           ul
+ *             li.favori(.actif)
+ *             li.non-favori(.actif)
  *
  */
 .navigation_avec_icones a[id^=bando1_menu] {
@@ -335,8 +336,6 @@ $bando_principal_height: $bs*2;
     margin-bottom: 0;
 
     > li {
-      position: relative;
-
       // actif
       &.actif {
         > a {
@@ -419,13 +418,9 @@ $bando_principal_height: $bs*2;
         &.actif {
           // Apparition du sous menu
           > ul {
+            display:block;
             opacity: 1;
             width: $largeur-menu;
-            //display: flex;
-            //flex-direction: column;
-            //justify-content: center; // vertical
-            //align-content: center; // pour resserer
-            //align-items: center;
           }
         }
 
@@ -461,41 +456,20 @@ $bando_principal_height: $bs*2;
         // Niveau 2
         // --------
         > ul {
-          /*position: fixed !important;*/
-          /*overflow: hidden;*/
-          /*top: 0 !important;*/
-          position:fixed; // ne pas définir top: pour être relatif au parent
-          margin-top:-3 * $bs;
           left: $largeur-menu;
-          /*width: 0;*/
           min-width: auto;
-          /*height: 100vh;*/
-          /*padding-top: $bando_principal_height;*/
           transition: opacity 0.2s;
-          box-shadow:
-            0.25em 0 0.25em rgba(0, 0, 0, 0.15)/*,
-            inset 0.1em 0 0.25em rgba(0, 0, 0, 0.2)*/;
-          /* contour du ul pour faciliter le survol à la souris */
-          &:before {
-            z-index:-1;
-            position:absolute;
-            top:-2em;
-            left:0em;
-            right:-2em;
-            bottom:-2em;
-            background-color:transparent;
-            /*border:1px solid blue;*/
-            content:'';
-          }
+          box-shadow: 0.25em 0 0.25em rgba(0, 0, 0, 0.15);
+
           li {
             width: 100%;
-            text-align: center;
             border-width: 0 0 1px;
             border-style: solid;
             border-color: $couleur-neutre-bordure;
           }
           a {
             background-image: none;
+            padding-left:$bs;
           }
         }
       }

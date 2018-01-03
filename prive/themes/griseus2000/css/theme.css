@@ -3657,10 +3657,6 @@ fieldset > legend,
     margin-bottom: 0;
 }
 
-#bando_navigation .depliant > li {
-    position: relative;
-}
-
 #bando_navigation .depliant > li.actif > a {
     background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 40%);
 }
@@ -3692,8 +3688,8 @@ fieldset > legend,
 }
 
 #bando_navigation .depliant > li > ul li:hover > a,
-        #bando_navigation .depliant > li > ul li:focus > a,
-        #bando_navigation .depliant > li > ul li.actif > a {
+      #bando_navigation .depliant > li > ul li:focus > a,
+      #bando_navigation .depliant > li > ul li.actif > a {
     background-color: rgba(0, 0, 0, 0.03);
 }
 
@@ -3714,6 +3710,7 @@ fieldset > legend,
     }
 
     #bando_navigation .depliant > li.actif > ul {
+        display: block;
         opacity: 1;
         width: 11.25rem;
     }
@@ -3742,28 +3739,14 @@ fieldset > legend,
     }
 
     #bando_navigation .depliant > li > ul {
-        position: fixed;
-        margin-top: -4.21875rem;
         left: 11.25rem;
         min-width: auto;
         transition: opacity 0.2s;
         box-shadow: 0.25em 0 0.25em rgba(0, 0, 0, 0.15);
     }
 
-    #bando_navigation .depliant > li > ul:before {
-        z-index: -1;
-        position: absolute;
-        top: -2em;
-        left: 0em;
-        right: -2em;
-        bottom: -2em;
-        background-color: transparent;
-        content: '';
-    }
-
     #bando_navigation .depliant > li > ul li {
         width: 100%;
-        text-align: center;
         border-width: 0 0 1px;
         border-style: solid;
         border-color: rgba(0, 0, 0, 0.075);
@@ -3771,6 +3754,7 @@ fieldset > legend,
 
     #bando_navigation .depliant > li > ul a {
         background-image: none;
+        padding-left: 1.40625rem;
     }
 }
 

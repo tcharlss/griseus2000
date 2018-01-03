@@ -20,7 +20,8 @@ jQuery(function($){
 	init_gadgets(url_menu_rubrique);
 
 	/**
-	 * Gérer le dépleement des boutons / liste de navigation du bandeau.
+	 * Gérer le dépliement des boutons / liste de navigation du bandeau haut.
+	 * (infos persos, plan du site, créations, collaboration)
 	 */
 	$('#bando_principal').each(function() {
 		var $menu = $(this);
@@ -42,6 +43,7 @@ jQuery(function($){
 				}
 				return false;
 			})
+			// pour les sous menus (plan du site...)
 			.on('mouseenter focus', 'li', function() {
 				$(this).parent().find('.actif').removeClass('actif');
 				$(this).addClass('actif');
@@ -94,7 +96,60 @@ jQuery(function($){
 			});
 	});
 
-	$('#bando_navigation');
+	/**
+	 * Menu de navigation latéral
+	 */
+	$('#bando_navigation').each(function() {
+		var $navs = $(this).find('ul.depliant');
+		$navs
+			.on('click', '> li > a', function(event) {
+				if ($(this).parent().has('> ul').length) {
+					$(this).parent().toggleClass('actif');
+					event.stopPropagation();
+					return false;
+				}
+			})
+			.on('keypress', '> li > a', function(event) {
+				console.log(event.key, event);
+				if ( event.key === ' ' ) {
+					$(this).trigger('click');
+				} else if ( event.key === 'ArrowDown') {
+					if ($(this).parent().is('.actif')) {
+						$(this).parent().find('> ul > li:first-child > a').first().focus();
+					} else {
+						$(this).parent().next().find('> a').first().focus();
+					}
+					return false;
+				} else if ( event.key === 'ArrowUp') {
+					if ($(this).parent().prev().is('.actif')) {
+						$(this).parent().prev().find('> ul > li:last-child > a').first().focus();
+					} else {
+						$(this).parent().prev().find('> a').first().focus();
+					}
+					return false;
+				}
+			})
+			// sous entrées de menu
+			.on('keypress', 'ul > li > a', function(event) {
+				if ( event.key === 'ArrowDown') {
+					if ($(this).parent().next().length) {
+						$(this).parent().next().find('> a').first().focus();
+					} else {
+						$(this).closest('ul').parent().next().find('> a').first().focus();
+					}
+					return false;
+				} else if ( event.key === 'ArrowUp') {
+					if ($(this).parent().prev().length) {
+						$(this).parent().prev().find('> a').first().focus();
+					} else {
+						$(this).closest('ul').parent().find('> a').first().focus();
+					}
+					return false;
+				}
+			})
+		;
+	});
+
 
 	// le focus de certains éléments doit replier les menus dépliés
 	$('#bando_rechercher input, #bando_site a')
