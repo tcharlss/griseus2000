@@ -325,7 +325,6 @@ $bando_principal_height: $bs*2;
 #bando_navigation {
   z-index: 10;
   color: $couleur-neutre-light;
-  //background-color: $couleur-neutre-dark;
   background-color: $couleur-theme-darkest;
 
   ul {
@@ -336,10 +335,42 @@ $bando_principal_height: $bs*2;
     margin-bottom: 0;
 
     > li {
+
+      // liens
+      > a {
+        position: relative;
+        padding: $bs*0.5;
+        font-weight: 600;
+        // hover
+        &:hover {
+          color: white;
+          background-color: $couleur-theme-darker;
+        }
+        &:focus {
+          color: white;
+        }
+      }
+      &.avec_sousmenu > a {
+        &:after {
+          position:absolute;
+          right:$bs/1.5;
+          top:50%;
+          content: "❱";
+          color:white;
+          opacity:.2;
+          transform: translateY(-45%) rotate(90deg);
+        }
+        &:focus:after,
+        &:hover:after {
+          opacity:1;
+        }
+      }
+      &.avec_sousmenu.actif > a:after { opacity:1; }
+
       // actif
       &.actif {
         > a {
-          background-color: $couleur-theme-dark;
+          background-color: $couleur-theme-darker;
         }
         // sous-menu
         > ul {
@@ -347,36 +378,16 @@ $bando_principal_height: $bs*2;
         }
       }
 
-      // liens
-      > a {
-        @include gridle( grow );
-        position: relative;
-        padding: $bs*0.5;
-        font-weight: 600;
-        // hover
-        &:hover,
-        &:focus {
-          color: white;
-        }
-      }
-
       // sous-menus
       > ul {
         display: none;
         z-index: 1;
-        /*min-width: 100%;*/
-        //background-color: lighten($couleur-neutre-dark, 10);
         background-color: $couleur-neutre-light;
 
         a {
           display: block;
           padding: $bs*0.5;
           color: $couleur-texte;
-          // hover
-          &:hover,
-          &:focus {
-           // color: white;
-          }
         }
         li:hover,
         li:focus,
@@ -398,13 +409,6 @@ $bando_principal_height: $bs*2;
       padding-top: $bando_principal_height;
       margin: 0; // pas besoin de gouttière
       height: 100vh;
-
-
-      // tous les liens
-      a {
-        //background-repeat: no-repeat;
-        //background-position: $bs*0.5 center;
-      }
 
       // --------
       // Niveau 1

@@ -97,11 +97,11 @@
 			<B_boutons>
 				<nav aria-label="Menu principal">
 					<ul class="depliant">
-						<BOUCLE_boutons(DATA)
+					<BOUCLE_boutons(DATA)
 						{source tableau, #GET{boutons}}
 						{cle!=outils_rapides}
 						{cle!=outils_collaboratifs}>
-						[<li (#CLE|=={menu_accueil}|ou{#VALEUR{sousmenu}}|?{' ',#SET{li,''}}) #SET{li,'</li>'}[class="(#VAL{first}|unique)"]>
+						[<li (#CLE|=={menu_accueil}|ou{#VALEUR{sousmenu}}|?{' ',#SET{li,''}}) #SET{li,'</li>'}class="[(#VAL{first}|unique)][(#VALEUR{sousmenu}|oui)avec_sousmenu]">
 						<a href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]" id="bando1_#CLE">
 							[(#LIBELLE|_T)]
 						</a>
@@ -111,17 +111,17 @@
 						][(#SET{has_favoris,0})]
 						<B_sous>
 							<ul[ (#TOTAL_BOUCLE|>{20}|oui)class="menu-2col"]>
-							<BOUCLE_sous(DATA){source tableau, #SOUSMENU}>
-							[(#FAVORI|oui)#SET{has_favoris,1}]
-							[<li[ class="(#FAVORI|?{favori,[(#GET{has_favoris}|?{non_favori})]})"]>
-							<a href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]" class="bando2_#CLE">
-								(#LIBELLE|_T)
-							</a>
-							</li>]
-							</BOUCLE_sous>
-					</ul>
-					</B_sous>
-					#GET{li}
+								<BOUCLE_sous(DATA){source tableau, #SOUSMENU}>
+								[(#FAVORI|oui)#SET{has_favoris,1}]
+								[<li[ class="(#FAVORI|?{favori,[(#GET{has_favoris}|?{non_favori})]})"]>
+								<a href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]" class="bando2_#CLE">
+									(#LIBELLE|_T)
+								</a>
+								</li>]
+								</BOUCLE_sous>
+							</ul>
+						</B_sous>
+						#GET{li}
 					</BOUCLE_boutons>
 					</ul>
 				</nav>
