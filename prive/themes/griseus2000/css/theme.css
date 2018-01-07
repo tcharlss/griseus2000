@@ -2128,6 +2128,34 @@ fieldset > legend,
     justify-content: flex-end;
 }
 
+.formulaire_spip input[type=button], .formulaire_spip input[type=submit], .formulaire_spip button {
+    padding: 0.70312rem 1.40625rem;
+    background-color: #e6e6e6;
+    border: 0;
+}
+
+.formulaire_spip input[type=button] + input[type=button], .formulaire_spip input[type=button] + input[type=submit], .formulaire_spip input[type=button] + button, .formulaire_spip input[type=submit] + input[type=button], .formulaire_spip input[type=submit] + input[type=submit], .formulaire_spip input[type=submit] + button, .formulaire_spip button + input[type=button], .formulaire_spip button + input[type=submit], .formulaire_spip button + button {
+    margin-left: 0.70312rem;
+}
+
+.formulaire_spip input[type=button]:hover, .formulaire_spip input[type=submit]:hover, .formulaire_spip button:hover {
+    background-color: #f2f2f2;
+}
+
+.formulaire_spip input[type=button]:focus, .formulaire_spip input[type=submit]:focus, .formulaire_spip button:focus {
+    background-color: #222;
+    color: #f2f2f2;
+}
+
+.formulaire_spip input[type=submit], .formulaire_spip button[type=submit] {
+    background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 30%);
+    color: white;
+}
+
+.formulaire_spip input[type=submit]:hover, .formulaire_spip button[type=submit]:hover {
+    background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 20%);
+}
+
 @media screen and (min-width: 75em) {
     .formulaire_spip .editer-groupe {
         flex-grow: 1;

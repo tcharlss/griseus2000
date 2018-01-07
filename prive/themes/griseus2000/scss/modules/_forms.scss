@@ -180,6 +180,30 @@ fieldset {
     display: flex;
     justify-content: flex-end;
   }
+  // les boutons
+  input[type=button], input[type=submit], button {
+    padding:$bs/2 $bs;
+    background-color: hsl(0, 0%, 90%);
+    border:0;
+    & + input[type=button], & + input[type=submit], & + button {
+      margin-left:$bs/2;
+    }
+    &:hover {
+      background-color: hsl(0, 0%, 95%);
+    }
+    &:focus {
+      background-color: #222;
+      color:#f2f2f2;
+    }
+  }
+  input[type=submit], button[type=submit] {
+    background-color: $couleur-theme-darker;
+    color:white;
+    &:hover {
+      background-color: $couleur-theme-darkest;
+    }
+  }
+
 
   // Bureaux larges : saisies en 2 colonnes, sauf si :
   // - c'est un fieldset ou une saisie unique
