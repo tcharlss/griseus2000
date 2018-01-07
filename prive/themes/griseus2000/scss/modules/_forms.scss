@@ -171,6 +171,18 @@ fieldset {
     color: lighten($couleur-texte, 20);
   }
 
+  // Erreurs de champs
+  .erreur_message {
+    display:block;
+    border-left:5px solid $couleur-erreur;
+    padding-left:$bs/4;
+    color:darken($couleur-erreur, 20%);
+    margin-bottom:$bs/2;
+    // Confirmation dans erreur… hum ?
+    & input[type=checkbox] { display:inline-block; margin-left:0; margin-right: $bs/4; }
+    & input[type=checkbox] + label { display:inline-block; margin-bottom:0; }
+  }
+
   // Les boutons à la fin représentent le footer
   > form > div > .boutons:last-child {
     @extend .gr-card__pseudo-footer;

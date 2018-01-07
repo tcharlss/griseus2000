@@ -2119,6 +2119,25 @@ fieldset > legend,
     color: #666666;
 }
 
+.formulaire_spip .erreur_message {
+    display: block;
+    border-left: 5px solid #DF4543;
+    padding-left: 0.35156rem;
+    color: #a11d1b;
+    margin-bottom: 0.70312rem;
+}
+
+.formulaire_spip .erreur_message input[type=checkbox] {
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 0.35156rem;
+}
+
+.formulaire_spip .erreur_message input[type=checkbox] + label {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
 .formulaire_spip > form > div > .boutons:last-child {
     margin-top: 1.40625rem;
 }
