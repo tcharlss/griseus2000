@@ -1921,8 +1921,10 @@ blockquote:before {
 button.link.delete,
 input[value*=supprimer] ~ button[type=submit] {
     text-indent: -9999px;
-    width: 1em;
-    height: 1em;
+    width: 1.40625rem;
+    height: 1.40625rem;
+    padding: 0;
+    background-position: center;
     opacity: 0.66;
 }
 

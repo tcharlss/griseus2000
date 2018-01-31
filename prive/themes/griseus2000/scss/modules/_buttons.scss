@@ -108,8 +108,10 @@
 button.link.delete,
 input[value*=supprimer] ~ button[type=submit] {
   text-indent: -9999px;
-  width: 1em;
-  height: 1em;
+  width: $bs;
+  height: $bs;
+  padding: 0;
+  background-position: center;
   opacity: 0.66;
   img {
     display: none;
