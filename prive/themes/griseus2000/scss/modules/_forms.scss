@@ -293,6 +293,11 @@ fieldset {
     .liste-objets-associer {
       margin-bottom: $bs/2;
       background-color: transparent;
+      // Faux header (quand aucun résultat par ex.)
+      &.caption-wrap {
+        @extend .gr-card;
+        @extend .gr-card__content;
+      }
     }
   }
 

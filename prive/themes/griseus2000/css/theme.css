@@ -2652,7 +2652,7 @@ fieldset > legend,
     background-image: none;
 }
 
-.gr-card, .formulaire_spip, .liste-objets, .liste-objets.caption-wrap, .liste_items.sous_navigation,
+.gr-card, .formulaire_spip, .formulaire_spip.formulaire_editer_liens .liste-objets-associer.caption-wrap, .liste-objets, .liste_items.sous_navigation,
 .liste-items.sous_navigation, .box, html #documents_joints .item, html .galerie table {
     position: relative;
     margin-bottom: 1.40625rem;
@@ -2695,12 +2695,12 @@ fieldset > legend,
     margin-right: -1.40625rem;
 }
 
-.gr-card .cadre-icone, .formulaire_spip .cadre-icone, .liste-objets .cadre-icone, .liste_items.sous_navigation .cadre-icone,
+.gr-card .cadre-icone, .formulaire_spip .cadre-icone, .formulaire_spip.formulaire_editer_liens .liste-objets-associer.caption-wrap .cadre-icone, .liste-objets .cadre-icone, .liste_items.sous_navigation .cadre-icone,
   .liste-items.sous_navigation .cadre-icone, .box .cadre-icone, html #documents_joints .item .cadre-icone, html .galerie table .cadre-icone {
     display: none;
 }
 
-.gr-card__content, .formulaire_spip, .liste-objets.caption-wrap, .box .bd, html #documents_joints .item .infos {
+.gr-card__content, .formulaire_spip, .formulaire_spip.formulaire_editer_liens .liste-objets-associer.caption-wrap, .box .bd, html #documents_joints .item .infos {
     padding: 1.40625rem;
     border-radius: 0 0 2px 2px;
 }

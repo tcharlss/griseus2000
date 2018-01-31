@@ -17,12 +17,6 @@
   @extend .gr-card;
   //@extend .gr-card__content;
 
-  // Faux header (quand aucun résultat par ex.)
-  &.caption-wrap {
-    @extend .gr-card;
-    @extend .gr-card__content;
-  }
-
   // Le tableau
   table.liste {
     margin-bottom: 0;
