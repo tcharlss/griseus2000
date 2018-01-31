@@ -1972,6 +1972,20 @@ button.link:hover, button.link:focus,
     visibility: visible;
 }
 
+.bouton_action_post {
+    display: inline-block;
+}
+
+.bouton_action_post button {
+    padding: 0.1rem 0.6rem;
+    background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 40%);
+    color: white;
+}
+
+.bouton_action_post button:hover {
+    background-color: hsl(var(--teinte, 240), var(--saturation, 25%), 30%);
+}
+
 .aide.popin {
     display: inline-block;
     font-style: normal;

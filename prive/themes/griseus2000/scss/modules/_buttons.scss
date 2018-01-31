@@ -179,6 +179,21 @@ button {
 }
 
 /**
+ * Les boutons d'action (formulaires)
+ */
+.bouton_action_post {
+  display:          inline-block;
+  button {
+    padding:          0.1rem 0.6rem;
+    background-color: $couleur-theme-dark;
+    color:            white;
+    &:hover {
+      background-color: $couleur-theme-darker;
+    }
+  }
+}
+
+/**
  * Les icônes d'aide
  */
 .aide.popin {
