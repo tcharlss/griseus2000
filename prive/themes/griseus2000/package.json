@@ -25,10 +25,7 @@
     "gulp-minify": "latest",
     "gulp-postcss": "latest",
     "gulp-rename": "latest",
-    "gulp-sass": "latest",
     "gulp-sourcemaps": "latest",
-    "gulp-fontello": "latest",
-    "gulp-clean": "latest",
     "gulp-strip-css-comments": "latest"
   }
 }
