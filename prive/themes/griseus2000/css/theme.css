@@ -3874,6 +3874,10 @@ html .portfolios .liste_items.documents.documents_cases .item {
     margin: 0 0.70312rem 0.70312rem 0;
 }
 
+html .portfolios .liste_items.documents .actions-liste > form {
+    display: inline-block;
+}
+
 html #documents_joints .item {
     border: none;
 }

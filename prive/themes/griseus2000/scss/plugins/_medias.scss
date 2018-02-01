@@ -40,6 +40,11 @@
       }
     }
 
+    // Boutons d'action sur une ligne
+    .actions-liste > form {
+      display: inline-block; 
+    }
+    
   }
 }
 
