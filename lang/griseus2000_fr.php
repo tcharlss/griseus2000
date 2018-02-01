@@ -8,5 +8,5 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// T
-	'titre_menu' => 'Griseus2000',
+	'titre_menu' => 'Charte Griseus 2000',
 );
