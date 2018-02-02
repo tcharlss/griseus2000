@@ -1,20 +1,20 @@
 # Griseus 2000
 
+![Capture d'écran](griseus2000-screenshot.png)
+
 > Ce plugin est en plein développement. Il s'agit d'une expérimentation qui débouchera peut-être sur quelque chose d'utilisable, ou peut-être pas. Peu importe, il s'agit avant tout de tester des idées.
 >
 > Il a été commencé en catimini dans un coin, mais toutes les contributions sont les bienvenues :)
-
-![Capture d'écran](griseus2000-screenshot.png)
 
 Griseus 2000 est un thème pour l'espace privé de SPIP 3.1+
 
 Quelques objectifs parmis d'autres :
 
-* Avoir une interface sobre et lisible
-* Simplifier des choses
-* Utiliser au mieux la largeur disponible
-* Un graphisme « moderne » avec quand même une touche personnelle à la SPIP
-* Reprendre les bonnes idées qui marchent sur d'autres interfaces (de CMS, mais pas que)
+* Repartir de zéro
+* Avoir une interface sobre et lisible, simplifier des choses
+* Exploiter toute la largeur disponible
+* Un graphisme moderne mais pas trop générique, avoir une touche personnelle à la SPIP
+* Reprendre les bonnes idées des autres interfaces (de CMS, mais pas que)
 * S'autoriser à expérimenter des choses modernes (svg, flex, grid, variables CSS, etc.)
 * Être utilisable sur tablettes et mobiles
 
@@ -35,15 +35,15 @@ La compilation lance les tâches suivantes, qu'on peut également lancer individ
 * `gulp sass` : compiler la CSS
 * `gulp css` : traiter la CSS compilée -> ajouter les préfixes navigateurs, retirer les commentaires, embarquer certaines ressources en base64, formater le code
 * `gulp minify` : minifier la CSS compilée
-* `gulp fontello` : télécharger les sources de la fontface des icônes dans un dossier temporaire scss/fontello_tmp
+* `gulp fontello` : télécharger les sources de la police d'icônes dans un dossier temporaire `scss/fontello_tmp`
 
 ## Fichiers du thème
 
 La feuille de style principale est un squelette CSS : `style_prive_css.html`
 
-Ce squelette inclus d'autres fichiers dans un ordre précis :
+D'autres fichiers y sont inclus dans un ordre précis :
 
-1. Quelques squelettes CSS nécessaires : `picker.css`, `jquery-ui.css`, `exceptions.css`
+1. Quelques CSS nécessaires : `picker.css`, `jquery-ui.css`, `exceptions.css`
 2. Les icônes des bandeaux : code généré via une fonction
 3. Les variables de couleurs : `css/variables.css.hml`
 4. **La CSS principale du thème : `css/theme.css`**
@@ -52,7 +52,7 @@ Ce squelette inclus d'autres fichiers dans un ordre précis :
 
 ## Charte / démo
 
-Une page dans l'espace privé présente les généralités du thème `?exec=griseus2000`
+Une page dans l'espace privé présente les généralités du thème `?exec=griseus2000` (ou via le menu de développement).
 
 ## Règles de codage SCSS et choses à savoir
 
@@ -73,10 +73,10 @@ Tous les styles qui ont besoin d'un chemin vers une ressource avec `url()` et `s
 
 ### Icônes
 
-Les icônes génériques viennent pour la plupart d'une police fontface obtenue depuis fontello.com.
+Les icônes génériques sont issues pour la plupart d'une police de [Fontello](http://fontello.com).
 La liste est consultable dans la charte et dans `scss/modules/icons-codes.scss`.
 
-Pour ajouter une icône à un item par exemple :
+Pour afficher une icône devant un item par exemple :
 ````
 .item {
   @extend .icon;
@@ -84,7 +84,7 @@ Pour ajouter une icône à un item par exemple :
 }
 ````
 
-Pour ajouter des icônes :
+Pour ajouter des icônes dans la police :
 
 1. se rendre sur fontello.com
 2. importer `fontello-config.json`
@@ -93,11 +93,11 @@ Pour ajouter des icônes :
 5. télécharger la police avec la commande `gulp fontello`
 6. renommer et déplacer les fichiers de la police et le code des icones depuis `scss/fontello-tmp` vers `scss/modules/icons-codes.scss` et `polices/icons/icons.woff` (ce n'est pas encore automatisé)
 
-Dans les cas où il n'est pas possible d'utiliser cette police, il y a quelques svg dans /images.
+Dans les cas où il n'est pas possible d'utiliser cette police, il y a quelques svg dans `/images`.
 
 ### Classes virtuelles
 
-Certaines classes préfixées par `gr-` sont des classes « virtuelles » qui servent uniquement à étendre les vraies classes de SPIP. Elles ne sont pas utilisées directement dans les squelettes de SPIP.
+Certaines classes préfixées par `gr-` sont des classes « virtuelles » qui servent uniquement à étendre les vraies classes de SPIP, elles ne sont pas utilisées directement dans les squelettes.
 
 Par exemple, la classe `.gr-card` est utilisée pour étendre les listes d'objets, les boîtes, les formulaires... (et obtenir donc des choses uniformes).
 
