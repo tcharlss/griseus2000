@@ -148,13 +148,12 @@ fieldset {
 
   // Choix multiples : checkbox, radios
   .choix {
-    display: inline-block;
-    margin-right: $spacing;
+    //display: inline-block;
+    //margin-right: $spacing;
 
     input {
       margin: 0 $spacing/4 0 0;
-      position: relative;
-      top: 0.3em; // pour aligner
+      vertical-align: middle;
     }
     label {
       display: inline-block;
@@ -221,6 +220,16 @@ fieldset {
     box-shadow: none;
     padding: 0;
   }
+
+  // Colonnage
+  .deux_colonnes {
+    @include row;
+    .editer {
+      @include gutter;
+      flex: 0 0 50%;
+    }
+  }
+
 
   /**
    * =======================
@@ -348,6 +357,15 @@ fieldset {
   &.formulaire_editer_logo {
     .apercu {
       text-align: center;
+    }
+  }
+
+  &.formulaire_configurer_preferences {
+    .editer_rendu_couleurs,
+    .editer_propositions_couleurs {
+      .choix {
+        display: inline-block;
+      }
     }
   }
 

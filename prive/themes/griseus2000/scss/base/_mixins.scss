@@ -51,6 +51,7 @@ $medias: (
  */
 @mixin row {
   display: flex;
+  flex-flow: row wrap;
   margin-left: -$spacing/2;
   margin-right: -$spacing/2;
 }
