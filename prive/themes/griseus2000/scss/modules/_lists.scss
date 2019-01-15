@@ -54,7 +54,7 @@
       .on {
         @extend .icon;
         //@extend .icon-ellipsis-vert;
-        @extend .icon-down;
+        @extend .icon-down-open;
         &:before {
           margin-right: 0.5em;
           font-size: 0.9em;
@@ -134,12 +134,18 @@
     }
     td,
     th {
+      display: none; // On cache tout par défaut
       flex: 1 1 auto;
-      display: none;
       padding-top: $spacing/4;
       padding-bottom: $spacing/4;
+      // On choisit les colonnes à afficher
       &.principale, &.titre, &.nom, &.action, &.id {
         display: flex; // Ou table-cell
+      }
+      // Le numéro aligné à droite
+      &.id {
+        flex: 0 1 auto;
+        margin-left: auto;
       }
     }
   }

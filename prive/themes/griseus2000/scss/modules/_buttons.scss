@@ -11,7 +11,7 @@
 
 
 /**
- * Les icônes
+ * Les boutons icônes
  * (en général des liens vers des pages d'édition)
  */
 .icone {
@@ -27,7 +27,7 @@
     text-transform: uppercase;
     font-size: 0.9em;
     font-weight: bold;
-    line-height: 1;
+    line-height: 1.2;
     color: $couleur-theme-dark;
     background-color: transparent;
     border-radius: $radius;
@@ -52,7 +52,8 @@
   &.verticale {
     a {
       flex-flow: column nowrap;
-      max-width: 8em;
+      max-width: 10em;
+      font-size: 0.8em;
       &:before {
         font-size: 1.5em;
         margin: 0 0 $spacing/6;
