@@ -17,7 +17,6 @@
     "gulp-clean-css": "latest",
     "gulp-css-base64": "latest",
     "gulp-cssbeautify": "latest",
-    "gulp-directory-sync": "latest",
     "gulp-fontello": "latest",
     "gulp-load-plugins": "latest",
     "gulp-minify": "latest",

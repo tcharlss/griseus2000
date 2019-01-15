@@ -27,7 +27,6 @@ var
   rename = require('gulp-rename'),
   cssBase64 = require('gulp-css-base64'),
   clean = require('gulp-clean'),
-  dirSync = require('gulp-directory-sync'),
   replace = require('gulp-replace')
 ;
 
@@ -84,14 +83,6 @@ gulp.task('css-sourcemaps', function() {
     .pipe(gulp.dest('./css'));
 });
 
-// Synchroniser les ressources entre les dossiers /scss et /css
-gulp.task('sync-ressources', function() {
-  return gulp.src('./images/*')
-    .pipe(dirSync('./scss/images', './css/images', {
-      printSummary: true
-    }));
-});
-
 // Minifier le JS
 gulp.task('js-minify', function(done) {
   gulp.src('javascript/*.js')
@@ -115,7 +106,6 @@ gulp.task('js-minify', function(done) {
 
 // Traitement du CSS
 gulp.task('css', gulp.series(
-  'sync-ressources',
   'sass-compile',
   'css-optimize',
   'css-sourcemaps',
