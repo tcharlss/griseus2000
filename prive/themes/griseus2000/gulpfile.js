@@ -1,56 +1,71 @@
+/**
+ * Déclaration des tâches nécessaire à la compilation du thème
+ *
+ * La commande « gulp watch » va surveiller tous les changements effectués
+ * dans les dossiers /src et /javascript et lancera les tâches nécessaires.
+ *
+ * Les 2 tâches principales sont :
+ * - gulp css
+ * - gulp js
+ *
+ * Liste des tâches disponibles : gulp --tasks
+ *
+**/
+
 // Inclure les dépendances
 var
   gulp = require('gulp'),
-  sass = require('gulp-sass'),
-  autoprefixer = require('autoprefixer'),
-  stripCssComments = require('gulp-strip-css-comments'),
-  cssBase64 = require('gulp-css-base64'),
-  cssbeautify = require('gulp-cssbeautify'),
-  cleanCSS = require('gulp-clean-css'),
   plugins = require('gulp-load-plugins')(),
+  sass = require('gulp-sass'),
   postcss = require('gulp-postcss'),
   sourcemaps = require('gulp-sourcemaps'),
+  autoprefixer = require('autoprefixer'),
+  cssbeautify = require('gulp-cssbeautify'),
+  cleanCSS = require('gulp-clean-css'),
+  stripCssComments = require('gulp-strip-css-comments'),
+  minify = require('gulp-minify'),
   rename = require('gulp-rename'),
-  clean = require('gulp-clean')
+  cssBase64 = require('gulp-css-base64'),
+  clean = require('gulp-clean'),
+  dirSync = require('gulp-directory-sync'),
+  replace = require('gulp-replace')
 ;
 
-// Surveiller certains fichiers et lancer une série de tâches
-gulp.task('watch', function() {
-  gulp.watch('./scss/**/*', gulp.series(
-    'sass',
-    'css'/*,
-    'minify'*/
-  ));
-});
+/**
+ * =============================
+ * Les sous-tâches individuelles
+ * =============================
+ */
 
-// Compiler le SASS en CSS
-gulp.task('sass', function() {
-  return gulp.src(['./scss/theme.scss'])
+
+// Compiler le SCSS en CSS
+gulp.task('sass-compile', function() {
+  return gulp.src('./scss/theme.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./css'));
 });
 
-// Traiter le CSS compilé (compatibilité, optimisations...)
-gulp.task('css', function() {
+// Optimiser la CSS compilée
+gulp.task('css-optimize', function() {
   return gulp.src('./css/theme.css')
     // Ajouter les préfixes navigateurs
-    /*.pipe(postcss(
+    .pipe(postcss(
       [autoprefixer()]
-    ))*/
+    ))
     // Enlever les commentaires
     .pipe(stripCssComments())
     // Embarquer certaines ressources en base64
-    /*.pipe(cssBase64({
+    .pipe(cssBase64({
       maxWeightResource: 131072,
-      extensionsAllowed: ['.svg','.woff']
-    }))*/
+      extensionsAllowed: ['.svg']
+    }))
     // Formater le code
     .pipe(cssbeautify())
     .pipe(gulp.dest('./css'));
 });
 
-// Créer des copies minifiée des CSS
-gulp.task('minify', function() {
+// Minifier la CSS compilée
+gulp.task('css-minify', function() {
   return gulp.src('./css/theme.css')
     .pipe(cleanCSS({
       compatibility: 'ie9'
@@ -61,22 +76,115 @@ gulp.task('minify', function() {
     .pipe(gulp.dest('./css'));
 });
 
-// Importer les fichiers fontello à partir du fichier de config
-gulp.task('fontello', function(done) {
-  // importer les fichiers dans un dossier temporaire
-  gulp.src('./scss/fontello-config.json')
-    .pipe(plugins.fontello({
-      font: 'font',
-      css: 'css'
-    }))
-    .pipe(gulp.dest('./scss/fontello_tmp'));
-  // renommer les fichiers importés
-  // gulp.src('./scss/fontello_tmp/font/icons.woff')
-  //   .pipe(gulp.dest('./polices/icons/icons.woff'));
-  // gulp.src('./scss/fontello_tmp/css/icons-codes.css')
-  //   .pipe(gulp.dest('./scss/modules/_icons-codes.scss'));
-  done();
+// Créer le sourcemap de la CSS compilée
+gulp.task('css-sourcemaps', function() {
+  return gulp.src('./css/*.css')
+    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./css'));
 });
 
-// Tâche par défaut = watch
+// Synchroniser les ressources entre les dossiers /scss et /css
+gulp.task('sync-ressources', function() {
+  return gulp.src('./images/*')
+    .pipe(dirSync('./scss/images', './css/images', {
+      printSummary: true
+    }));
+});
+
+// Minifier le JS
+gulp.task('js-minify', function(done) {
+  gulp.src('javascript/*.js')
+    .pipe(minify({
+        ext: {
+            min:'.min.js'
+        },
+        ignoreFiles: ['*.min.js']
+    }))
+    .pipe(gulp.dest('./javascript'));
+  //done();
+});
+
+
+/**
+ * ======================
+ * Les tâches principales
+ * ======================
+ */
+
+
+// Traitement du CSS
+gulp.task('css', gulp.series(
+  'sync-ressources',
+  'sass-compile',
+  'css-optimize',
+  'css-sourcemaps',
+  'css-minify'
+));
+
+// Traitement du JS
+gulp.task('js', gulp.series(
+  'js-minify'
+));
+
+
+// Importer les polices fontello à partir du fichier de config :
+// Mets à jour les polices dans ../polices et la CSS modules/_icons.scss
+// Dans fontello, la police doit s'appeler 'icon'
+gulp.task('fontello', function() {
+  // importer les fichiers dans un dossier temporaire
+  return gulp.src('./scss/fontello-config.json')
+    .pipe(plugins.fontello({
+      font: 'font',
+      css: 'css',
+      assetsOnly: true
+    }))
+    .pipe(gulp.dest('./scss/fontello_tmp'))
+  // déplacer et renommer les fichiers utiles
+  .pipe(gulp.src('./scss/fontello_tmp/font/icon.woff'))
+    .pipe(rename('icons.woff'))
+    .pipe(gulp.dest('./polices/icons'))
+  .pipe(gulp.src('./scss/fontello_tmp/font/icon.woff2'))
+    .pipe(rename('icons.woff2'))
+    .pipe(gulp.dest('./polices/icons'))
+  .pipe(gulp.src('./scss/fontello_tmp/css/icon.css'))
+    .pipe(replace('../font', '../polices/icons'))
+    .pipe(replace('icon.', 'icons.'))
+    .pipe(replace(/,[^,]+format\('svg'\)/g, ''))
+    .pipe(replace(/,[^,]+format\('truetype'\)/g, ''))
+    .pipe(replace(/url.*format\('embedded-opentype'\),/g, ''))
+    .pipe(replace(/src: url\([^\)]+\);/g, ''))
+    .pipe(rename('_icons.scss'))
+    .pipe(gulp.dest('./scss/modules'))
+  /*
+  // supprimer le dossier temporaire
+  .pipe(gulp.src('./scss/fontello_tmp', {read: false}))
+    .pipe(clean())
+  */
+  ;
+});
+
+
+/**
+ * ==========================
+ * Surveiller les changements
+ * ==========================
+ */
+
+
+gulp.task('watch', function() {
+  // CSS
+  gulp.watch('./scss/**/*.scss', gulp.series('css'));
+  // JS
+  gulp.watch('./javascript/*', gulp.series('js'));
+  // Fontello
+  gulp.watch('./scss/fontello-config.json', gulp.series('fontello'));
+});
+
+
+/**
+ * ================
+ * Tâche par défaut
+ * ================
+ */
 gulp.task('default', gulp.series('watch'));
