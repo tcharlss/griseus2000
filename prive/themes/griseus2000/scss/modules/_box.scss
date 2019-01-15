@@ -16,15 +16,15 @@
   position: relative;
   margin-bottom: $spacing;
   background-color: white;
-  border-radius: 2px;
+  border-radius: $radius;
   box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.12);
 
   /* Header */
   &__header,
   &__pseudo-header {
     padding: $spacing/2 $spacing;
-    background-color: $couleur-neutre-light;
-    border-radius: 2px 2px 0 0;
+    //background-color: $couleur-neutre-light;
+    border-radius: $radius $radius 0 0;
     img {
       display: none;
     }
@@ -52,15 +52,16 @@
   /* contenu */
   &__content {
     padding: $spacing;
-    border-radius: 0 0 2px 2px; // s'il n'y a pas de footer
+    border-radius: 0 0 $radius $radius; // s'il n'y a pas de footer
   }
 
   /* footer */
   &__footer,
   &__pseudo-footer {
     padding: $spacing/2 $spacing;
-    border-radius: 0 0 2px 2px;
-    background-color: $couleur-neutre-light;
+    border-radius: 0 0 $radius $radius;
+    border-top: 1px solid $couleur-neutre-bordure;
+    //background-color: $couleur-neutre-light;
   }
   &__pseudo-footer {
     margin-bottom: -$spacing;
