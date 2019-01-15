@@ -195,7 +195,7 @@ fieldset {
   // les boutons
   input[type=button], input[type=submit], button {
     padding:$bs/2 $bs;
-    background-color: hsl(0, 0%, 90%);
+    background-color: hsl(0, 3%, 71%);
     border:0;
     & + input[type=button], & + input[type=submit], & + button {
       margin-left:$bs/2;
@@ -213,32 +213,6 @@ fieldset {
     color:white;
     &:hover {
       background-color: $couleur-theme-darkest;
-    }
-  }
-
-
-  // Bureaux larges : saisies en 2 colonnes, sauf si :
-  // - c'est un fieldset ou une saisie unique
-  // - on est dans une fiche objet
-  @include gridle_state( large-up ) {
-    .editer-groupe {
-      @include gridle( row );
-      flex-grow: 1;
-      //max-width: initial;
-
-      // 2 colonnes...
-      .editer {
-        @include gridle( 6 );
-        max-width: 100% !important;
-        flex-grow: 1; // étaler la dernière si nombre impaire
-      }
-      // ...sauf pour certains cas
-      .cadre-formulaire-editer &,
-      .editer:only-of-type,
-      > .fieldset {
-        @include gridle( 12 );
-        max-width: initial !important;
-      }
     }
   }
 
