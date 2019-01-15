@@ -27,9 +27,11 @@ a {
   }
   &:hover,
   &:focus {
+    color: $couleur-theme-dark;
+  }
+  &:focus {
     text-decoration: underline;
     text-decoration-style: dotted;
-    color: $couleur-theme-dark;
   }
   // Annuler des règles tiny typo
   &:before,
