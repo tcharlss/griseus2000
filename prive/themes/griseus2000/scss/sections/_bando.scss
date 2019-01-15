@@ -352,10 +352,11 @@ $bando_principal_height: $spacing*2;
       }
       &.avec_sousmenu > a {
         &:after {
+          @extend .icon:before;
+          @extend .icon-right-open:before; // On a un problème mon capitaine...
           position:absolute;
           right:$spacing/1.5;
           top:50%;
-          content: "❱";
           color:white;
           opacity:.2;
           transform: translateY(-45%) rotate(90deg);
