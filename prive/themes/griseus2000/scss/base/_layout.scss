@@ -25,7 +25,6 @@
 
 /* Conteneur générique */
 .largeur {
-  @include gridle_container();
   padding: 0 $bs;
 
   &.clearfix {
@@ -46,7 +45,7 @@
 }
 
 /* Responsive : bureaux */
-@include gridle_state( tablet-up) {
+@include tablet {
 
   // menu sur le côté,
   body {
@@ -78,16 +77,18 @@
 
   // Contenu en colonnes
   #conteneur {
-    @include gridle( row );
+    @include row;
     overflow: hidden;
   }
   #navigation {
-    @include gridle( adapt );
+    @include gutter;
+    flex: 0 1 auto;
     max-width: $largeur-navigation;
     order: 2;
   }
   #contenu {
-    @include gridle( grow );
+    @include gutter;
+    flex: 1 0 auto;
     flex-basis: 0;
     order: 1;
   }

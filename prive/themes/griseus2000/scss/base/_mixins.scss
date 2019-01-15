@@ -2,7 +2,66 @@
  * Base : les mixins utilisées dans le projet
 **/
 
-/* Liste sans style */
+/**
+ * Convertir des px en em
+ *
+ * @param int $pixels
+ *     Taille en px
+ * @param int $context
+ *     Taille de police par défaut du navigateur
+ * @return string
+       Taille en em
+**/
+@function em($pixels, $context: 16) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1em;
+}
+
+/**
+ * Media queries en mobile first
+ */
+$medias: (
+  tablet:  em(480),
+  desktop: em(960),
+  large:   em(1200)
+);
+@mixin tablet {
+  @media (min-width: map-get($medias, tablet)) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: map-get($medias, desktop)) {
+    @content;
+  }
+}
+@mixin large {
+  @media (min-width: map-get($medias, large)) {
+    @content;
+  }
+}
+
+/**
+ * Grille super hyper simple
+ */
+@mixin row {
+  display: flex;
+  margin-left: -$bs/2;
+  margin-right: -$bs/2;
+}
+@mixin gutter {
+  padding-left: $bs/2;
+  padding-right: $bs/2;
+}
+
+/**
+ * Liste sans style
+ */
 @mixin list-none() {
   list-style: none;
   margin: 0;

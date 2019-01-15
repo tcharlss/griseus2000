@@ -401,7 +401,7 @@ $bando_principal_height: $bs*2;
   }
 
   /* Responsive bureaux (voir aussi dans base/_layout.scss */
-  @include gridle_state( tablet-up) {
+  @include tablet {
     .largeur {
       padding: 0;
     }
