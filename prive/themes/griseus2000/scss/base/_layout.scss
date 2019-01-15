@@ -82,14 +82,13 @@
   }
   #navigation {
     @include gutter;
-    flex: 0 1 auto;
-    max-width: $largeur-navigation;
+    flex: 1 1 0.15vw;
+    min-width: 20em;
     order: 2;
   }
   #contenu {
     @include gutter;
-    flex: 1 0 auto;
-    flex-basis: 0;
+    flex: 1 1 auto;
     order: 1;
   }
   // en sticky
@@ -105,7 +104,7 @@
     }
   }
 
-  // Classes utilitaires pour des colonnes
+  // Classes utilitaires pour faire des colonnes
   // Malheureusement, il n'y a pas de conteneur donc pas de flex
   #contenu .gauche,
   #contenu .droite {
