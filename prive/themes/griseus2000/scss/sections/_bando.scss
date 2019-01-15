@@ -234,13 +234,6 @@ $bando_principal_height: $spacing*2;
   .voir {
     margin-left: $spacing;
     padding: 0 $spacing/2;
-    background-color: $couleur-theme;
-    color: white;
-    &:hover,
-    &:focus {
-      background-color: $couleur-theme-darkest;
-      color: white;
-    }
   }
 }
 
