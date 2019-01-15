@@ -49,12 +49,12 @@
 #bando_site       { order: 6; }
 
 /* Conteneur et choses communes à tous les bandos */
-$bando_principal_height: $bs*2;
+$bando_principal_height: $spacing*2;
 #bando_principal {
   display: flex;
   align-items: center; // vertical
   height: $bando_principal_height;
-  padding: 0 $bs;
+  padding: 0 $spacing;
   background-color: white;
   box-shadow: 0 0.15em 0.15em hsla(0, 0%, 0%, 0.066);
 
@@ -87,9 +87,9 @@ $bando_principal_height: $bs*2;
       display: flex;
       justify-content: center; // horizontal
       align-items: center; // vertical
-      min-width: $bs;
+      min-width: $spacing;
       height: $bando_principal_height;
-      padding: 0 $bs/1.5; // espace les icônes et facilite l'apparition du sous-menu
+      padding: 0 $spacing/1.5; // espace les icônes et facilite l'apparition du sous-menu
       line-height: 1;
       border:0;
       background:transparent;
@@ -111,7 +111,7 @@ $bando_principal_height: $bs*2;
         font-family: icons;
         position: absolute;
         top: 50%;
-        right: $bs/4;
+        right: $spacing/4;
         transform: translateY(-50%);
         opacity:.2;
         color: $couleur-theme-dark;
@@ -155,7 +155,7 @@ $bando_principal_height: $bs*2;
 
       a {
         display: block;
-        padding: $bs/2 $bs;
+        padding: $spacing/2 $spacing;
         line-height: 1.1;
         &:hover,
         &:focus {
@@ -185,7 +185,7 @@ $bando_principal_height: $bs*2;
             &:before {
               position: absolute;
               top: 50%;
-              right: $bs/2;
+              right: $spacing/2;
               transform: translateY(-50%);
             }
           }
@@ -209,9 +209,9 @@ $bando_principal_height: $bs*2;
   .rapides {
     .bouton {
       a {
-        background-position: left $bs/2 center;
+        background-position: left $spacing/2 center;
         background-repeat: no-repeat;
-        padding-left: 1.8*$bs;
+        padding-left: 1.8*$spacing;
       }
     }
     &.depliant ul {
@@ -232,8 +232,8 @@ $bando_principal_height: $bs*2;
     align-items: center; // vertical
   }
   .voir {
-    margin-left: $bs;
-    padding: 0 $bs/2;
+    margin-left: $spacing;
+    padding: 0 $spacing/2;
     background-color: $couleur-theme;
     color: white;
     &:hover,
@@ -256,7 +256,7 @@ $bando_principal_height: $bs*2;
 /* Nom de l'utilisateurice */
 #bando_principal #bando_identite {
   > .toggle {
-    padding-right:$bs;
+    padding-right:$spacing;
   }
 }
 
@@ -286,7 +286,7 @@ $bando_principal_height: $bs*2;
     text-indent: -999999px; // cacher le texte
   }
   > ul > li > a {
-    padding-left: $bs*1.5; // place pour les icônes
+    padding-left: $spacing*1.5; // place pour les icônes
   }
 }
 
@@ -298,7 +298,7 @@ $bando_principal_height: $bs*2;
     text-indent: -999999px; // cacher le texte
   }
   > ul > li > a{
-    padding-left: $bs*1.5; // place pour les icônes
+    padding-left: $spacing*1.5; // place pour les icônes
   }
 }
 
@@ -339,7 +339,7 @@ $bando_principal_height: $bs*2;
       // liens
       > a {
         position: relative;
-        padding: $bs*0.5;
+        padding: $spacing*0.5;
         font-weight: 600;
         // hover
         &:hover {
@@ -353,7 +353,7 @@ $bando_principal_height: $bs*2;
       &.avec_sousmenu > a {
         &:after {
           position:absolute;
-          right:$bs/1.5;
+          right:$spacing/1.5;
           top:50%;
           content: "❱";
           color:white;
@@ -386,7 +386,7 @@ $bando_principal_height: $bs*2;
 
         a {
           display: block;
-          padding: $bs*0.5;
+          padding: $spacing*0.5;
           color: $couleur-texte;
         }
         li:hover,
@@ -431,9 +431,9 @@ $bando_principal_height: $bs*2;
         // liens
         > a {
           display: block;
-          padding: $bs $bs*0.75;
-          //padding-left: $bs*2; // pour l'icône
-          //background-size: $bs auto;
+          padding: $spacing $spacing*0.75;
+          //padding-left: $spacing*2; // pour l'icône
+          //background-size: $spacing auto;
           &:hover,
           &:focus {
             &:before {
@@ -446,8 +446,8 @@ $bando_principal_height: $bs*2;
             content: '';
             display: inline-block;
             vertical-align: middle;
-            width: $bs;
-            height: $bs;
+            width: $spacing;
+            height: $spacing;
             margin-right: 0.5em;
             background-size: contain;
             background-position: center center;
@@ -473,7 +473,7 @@ $bando_principal_height: $bs*2;
           }
           a {
             background-image: none;
-            padding-left:$bs;
+            padding-left:$spacing;
           }
         }
       }

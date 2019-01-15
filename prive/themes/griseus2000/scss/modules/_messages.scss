@@ -15,15 +15,15 @@
  */
 .gr-message {
 
-  //margin-bottom: $bs;
-  padding: $bs $bs $bs $bs*3;
+  //margin-bottom: $spacing;
+  padding: $spacing $spacing $spacing $spacing*3;
   border-radius: $radius;
 
   &--success,
   &--error,
   &--notice {
     background-repeat: no-repeat;
-    background-position: $bs center;
+    background-position: $spacing center;
     background-size: auto 1em;
   }
 
@@ -64,7 +64,7 @@
 .success:not(.box),
 .error:not(.box),
 .notice:not(.box) {
-  margin-bottom: $bs;
+  margin-bottom: $spacing;
 }
 .success:not(.box) {
   @extend .gr-message--success;
@@ -96,7 +96,7 @@
   &.error,
   &.notice {
     .hd {
-      padding-left: $bs*3;
+      padding-left: $spacing*3;
     }
   }
   &.success {

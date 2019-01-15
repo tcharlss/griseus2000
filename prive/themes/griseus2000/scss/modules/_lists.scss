@@ -25,8 +25,8 @@
   // Titre du tableau 
   caption {
     //@extend .gr-card__pseudo-header;
-    //margin-bottom: $bs;
-    padding: $bs;
+    //margin-bottom: $spacing;
+    padding: $spacing;
   }
 
   // Header
@@ -47,7 +47,7 @@
       a,
       strong {
         display: block;
-        padding: $bs*0.25 0;
+        padding: $spacing*0.25 0;
       }
       // Picto pour indiquer les items triables
       a,
@@ -115,7 +115,7 @@
       margin: 0;
     }
     caption {
-      padding: $bs/2 0;
+      padding: $spacing/2 0;
       margin: 0;
       background-color: transparent;
     }
@@ -136,8 +136,8 @@
     th {
       flex: 1 1 auto;
       display: none;
-      padding-top: $bs/4;
-      padding-bottom: $bs/4;
+      padding-top: $spacing/4;
+      padding-bottom: $spacing/4;
       &.principale, &.titre, &.nom, &.action, &.id {
         display: flex; // Ou table-cell
       }
@@ -165,7 +165,7 @@
     }
     caption {
       padding: 0;
-      margin-right: $bs;
+      margin-right: $spacing;
       text-align: left;
     }
     thead,
@@ -180,7 +180,7 @@
         flex-flow: row nowrap;
         align-items: center;
         & + tr {
-          margin-left: $bs;
+          margin-left: $spacing;
         }
         &:hover {
           background-color: transparent;
@@ -192,7 +192,7 @@
         border: none;
       }
       .action {
-        margin-left: $bs/6;
+        margin-left: $spacing/6;
       }
     }
   }
@@ -212,7 +212,7 @@
   @extend .list-none;
 
   .item {
-    padding: $bs/2 0;
+    padding: $spacing/2 0;
     position: relative;
     transition: background-color 0.2s;
 
@@ -231,7 +231,7 @@
     }
     // Item actif
     &.on {
-      padding-left: $bs;
+      padding-left: $spacing;
       font-weight: bold;
       color: white;
       background-color: $couleur-theme-dark;
@@ -265,8 +265,8 @@
     //@extend .gr-card__content;
     .item {
       a {
-        padding-left: $bs;
-        padding-right: $bs;
+        padding-left: $spacing;
+        padding-right: $spacing;
       }
       // items pas actifs
       &:not(.on) {
@@ -276,7 +276,7 @@
           &:hover,
           &:focus {
             background-color: $couleur-neutre-light-alpha;
-            text-indent: $bs/4;
+            text-indent: $spacing/4;
           }
         }
       }
@@ -284,11 +284,11 @@
       &.on {
         background-color: transparent;
         a {
-          margin-left: -$bs;
-          padding-left: $bs/2;
+          margin-left: -$spacing;
+          padding-left: $spacing/2;
           color: $couleur-texte;
           background-color: $couleur-neutre-light-alpha;
-          border-left: $bs/2 solid $couleur-theme;
+          border-left: $spacing/2 solid $couleur-theme;
           // hover
           &:hover,
           &:focus {
@@ -302,9 +302,9 @@
         // liens : faire en sorte qu'ils épousent la hauteur du conteneur (.item)
         display: block;
         padding: inherit;
-        padding-left: $bs;
-        margin-top: -$bs/2;
-        margin-bottom: -$bs/2;
+        padding-left: $spacing;
+        margin-top: -$spacing/2;
+        margin-bottom: -$spacing/2;
         // Pollution visuelle
         background-image: none;
       }

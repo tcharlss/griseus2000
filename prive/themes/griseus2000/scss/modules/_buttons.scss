@@ -18,7 +18,7 @@
   display: inline-block;
   a {
     position: relative;
-    padding: $bs/3 $bs/2;
+    padding: $spacing/3 $spacing/2;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center; // horizontal
@@ -55,7 +55,7 @@
       max-width: 8em;
       &:before {
         font-size: 1.5em;
-        margin: 0 0 $bs/6;
+        margin: 0 0 $spacing/6;
       }
     }
   }
@@ -108,8 +108,8 @@
 button.link.delete,
 input[value*=supprimer] ~ button[type=submit] {
   text-indent: -9999px;
-  width: $bs;
-  height: $bs;
+  width: $spacing;
+  height: $spacing;
   padding: 0;
   background-position: center;
   opacity: 0.66;

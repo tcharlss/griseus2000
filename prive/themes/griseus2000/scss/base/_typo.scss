@@ -13,7 +13,7 @@ body {
 
 /* Marges sous les principaux blocs */
 p, table, pre, ul, ol, address, dl, blockquote {
-  margin-bottom: $bs;
+  margin-bottom: $spacing;
 }
 
 /* Liens */
@@ -52,7 +52,7 @@ h1, .h1,
 h2, .h2,
 h3, .h3,
 h4, .h4 {
-  margin-top: $bs*2;
+  margin-top: $spacing*2;
 }
 // Titre des pages
 .grostitre {
@@ -92,7 +92,7 @@ table {
   // cellules
   th,
   td {
-    padding: $bs*0.5 $bs;
+    padding: $spacing*0.5 $spacing;
   }
   // titre
   caption {
@@ -145,7 +145,7 @@ table {
   /* Classe virtuelle */
   &.gr-minimal {
     th, td {
-      padding: $bs/4;
+      padding: $spacing/4;
     }
   }
 }
@@ -158,14 +158,14 @@ code, pre, .code, .pre {
 
 /* Séparateur */
 hr {
-  margin: $bs*2 0;
+  margin: $spacing*2 0;
   border-style: dotted;
   border-color: hsla(0, 0%, 0%, 0.25);
 }
 
 /* citations */
 blockquote {
-  padding-left: $bs;
+  padding-left: $spacing;
   border-left: 4px solid $couleur-texte;
   font-family: $font-family-serif;
   font-style: italic;

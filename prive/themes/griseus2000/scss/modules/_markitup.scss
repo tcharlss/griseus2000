@@ -10,7 +10,7 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch; // vertical
-    height: $bs*2;
+    height: $spacing*2;
   }
 
   // Onglets édition / prévisu  /plein écran
@@ -28,7 +28,7 @@
       flex-direction: column;
       justify-content: center; // vertical
       align-items: center; // horizontal
-      padding: 0 $bs/2;
+      padding: 0 $spacing/2;
       margin: 0;
       border-radius: 0;
       border: 3px solid transparent;
@@ -93,7 +93,7 @@
         position: relative;
         display: flex;
         align-items: center; // vertical
-        padding: 0 $bs/2;
+        padding: 0 $spacing/2;
         color: lighten($couleur-texte, 20);
         &:hover,
         &:focus {
@@ -175,8 +175,8 @@
 
     .markItUpPreview,
     .markItUpEditor {
-      margin-top: $bs*2; // hauteur de la barre
-      padding: $bs*2 $bs;
+      margin-top: $spacing*2; // hauteur de la barre
+      padding: $spacing*2 $spacing;
       border: none;
     }
     .markItUpTabs {

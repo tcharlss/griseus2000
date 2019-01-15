@@ -18,8 +18,8 @@
   .formulaire_spip {
     box-shadow: none;
     padding: 0;
-    padding-bottom: $bs/2;
-    margin-bottom: $bs/2;
+    padding-bottom: $spacing/2;
+    margin-bottom: $spacing/2;
     border-bottom: 1px dotted darken($couleur-neutre-light, 10);
 
     // Les titres éventuels uniformisés
@@ -46,7 +46,7 @@
 
   /* Note proposé */
   .box.propose {
-    margin-top: $bs*3;
+    margin-top: $spacing*3;
   }
 
 }

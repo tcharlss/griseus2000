@@ -5,7 +5,7 @@
 #wysiwyg {
 
   max-width: 50em;
-  margin: $bs*4 auto;
+  margin: $spacing*4 auto;
 
   .invisible {
     display: none;
@@ -28,5 +28,5 @@
 }
 
 .markItUpPreview {
-  padding: $bs;
+  padding: $spacing;
 }

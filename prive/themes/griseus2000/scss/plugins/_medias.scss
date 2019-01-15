@@ -14,9 +14,9 @@
   h3 {
     background-color: $couleur-neutre-light;
     color: $couleur-theme-darkest;
-    padding: $bs/4 $bs/2;
+    padding: $spacing/4 $spacing/2;
     border-radius: $radius;
-    margin-bottom: $bs;
+    margin-bottom: $spacing;
   }
 
   // Liste des documents
@@ -35,8 +35,8 @@
       .item {
         width: auto;
         height: auto;
-        padding: $bs/4;
-        margin: 0 $bs/2 $bs/2 0;
+        padding: $spacing/4;
+        margin: 0 $spacing/2 $spacing/2 0;
       }
     }
 
@@ -56,7 +56,7 @@
     // Header
     .titrem {
       @extend .gr-card__header;
-      //padding: $bs/4 $bs/2;
+      //padding: $spacing/4 $spacing/2;
       font-size: 1em;
       .fichier {
         color: inherit;
@@ -65,7 +65,7 @@
     // Content
     .infos {
       @extend .gr-card__content;
-      //padding: $bs/4 $bs/2;
+      //padding: $spacing/4 $spacing/2;
     }
     .titre {
       font-weight: normal;
@@ -73,7 +73,7 @@
     .sanstitre {}
     .raccourcis {
       @extend .code;
-      padding: $bs/2 0;
+      padding: $spacing/2 0;
       font-size: 0.8em;
     }
     div.mode,

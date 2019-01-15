@@ -9,7 +9,7 @@
  * Pour naviguer entre différentes pages
  */
 .barre_onglet {
-  margin-bottom: $bs;
+  margin-bottom: $spacing;
   // pas besoin de marge si dernier élément en haut
   #haut & {
     &:last-child {
@@ -28,7 +28,7 @@
       // Tous les items
       a,
       strong {
-        padding: $bs/2 $bs;
+        padding: $spacing/2 $spacing;
         color: white;
         font-weight: bold;
         border-bottom: 3px solid $couleur-theme-dark;
@@ -80,7 +80,7 @@
 .onglets_simple {
   display: flex;
   justify-content: center;
-  margin-bottom: $bs;
+  margin-bottom: $spacing;
 
   /**
    * ----------------
@@ -122,7 +122,7 @@
     a,
     strong {
       display: block;
-      padding: $bs/2 $bs;
+      padding: $spacing/2 $spacing;
       margin-bottom: -1px; // pour passer sur la bordure inférieure du <ul>
       border-bottom: 4px solid transparent;
       transition: border 0.2s;
@@ -164,7 +164,7 @@
     a,
     strong {
       position: relative;
-      padding: 0 $bs/3;
+      padding: 0 $spacing/3;
       border-style: solid;
       border-width: 0 0 2px;
       border-color: transparent; // uniquement les actifs

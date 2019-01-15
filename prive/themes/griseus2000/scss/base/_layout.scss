@@ -25,7 +25,7 @@
 
 /* Conteneur générique */
 .largeur {
-  padding: 0 $bs;
+  padding: 0 $spacing;
 
   &.clearfix {
     height: auto;
@@ -37,11 +37,11 @@
 
 /* En haut du contenu principal */
 #haut {
-  margin-top: $bs;
+  margin-top: $spacing;
 }
 /* Contenu principal */
 #conteneur {
-  margin-top: $bs;
+  margin-top: $spacing;
 }
 
 /* Responsive : bureaux */
@@ -96,12 +96,12 @@
   .nav-is-stuck {
     #navigation {
       position: fixed;
-      top: $bs;
-      height: calc( 100vh - #{$bs} );
+      top: $spacing;
+      height: calc( 100vh - #{$spacing} );
       overflow-y: auto;
     }
     #contenu {
-      margin-left: $bs*14;
+      margin-left: $spacing*14;
     }
   }
 
@@ -109,14 +109,14 @@
   // Malheureusement, il n'y a pas de conteneur donc pas de flex
   #contenu .gauche,
   #contenu .droite {
-    width: calc(50% - (#{$bs} / 2)) !important;
+    width: calc(50% - (#{$spacing} / 2)) !important;
   }
   .gauche {
     float: left;
   }
   .droite {
     float: right;
-    margin-left: $bs;
+    margin-left: $spacing;
     @include clear-after;
   }
 

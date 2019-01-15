@@ -14,7 +14,7 @@
  */
 .gr-card {
   position: relative;
-  margin-bottom: $bs;
+  margin-bottom: $spacing;
   background-color: white;
   border-radius: 2px;
   box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.12);
@@ -22,7 +22,7 @@
   /* Header */
   &__header,
   &__pseudo-header {
-    padding: $bs/2 $bs;
+    padding: $spacing/2 $spacing;
     background-color: $couleur-neutre-light;
     border-radius: 2px 2px 0 0;
     img {
@@ -40,32 +40,32 @@
     }
   }
   &__pseudo-header {
-    margin-top: -$bs;
-    margin-left: -$bs;
-    margin-right: -$bs;
+    margin-top: -$spacing;
+    margin-left: -$spacing;
+    margin-right: -$spacing;
   }
   .cadre-icone {
-    //margin-right: $bs*0.5;
+    //margin-right: $spacing*0.5;
     display: none; // pas de pollution visuelle !
   }
 
   /* contenu */
   &__content {
-    padding: $bs;
+    padding: $spacing;
     border-radius: 0 0 2px 2px; // s'il n'y a pas de footer
   }
 
   /* footer */
   &__footer,
   &__pseudo-footer {
-    padding: $bs/2 $bs;
+    padding: $spacing/2 $spacing;
     border-radius: 0 0 2px 2px;
     background-color: $couleur-neutre-light;
   }
   &__pseudo-footer {
-    margin-bottom: -$bs;
-    margin-left: -$bs;
-    margin-right: -$bs;
+    margin-bottom: -$spacing;
+    margin-left: -$spacing;
+    margin-right: -$spacing;
   }
 }
 
@@ -183,10 +183,10 @@
 
   /* Note */
   &.note {
-    border-left: $bs/2 solid $couleur-theme-light;
+    border-left: $spacing/2 solid $couleur-theme-light;
     .hd {
       background-color: white;
-      padding-top: $bs;
+      padding-top: $spacing;
       padding-bottom: 0;
     }
   }
@@ -205,7 +205,7 @@
   &.basic {
     // toutes
     .hd {
-      padding-top: $bs;
+      padding-top: $spacing;
       padding-bottom: 0;
     }
     // highlight

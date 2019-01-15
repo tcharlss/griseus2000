@@ -25,10 +25,10 @@
     display: inline-block;
   }
   &:before {
-    margin-right: $bs/4;
+    margin-right: $spacing/4;
   }
   &:after {
-    margin-left: $bs/4;
+    margin-left: $spacing/4;
   }
 }
 
