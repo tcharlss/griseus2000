@@ -171,8 +171,12 @@
     }
     caption {
       padding: 0;
-      margin-right: $spacing;
+      //margin-right: $spacing;
       text-align: left;
+    }
+    .caption {
+      display: flex;
+      flex-direction: row-reverse; // Popin à gauche
     }
     thead,
     tfoot {
@@ -185,9 +189,7 @@
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        & + tr {
-          margin-left: $spacing;
-        }
+        margin-left: $spacing/2;
         &:hover {
           background-color: transparent;
         }

@@ -9,14 +9,11 @@
  */
 
 // Les boutons
+// Juste du "reset", pour la décoration, voir dans _buttons.scss
 input,
 button {
   font-family: $font-family-texte; // sinon styles OS
   font-size: 1em;
-}
-input[type=submit],
-button {
-  
 }
 
 // Tous les inputs
@@ -186,33 +183,6 @@ fieldset {
   > form > div > .boutons:last-child {
     @extend .gr-card__pseudo-footer;
     margin-top: $spacing;
-  }
-  .boutons {
-    display: flex;
-    justify-content: flex-end;
-  }
-  // les boutons
-  input[type=button], input[type=submit], button {
-    padding:$spacing/2 $spacing;
-    background-color: hsl(0, 3%, 71%);
-    border:0;
-    & + input[type=button], & + input[type=submit], & + button {
-      margin-left:$spacing/2;
-    }
-    &:hover {
-      background-color: hsl(0, 0%, 95%);
-    }
-    &:focus {
-      background-color: #222;
-      color:#f2f2f2;
-    }
-  }
-  input[type=submit], button[type=submit] {
-    background-color: $couleur-theme-darker;
-    color:white;
-    &:hover {
-      background-color: $couleur-theme-darkest;
-    }
   }
 
   // Dans une colonne + boite

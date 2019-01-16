@@ -30,7 +30,8 @@
     }
     &__title {
       margin: 0;
-      display: inline-block;
+      //display: inline-block;
+      text-align: center;
     }
     .lat & {
       font-size: 1em;
@@ -60,7 +61,7 @@
   &__pseudo-footer {
     padding: $spacing/2 $spacing;
     border-radius: 0 0 $radius $radius;
-    border-top: 1px solid $couleur-neutre-bordure;
+    //border-top: 1px solid $couleur-neutre-bordure;
     //background-color: $couleur-neutre-light;
   }
   &__pseudo-footer {

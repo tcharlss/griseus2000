@@ -88,8 +88,7 @@
 }
 
 // Édition
-.icone[class*=-edit-] a,
-.formulaire_dater .toggle_box_link {
+.icone[class*=-edit-] a {
   @extend .icon-edit;
 }
 
@@ -140,7 +139,7 @@ input[value*=supprimer] ~ button[type=submit] {
 button.link,
 .toggle_box_link,
 .toggle_box_link:before {
-  font-weight: bold;
+  //font-weight: bold;
   color: $couleur-theme-dark;
   font-size: 0.9rem;
 }
@@ -152,11 +151,8 @@ button[type=submit] {
   background-position: 0 center;
   padding: 0;
   border: none;
-  &:hover,
-  &:focus {
+  &:hover {
     cursor: pointer;
-    text-decoration: underline;
-    text-decoration-style: dotted;
   }
 }
 .toggle_box_link {
