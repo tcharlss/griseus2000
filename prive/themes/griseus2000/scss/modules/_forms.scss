@@ -304,6 +304,10 @@ fieldset {
   &.formulaire_dater {
     label {
       display: inline-block;
+      margin: 0;
+      .aide {
+        float: left;
+      }
     }
     .toggle_box_link {
       float: right;

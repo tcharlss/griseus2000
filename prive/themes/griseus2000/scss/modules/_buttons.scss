@@ -96,7 +96,8 @@
 .icone[class*=-new-] a,
 .icone[class*=-add-] a,
 .icone.ajouter a,
-.formulaire_editer_liens form > div > .toggle_box_link > * {
+//.formulaire_editer_liens form > div > .toggle_box_link > *
+{
   @extend .icon-add;
 }
 
