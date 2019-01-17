@@ -23,7 +23,7 @@
   &__header,
   &__pseudo-header {
     padding: $spacing/2 $spacing;
-    //background-color: $couleur-neutre-light;
+    //background-color: $couleur-lightest;
     border-radius: $radius $radius 0 0;
     img {
       display: none;
@@ -61,8 +61,8 @@
   &__pseudo-footer {
     padding: $spacing/2 $spacing;
     border-radius: 0 0 $radius $radius;
-    //border-top: 1px solid $couleur-neutre-bordure;
-    //background-color: $couleur-neutre-light;
+    //border-top: 1px solid $couleur-bordure;
+    //background-color: $couleur-lightest;
   }
   &__pseudo-footer {
     margin-bottom: -$spacing;
@@ -130,14 +130,14 @@
    */
    .box {
      box-shadow: none;
-     border: 1px solid $couleur-neutre-bordure;
+     border: 1px solid $couleur-bordure;
    }
 
 
   /**
-   * ---------
-   * Variantes
-   * ---------
+   * ====================
+   * Variantes génériques
+   * ====================
    */
 
   /* sous-rubrique */
@@ -178,7 +178,7 @@
   &.important {
     //border: 2px solid $couleur-texte;
     .hd {
-      background-color: lighten($couleur-neutre-dark, 10);
+      background-color: lighten($couleur-dark, 10);
       color: white;
     }
   }
@@ -196,10 +196,10 @@
   /* Raccourcis */
   &.raccourcis {
     .hd {
-      border-bottom: 1px solid $couleur-neutre-bordure;
+      border-bottom: 1px solid $couleur-bordure;
     }
     .bd {
-      background-color: $couleur-neutre-light;
+      background-color: $couleur-lightest;
     }
   }
 
@@ -225,7 +225,7 @@
     &.inverse {
       .hd,
       .bd {
-        background-color: lighten($couleur-neutre-dark, 10);
+        background-color: lighten($couleur-dark, 10);
         color: white;
       }
       .hd {

@@ -83,7 +83,7 @@
     border-bottom: none;
     border-radius: $radius;
      ul {
-      background-color: $couleur-neutre-light;
+      background-color: $couleur-lightest;
       
       li {
         display: flex;
@@ -186,7 +186,7 @@
       }
     }
     .markItUpPreview {
-      background-color: $couleur-neutre-light;
+      background-color: $couleur-lightest;
       box-shadow: inset 0.1em -0.1em 0.1em hsla(0, 0%, 0%, 0.15); 
     }
 

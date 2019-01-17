@@ -30,10 +30,9 @@ input[type=password],
 input[type=number],
 input[type=url],
 input[type=telephone],
-textarea,
-select {
+textarea {
   width: 100%;
-  border: 1px solid rgba($couleur-neutre-bordure, 0.2);
+  border: 1px solid rgba($couleur-bordure, 0.2);
   transition: border 0.2s;
   transition: box-shadow 0.2s;
   border-radius: 2px;
@@ -65,6 +64,21 @@ textarea {
 // Selects
 select {
   width: auto;
+  border: 0;
+  border-radius: $radius;
+  background-color: transparentize($couleur-darker, 0.95);
+  appearance: none;
+	//background-image: url(images/arrow-down.svg); // cf ressources.html
+	background-repeat: no-repeat;
+	background-position: right 0.5em center;
+  background-size: auto 25%;
+  &:after {
+    content: "prout";
+  }
+
+	&::-ms-expand {
+		display: none; /* hide the default arrow in ie10 and ie11 */
+	}
   .lat & {
     width: 100%;
   }
@@ -82,7 +96,7 @@ fieldset {
     width: 100%;
     margin-top: 0;
     padding-bottom: $spacing/2;
-    border-bottom: 2px solid $couleur-neutre-bordure;
+    border-bottom: 2px solid $couleur-bordure;
     font-weight: 400;
     color: $couleur-theme-dark;
     color: lighten($couleur-texte, 33);
@@ -222,7 +236,7 @@ fieldset {
       flex-grow: 1;
       min-width: 100%; // Doit passer à la ligne
       padding: $spacing/2;
-      background-color: $couleur-neutre-light;
+      background-color: $couleur-lightest;
       position: relative;
       // Lien pour fermer
       .toggle_box_link {

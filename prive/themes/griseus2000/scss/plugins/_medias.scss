@@ -12,7 +12,7 @@
 
   // Titre du bloc
   h3 {
-    background-color: $couleur-neutre-light;
+    background-color: $couleur-lightest;
     color: $couleur-theme-darkest;
     padding: $spacing/4 $spacing/2;
     border-radius: $radius;
@@ -109,7 +109,7 @@
       }
     }
     th, td {
-      border-color: $couleur-neutre-bordure;
+      border-color: $couleur-bordure;
     }
   }
 }

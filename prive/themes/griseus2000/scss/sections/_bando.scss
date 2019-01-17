@@ -317,7 +317,7 @@ $bando_principal_height: $spacing*2;
 }
 #bando_navigation {
   z-index: 10;
-  color: $couleur-neutre-light;
+  color: $couleur-lightest;
   background-color: $couleur-theme-darkest;
 
   ul {
@@ -376,7 +376,7 @@ $bando_principal_height: $spacing*2;
       > ul {
         display: none;
         z-index: 1;
-        background-color: $couleur-neutre-light;
+        background-color: $couleur-lightest;
 
         a {
           display: block;
@@ -387,7 +387,7 @@ $bando_principal_height: $spacing*2;
         li:focus,
         li.actif {
           > a {
-            background-color: $couleur-neutre-light-alpha;
+            background-color: transparentize($couleur-lightest, 0.9);
           }
         }
       }
@@ -463,7 +463,7 @@ $bando_principal_height: $spacing*2;
             width: 100%;
             border-width: 0 0 1px;
             border-style: solid;
-            border-color: $couleur-neutre-bordure;
+            border-color: $couleur-bordure;
           }
           a {
             background-image: none;

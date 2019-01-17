@@ -2,6 +2,175 @@
  * Module : boutons
  */
 
+/**
+ * La mixin de base pour générer les boutons
+ *
+ * @include button(big blue pill);
+ * @params
+ *    type :
+ *      - basic  : le style par défaut
+ *      - border : avec une bordure
+ *      - plain  : avec un aplat de couleur
+ *      - link   : pas de bordure / fond / padding
+ *    variante :
+ *      - pill : bords arrondis
+ *    taille : smallest | smaller | small | medium | big | bigger | biggest
+ *    couleur :
+ *      - soit un code de couleur
+ *      - soit un mot-clé : primary | secondary | dark | light
+ */
+@mixin button( $params: null ) {
+
+  // Valeurs possibles
+  $sizes: (
+    smallest: 0.5,
+    smaller:  0.66,
+    small:    0.75,
+    medium:   1,
+    big:      1.33,
+    bigger:   1.66,
+    biggest:  2
+  );
+  $types: basic plain border link;
+  $variants: pill disabled;
+  $colors: (
+    primary:   (base: $couleur-theme, dark: $couleur-theme-darkest),
+    dark:      (base: $couleur-dark,  dark: $couleur-darkest),
+    light:     (base: $couleur-light, dark: $couleur-dark),
+  );
+  // Valeurs par défaut
+  $color:      map-get(map-get($colors, dark), base);
+  $color-dark: map-get(map-get($colors, dark), dark);
+  $size:       map-get($sizes, medium);
+  $type:       border;
+  $variant:    null;
+  // Valeurs passées en param
+  @each $param in $params {
+    // Couleur
+    @if (type_of($param) == color) {
+      $color:      $param;
+      $color-dark: darken($param, 10);
+    } @else if (index(map-keys($colors), $param)) {
+      $color:      map-get(map-get($colors, $param), base);
+      $color-dark: map-get(map-get($colors, $param), dark);
+    }
+    // Type
+    @else if (index($types, $param)) {
+      $type: $param;
+    }
+    // Variante
+    @else if (index($variants, $param)) {
+      $variant: $param;
+    }
+    // taille
+    @else if (index(map-keys($sizes), $param)) {
+      $size: map-get($sizes, $param);
+    }
+  }
+
+  display: inline-block;
+  line-height: 1.2;
+  text-align: center;
+  font-size: 0.9em;
+  border: 1px solid transparent;
+  background-color: transparent;
+  border-radius: $radius;
+  @if (type-of($color) == color and lightness($color) < lightness(#888)) {
+    &:not(:hover):not(:focus) {
+      color: $couleur-texte;
+    }
+    &:hover,&:focus {
+      color: $couleur-darkest;
+    }
+  } @else {
+    &:not(:hover):not(:focus) {
+      color: $color;
+    }
+    &:hover,&:focus {
+      color: $color-dark;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  &:hover,
+  &:focus {
+    color: white;
+    background-color: $couleur-theme-darker;
+    border-color: $couleur-theme-darker;
+  }
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s, border 0.2;
+  // Type + couleur
+  @if ($type == border) {
+    border-color: $color;
+  } @else if ($type == plain) {
+    background-color: $color;
+    &:not(:hover):not(:focus) {
+      color: white;
+    }
+  }
+  // Variante
+  @if ($variant == pill) {
+    border-radius: 100em;
+  } @else if ($variant == disabled) {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  // Taille
+  //font-size: 1em * $size;
+  @if ($type != link) {
+    padding: ($spacing/4) * $size ($spacing/2) * $size;
+  }
+}
+@mixin button-group($button: '.button') {
+  display: flex;
+  #{$button}:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  #{$button}:not(:last-child) {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.bitton-group {
+  @include button-group('.bitton');
+}
+.bitton {
+  &:nth-child(1) {
+    @include button(primary);
+  }
+  &:nth-child(2) {
+    @include button(primary);
+  }
+  &:nth-child(3) {
+    @include button(dark);
+  }
+  &:nth-child(4) {
+    @include button(light);
+  }
+  &:nth-child(5) {
+    @include button();
+  }
+  &:nth-child(6) {
+    //@include button;
+  }
+}
+
+/**
+ * Les boutons de formulaires
+ */
+button,
+input[type="submit"] {
+  @include button;
+  img {
+    //display: none; // Pollution visuelle !
+  }
+}
+
 
  /**
  * ===================
@@ -11,54 +180,45 @@
 
 
 /**
- * Les boutons icônes
+ * Les boutons / icônes
  * (en général des liens vers des pages d'édition)
  */
 .icone {
   display: inline-block;
+  margin-bottom: $spacing;
   a {
+    @include button(biggest primary border pill);
     position: relative;
-    padding: $spacing/3 $spacing/2;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center; // horizontal
     align-items: center; // vertical
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 0.9em;
-    font-weight: bold;
-    line-height: 1.2;
-    color: $couleur-theme-dark;
-    background-color: transparent;
-    border-radius: $radius;
 
-    &:hover {
-      background-color: $couleur-theme-lightest;
-      box-shadow: 0 0.1em 0.1em hsla(0, 0%, 0%, 0.1);
-      color: black;
-    }
     b {
+      text-transform: uppercase;
+      font-size: 0.85em;
       font-weight: inherit;
+      font-weight: bold;
     }
     img {
       display: none; // pollution visuelle !
     }
     &:before {
-      font-size: 1.2em;
+      //font-size: 0.9em; // picto
     }
   }
 
   &.horizontale {} // par défaut
   &.verticale {
-    a {
+    /*a {
       flex-flow: column nowrap;
       max-width: 10em;
       font-size: 0.8em;
       &:before {
-        font-size: 1.5em;
+        font-size: 1.5em; // picto
         margin: 0 0 $spacing/6;
       }
-    }
+    }*/
   }
   &.center {
     display: table;
@@ -68,7 +228,7 @@
 }
 
 /**
- * Des icônes pour les actions génériques
+ * Des pictos pour les boutons d'actions génériques
  */
 
 // Toutes
@@ -135,7 +295,7 @@ input[value*=supprimer] ~ button[type=submit] {
 
 
 /**
- * Les boutons liens + toggle
+ * Les boutons liens et toggle
  */
 button.link,
 .toggle_box_link,
@@ -144,8 +304,7 @@ button.link,
   color: $couleur-theme-dark;
   font-size: 0.9rem;
 }
-button.link,
-button[type=submit] {
+button.link {
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: auto 60%;
@@ -167,30 +326,10 @@ button[type=submit] {
 
 
 /**
- * Tous les boutons
- */
-button {
-  img {
-    //display: none; // Pollution visuelle !
-  }
-  &.delete,
-  &[name^=supprimer] {
-  }
-}
-
-/**
  * Les boutons d'action (formulaires)
  */
 .bouton_action_post {
-  display:          inline-block;
-  button {
-    padding:          0.1rem 0.6rem;
-    background-color: $couleur-theme-dark;
-    color:            white;
-    &:hover {
-      background-color: $couleur-theme-darker;
-    }
-  }
+  display: inline-block;
 }
 
 /**
@@ -209,6 +348,4 @@ button {
 /**
  * Les icônes d'info
  */
-.plus_info {
-  
-}
+.plus_info {}

@@ -3,19 +3,35 @@
  * Des choses qu'on ne sait pas où ranger exactement
  */
 
-/* Boite infos d'un objet */
+/* Boîte info d'un objet. Pas de sélecteur spécifique, super */
+.lat > .ajaxbloc:first-child > *:first-child {
+  background-color: $couleur-theme-dark;
+  color: white;
+
+  .formulaire_spip {
+    background-color: transparent;
+  }
+  select {
+    color: inherit;
+    background-color: transparentize($couleur-darker, 0.8);
+  }
+}
 .box .infos {
   text-align: center;
+  font-weight: bold;
+
   // marge entre les éléments
   > * {
     margin-bottom: $spacing/2;
   }
+
   // Numéro
   .numero {
-    color: $couleur-theme-dark;
+    //color: $couleur-theme-dark;
     p {
       font-size: 5em;
-      color: $couleur-theme;
+      font-weight: normal;
+      //color: $couleur-theme;
     }
   }
 }
